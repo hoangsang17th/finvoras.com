@@ -1,0 +1,38 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.finvoras",
+      "sha256_cert_fingerprints": [
+        "EF:A4:D6:0E:88:AE:BE:29:5A:DC:6A:67:2D:F9:81:98:AF:59:26:87:85:95:49:E8:D6:72:2A:EA:05:F6:99:7B"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.finvoras.qa",
+      "sha256_cert_fingerprints": [
+        "EF:A4:D6:0E:88:AE:BE:29:5A:DC:6A:67:2D:F9:81:98:AF:59:26:87:85:95:49:E8:D6:72:2A:EA:05:F6:99:7B"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.finvoras.dev",
+      "sha256_cert_fingerprints": [
+        "EF:A4:D6:0E:88:AE:BE:29:5A:DC:6A:67:2D:F9:81:98:AF:59:26:87:85:95:49:E8:D6:72:2A:EA:05:F6:99:7B"
+      ]
+    }
+  }
+]
