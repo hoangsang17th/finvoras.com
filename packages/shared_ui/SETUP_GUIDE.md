@@ -3,7 +3,7 @@
 ## 📦 Cấu trúc Package đã tạo
 
 ```
-finvoras-ui/
+shared-ui/
 ├── package.json          # Package configuration
 ├── tsconfig.json         # TypeScript config
 ├── tsup.config.ts        # Build configuration  
@@ -29,10 +29,10 @@ finvoras-ui/
 
 ## 🚀 Hướng dẫn Setup và Sử dụng
 
-### 1. Install Dependencies (chạy trong finvoras-ui)
+### 1. Install Dependencies (chạy trong shared-ui)
 
 ```bash
-cd finvoras-ui
+cd shared-ui
 
 # Clean npm cache nếu có lỗi
 npm cache clean --force
@@ -50,13 +50,13 @@ npm run build
 
 ```bash
 # Trong project ProfileCV hoặc SaaS Marketing
-npm install file:../finvoras-ui
+npm install file:../shared-ui
 ```
 
 #### Option B: Publish to NPM Registry
 
 ```bash
-# Trong finvoras-ui folder
+# Trong shared-ui folder
 npm publish
 ```
 
@@ -172,7 +172,7 @@ saas-marketing/
 
 ## 🔄 Workflow
 
-1. **Develop** components trong `finvoras-ui`
+1. **Develop** components trong `shared-ui`
 2. **Build** package: `npm run build`  
 3. **Update** version: `npm version patch/minor/major`
 4. **Publish** or **Link** to projects
