@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Logo } from "./logo";
-import { NavMenu } from "./nav-menu";
+import { SmartNavMenu } from "./smart-nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
 import ThemeToggle from "../theme-toggle";
 import Link from "next/link";
@@ -12,7 +12,7 @@ const Navbar = () => {
         <Logo />
 
         {/* Desktop Menu */}
-        <NavMenu className="hidden md:block" />
+        <SmartNavMenu className="hidden md:block" />
 
         <div className="flex items-center gap-3">
           <ThemeToggle />

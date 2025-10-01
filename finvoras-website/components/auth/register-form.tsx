@@ -47,7 +47,7 @@ export function RegisterForm({ onSubmit, isLoading = false }: RegisterFormProps)
 
     try {
       await onSubmit(formData);
-    } catch (error) {
+    } catch {
       setErrors({ general: "Registration failed. Please try again." });
     }
   };

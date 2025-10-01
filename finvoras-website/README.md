@@ -27,8 +27,8 @@ Finvoras is a personal finance management app that helps young people and famili
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/akash3444/pure-landing-shadcnui-template.git
-cd pure-landing-shadcnui-template
+git clone https://github.com/hoangsang17th/finvoras.com.git
+cd finvoras.com/finvoras-website
 ```
 
 2. To use Tailwind CSS v4.0:
@@ -54,15 +54,29 @@ npm run dev
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
+## Pages Structure
+
+- **Home** (`/`) - Landing page with hero, features, pricing, etc.
+- **Blog** (`/blog`) - Financial education blog listing
+- **Blog Post** (`/blog/[slug]`) - Individual blog post view  
+- **Login** (`/login`) - User authentication
+- **Register** (`/register`) - User registration
+
 ## Customization
 
-1. Replace the placeholder images with your own content.
-2. Modify the text and styles in the components to match your brand and messaging.
-3. Add your own features and sections as needed.
+1. **Content**: Update hero section, features, and pricing in respective components
+2. **Blog**: Replace mock data in `lib/data/blog.ts` with your CMS/API
+3. **Branding**: Update logo, colors, and styling in Tailwind config
+4. **Authentication**: Connect auth forms to your backend API
 
-## Why this template?
+## About Finvoras
 
-This project is a base template for a landing page. It is built with Next.js, Tailwind CSS, Shadcn UI, and Shadcn UI Blocks. It is a great starting point for a landing page. You can customized the content and media files as per your needs. It is not intended to be a complete solution for a landing page. It is intended to be a starting point for a landing page.
+Finvoras helps young people and families take control of their finances through:
+
+- Expense tracking and budget management
+- Financial education via blog content
+- User-friendly interface for financial planning
+- Community-driven financial literacy
 
 ## Contributing
 

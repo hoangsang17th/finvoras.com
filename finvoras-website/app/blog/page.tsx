@@ -5,13 +5,14 @@ import { Input } from "@/components/ui/input";
 import { mockBlogPosts, mockCategories, getFeaturedPosts } from "@/lib/data/blog";
 import { Search, TrendingUp } from "lucide-react";
 import Link from "next/link";
+import PageLayout from "@/components/layout/page-layout";
 
 export default function BlogPage() {
   const featuredPosts = getFeaturedPosts();
   const recentPosts = mockBlogPosts.slice(0, 6);
 
   return (
-    <div className="min-h-screen bg-background">
+    <PageLayout className="min-h-screen bg-background">
       {/* Header */}
       <div className="bg-gradient-to-b from-muted/30 to-background py-16 px-6">
         <div className="max-w-6xl mx-auto text-center">
@@ -96,6 +97,6 @@ export default function BlogPage() {
           </div>
         </section>
       </div>
-    </div>
+    </PageLayout>
   );
 }

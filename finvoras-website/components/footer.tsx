@@ -11,20 +11,20 @@ import Link from "next/link";
 
 const footerLinks = [
   {
-    title: "Features",
-    href: "#features",
+    title: "Home",
+    href: "/",
   },
   {
     title: "Pricing",
-    href: "#pricing",
+    href: "/pricing",
   },
   {
-    title: "FAQ",
-    href: "#faq",
+    title: "Blog",
+    href: "/blog",
   },
   {
-    title: "Testimonials",
-    href: "#testimonials",
+    title: "About",
+    href: "/about",
   },
   {
     title: "Privacy",

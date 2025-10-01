@@ -39,7 +39,7 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
 
     try {
       await onSubmit(formData);
-    } catch (error) {
+    } catch {
       setErrors({ general: "Login failed. Please try again." });
     }
   };
@@ -134,7 +134,7 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
           </Button>
 
           <div className="text-center text-sm text-muted-foreground">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/register" className="text-primary hover:underline">
               Sign up
             </Link>

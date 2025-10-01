@@ -1,0 +1,15 @@
+{
+    "name": "test-consumer",
+    "version": "1.0.0",
+    "description": "Test app để verify @finvoras/ui package",
+    "main": "index.js",
+    "dependencies": {
+        "@finvoras/ui": "file:../finvoras-ui",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "scripts": {
+        "update-ui": "npm update @finvoras/ui",
+        "test": "node test.js"
+    }
+}

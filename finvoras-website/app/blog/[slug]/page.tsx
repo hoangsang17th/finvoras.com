@@ -4,15 +4,17 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react";
 import Link from "next/link";
+import PageLayout from "@/components/layout/page-layout";
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getBlogPost(params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = getBlogPost(slug);
 
   if (!post) {
     notFound();
@@ -27,7 +29,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <PageLayout className="min-h-screen bg-background">
       {/* Header */}
       <div className="bg-gradient-to-b from-muted/30 to-background py-8 px-6">
         <div className="max-w-4xl mx-auto">
@@ -164,6 +166,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </aside>
         </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }

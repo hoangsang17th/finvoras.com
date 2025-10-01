@@ -13,10 +13,18 @@ export default function Home() {
       <Navbar />
       <main className="pt-16 xs:pt-20 sm:pt-24">
         <Hero />
-        <Features />
-        <Pricing />
-        <FAQ />
-        <Testimonials />
+        <section id="features">
+          <Features />
+        </section>
+        <section id="pricing">
+          <Pricing />
+        </section>
+        <section id="faq">
+          <FAQ />
+        </section>
+        <section id="testimonials">
+          <Testimonials />
+        </section>
         <CTABanner />
         <Footer />
       </main>
