@@ -1,8 +1,8 @@
-# 🎉 @finvoras/ui Package - Setup Hoàn Tất
+# 🎉 shared_app Package - Setup Hoàn Tất
 
 ## ✅ **Kết quả cuối cùng:**
 
-**CÂU TRẢ LỜI: Có, apps sẽ được cập nhật khi finvoras-ui có thay đổi, nhưng cần chạy script hoặc command để sync.**
+**CÂU TRẢ LỜI: Có, apps sẽ được cập nhật khi shared_app có thay đổi, nhưng cần chạy script hoặc command để sync.**
 
 ---
 
@@ -10,7 +10,8 @@
 
 ```
 finvoras.com/
-├── finvoras-ui/              # 📦 UI Package
+├── packages/
+│   └── shared_app/              # 📦 UI Package
 ├── test-consumer/            # 🧪 Demo app (test thành công)
 ├── profilecv/               # 📱 App 1 (sẽ tạo)
 ├── saas-marketing/          # 📱 App 2 (sẽ tạo)
@@ -42,7 +43,7 @@ npm run release:major    # 1.1.0 → 2.0.0
 ### **3. Development Mode:**
 
 ```bash
-./dev-watch.sh           # Watch finvoras-ui changes
+./dev-watch.sh           # Watch shared_app changes
 # Sau đó:
 npm run update-consumers # Sync tới apps
 ```

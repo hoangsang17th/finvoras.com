@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 🔄 Auto-Update Script for @finvoras/ui Package
+# 🔄 Auto-Update Script for shared_app Package
 # This script automatically updates the UI package across all consumer projects
 
 set -e  # Exit on any error
@@ -13,15 +13,15 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Project paths
-UI_PATH="./finvoras-ui"
+UI_PATH="./packages/shared_app"
 PROFILECV_PATH="./profilecv"
 SAAS_PATH="./saas-marketing"
 TEST_PATH="./test-consumer"
 
-echo -e "${BLUE}🔄 Starting @finvoras/ui update process...${NC}"
+echo -e "${BLUE}🔄 Starting shared_app update process...${NC}"
 
 # Step 1: Build UI package
-echo -e "\n${YELLOW}📦 Building @finvoras/ui package...${NC}"
+echo -e "\n${YELLOW}📦 Building shared_app package...${NC}"
 cd "$UI_PATH"
 
 if [ ! -f "package.json" ]; then
@@ -44,7 +44,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo -e "${GREEN}✅ @finvoras/ui built successfully!${NC}"
+echo -e "${GREEN}✅ shared_app built successfully!${NC}"
 
 # Step 2: Update ProfileCV project
 if [ -d "../$PROFILECV_PATH" ]; then
@@ -52,7 +52,7 @@ if [ -d "../$PROFILECV_PATH" ]; then
     cd "../$PROFILECV_PATH"
     
     if [ -f "package.json" ]; then
-        npm update @finvoras/ui
+        npm update shared_app
         echo -e "${GREEN}✅ ProfileCV updated!${NC}"
     else
         echo -e "${YELLOW}⚠️  ProfileCV package.json not found, skipping...${NC}"
@@ -67,7 +67,7 @@ if [ -d "../$SAAS_PATH" ]; then
     cd "../$SAAS_PATH"
     
     if [ -f "package.json" ]; then
-        npm update @finvoras/ui
+        npm update shared_app
         echo -e "${GREEN}✅ SaaS Marketing updated!${NC}"
     else
         echo -e "${YELLOW}⚠️  SaaS Marketing package.json not found, skipping...${NC}"
@@ -82,7 +82,7 @@ if [ -d "../$TEST_PATH" ]; then
     cd "../$TEST_PATH"
     
     if [ -f "package.json" ]; then
-        npm update @finvoras/ui
+        npm update shared_app
         npm test  # Run test to verify
         echo -e "${GREEN}✅ Test Consumer updated and verified!${NC}"
     else
@@ -95,7 +95,7 @@ fi
 # Step 4: Show summary
 echo -e "\n${GREEN}🎉 Update process completed!${NC}"
 echo -e "${BLUE}📋 Summary:${NC}"
-echo -e "  ✅ @finvoras/ui package built"
+echo -e "  ✅ shared_app package built"
 echo -e "  ✅ Consumer projects updated"
 echo -e "\n${YELLOW}💡 Next steps:${NC}"
 echo -e "  1. Test your applications: ${BLUE}npm run dev${NC}"
@@ -105,4 +105,4 @@ echo -e "  3. Commit and push changes if everything works"
 # Optional: Show package version
 cd "../$UI_PATH"
 PACKAGE_VERSION=$(node -p "require('./package.json').version")
-echo -e "\n${BLUE}📦 Current @finvoras/ui version: v${PACKAGE_VERSION}${NC}"
+echo -e "\n${BLUE}📦 Current shared_app version: v${PACKAGE_VERSION}${NC}"

@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgb(229, 231, 235);
+  }
+
+  body {
+    background-color: white;
+    color: rgb(17, 24, 39);
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom styles */
+.gradient-text {
+  background: linear-gradient(to right, #2563eb, #9333ea);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.section-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.container-width {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}

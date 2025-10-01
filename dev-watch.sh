@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 🔥 Development Watch Mode for @finvoras/ui
+# 🔥 Development Watch Mode for shared_app
 # This script runs the UI package in watch mode and auto-updates consumer projects
 
 set -e
@@ -12,11 +12,11 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-UI_PATH="./finvoras-ui"
+UI_PATH="./packages/shared_app"
 
-echo -e "${BLUE}🔥 Starting @finvoras/ui development watch mode...${NC}"
+echo -e "${BLUE}🔥 Starting shared_app development watch mode...${NC}"
 
-# Check if finvoras-ui exists
+# Check if shared_app exists
 if [ ! -d "$UI_PATH" ]; then
     echo -e "${RED}❌ Error: $UI_PATH directory not found${NC}"
     exit 1

@@ -1,15 +1,15 @@
 {
     "name": "test-consumer",
     "version": "1.0.0",
-    "description": "Test app để verify @finvoras/ui package",
+    "description": "Test app để verify shared_app package",
     "main": "index.js",
     "dependencies": {
-        "@finvoras/ui": "file:../finvoras-ui",
+        "shared_app": "file:../packages/shared_app",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
     "scripts": {
-        "update-ui": "npm update @finvoras/ui",
+        "update-ui": "npm update shared_app",
         "test": "node test.js"
     }
 }
