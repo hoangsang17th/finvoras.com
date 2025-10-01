@@ -40,7 +40,7 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
     try {
       await onSubmit(formData);
     } catch {
-      setErrors({ general: "Login failed. Please try again." });
+      setErrors({ general: "Login failed. Please check your credentials and try again." });
     }
   };
 
@@ -52,39 +52,44 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
-      <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>
-        <CardDescription>
-          Sign in to your Finvoras account to manage your finances
+    <Card className="w-full shadow-xl border-0 bg-white dark:bg-card">
+      <CardHeader className="space-y-1 text-center pb-8">
+        <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <span className="text-2xl font-bold text-white">F</span>
+        </div>
+        <CardTitle className="text-2xl font-bold text-foreground">Welcome back</CardTitle>
+        <CardDescription className="text-brand-neutral-600 dark:text-brand-grey-350">
+          Sign in to your Finvoras account to continue managing your finances
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-6">
+        {errors.general && (
+          <div className="p-3 rounded-lg bg-brand-red/10 border border-brand-red/20 text-brand-red text-sm">
+            {errors.general}
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-4">
-          {errors.general && (
-            <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md">
-              {errors.general}
-            </div>
-          )}
-          
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="text-sm font-medium text-foreground">
+              Email address
+            </Label>
             <Input
               id="email"
               type="email"
-              placeholder="Enter your email"
+              placeholder="you@example.com"
               value={formData.email}
               onChange={handleChange("email")}
-              className={errors.email ? "border-red-500" : ""}
+              className={`h-11 ${errors.email ? 'border-brand-red focus:border-brand-red' : 'focus:border-brand-primary'}`}
               disabled={isLoading}
             />
-            {errors.email && (
-              <p className="text-sm text-red-600">{errors.email}</p>
-            )}
+            {errors.email && <p className="text-sm text-brand-red">{errors.email}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password" className="text-sm font-medium text-foreground">
+              Password
+            </Label>
             <div className="relative">
               <Input
                 id="password"
@@ -92,54 +97,70 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
                 placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange("password")}
-                className={errors.password ? "border-red-500 pr-10" : "pr-10"}
+                className={`h-11 pr-10 ${errors.password ? 'border-brand-red focus:border-brand-red' : 'focus:border-brand-primary'}`}
                 disabled={isLoading}
               />
               <button
                 type="button"
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
                 onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-brand-neutral-500 hover:text-brand-neutral-700 dark:text-brand-grey-400 dark:hover:text-brand-grey-300"
                 disabled={isLoading}
               >
-                {showPassword ? (
-                  <EyeOff className="h-4 w-4" />
-                ) : (
-                  <Eye className="h-4 w-4" />
-                )}
+                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
-            {errors.password && (
-              <p className="text-sm text-red-600">{errors.password}</p>
-            )}
+            {errors.password && <p className="text-sm text-brand-red">{errors.password}</p>}
           </div>
 
           <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <input
+                id="remember"
+                name="remember"
+                type="checkbox"
+                className="h-4 w-4 text-brand-primary focus:ring-brand-primary border-brand-neutral-300 rounded"
+              />
+              <Label htmlFor="remember" className="text-sm text-brand-neutral-600 dark:text-brand-grey-350">
+                Remember me
+              </Label>
+            </div>
             <Link
               href="/forgot-password"
-              className="text-sm text-primary hover:underline"
+              className="text-sm font-medium text-brand-primary hover:text-brand-primary-700 transition-colors"
             >
               Forgot password?
             </Link>
           </div>
 
-          <Button type="submit" className="w-full" disabled={isLoading}>
+          <Button
+            type="submit"
+            variant="brand"
+            size="lg"
+            className="w-full h-11 text-base font-medium"
+            disabled={isLoading}
+          >
             {isLoading ? (
               <>
-                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 Signing in...
               </>
             ) : (
               "Sign in"
             )}
           </Button>
-
-          <div className="text-center text-sm text-muted-foreground">
-            Don&apos;t have an account?{" "}
-            <Link href="/register" className="text-primary hover:underline">
-              Sign up
-            </Link>
-          </div>
         </form>
+
+        <div className="text-center pt-4 border-t border-brand-neutral-200 dark:border-brand-grey-700">
+          <p className="text-sm text-brand-neutral-600 dark:text-brand-grey-350">
+            Don't have an account?{" "}
+            <Link
+              href="/register"
+              className="font-medium text-brand-primary hover:text-brand-primary-700 transition-colors"
+            >
+              Sign up for free
+            </Link>
+          </p>
+        </div>
       </CardContent>
     </Card>
   );

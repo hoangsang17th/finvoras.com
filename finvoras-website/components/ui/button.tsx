@@ -19,6 +19,19 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Finvoras brand variants
+        brand:
+          "bg-brand-primary text-white shadow-lg hover:bg-brand-primary-600 focus-visible:ring-brand-primary-300",
+        "brand-outline":
+          "border border-brand-primary bg-transparent text-brand-primary hover:bg-brand-primary hover:text-white",
+        "brand-ghost":
+          "text-brand-primary hover:bg-brand-primary/10 hover:text-brand-primary-700",
+        success:
+          "bg-brand-success text-white shadow hover:bg-brand-success-600",
+        warning:
+          "bg-brand-yellow text-white shadow hover:bg-brand-yellow-600",
+        info:
+          "bg-brand-blue text-white shadow hover:bg-brand-blue-600",
       },
       size: {
         default: "h-9 px-4 py-2",
@@ -36,7 +49,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 

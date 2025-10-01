@@ -83,11 +83,11 @@ const Pricing = () => {
         onValueChange={setSelectedBillingPeriod}
         className="mt-8"
       >
-        <TabsList className="h-11 px-1.5 rounded-full bg-primary/5">
-          <TabsTrigger value="monthly" className="py-1.5 rounded-full">
+        <TabsList className="h-11 px-1.5 rounded-full bg-brand-primary/10">
+          <TabsTrigger value="monthly" className="py-1.5 rounded-full data-[state=active]:bg-brand-primary data-[state=active]:text-white">
             Monthly
           </TabsTrigger>
-          <TabsTrigger value="yearly" className="py-1.5 rounded-full">
+          <TabsTrigger value="yearly" className="py-1.5 rounded-full data-[state=active]:bg-brand-primary data-[state=active]:text-white">
             Yearly (Save {YEARLY_DISCOUNT}%)
           </TabsTrigger>
         </TabsList>
@@ -97,11 +97,11 @@ const Pricing = () => {
           <div
             key={plan.name}
             className={cn("relative border rounded-xl p-6 bg-background/50", {
-              "border-[2px] border-primary bg-background py-10": plan.isPopular,
+              "border-[2px] border-brand-primary bg-background py-10": plan.isPopular,
             })}
           >
             {plan.isPopular && (
-              <Badge className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2">
+              <Badge className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-brand-primary hover:bg-brand-primary-600 text-white border-none">
                 Most Popular
               </Badge>
             )}
@@ -120,7 +120,7 @@ const Pricing = () => {
             </p>
 
             <Button
-              variant={plan.isPopular ? "default" : "outline"}
+              variant={plan.isPopular ? "brand" : "brand-outline"}
               size="lg"
               className="w-full mt-6 text-base"
             >
@@ -130,7 +130,7 @@ const Pricing = () => {
             <ul className="space-y-2">
               {plan.features.map((feature) => (
                 <li key={feature.title} className="flex items-start gap-1.5">
-                  <CircleCheck className="h-4 w-4 mt-1 text-green-600" />
+                  <CircleCheck className="h-4 w-4 mt-1 text-brand-success" />
                   {feature.title}
                   {feature.tooltip && (
                     <Tooltip>

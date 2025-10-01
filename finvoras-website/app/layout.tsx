@@ -9,49 +9,47 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "PureLanding - Beautiful Shadcn UI Landing Page",
+  title: "Finvoras - Smart Personal Finance Management",
   description:
-    "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+    "Take control of your finances with Finvoras. Track expenses, manage budgets, and build wealth with personalized insights and financial education.",
   keywords: [
-    "PureLanding",
-    "PureLanding Landing Page",
-    "PureLanding Landing Page Template",
-    "PureLanding Page",
-    "Shadcn UI Landing Page",
-    "Shadcn UI Blocks",
-    "Shadcn UI",
-    "Landing Page",
-    "Tailwind CSS Landing Page",
-    "Beautiful Shadcn UI Landing Page",
-    "Next.js 15 Landing Page",
-    "Simple Landing Page",
-    "Landing Page Template",
-    "Landing Page Design",
+    "Finvoras",
+    "Personal Finance",
+    "Budget Management",
+    "Expense Tracking",
+    "Financial Planning",
+    "Money Management App",
+    "Financial Education",
+    "Wealth Building",
+    "Financial Health",
+    "Budget App",
+    "Expense App",
+    "Finance Tracker",
   ],
   openGraph: {
     type: "website",
-    siteName: "PureLanding",
+    siteName: "Finvoras",
     locale: "en_US",
-    url: "https://shadcn-landing-page.vercel.app",
-    title: "PureLanding - Beautiful Shadcn UI Landing Page",
+    url: "https://finvoras.com",
+    title: "Finvoras - Smart Personal Finance Management",
     description:
-      "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+      "Take control of your finances with Finvoras. Track expenses, manage budgets, and build wealth with personalized insights and financial education.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "PureLanding Preview",
+        alt: "Finvoras - Personal Finance Management",
       },
     ],
   },
   authors: [
     {
-      name: "Akash Moradiya",
-      url: "https://shadcnui-blocks.com",
+      name: "Finvoras Team",
+      url: "https://finvoras.com",
     },
   ],
-  creator: "Akash Moradiya",
+  creator: "Finvoras Team",
   icons: [
     {
       rel: "icon",
