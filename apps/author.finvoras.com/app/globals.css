@@ -91,6 +91,17 @@
   }
 }
 
+/* Smooth theme transitions */
+* {
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Disable transitions for specific elements that should change instantly */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

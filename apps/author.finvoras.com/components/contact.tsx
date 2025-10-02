@@ -1,8 +1,19 @@
+"use client";
+
 import { Card, Button, Input, Label } from "@repo/ui";
 import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
+import { usePersonalInfo, useSocialLinks } from "@/lib/hooks/useResumeData";
+import { formatPhoneNumber } from "@/lib/utils/resume-data";
 
 const Contact = () => {
+  const personalInfo = usePersonalInfo();
+  const socialLinks = useSocialLinks();
+
+  if (!personalInfo) {
+    return <div className="py-20 px-6">Loading...</div>;
+  }
+
   return (
     <div className="py-20 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
@@ -22,7 +33,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
               <p className="text-muted-foreground mb-8">
-                Whether you have a project in mind, want to collaborate, or just want to say hello, 
+                Whether you have a project in mind, want to collaborate, or just want to say hello,
                 I'd love to hear from you. Feel free to reach out through any of the channels below.
               </p>
             </div>
@@ -35,11 +46,11 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-medium">Email</div>
-                  <Link 
-                    href="mailto:contact@example.com" 
+                  <Link
+                    href={`mailto:${personalInfo.email}`}
                     className="text-muted-foreground hover:text-brand-primary transition-colors"
                   >
-                    contact@example.com
+                    {personalInfo.email}
                   </Link>
                 </div>
               </div>
@@ -50,11 +61,11 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-medium">Phone</div>
-                  <Link 
-                    href="tel:+84123456789" 
+                  <Link
+                    href={`tel:${personalInfo.phone}`}
                     className="text-muted-foreground hover:text-brand-primary transition-colors"
                   >
-                    +84 123 456 789
+                    {formatPhoneNumber(personalInfo.phone)}
                   </Link>
                 </div>
               </div>
@@ -65,7 +76,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-medium">Location</div>
-                  <span className="text-muted-foreground">Ho Chi Minh City, Vietnam</span>
+                  <span className="text-muted-foreground">{personalInfo.location}</span>
                 </div>
               </div>
             </div>
@@ -74,21 +85,27 @@ const Contact = () => {
             <div>
               <h4 className="font-medium mb-4">Follow Me</h4>
               <div className="flex gap-4">
-                <Button variant="outline" size="icon" className="rounded-full" asChild>
-                  <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-                    <Github className="h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full" asChild>
-                  <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full" asChild>
-                  <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                    <Twitter className="h-5 w-5" />
-                  </Link>
-                </Button>
+                {socialLinks?.github && (
+                  <Button variant="outline" size="icon" className="rounded-full" asChild>
+                    <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="h-5 w-5" />
+                    </Link>
+                  </Button>
+                )}
+                {socialLinks?.linkedin && (
+                  <Button variant="outline" size="icon" className="rounded-full" asChild>
+                    <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="h-5 w-5" />
+                    </Link>
+                  </Button>
+                )}
+                {socialLinks?.twitter && (
+                  <Button variant="outline" size="icon" className="rounded-full" asChild>
+                    <Link href={socialLinks.twitter} target="_blank" rel="noopener noreferrer">
+                      <Twitter className="h-5 w-5" />
+                    </Link>
+                  </Button>
+                )}
               </div>
             </div>
 
@@ -99,7 +116,7 @@ const Contact = () => {
                 <span className="font-medium text-brand-primary">Available for Work</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                I'm currently open to full-time opportunities and interesting freelance projects. 
+                I'm currently open to full-time opportunities and interesting freelance projects.
                 Let's discuss how we can work together!
               </p>
             </Card>

@@ -1,66 +1,16 @@
+"use client";
+
 import { Card } from "@repo/ui";
 import { Calendar, MapPin, Building } from "lucide-react";
-
-const experiences = [
-  {
-    title: "Senior Software Engineer",
-    company: "Tech Solutions Inc.",
-    location: "Ho Chi Minh City, Vietnam",
-    period: "2023 - Present",
-    type: "Full-time",
-    description: [
-      "Led development of microservices architecture serving 100k+ users",
-      "Implemented CI/CD pipelines reducing deployment time by 60%",
-      "Mentored junior developers and conducted code reviews",
-      "Collaborated with cross-functional teams to deliver high-quality products"
-    ],
-    technologies: ["React", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL"]
-  },
-  {
-    title: "Full-Stack Developer",
-    company: "Digital Agency Co.",
-    location: "Ho Chi Minh City, Vietnam", 
-    period: "2022 - 2023",
-    type: "Full-time",
-    description: [
-      "Developed responsive web applications using React and Next.js",
-      "Built RESTful APIs with Node.js and Express.js",
-      "Integrated third-party services and payment gateways",
-      "Optimized application performance and SEO"
-    ],
-    technologies: ["React", "Next.js", "Node.js", "MongoDB", "Stripe", "Vercel"]
-  },
-  {
-    title: "Frontend Developer",
-    company: "Startup Hub",
-    location: "Ho Chi Minh City, Vietnam",
-    period: "2021 - 2022", 
-    type: "Full-time",
-    description: [
-      "Created modern user interfaces with React and TypeScript",
-      "Implemented responsive designs and cross-browser compatibility",
-      "Worked closely with UX/UI designers to bring designs to life",
-      "Participated in agile development processes"
-    ],
-    technologies: ["React", "TypeScript", "SASS", "Material-UI", "Git", "Figma"]
-  },
-  {
-    title: "Junior Web Developer",
-    company: "Local Web Agency",
-    location: "Ho Chi Minh City, Vietnam",
-    period: "2020 - 2021",
-    type: "Full-time", 
-    description: [
-      "Developed websites using HTML, CSS, and JavaScript",
-      "Learned React.js and modern development practices",
-      "Assisted senior developers in project delivery",
-      "Gained experience in version control and team collaboration"
-    ],
-    technologies: ["HTML", "CSS", "JavaScript", "React", "WordPress", "Git"]
-  }
-];
+import { useExperiences } from "@/lib/hooks/useResumeData";
 
 const Experience = () => {
+  const experiences = useExperiences();
+
+  if (!experiences.length) {
+    return <div className="py-20 px-6">Loading...</div>;
+  }
+
   return (
     <div className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -83,10 +33,9 @@ const Experience = () => {
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div
-                key={index}
-                className={`relative flex items-start ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+                key={exp.id}
+                className={`relative flex items-start ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-2 md:left-1/2 w-4 h-4 bg-brand-primary rounded-full border-4 border-background shadow-lg md:transform md:-translate-x-2" />
