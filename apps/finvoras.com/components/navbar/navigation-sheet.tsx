@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button, Sheet, SheetContent, SheetTrigger } from "@repo/ui";
 import { Menu } from "lucide-react";
 import { Logo } from "./logo";
 import { SmartNavMenu } from "./smart-nav-menu";

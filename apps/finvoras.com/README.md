@@ -1,83 +1,36 @@
-# Finvoras - Personal Finance Management Website
-
-A modern, responsive website for Finvoras personal finance app built with Next.js, Tailwind CSS, and Shadcn UI.
-
-## About Finvoras
-
-Finvoras is a personal finance management app that helps young people and families track expenses, manage budgets, and understand financial health.
-
-## Preview
-
-![Preview](./public/preview.png)
-
-## Features
-
-- 🎨 Modern and clean design
-- 📱 Fully responsive layout
-- 🎯 Built with Next.js 15
-- 💅 Styled with Tailwind CSS `3.4` & `4.0`
-- 🧩 Built with [Shadcn UI](https://ui.shadcn.com) and [Shadcn UI Blocks](https://shadcnui-blocks.com)
-- 🌙 Dark mode support
-- 🔐 Authentication system (Login/Register)
-- 📰 Blog system for financial education
-- 💰 Financial content and resources
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
 
 ## Getting Started
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/hoangsang17th/finvoras.com.git
-cd finvoras.com/finvoras-website
-```
-
-2. To use Tailwind CSS v4.0:
-
-- Ensure you’re using Node.js 20 or higher.
-- Switch to the tailwind-v4 branch:
-
-```bash
-git checkout tailwind-v4
-```
-
-3. Install dependencies:
-
-```bash
-npm install
-```
-
-4. Start the development server:
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Pages Structure
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- **Home** (`/`) - Landing page with hero, features, pricing, etc.
-- **Blog** (`/blog`) - Financial education blog listing
-- **Blog Post** (`/blog/[slug]`) - Individual blog post view  
-- **Login** (`/login`) - User authentication
-- **Register** (`/register`) - User registration
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
 
-## Customization
+## Learn More
 
-1. **Content**: Update hero section, features, and pricing in respective components
-2. **Blog**: Replace mock data in `lib/data/blog.ts` with your CMS/API
-3. **Branding**: Update logo, colors, and styling in Tailwind config
-4. **Authentication**: Connect auth forms to your backend API
+To learn more about Next.js, take a look at the following resources:
 
-## About Finvoras
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Finvoras helps young people and families take control of their finances through:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-- Expense tracking and budget management
-- Financial education via blog content
-- User-friendly interface for financial planning
-- Community-driven financial literacy
+## Deploy on Vercel
 
-## Contributing
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-If you have any suggestions or improvements, please create an issue or submit a pull request.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

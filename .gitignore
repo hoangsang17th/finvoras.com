@@ -4,7 +4,6 @@
 node_modules
 .pnp
 .pnp.js
-package-lock.json
 
 # Local env files
 .env
@@ -27,9 +26,7 @@ coverage
 out/
 build
 dist
-node_modules/
-packages/*/dist/
-packages/*/node_modules/
+
 
 # Debug
 npm-debug.log*
@@ -39,3 +36,4 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+package-lock.json

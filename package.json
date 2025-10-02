@@ -1,5 +1,5 @@
 {
-  "name": "finvoras",
+  "name": "m-web",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -9,6 +9,7 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "find-yarn-workspace-root": "^2.0.0",
     "prettier": "^3.6.2",
     "turbo": "^2.5.8",
     "typescript": "5.9.2"
@@ -16,7 +17,7 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "npm@11.6.0",
+  "packageManager": "npm@10.9.2",
   "workspaces": [
     "apps/*",
     "packages/*"

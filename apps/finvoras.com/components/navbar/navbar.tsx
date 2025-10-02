@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@repo/ui";
 import { Logo } from "./logo";
 import { SmartNavMenu } from "./smart-nav-menu";
 import { NavigationSheet } from "./navigation-sheet";

@@ -7,7 +7,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@/components/ui/navigation-menu";
+} from "@repo/ui";
 import { NavigationMenuProps } from "@radix-ui/react-navigation-menu";
 
 interface NavItem {
@@ -33,7 +33,7 @@ export const SmartNavMenu = (props: NavigationMenuProps) => {
         {navItems.map((item) => {
           // Use fragment link if on homepage and item has fragmentId, otherwise use absolute link
           const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
-          
+
           return (
             <NavigationMenuItem key={item.label}>
               <NavigationMenuLink asChild>

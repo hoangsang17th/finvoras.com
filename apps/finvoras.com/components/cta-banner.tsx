@@ -1,7 +1,5 @@
 import { ArrowUpRight, Forward } from "lucide-react";
-import { Button } from "../../../packages/ui/src/components/button";
-import { AnimatedGridPattern } from "../../../packages/ui/src/components/animated-grid-pattern";
-import { cn } from "@/lib/utils";
+import { Button, AnimatedGridPattern, cn } from "@repo/ui";
 
 export default function CTABanner() {
   return (

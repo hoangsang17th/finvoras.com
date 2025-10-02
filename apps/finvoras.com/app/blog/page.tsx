@@ -1,7 +1,5 @@
 import { BlogCard } from "@/components/blog/blog-card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+import { Button, Badge, Input } from "@repo/ui";
 import { mockBlogPosts, mockCategories, getFeaturedPosts } from "@/lib/data/blog";
 import { Search, TrendingUp } from "lucide-react";
 import Link from "next/link";

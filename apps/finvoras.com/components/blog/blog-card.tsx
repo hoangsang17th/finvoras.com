@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { BlogPost } from "@/lib/types";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui";
 import { Calendar, Clock, User } from "lucide-react";
 
 interface BlogCardProps {

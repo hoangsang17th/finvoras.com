@@ -1,18 +1,10 @@
 {
   "extends": "@repo/typescript-config/react-library.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+    "outDir": "dist"
   },
   "include": [
-    "src",
-    "../../apps/finvoras.com/components/layout",
-    "../../apps/finvoras.com/components/navbar",
-    "../../apps/finvoras.com/components/footer.tsx"
+    "src"
   ],
   "exclude": [
     "node_modules",

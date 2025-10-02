@@ -1,5 +1,4 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge, Button } from "@repo/ui";
 import { ArrowUpRight, CirclePlay } from "lucide-react";
 import Link from "next/link";
 import React from "react";

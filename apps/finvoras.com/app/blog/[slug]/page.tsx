@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { getBlogPost } from "@/lib/data/blog";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge, Button } from "@repo/ui";
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react";
 import Link from "next/link";
 import PageLayout from "@/components/layout/page-layout";
@@ -39,20 +38,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Back to Blog
             </Button>
           </Link>
-          
+
           <div className="space-y-4">
             <Badge className="bg-primary text-primary-foreground">
               {post.category}
             </Badge>
-            
+
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
               {post.title}
             </h1>
-            
+
             <p className="text-xl text-muted-foreground">
               {post.excerpt}
             </p>
-            
+
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <User className="h-4 w-4" />
@@ -89,11 +88,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Main Content */}
           <article className="flex-1">
-            <div 
+            <div
               className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
-            
+
             {/* Tags */}
             {post.tags.length > 0 && (
               <div className="mt-12 pt-8 border-t">
@@ -119,12 +118,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   Share this article
                 </h3>
                 <div className="space-y-3">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full justify-start"
-                    onClick={() => navigator.share?.({ 
-                      title: post.title, 
-                      url: window.location.href 
+                    onClick={() => navigator.share?.({
+                      title: post.title,
+                      url: window.location.href
                     })}
                   >
                     Share Article

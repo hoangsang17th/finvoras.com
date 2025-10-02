@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 
-import { cn } from "@/src/utils";
+import { cn } from "../utils";
 
 export interface AnimatedGridPatternProps
   extends ComponentPropsWithoutRef<"svg"> {
@@ -62,9 +62,9 @@ export function AnimatedGridPattern({
       currentSquares.map((sq) =>
         sq.id === squareId
           ? {
-              ...sq,
-              pos: getPos(),
-            }
+            ...sq,
+            pos: getPos(),
+          }
           : sq
       )
     );

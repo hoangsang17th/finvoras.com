@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button, Input } from "@repo/ui";
 import { Send } from "lucide-react";
 
 export default function ContactForm() {
@@ -25,10 +24,10 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     // Reset form
     setFormData({
       name: "",
@@ -37,7 +36,7 @@ export default function ContactForm() {
       message: "",
     });
     setIsSubmitting(false);
-    
+
     // Show success message (you can replace this with a toast notification)
     alert("Thank you for your message! We'll get back to you soon.");
   };
@@ -50,7 +49,7 @@ export default function ContactForm() {
           Have questions about Finvoras? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
         </p>
       </div>
-      
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -84,7 +83,7 @@ export default function ContactForm() {
             />
           </div>
         </div>
-        
+
         <div>
           <label htmlFor="subject" className="block text-sm font-medium mb-2">
             Subject *
@@ -100,7 +99,7 @@ export default function ContactForm() {
             className="h-12"
           />
         </div>
-        
+
         <div>
           <label htmlFor="message" className="block text-sm font-medium mb-2">
             Message *
@@ -116,9 +115,9 @@ export default function ContactForm() {
             className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none"
           />
         </div>
-        
-        <Button 
-          type="submit" 
+
+        <Button
+          type="submit"
           disabled={isSubmitting}
           className="w-full h-12 text-base"
         >
@@ -132,7 +131,7 @@ export default function ContactForm() {
           )}
         </Button>
       </form>
-      
+
       <div className="mt-8 p-6 bg-muted/50 rounded-lg">
         <h3 className="font-semibold mb-2">Other ways to reach us:</h3>
         <div className="space-y-1 text-sm text-muted-foreground">
