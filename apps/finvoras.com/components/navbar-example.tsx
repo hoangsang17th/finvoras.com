@@ -1,6 +1,7 @@
 import { Button, Navbar, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
+import { Home, DollarSign, BookOpen, User } from "lucide-react";
 
 // Logo component
 const Logo = () => (
@@ -27,10 +28,10 @@ const Logo = () => (
 
 // Define menu items
 const menuItems: NavMenuItem[] = [
-  { label: "Home", href: "/", fragmentId: "features" },
-  { label: "Pricing", href: "/pricing", fragmentId: "pricing" },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
+  { label: "Home", href: "/", fragmentId: "features", icon: <Home size={16} /> },
+  { label: "Pricing", href: "/pricing", fragmentId: "pricing", icon: <DollarSign size={16} /> },
+  { label: "Blog", href: "/blog", icon: <BookOpen size={16} /> },
+  { label: "About", href: "/about", icon: <User size={16} /> },
 ];
 
 // Define CTA actions

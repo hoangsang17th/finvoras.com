@@ -1,6 +1,10 @@
 // Export utilities
 export { cn } from "./utils";
 
+// Export design system
+export * from "./constants/design-system";
+export * from "./types/common";
+
 // Export standalone components
 export { Code } from "./code";
 
@@ -10,22 +14,29 @@ export type { AnimatedGridPatternProps } from "./components/animated-grid-patter
 
 export { Avatar, AvatarImage, AvatarFallback } from "./components/avatar";
 
-export { Badge, badgeVariants } from "./components/badge";
-export type { BadgeProps } from "./components/badge";
+// Export enhanced core components (preferred)
+export * from "./components/core/badge";
+export * from "./components/core/button";
+export * from "./components/core/card";
+export * from "./components/core/input";
 
-export { Button, buttonVariants } from "./components/button";
-export type { ButtonProps } from "./components/button";
+// Export legacy components for backward compatibility
+export { Badge as LegacyBadge, badgeVariants as legacyBadgeVariants } from "./components/badge";
+export type { BadgeProps as LegacyBadgeProps } from "./components/badge";
+
+export { Button as LegacyButton, buttonVariants as legacyButtonVariants } from "./components/button";
+export type { ButtonProps as LegacyButtonProps } from "./components/button";
 
 export {
-    Card,
-    CardHeader,
-    CardFooter,
-    CardTitle,
-    CardDescription,
-    CardContent,
+    Card as LegacyCard,
+    CardHeader as LegacyCardHeader,
+    CardFooter as LegacyCardFooter,
+    CardTitle as LegacyCardTitle,
+    CardDescription as LegacyCardDescription,
+    CardContent as LegacyCardContent,
 } from "./components/card";
 
-export { Input } from "./components/input";
+export { Input as LegacyInput } from "./components/input";
 
 export { Label } from "./components/label";
 
