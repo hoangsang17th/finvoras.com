@@ -43,6 +43,9 @@ export {
     NavigationMenuViewport,
 } from "./components/navigation-menu";
 
+export { Navbar } from "./components/navbar";
+export type { NavbarProps, NavMenuItem, NavbarCTAAction } from "./components/navbar";
+
 export { Separator } from "./components/separator";
 
 export {
