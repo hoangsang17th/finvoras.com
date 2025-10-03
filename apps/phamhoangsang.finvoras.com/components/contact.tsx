@@ -3,16 +3,16 @@
 import { Card, Button, Input, Label } from "@repo/ui";
 import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
-import { usePersonalInfo, useSocialLinks } from "@/lib/hooks/useResumeData";
-import { formatPhoneNumber } from "@/lib/utils/resume-data";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 
 const Contact = () => {
-  const personalInfo = usePersonalInfo();
-  const socialLinks = useSocialLinks();
+  const { resumeData } = useLanguage();
 
-  if (!personalInfo) {
+  if (!resumeData) {
     return <div className="py-20 px-6">Loading...</div>;
   }
+
+  const { personalInfo, socialLinks } = resumeData;
 
   return (
     <div className="py-20 px-6 bg-muted/30">
@@ -23,7 +23,7 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
+            I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
           </p>
         </div>
 
@@ -31,10 +31,10 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
+              <h3 className="text-2xl font-bold mb-6">Let&apos;s Connect</h3>
               <p className="text-muted-foreground mb-8">
                 Whether you have a project in mind, want to collaborate, or just want to say hello,
-                I'd love to hear from you. Feel free to reach out through any of the channels below.
+                I&apos;d love to hear from you. Feel free to reach out through any of the channels below.
               </p>
             </div>
 
@@ -65,7 +65,7 @@ const Contact = () => {
                     href={`tel:${personalInfo.phone}`}
                     className="text-muted-foreground hover:text-brand-primary transition-colors"
                   >
-                    {formatPhoneNumber(personalInfo.phone)}
+                    {personalInfo.phone}
                   </Link>
                 </div>
               </div>
@@ -116,8 +116,8 @@ const Contact = () => {
                 <span className="font-medium text-brand-primary">Available for Work</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                I'm currently open to full-time opportunities and interesting freelance projects.
-                Let's discuss how we can work together!
+                I&apos;m currently open to full-time opportunities and interesting freelance projects.
+                Let&apos;s discuss how we can work together!
               </p>
             </Card>
           </div>
@@ -139,7 +139,7 @@ const Contact = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="subject">Subject *</Label>
-                <Input id="subject" placeholder="What's this about?" required />
+                <Input id="subject" placeholder="What&apos;s this about?" required />
               </div>
 
               <div className="space-y-2">

@@ -13,6 +13,75 @@ export interface PersonalInfo {
     resumeUrl?: string;
 }
 
+// UI Translations Types
+export interface UITranslations {
+    nav: {
+        home: string;
+        about: string;
+        experience: string;
+        skills: string;
+        projects: string;
+        contact: string;
+        downloadCv: string;
+    };
+    sections: {
+        about: { title: string; subtitle: string };
+        experience: { title: string; subtitle: string };
+        skills: { title: string; subtitle: string };
+        projects: { title: string; subtitle: string };
+        contact: { title: string; subtitle: string };
+    };
+    ui: {
+        getInTouch: string;
+        viewProject: string;
+        viewCode: string;
+        liveDemo: string;
+        send: string;
+        sending: string;
+        success: string;
+        error: string;
+        downloadCv: string;
+        viewWork: string;
+        name: string;
+        email: string;
+        message: string;
+        subject: string;
+        namePlaceholder: string;
+        emailPlaceholder: string;
+        messagePlaceholder: string;
+        subjectPlaceholder: string;
+        present: string;
+        fullTime: string;
+        partTime: string;
+        freelance: string;
+        contract: string;
+    };
+    statistics: {
+        yearsExperience: string;
+        projectsCompleted: string;
+        technologiesUsed: string;
+        commitment: string;
+        professionalDevelopment: string;
+        successfulDeliveries: string;
+        modernTechStack: string;
+        dedicationToQuality: string;
+    };
+    footer: {
+        builtWith: string;
+        by: string;
+        allRightsReserved: string;
+    };
+    theme: {
+        light: string;
+        dark: string;
+        system: string;
+    };
+    language: {
+        english: string;
+        vietnamese: string;
+    };
+}
+
 // Social Links Types
 export interface SocialLinks {
     github?: string;

@@ -2,15 +2,17 @@
 
 import { Card } from "@repo/ui";
 import { MapPin, Coffee, Code, Heart } from "lucide-react";
-import { usePersonalInfo, useStatistics } from "@/lib/hooks/useResumeData";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import type { Statistic } from "@/lib/types/resume";
 
 const About = () => {
-  const personalInfo = usePersonalInfo();
-  const statistics = useStatistics();
+  const { ui, resumeData } = useLanguage();
 
-  if (!personalInfo) {
+  if (!resumeData) {
     return <div className="py-20 px-6 bg-muted/30">Loading...</div>;
   }
+
+  const { personalInfo, statistics } = resumeData;
 
   return (
     <div className="py-20 px-6 bg-muted/30">
@@ -18,10 +20,10 @@ const About = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-4">
-            About Me
+            {ui.sections.about.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get to know more about my background, interests, and what drives me as a developer.
+            {ui.sections.about.subtitle}
           </p>
         </div>
 
@@ -34,7 +36,7 @@ const About = () => {
             </div>
 
             <div className="space-y-4">
-              {personalInfo.bio.split('. ').map((sentence, index) => {
+              {personalInfo.bio.split('. ').map((sentence: string, index: number) => {
                 if (!sentence.trim()) return null;
                 return (
                   <p key={index} className="text-lg leading-relaxed">
@@ -67,7 +69,7 @@ const About = () => {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-2 gap-6">
-            {statistics.map((stat, index) => (
+                              {statistics.map((stat: Statistic, index: number) => (
               <Card key={index} className="p-6 text-center">
                 <div className="text-3xl font-bold text-brand-primary mb-2">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>

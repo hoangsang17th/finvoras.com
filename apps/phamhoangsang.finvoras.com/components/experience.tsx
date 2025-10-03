@@ -2,14 +2,17 @@
 
 import { Card } from "@repo/ui";
 import { Calendar, MapPin, Building } from "lucide-react";
-import { useExperiences } from "@/lib/hooks/useResumeData";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import type { Experience } from "@/lib/types/resume";
 
 const Experience = () => {
-  const experiences = useExperiences();
+  const { ui, resumeData } = useLanguage();
 
-  if (!experiences.length) {
+  if (!resumeData?.experiences.length) {
     return <div className="py-20 px-6">Loading...</div>;
   }
+
+  const experiences = resumeData.experiences;
 
   return (
     <div className="py-20 px-6">
@@ -17,10 +20,10 @@ const Experience = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-4">
-            Work Experience
+            {ui.sections.experience.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My professional journey and the roles that have shaped my expertise in software development.
+            {ui.sections.experience.subtitle}
           </p>
         </div>
 
@@ -31,7 +34,7 @@ const Experience = () => {
 
           {/* Experience Items */}
           <div className="space-y-12">
-            {experiences.map((exp, index) => (
+            {experiences.map((exp: Experience, index: number) => (
               <div
                 key={exp.id}
                 className={`relative flex items-start ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
@@ -64,7 +67,7 @@ const Experience = () => {
 
                     {/* Description */}
                     <ul className="space-y-2 mb-4">
-                      {exp.description.map((item, idx) => (
+                      {exp.description.map((item: string, idx: number) => (
                         <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
                           <span className="text-brand-primary mt-1 flex-shrink-0">•</span>
                           <span>{item}</span>
@@ -74,10 +77,10 @@ const Experience = () => {
 
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, idx) => (
+                      {exp.technologies.map((tech: string, index: number) => (
                         <span
-                          key={idx}
-                          className="px-2 py-1 text-xs bg-muted text-muted-foreground rounded-md"
+                          key={index}
+                          className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded"
                         >
                           {tech}
                         </span>

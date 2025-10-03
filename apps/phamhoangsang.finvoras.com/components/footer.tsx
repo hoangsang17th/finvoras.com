@@ -3,24 +3,25 @@
 import { Button } from "@repo/ui";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import Link from "next/link";
-import { usePersonalInfo, useSocialLinks } from "@/lib/hooks/useResumeData";
-import { getNavigation } from "@/lib/utils/resume-data";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const personalInfo = usePersonalInfo();
-  const socialLinks = useSocialLinks();
-  const navigation = getNavigation();
+  const { ui, resumeData } = useLanguage();
 
-  if (!personalInfo) {
-    return (
-      <footer className="bg-muted/50 border-t">
-        <div className="max-w-6xl mx-auto px-6 py-12">
-          <div className="text-center">Loading...</div>
-        </div>
-      </footer>
-    );
+  if (!resumeData) {
+    return null;
   }
+
+  const { personalInfo, socialLinks } = resumeData;
+  
+  const navigationItems = [
+    { href: "#about", label: ui.nav.about },
+    { href: "#experience", label: ui.nav.experience },
+    { href: "#skills", label: ui.nav.skills },
+    { href: "#projects", label: ui.nav.projects },
+    { href: "#contact", label: ui.nav.contact },
+  ];
 
   return (
     <footer className="bg-muted/50 border-t">
@@ -59,13 +60,13 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold">Quick Links</h4>
             <div className="space-y-2">
-              {navigation.map((item) => (
+              {navigationItems.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.label}
                   href={item.href}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {item.name}
+                  {item.label}
                 </Link>
               ))}
             </div>

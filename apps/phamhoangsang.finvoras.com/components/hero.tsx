@@ -3,20 +3,22 @@
 import { Badge, Button } from "@repo/ui";
 import { ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
-import { usePersonalInfo, useSocialLinks } from "@/lib/hooks/useResumeData";
+import Image from "next/image";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 
 const Hero = () => {
-  const personalInfo = usePersonalInfo();
-  const socialLinks = useSocialLinks();
+  const { ui, resumeData } = useLanguage();
 
-  if (!personalInfo || !socialLinks) {
+  if (!resumeData) {
     return <div className="min-h-[calc(100vh-6rem)] flex items-center justify-center">Loading...</div>;
   }
+
+  const { personalInfo, socialLinks } = resumeData;
 
   // Extract initials from name
   const initials = personalInfo.name
     .split(' ')
-    .map(word => word[0])
+    .map((word: string) => word[0])
     .join('')
     .toUpperCase();
 
@@ -26,15 +28,17 @@ const Hero = () => {
         {/* Profile Image */}
         <div className="mb-8">
           <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1">
-            <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-4xl font-bold">
+            <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-4xl font-bold overflow-hidden">
               {personalInfo.avatar ? (
-                <img
+                <Image
                   src={personalInfo.avatar}
                   alt={personalInfo.name}
-                  className="w-full h-full rounded-full object-cover"
+                  width={128}
+                  height={128}
+                  className="rounded-full object-cover"
                 />
               ) : (
-                initials
+                <span className="text-muted-foreground">{initials}</span>
               )}
             </div>
           </div>
@@ -68,7 +72,7 @@ const Hero = () => {
             asChild
           >
             <Link href="#contact">
-              Get In Touch <Mail className="!h-5 !w-5" />
+              {ui.ui.getInTouch} <Mail className="!h-5 !w-5" />
             </Link>
           </Button>
           {socialLinks.resume && (
@@ -79,7 +83,7 @@ const Hero = () => {
               asChild
             >
               <Link href={socialLinks.resume} target="_blank">
-                Download Resume <Download className="!h-5 !w-5" />
+                {ui.nav.downloadCv} <Download className="!h-5 !w-5" />
               </Link>
             </Button>
           )}

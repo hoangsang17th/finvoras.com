@@ -2,6 +2,7 @@ import { TooltipProvider } from "@repo/ui";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist } from "next/font/google";
+import { LanguageProvider } from "@/lib/contexts/LanguageContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,52 +11,7 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: "Hoang Sang - Software Engineer & Full-Stack Developer",
-  description:
-    "Hoang Sang's professional resume. Experienced Software Engineer specializing in full-stack development, React, Node.js, and modern web technologies.",
-  keywords: [
-    "Hoang Sang",
-    "Software Engineer",
-    "Full-Stack Developer",
-    "React",
-    "Node.js",
-    "TypeScript",
-    "Web Development",
-    "Resume",
-    "Portfolio",
-    "JavaScript",
-    "Frontend",
-    "Backend",
-  ],
-  openGraph: {
-    type: "website",
-    siteName: "Hoang Sang - Software Engineer",
-    locale: "en_US",
-    url: "https://phamhoangsang.finvoras.com",
-    title: "Hoang Sang - Software Engineer & Full-Stack Developer",
-    description:
-      "Hoang Sang's professional resume. Experienced Software Engineer specializing in full-stack development, React, Node.js, and modern web technologies.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Hoang Sang - Software Engineer Resume",
-      },
-    ],
-  },
-  authors: [
-    {
-      name: "Hoang Sang",
-      url: "https://phamhoangsang.finvoras.com",
-    },
-  ],
-  robots: {
-    index: true,
-    follow: true,
-  },
-  verification: {
-    google: "your-google-verification-code",
-  },
+  description: "Hoang Sang&apos;s professional resume.",
 };
 
 export default function RootLayout({
@@ -66,17 +22,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={geistSans.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem={true}
-          disableTransitionOnChange={false}
-          storageKey="author-finvoras-theme"
-        >
-          <TooltipProvider>
-            {children}
-          </TooltipProvider>
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem={true}
+            disableTransitionOnChange={false}
+            storageKey="portfolio.finvoras.com-theme"
+          >
+            <TooltipProvider>
+              {children}
+            </TooltipProvider>
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

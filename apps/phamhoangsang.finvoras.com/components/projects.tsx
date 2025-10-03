@@ -3,12 +3,14 @@
 import { Card, Button } from "@repo/ui";
 import { ExternalLink, Github, Calendar } from "lucide-react";
 import Link from "next/link";
-import { useProjects } from "@/lib/hooks/useResumeData";
-import { getSocialLinks } from "@/lib/utils/resume-data";
+import Image from "next/image";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
+import type { Project } from "@/lib/types/resume";
 
 const Projects = () => {
-  const projects = useProjects();
-  const socialLinks = getSocialLinks();
+  const { resumeData } = useLanguage();
+  const projects = resumeData?.projects || [];
+  const socialLinks = resumeData?.socialLinks || {};
 
   if (!projects.length) {
     return <div className="py-20 px-6">Loading...</div>;
@@ -23,21 +25,22 @@ const Projects = () => {
             Featured Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A collection of projects I've worked on, showcasing my skills and passion for creating meaningful solutions.
+            A collection of projects I&apos;ve worked on, showcasing my skills and passion for creating meaningful solutions.
           </p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {projects.map((project: Project) => (
             <Card key={project.id} className="overflow-hidden group hover:shadow-lg transition-all duration-300">
               {/* Project Image */}
               <div className="relative h-48 bg-gradient-to-br from-brand-primary/20 to-brand-blue/20 overflow-hidden">
                 {project.image ? (
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-muted-foreground/20">
