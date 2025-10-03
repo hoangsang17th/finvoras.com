@@ -16,7 +16,7 @@ export const resumeData: ResumeData = {
         location: "Ho Chi Minh City, Vietnam",
         email: "contact@hoangsang.dev",
         phone: "+84 123 456 789",
-        website: "https://author.finvoras.com",
+        website: "https://phamhoangsang.finvoras.com",
         avatar: "/avatar.jpg",
         status: "Available for freelance work",
         availability: true,
@@ -267,7 +267,7 @@ export const resumeData: ResumeData = {
                 "Smooth animations",
                 "SEO optimized"
             ],
-            liveUrl: "https://author.finvoras.com",
+            liveUrl: "https://phamhoangsang.finvoras.com",
             githubUrl: "https://github.com/hoangsang17th/portfolio",
             status: "Live",
             year: "2024",

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Hoang Sang - Software Engineer",
     locale: "en_US",
-    url: "https://author.finvoras.com",
+    url: "https://phamhoangsang.finvoras.com",
     title: "Hoang Sang - Software Engineer & Full-Stack Developer",
     description:
       "Hoang Sang's professional resume. Experienced Software Engineer specializing in full-stack development, React, Node.js, and modern web technologies.",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Hoang Sang",
-      url: "https://author.finvoras.com",
+      url: "https://phamhoangsang.finvoras.com",
     },
   ],
   robots: {
