@@ -13,7 +13,20 @@ const ThemeToggle = () => {
     setMounted(true);
   }, []);
 
-  if (mounted && resolvedTheme === "system") {
+  if (!mounted) {
+    return (
+      <Button
+        variant="secondary"
+        size="icon"
+        disabled
+        className="opacity-50"
+      >
+        <SunIcon size={20} />
+      </Button>
+    );
+  }
+
+  if (resolvedTheme === "system") {
     return <Button variant="secondary" size="icon" />;
   }
 
