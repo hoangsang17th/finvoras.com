@@ -24,7 +24,7 @@ export default function LanguageSwitcher() {
   return (
     <div className="relative">
       <Button
-        variant="ghost"
+        variant="default"
         size="sm"
         className="h-9 gap-2"
         onClick={() => setIsOpen(!isOpen)}
@@ -34,11 +34,11 @@ export default function LanguageSwitcher() {
         <ChevronDown className="h-3 w-3" />
         <span className="sr-only">Switch language</span>
       </Button>
-      
+
       {isOpen && (
         <>
-          <div 
-            className="fixed inset-0 z-40" 
+          <div
+            className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
           />
           <div className="absolute right-0 top-full mt-2 z-50 min-w-[160px] rounded-md border bg-popover p-1 text-popover-foreground shadow-md">

@@ -61,7 +61,7 @@ const SmartNavMenu = forwardRef<HTMLElement, SmartNavMenuProps>(
 
     return (
       <NavigationMenu ref={ref} className={className} orientation={orientation}>
-        <NavigationMenuList 
+        <NavigationMenuList
           className={cn(
             "gap-6 space-x-0",
             orientation === "vertical" && "flex-col items-start data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start",
@@ -70,15 +70,15 @@ const SmartNavMenu = forwardRef<HTMLElement, SmartNavMenuProps>(
         >
           {menuItems.map((item) => {
             if (item.disabled) return null;
-            
+
             // Use fragment link if on homepage and item has fragmentId, otherwise use absolute link
             const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
 
             return (
               <NavigationMenuItem key={item.label}>
                 <NavigationMenuLink asChild>
-                  <Link 
-                    href={href} 
+                  <Link
+                    href={href}
                     className={cn(
                       "flex items-center transition-colors",
                       iconOnly ? "flex-col gap-1 text-xs p-2" : "flex-row gap-2 px-3 py-2"
@@ -117,9 +117,9 @@ const BottomNavigation = ({ menuItems, homePath = "/" }: BottomNavigationProps) 
   const isHomepage = pathname === homePath;
 
   return (
-    <div 
+    <div
       className="fixed w-full bg-background/95 backdrop-blur-sm border-t border-border md:hidden shadow-lg"
-      style={{ 
+      style={{
         position: 'fixed',
         bottom: 0,
         left: 0,
@@ -130,7 +130,7 @@ const BottomNavigation = ({ menuItems, homePath = "/" }: BottomNavigationProps) 
       <div className="flex items-center justify-evenly px-4 py-3 min-h-[70px] w-full">
         {menuItems.map((item) => {
           if (item.disabled) return null;
-          
+
           const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
           const isActive = pathname === item.href || (isHomepage && item.fragmentId);
 
@@ -140,8 +140,8 @@ const BottomNavigation = ({ menuItems, homePath = "/" }: BottomNavigationProps) 
               href={href}
               className={cn(
                 "flex flex-col items-center justify-center gap-1 flex-1 py-2 text-xs transition-colors min-w-0",
-                isActive 
-                  ? "text-primary" 
+                isActive
+                  ? "text-primary"
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
@@ -169,17 +169,17 @@ const NavigationSheet = ({ logo, menuItems, ctaActions, homePath }: NavigationSh
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="icon" className="rounded-full">
+        <Button variant="secondary" size="icon" className="rounded-full">
           <Menu />
         </Button>
       </SheetTrigger>
       <SheetContent>
         {logo && <div className="mb-8">{logo}</div>}
-        
-        <SmartNavMenu 
+
+        <SmartNavMenu
           menuItems={menuItems}
-          orientation="vertical" 
-          className="mt-12" 
+          orientation="vertical"
+          className="mt-12"
           homePath={homePath}
         />
 
@@ -199,10 +199,10 @@ const NavigationSheet = ({ logo, menuItems, ctaActions, homePath }: NavigationSh
 
 // Main Navbar Component
 export const Navbar = forwardRef<HTMLElement, NavbarProps>(
-  ({ 
-    logo, 
-    menuItems = [], 
-    ctaActions = [], 
+  ({
+    logo,
+    menuItems = [],
+    ctaActions = [],
     className,
     containerClassName,
     homePath = "/"
@@ -216,7 +216,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
     return (
       <>
         {/* Top Navbar */}
-        <nav 
+        <nav
           ref={ref}
           className={cn(
             "fixed z-[100] top-6 inset-x-4 h-14 xs:h-16 bg-background/50 backdrop-blur-sm border dark:border-brand-grey-700/70 max-w-screen-xl mx-auto rounded-full",
@@ -232,14 +232,14 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
 
             {/* Desktop Menu (lg and up) */}
             {menuItems.length > 0 && (
-              <div 
-                className="items-center gap-4" 
-                style={{ 
-                  display: 'none' 
+              <div
+                className="items-center gap-4"
+                style={{
+                  display: 'none'
                 }}
                 data-desktop-menu="true"
               >
-                <SmartNavMenu 
+                <SmartNavMenu
                   menuItems={menuItems}
                   homePath={homePath}
                 />
@@ -248,22 +248,22 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
 
             {/* Tablet Menu (md to lg) - Icon only */}
             {menuItems.length > 0 && (
-              <div 
-                className="items-center gap-4" 
-                style={{ 
-                  display: 'none' 
+              <div
+                className="items-center gap-4"
+                style={{
+                  display: 'none'
                 }}
                 data-tablet-menu="true"
               >
                 {menuItems.map((item) => {
                   if (item.disabled) return null;
-                  
+
                   const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
-                  
+
                   return (
-                    <Link 
+                    <Link
                       key={item.label}
-                      href={href} 
+                      href={href}
                       className="flex items-center justify-center p-2 rounded-md hover:bg-accent transition-colors"
                       title={item.label}
                     >
@@ -279,8 +279,8 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
             {/* CTA Actions */}
             <div className="flex items-center gap-3">
               {/* Desktop CTA Actions (lg and up) */}
-              <div 
-                className="items-center gap-3" 
+              <div
+                className="items-center gap-3"
                 style={{ display: 'none' }}
                 data-desktop-cta="true"
               >
@@ -292,8 +292,8 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
               </div>
 
               {/* Tablet CTA Actions (md to lg) - Compact version */}
-              <div 
-                className="items-center gap-2" 
+              <div
+                className="items-center gap-2"
                 style={{ display: 'none' }}
                 data-tablet-cta="true"
               >
@@ -318,7 +318,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
 
         {/* Bottom Navigation for Mobile */}
         {menuItems.length > 0 && (
-          <BottomNavigation 
+          <BottomNavigation
             menuItems={menuItems}
             homePath={homePath}
           />

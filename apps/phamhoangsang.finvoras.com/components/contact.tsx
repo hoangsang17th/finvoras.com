@@ -86,21 +86,21 @@ const Contact = () => {
               <h4 className="font-medium mb-4">Follow Me</h4>
               <div className="flex gap-4">
                 {socialLinks?.github && (
-                  <Button variant="outline" size="icon" className="rounded-full" asChild>
+                  <Button variant="secondary" size="icon" className="rounded-full" asChild>
                     <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer">
                       <Github className="h-5 w-5" />
                     </Link>
                   </Button>
                 )}
                 {socialLinks?.linkedin && (
-                  <Button variant="outline" size="icon" className="rounded-full" asChild>
+                  <Button variant="secondary" size="icon" className="rounded-full" asChild>
                     <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
                       <Linkedin className="h-5 w-5" />
                     </Link>
                   </Button>
                 )}
                 {socialLinks?.twitter && (
-                  <Button variant="outline" size="icon" className="rounded-full" asChild>
+                  <Button variant="secondary" size="icon" className="rounded-full" asChild>
                     <Link href={socialLinks.twitter} target="_blank" rel="noopener noreferrer">
                       <Twitter className="h-5 w-5" />
                     </Link>

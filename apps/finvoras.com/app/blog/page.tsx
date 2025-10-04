@@ -67,7 +67,7 @@ export default function BlogPage() {
         <section>
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold">Latest Articles</h2>
-            <Button variant="outline" asChild>
+            <Button variant="secondary" asChild>
               <Link href="/blog/all">View All Posts</Link>
             </Button>
           </div>

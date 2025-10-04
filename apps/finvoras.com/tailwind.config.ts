@@ -6,6 +6,7 @@ export default {
   content: [
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./**/*.{js,ts,jsx,tsx,mdx}",
+    "../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}", // Thêm path đến UI package
   ],
   theme: {
     extend: {

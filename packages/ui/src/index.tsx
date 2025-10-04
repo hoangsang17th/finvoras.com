@@ -15,17 +15,14 @@ export type { AnimatedGridPatternProps } from "./components/animated-grid-patter
 export { Avatar, AvatarImage, AvatarFallback } from "./components/avatar";
 
 // Export enhanced core components (preferred)
-export * from "./components/core/badge";
-export * from "./components/core/button";
-export * from "./components/core/card";
-export * from "./components/core/input";
+export * from "./components/badge";
+export * from "./components/button";
+export * from "./components/card";
+export * from "./components/input";
 
 // Export legacy components for backward compatibility
 export { Badge as LegacyBadge, badgeVariants as legacyBadgeVariants } from "./components/badge";
 export type { BadgeProps as LegacyBadgeProps } from "./components/badge";
-
-export { Button as LegacyButton, buttonVariants as legacyButtonVariants } from "./components/button";
-export type { ButtonProps as LegacyButtonProps } from "./components/button";
 
 export {
     Card as LegacyCard,

@@ -35,20 +35,20 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               {socialLinks?.github && (
-                <Button variant="ghost" size="icon" className="rounded-full" asChild>
+                <Button variant="default" size="icon" className="rounded-full" asChild>
                   <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer">
                     <Github className="h-5 w-5" />
                   </Link>
                 </Button>
               )}
               {socialLinks?.linkedin && (
-                <Button variant="ghost" size="icon" className="rounded-full" asChild>
+                <Button variant="default" size="icon" className="rounded-full" asChild>
                   <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-5 w-5" />
                   </Link>
                 </Button>
               )}
-              <Button variant="ghost" size="icon" className="rounded-full" asChild>
+              <Button variant="default" size="icon" className="rounded-full" asChild>
                 <Link href={`mailto:${personalInfo.email}`}>
                   <Mail className="h-5 w-5" />
                 </Link>

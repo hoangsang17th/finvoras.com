@@ -1,6 +1,5 @@
 import { Badge, Button } from "@repo/ui";
 import { ArrowUpRight, CirclePlay } from "lucide-react";
-import Link from "next/link";
 import React from "react";
 import LogoCloud from "./logo-cloud";
 
@@ -21,24 +20,24 @@ const Hero = () => {
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center sm:justify-center gap-4">
             <Button
-              variant="brand"
+              variant="primary"
               size="lg"
-              className="w-full sm:w-auto rounded-full text-base"
-              asChild
+              className="w-full sm:w-auto"
+              icon={<ArrowUpRight className="h-5 w-5" />}
+              iconPosition="right"
+              href="/register"
             >
-              <Link href="/register">
-                Get Started <ArrowUpRight className="!h-5 !w-5" />
-              </Link>
+              Get Started
             </Button>
             <Button
-              variant="brand-outline"
+              variant="secondary"
               size="lg"
-              className="w-full sm:w-auto rounded-full text-base shadow-none"
-              asChild
+              className="w-full sm:w-auto"
+              icon={<CirclePlay className="h-5 w-5" />}
+              href="/features"
+              style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} // Force inline styles để test
             >
-              <Link href="/features">
-                <CirclePlay className="!h-5 !w-5" /> Explore Features
-              </Link>
+              Explore Features
             </Button>
           </div>
         </div>

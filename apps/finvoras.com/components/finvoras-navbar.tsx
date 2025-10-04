@@ -1,7 +1,7 @@
 import { Button, Navbar, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
-import { Home, DollarSign, BookOpen, User, LogIn, UserPlus } from "lucide-react";
+import { Home, DollarSign, BookOpen, User, LogIn, UserPlus, Edit, Edit2 } from "lucide-react";
 
 // Logo component from the original navbar
 const FinvorasLogo = () => (
@@ -47,15 +47,13 @@ const ctaActions: NavbarCTAAction[] = [
   {
     id: "sign-in",
     component: (
-      <Button variant="brand-outline" className="hidden sm:inline-flex" asChild>
-        <Link href="/login">Sign In</Link>
+      <Button variant="secondary" href="/register"   >
+        Register
       </Button>
     ),
     compactComponent: (
-      <Button variant="outline" size="icon" title="Sign In" asChild>
-        <Link href="/login">
-          <LogIn size={16} />
-        </Link>
+      <Button variant="default" size="icon" title="Get Started" href="/register">
+        <Edit2 size={16} />
       </Button>
     ),
     showOnMobile: true,
@@ -65,15 +63,13 @@ const ctaActions: NavbarCTAAction[] = [
   {
     id: "get-started",
     component: (
-      <Button variant="brand" className="hidden xs:inline-flex" asChild>
-        <Link href="/register">Get Started</Link>
+      <Button variant="primary" href="/login">
+        Get Started
       </Button>
     ),
     compactComponent: (
-      <Button variant="default" size="icon" title="Get Started" asChild>
-        <Link href="/register">
-          <UserPlus size={16} />
-        </Link>
+      <Button variant="default" size="icon" title="Get Started" href="/login">
+        <LogIn size={16} />
       </Button>
     ),
     showOnMobile: true,

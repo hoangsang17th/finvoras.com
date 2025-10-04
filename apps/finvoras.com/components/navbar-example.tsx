@@ -45,7 +45,7 @@ const ctaActions: NavbarCTAAction[] = [
   {
     id: "sign-in",
     component: (
-      <Button variant="brand-outline" className="w-full sm:w-auto" asChild>
+      <Button variant="secondary" className="w-full sm:w-auto" asChild>
         <Link href="/login">Sign In</Link>
       </Button>
     ),
@@ -55,7 +55,7 @@ const ctaActions: NavbarCTAAction[] = [
   {
     id: "get-started",
     component: (
-      <Button variant="brand" className="w-full sm:w-auto" asChild>
+      <Button variant="primary" className="w-full sm:w-auto" asChild>
         <Link href="/register">Get Started</Link>
       </Button>
     ),
