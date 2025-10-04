@@ -1,5 +1,5 @@
 import { HTMLAttributes } from "react";
-import { Logo } from "./navbar-old/logo";
+import { Logo } from "./logo";
 
 function LogoCloud(props: HTMLAttributes<HTMLDivElement>) {
   return (

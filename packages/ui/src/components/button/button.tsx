@@ -1,0 +1,143 @@
+import React, { forwardRef } from "react";
+import Link from "next/link";
+import { Slot } from "@radix-ui/react-slot";
+import { cn } from "../../utils";
+import { buttonVariants } from "./button.styles";
+import { ButtonProps } from "./button.types";
+
+/**
+ * Enhanced Button component với 3 trạng thái: Enabled, Disabled, Hover
+ * Hỗ trợ icon và text theo yêu cầu
+ */
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({
+    children,
+    className,
+    variant = "default",
+    size = "md",
+    disabled = false,
+    type = "button",
+    onClick,
+    icon,
+    iconPosition = "left",
+    fullWidth = false,
+    asChild = false,
+    title,
+    href,
+    ...props
+  }, ref) => {
+
+    // Determine button content with icon support and responsive handling
+    const buttonContent = () => {
+      if (!icon) {
+        return (
+          <span className="truncate">
+            {children}
+          </span>
+        );
+      }
+
+      if (!children) {
+        // Icon only
+        return (
+          <span className="flex-shrink-0">
+            {icon}
+          </span>
+        );
+      }
+
+      // Icon with text - sử dụng truncate để xử lý text dài
+      const textElement = (
+        <span className="truncate min-w-0">
+          {children}
+        </span>
+      );
+
+      const iconElement = (
+        <span className="flex-shrink-0">
+          {icon}
+        </span>
+      );
+
+      if (iconPosition === "right") {
+        return (
+          <>
+            {textElement}
+            {iconElement}
+          </>
+        );
+      }
+
+      return (
+        <>
+          {iconElement}
+          {textElement}
+        </>
+      );
+    };
+
+    // If href is provided, render as Link with button styling
+    if (href && !asChild) {
+      return (
+        <Link
+          href={href}
+          className={cn(
+            buttonVariants({
+              variant,
+              size,
+              fullWidth,
+              disabled
+            }),
+            // Thêm overflow handling cho text
+            variant !== "link" && "overflow-hidden",
+            "no-underline", // Remove default link underline
+            disabled && "pointer-events-none", // Handle disabled state
+            className
+          )}
+          title={title}
+          role="button" // Improve accessibility
+          tabIndex={disabled ? -1 : 0}
+          aria-disabled={disabled}
+        >
+          {buttonContent()}
+        </Link>
+      );
+    }
+
+    const Comp = asChild ? Slot : "button";
+
+    return (
+      <Comp
+        ref={ref}
+        type={type}
+        disabled={disabled}
+        onClick={onClick}
+        title={title}
+        className={cn(
+          buttonVariants({
+            variant,
+            size,
+            fullWidth,
+            disabled
+          }),
+          // Thêm overflow handling cho text
+          variant !== "link" && "overflow-hidden",
+          className
+        )}
+        style={{
+          outline: 'none',
+          border: 'none',
+          WebkitTapHighlightColor: 'transparent', // Remove mobile tap highlight
+          ...props.style
+        }}
+        {...props}
+      >
+        {buttonContent()}
+      </Comp>
+    );
+  }
+);
+
+Button.displayName = "Button";
+export { buttonVariants } from "./button.styles";
+export type { ButtonProps } from "./button.types";

@@ -1,6 +1,7 @@
 import { Button, Navbar, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
+import { Home, DollarSign, BookOpen, User } from "lucide-react";
 
 // Logo component
 const Logo = () => (
@@ -27,10 +28,10 @@ const Logo = () => (
 
 // Define menu items
 const menuItems: NavMenuItem[] = [
-  { label: "Home", href: "/", fragmentId: "features" },
-  { label: "Pricing", href: "/pricing", fragmentId: "pricing" },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
+  { label: "Home", href: "/", fragmentId: "features", icon: <Home size={16} /> },
+  { label: "Pricing", href: "/pricing", fragmentId: "pricing", icon: <DollarSign size={16} /> },
+  { label: "Blog", href: "/blog", icon: <BookOpen size={16} /> },
+  { label: "About", href: "/about", icon: <User size={16} /> },
 ];
 
 // Define CTA actions
@@ -44,7 +45,7 @@ const ctaActions: NavbarCTAAction[] = [
   {
     id: "sign-in",
     component: (
-      <Button variant="brand-outline" className="w-full sm:w-auto" asChild>
+      <Button variant="secondary" className="w-full sm:w-auto" asChild>
         <Link href="/login">Sign In</Link>
       </Button>
     ),
@@ -54,7 +55,7 @@ const ctaActions: NavbarCTAAction[] = [
   {
     id: "get-started",
     component: (
-      <Button variant="brand" className="w-full sm:w-auto" asChild>
+      <Button variant="primary" className="w-full sm:w-auto" asChild>
         <Link href="/register">Get Started</Link>
       </Button>
     ),

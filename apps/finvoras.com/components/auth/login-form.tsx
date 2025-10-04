@@ -131,7 +131,7 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
 
           <Button
             type="submit"
-            variant="brand"
+            variant="primary"
             size="lg"
             className="w-full h-11 text-base font-medium"
             disabled={isLoading}

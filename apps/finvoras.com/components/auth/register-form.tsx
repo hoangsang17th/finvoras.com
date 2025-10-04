@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button, Input, Label, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui";
 import { RegisterRequest } from "@/lib/types";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { ArrowUpRight, Eye, EyeOff, Loader2 } from "lucide-react";
 
 interface RegisterFormProps {
   onSubmit: (data: RegisterRequest) => Promise<void>;
@@ -186,7 +186,7 @@ export function RegisterForm({ onSubmit, isLoading = false }: RegisterFormProps)
 
           <Button
             type="submit"
-            variant="brand"
+            variant="primary"
             size="lg"
             className="w-full h-11 text-base font-medium"
             disabled={isLoading}

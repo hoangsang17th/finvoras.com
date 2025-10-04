@@ -126,4 +126,57 @@
   body {
     @apply text-foreground;
   }
+
+  /* Mobile bottom navigation spacing */
+  @media (max-width: 767px) {
+    body {
+      @apply pb-24;
+      /* Space for bottom navigation - increased */
+    }
+
+    main,
+    .main-content {
+      @apply pb-24;
+      /* Additional spacing for main content */
+    }
+  }
+
+  /* Navbar responsive display */
+  /* Desktop: >= 1024px */
+  @media (min-width: 1024px) {
+    [data-desktop-menu="true"] {
+      display: flex !important;
+    }
+
+    [data-tablet-menu="true"] {
+      display: none !important;
+    }
+
+    [data-desktop-cta="true"] {
+      display: flex !important;
+    }
+
+    [data-tablet-cta="true"] {
+      display: none !important;
+    }
+  }
+
+  /* Tablet: 768px - 1023px */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    [data-desktop-menu="true"] {
+      display: none !important;
+    }
+
+    [data-tablet-menu="true"] {
+      display: flex !important;
+    }
+
+    [data-desktop-cta="true"] {
+      display: none !important;
+    }
+
+    [data-tablet-cta="true"] {
+      display: flex !important;
+    }
+  }
 }

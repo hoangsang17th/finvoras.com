@@ -1,6 +1,7 @@
-import { Button, Navbar, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
+import { Button, NavbarCTAButton, Navbar, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
+import { Home, DollarSign, BookOpen, User, LogIn, UserPlus, Edit, Edit2 } from "lucide-react";
 
 // Logo component from the original navbar
 const FinvorasLogo = () => (
@@ -27,10 +28,10 @@ const FinvorasLogo = () => (
 
 // Define menu items for finvoras.com
 const menuItems: NavMenuItem[] = [
-  { label: "Home", href: "/", fragmentId: "features" },
-  { label: "Pricing", href: "/pricing", fragmentId: "pricing" },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
+  { label: "Home", href: "/", fragmentId: "features", icon: <Home size={16} /> },
+  { label: "Pricing", href: "/pricing", fragmentId: "pricing", icon: <DollarSign size={16} /> },
+  { label: "Blog", href: "/blog", icon: <BookOpen size={16} /> },
+  { label: "About", href: "/about", icon: <User size={16} /> },
 ];
 
 // Define CTA actions for finvoras.com
@@ -38,49 +39,26 @@ const ctaActions: NavbarCTAAction[] = [
   {
     id: "theme-toggle",
     component: <ThemeToggle />,
+    compactComponent: <ThemeToggle />, // Same for all sizes
     showOnMobile: true,
     showOnDesktop: true,
-  },
-  {
-    id: "sign-in",
-    component: (
-      <Button variant="brand-outline" className="hidden sm:inline-flex" asChild>
-        <Link href="/login">Sign In</Link>
-      </Button>
-    ),
-    showOnMobile: false,
-    showOnDesktop: true,
+    showOnTablet: true,
   },
   {
     id: "get-started",
     component: (
-      <Button variant="brand" className="hidden xs:inline-flex" asChild>
-        <Link href="/register">Get Started</Link>
+      <NavbarCTAButton variant="primary" href="/login">
+        Get Started
+      </NavbarCTAButton>
+    ),
+    compactComponent: (
+      <Button variant="primary" size="icon" title="Get Started" href="/login">
+        <LogIn size={16} />
       </Button>
     ),
-    showOnMobile: false,
+    showOnMobile: true,
     showOnDesktop: true,
-  },
-  // Mobile-specific buttons
-  {
-    id: "sign-in-mobile",
-    component: (
-      <Button variant="outline" className="w-full sm:hidden" asChild>
-        <Link href="/login">Sign In</Link>
-      </Button>
-    ),
-    showOnMobile: true,
-    showOnDesktop: false,
-  },
-  {
-    id: "get-started-mobile",
-    component: (
-      <Button className="w-full xs:hidden" asChild>
-        <Link href="/register">Get Started</Link>
-      </Button>
-    ),
-    showOnMobile: true,
-    showOnDesktop: false,
+    showOnTablet: true,
   },
 ];
 

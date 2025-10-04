@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useLanguage } from "@/lib/contexts/LanguageContext";
 import ThemeToggle from "./theme-toggle";
 import LanguageSwitcher from "./language-switcher";
+import { User, Briefcase, Award, FolderOpen, Mail } from "lucide-react";
 
 // Portfolio Logo Component
 const PortfolioLogo = ({ name }: { name: string }) => (
@@ -29,11 +30,11 @@ const PortfolioNavbar = () => {
 
   // Define menu items using language context
   const menuItems: NavMenuItem[] = [
-    { label: ui.nav.about, href: "/", fragmentId: "about" },
-    { label: ui.nav.experience, href: "/", fragmentId: "experience" },
-    { label: ui.nav.skills, href: "/", fragmentId: "skills" },
-    { label: ui.nav.projects, href: "/", fragmentId: "projects" },
-    { label: ui.nav.contact, href: "/", fragmentId: "contact" },
+    { label: ui.nav.about, href: "/", fragmentId: "about", icon: <User size={16} /> },
+    { label: ui.nav.experience, href: "/", fragmentId: "experience", icon: <Briefcase size={16} /> },
+    { label: ui.nav.skills, href: "/", fragmentId: "skills", icon: <Award size={16} /> },
+    { label: ui.nav.projects, href: "/", fragmentId: "projects", icon: <FolderOpen size={16} /> },
+    { label: ui.nav.contact, href: "/", fragmentId: "contact", icon: <Mail size={16} /> },
   ];
 
   // Define CTA actions

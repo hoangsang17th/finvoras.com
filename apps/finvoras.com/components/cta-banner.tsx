@@ -36,7 +36,7 @@ export default function CTABanner() {
           <Button size="lg">
             Get Started <ArrowUpRight className="!h-5 !w-5" />
           </Button>
-          <Button size="lg" variant="outline">
+          <Button size="lg" variant="secondary">
             Discover More <Forward className="!h-5 !w-5" />
           </Button>
         </div>

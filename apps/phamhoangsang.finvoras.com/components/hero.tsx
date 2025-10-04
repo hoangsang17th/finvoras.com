@@ -77,7 +77,7 @@ const Hero = () => {
           </Button>
           {socialLinks.resume && (
             <Button
-              variant="outline"
+              variant="secondary"
               size="lg"
               className="w-full sm:w-auto rounded-full text-base"
               asChild
@@ -92,20 +92,20 @@ const Hero = () => {
         {/* Social Links */}
         <div className="flex items-center justify-center gap-6">
           {socialLinks.github && (
-            <Button variant="ghost" size="icon" className="rounded-full" asChild>
+            <Button variant="default" size="icon" className="rounded-full" asChild>
               <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer">
                 <Github className="h-6 w-6" />
               </Link>
             </Button>
           )}
           {socialLinks.linkedin && (
-            <Button variant="ghost" size="icon" className="rounded-full" asChild>
+            <Button variant="default" size="icon" className="rounded-full" asChild>
               <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-6 w-6" />
               </Link>
             </Button>
           )}
-          <Button variant="ghost" size="icon" className="rounded-full" asChild>
+          <Button variant="default" size="icon" className="rounded-full" asChild>
             <Link href={`mailto:${socialLinks.email}`}>
               <Mail className="h-6 w-6" />
             </Link>

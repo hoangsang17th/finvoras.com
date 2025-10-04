@@ -119,7 +119,7 @@ const Projects = () => {
                     </Button>
                   )}
                   {project.githubUrl && (
-                    <Button variant="outline" size="sm" className="flex-1" asChild>
+                    <Button variant="secondary" size="sm" className="flex-1" asChild>
                       <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                         <Github className="h-4 w-4 mr-1" />
                         Code
@@ -134,7 +134,7 @@ const Projects = () => {
 
         {/* View More Button */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" asChild>
+          <Button variant="secondary" size="lg" asChild>
             <Link href={socialLinks.github || "#"} target="_blank" rel="noopener noreferrer">
               <Github className="h-5 w-5 mr-2" />
               View All Projects on GitHub

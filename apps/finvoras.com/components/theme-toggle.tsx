@@ -2,7 +2,7 @@
 
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "../../../packages/ui/src/components/button";
+import { Button } from "@repo/ui";
 import { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
@@ -13,17 +13,17 @@ const ThemeToggle = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return <Button variant="outline" size="icon" />;
+  if (mounted && resolvedTheme === "system") {
+    return <Button variant="secondary" size="icon" />;
   }
 
   return (
     <Button
-      variant="outline"
+      variant="secondary"
       size="icon"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
-      {resolvedTheme === "dark" ? <SunIcon /> : <MoonIcon />}
+      {resolvedTheme === "dark" ? <SunIcon size={20} /> : <MoonIcon size={20} />}
     </Button>
   );
 };

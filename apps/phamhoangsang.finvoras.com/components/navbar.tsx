@@ -65,14 +65,14 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             {/* Language Switcher */}
             <LanguageSwitcher />
-            
+
             {/* Theme Toggle */}
             <ThemeToggle className="rounded-full" />
 
             {/* Resume Button */}
             {resumeData.personalInfo.resumeUrl && (
               <Button
-                variant="outline"
+                variant="secondary"
                 size="sm"
                 className="hidden sm:inline-flex"
                 asChild
@@ -85,7 +85,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <Button
-              variant="ghost"
+              variant="default"
               size="icon"
               className="md:hidden"
               onClick={() => setIsOpen(!isOpen)}
@@ -111,7 +111,7 @@ const Navbar = () => {
               ))}
               {resumeData.personalInfo.resumeUrl && (
                 <div className="px-4 py-2">
-                  <Button variant="outline" size="sm" className="w-full" asChild>
+                  <Button variant="secondary" size="sm" className="w-full" asChild>
                     <Link href={resumeData.personalInfo.resumeUrl} target="_blank">
                       {ui.nav.downloadCv}
                     </Link>
