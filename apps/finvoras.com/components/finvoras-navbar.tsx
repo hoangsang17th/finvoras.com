@@ -68,7 +68,7 @@ const ctaActions: NavbarCTAAction[] = [
       </Button>
     ),
     compactComponent: (
-      <Button variant="default" size="icon" title="Get Started" href="/login">
+      <Button variant="primary" size="icon" title="Get Started" href="/login">
         <LogIn size={16} />
       </Button>
     ),

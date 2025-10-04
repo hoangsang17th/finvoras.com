@@ -45,6 +45,26 @@ export interface NavbarProps {
   homePath?: string; // Path to determine if we're on homepage for fragment links
 }
 
+// Helper function to check if menu item is active
+const isMenuItemActive = (item: NavMenuItem, pathname: string, homePath: string): boolean => {
+  const isHomepage = pathname === homePath;
+
+  // If item href matches current pathname (including home page)
+  if (pathname === item.href) {
+    return true;
+  }
+
+  // If on homepage and item has fragmentId, check if current hash matches
+  if (isHomepage && item.fragmentId) {
+    if (typeof window !== 'undefined') {
+      return window.location.hash === `#${item.fragmentId}`;
+    }
+    return false;
+  }
+
+  return false;
+};
+
 // Smart Navigation Menu Component
 interface SmartNavMenuProps {
   menuItems: NavMenuItem[];
@@ -73,6 +93,7 @@ const SmartNavMenu = forwardRef<HTMLElement, SmartNavMenuProps>(
 
             // Use fragment link if on homepage and item has fragmentId, otherwise use absolute link
             const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
+            const isActive = isMenuItemActive(item, pathname, homePath);
 
             return (
               <NavigationMenuItem key={item.label}>
@@ -80,8 +101,11 @@ const SmartNavMenu = forwardRef<HTMLElement, SmartNavMenuProps>(
                   <Link
                     href={href}
                     className={cn(
-                      "flex items-center transition-colors",
-                      iconOnly ? "flex-col gap-1 text-xs p-2" : "flex-row gap-2 px-3 py-2"
+                      "flex items-center transition-colors rounded-full",
+                      iconOnly ? "flex-col gap-1 text-xs p-2" : "flex-row gap-2 px-3 py-2",
+                      isActive
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
                     )}
                     title={item.label}
                   >
@@ -127,25 +151,25 @@ const BottomNavigation = ({ menuItems, homePath = "/" }: BottomNavigationProps) 
         zIndex: 9999
       }}
     >
-      <div className="flex items-center justify-evenly px-4 py-3 min-h-[70px] w-full">
+      <div className="flex items-center justify-evenly px-4 py-2 min-h-[60px] w-full">
         {menuItems.map((item) => {
           if (item.disabled) return null;
 
           const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
-          const isActive = pathname === item.href || (isHomepage && item.fragmentId);
+          const isActive = isMenuItemActive(item, pathname, homePath);
 
           return (
             <Link
               key={item.label}
               href={href}
               className={cn(
-                "flex flex-col items-center justify-center gap-1 flex-1 py-2 text-xs transition-colors min-w-0",
+                "flex flex-col items-center justify-center gap-1 flex-1 py-2 px-1 text-xs transition-colors min-w-0 rounded-full",
                 isActive
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
               )}
             >
-              <span className="text-xl">{item.icon}</span>
+              <span className="text-lg">{item.icon}</span>
               <span className="leading-none text-center truncate w-full">{item.label}</span>
             </Link>
           );
@@ -259,12 +283,18 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
                   if (item.disabled) return null;
 
                   const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
+                  const isActive = isMenuItemActive(item, pathname, homePath);
 
                   return (
                     <Link
                       key={item.label}
                       href={href}
-                      className="flex items-center justify-center p-2 rounded-md hover:bg-accent transition-colors"
+                      className={cn(
+                        "flex items-center justify-center p-2 rounded-full transition-colors",
+                        isActive
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-foreground hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
+                      )}
                       title={item.label}
                     >
                       <span className="text-base">
