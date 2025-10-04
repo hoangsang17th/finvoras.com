@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ReactNode, forwardRef } from "react";
+import { ReactNode, forwardRef, useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { cn } from "../utils";
 import { Button } from "./button";
@@ -46,23 +46,72 @@ export interface NavbarProps {
 }
 
 // Helper function to check if menu item is active
-const isMenuItemActive = (item: NavMenuItem, pathname: string, homePath: string): boolean => {
+const isMenuItemActive = (item: NavMenuItem, pathname: string, homePath: string, activeSection?: string): boolean => {
   const isHomepage = pathname === homePath;
+  
+  // For homepage with fragments, use activeSection to determine active state
+  if (isHomepage && item.fragmentId) {
+    return activeSection === item.fragmentId;
+  }
 
-  // If item href matches current pathname (including home page)
+  // For regular pages, check if pathname matches
   if (pathname === item.href) {
     return true;
   }
 
-  // If on homepage and item has fragmentId, check if current hash matches
-  if (isHomepage && item.fragmentId) {
-    if (typeof window !== 'undefined') {
-      return window.location.hash === `#${item.fragmentId}`;
-    }
-    return false;
-  }
-
   return false;
+};
+
+// Hook to track active section on scroll
+const useActiveSection = (menuItems: NavMenuItem[], homePath: string) => {
+  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState<string>('');
+  const isHomepage = pathname === homePath;
+
+  useEffect(() => {
+    if (!isHomepage) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -80% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          if (sectionId) {
+            setActiveSection(sectionId);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all sections that have corresponding menu items
+    menuItems.forEach((item) => {
+      if (item.fragmentId) {
+        const element = document.getElementById(item.fragmentId);
+        if (element) {
+          observer.observe(element);
+        }
+      }
+    });
+
+    // Set initial active section based on hash or first section
+    const hash = window.location.hash.replace('#', '');
+    if (hash && menuItems.some(item => item.fragmentId === hash)) {
+      setActiveSection(hash);
+    } else if (menuItems.length > 0 && menuItems[0].fragmentId) {
+      setActiveSection(menuItems[0].fragmentId);
+    }
+
+    return () => observer.disconnect();
+  }, [isHomepage, menuItems]);
+
+  return activeSection;
 };
 
 // Smart Navigation Menu Component
@@ -78,6 +127,7 @@ const SmartNavMenu = forwardRef<HTMLElement, SmartNavMenuProps>(
   ({ menuItems, orientation = "horizontal", className, homePath = "/", iconOnly = false }, ref) => {
     const pathname = usePathname();
     const isHomepage = pathname === homePath;
+    const activeSection = useActiveSection(menuItems, homePath);
 
     return (
       <NavigationMenu ref={ref} className={className} orientation={orientation}>
@@ -93,7 +143,7 @@ const SmartNavMenu = forwardRef<HTMLElement, SmartNavMenuProps>(
 
             // Use fragment link if on homepage and item has fragmentId, otherwise use absolute link
             const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
-            const isActive = isMenuItemActive(item, pathname, homePath);
+            const isActive = isMenuItemActive(item, pathname, homePath, activeSection);
 
             return (
               <NavigationMenuItem key={item.label}>
@@ -139,6 +189,7 @@ interface BottomNavigationProps {
 const BottomNavigation = ({ menuItems, homePath = "/" }: BottomNavigationProps) => {
   const pathname = usePathname();
   const isHomepage = pathname === homePath;
+  const activeSection = useActiveSection(menuItems, homePath);
 
   return (
     <div
@@ -156,7 +207,7 @@ const BottomNavigation = ({ menuItems, homePath = "/" }: BottomNavigationProps) 
           if (item.disabled) return null;
 
           const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
-          const isActive = isMenuItemActive(item, pathname, homePath);
+          const isActive = isMenuItemActive(item, pathname, homePath, activeSection);
 
           return (
             <Link
@@ -233,6 +284,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
   }, ref) => {
     const pathname = usePathname();
     const isHomepage = pathname === homePath;
+    const activeSection = useActiveSection(menuItems, homePath);
     const desktopActions = ctaActions.filter(action => action.showOnDesktop !== false);
     const tabletActions = ctaActions.filter(action => action.showOnTablet !== false);
     const mobileActions = ctaActions.filter(action => action.showOnMobile !== false);
@@ -283,7 +335,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
                   if (item.disabled) return null;
 
                   const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
-                  const isActive = isMenuItemActive(item, pathname, homePath);
+                  const isActive = isMenuItemActive(item, pathname, homePath, activeSection);
 
                   return (
                     <Link

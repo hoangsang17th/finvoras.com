@@ -1,15 +1,15 @@
-import { Navbar, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
+"use client";
+
+import { Navbar, NavbarCTAButton, Logo, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
 import Link from "next/link";
 import { useLanguage } from "@/lib/contexts/LanguageContext";
 import ThemeToggle from "./theme-toggle";
 import LanguageSwitcher from "./language-switcher";
-import { User, Briefcase, Award, FolderOpen, Mail } from "lucide-react";
+import { User, Briefcase, Award, FolderOpen, Mail, Download } from "lucide-react";
 
-// Portfolio Logo Component
+// Portfolio Logo Component using shared Logo component
 const PortfolioLogo = ({ name }: { name: string }) => (
-  <Link href="/" className="font-bold text-xl hover:text-brand-primary transition-colors">
-    {name}
-  </Link>
+  <Logo>{name}</Logo>
 );
 
 const PortfolioNavbar = () => {
@@ -42,15 +42,36 @@ const PortfolioNavbar = () => {
     {
       id: "language-switcher",
       component: <LanguageSwitcher />,
+      compactComponent: <LanguageSwitcher />,
       showOnMobile: true,
       showOnDesktop: true,
+      showOnTablet: true,
     },
     {
       id: "theme-toggle",
       component: <ThemeToggle />,
+      compactComponent: <ThemeToggle />,
       showOnMobile: true,
       showOnDesktop: true,
+      showOnTablet: true,
     },
+    ...(resumeData.personalInfo.resumeUrl ? [{
+      id: "download-cv",
+      component: (
+        <NavbarCTAButton variant="secondary" href={resumeData.personalInfo.resumeUrl}>
+          <Download className="h-4 w-4 mr-2" />
+          {ui.nav.downloadCv}
+        </NavbarCTAButton>
+      ),
+      compactComponent: (
+        <NavbarCTAButton variant="secondary" size="icon" href={resumeData.personalInfo.resumeUrl}>
+          <Download className="h-4 w-4" />
+        </NavbarCTAButton>
+      ),
+      showOnMobile: true,
+      showOnDesktop: true,
+      showOnTablet: true,
+    }] : []),
   ];
 
   return (
@@ -59,8 +80,6 @@ const PortfolioNavbar = () => {
       menuItems={menuItems}
       ctaActions={ctaActions}
       homePath="/"
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b max-w-none rounded-none h-16"
-      containerClassName="max-w-6xl mx-auto px-6"
     />
   );
 };

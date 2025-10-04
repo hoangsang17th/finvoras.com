@@ -4,13 +4,13 @@ import Experience from "@/components/experience";
 import Skills from "@/components/skills";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
-import Navbar from "@/components/navbar";
+import PortfolioNavbar from "@/components/portfolio-navbar";
 import Footer from "@/components/footer";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <PortfolioNavbar />
       <main className="pt-16 xs:pt-20 sm:pt-24">
         <section id="hero">
           <Hero />
