@@ -23,7 +23,7 @@ const ThemeToggle = () => {
       size="icon"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
-      {resolvedTheme === "dark" ? <SunIcon /> : <MoonIcon />}
+      {resolvedTheme === "dark" ? <SunIcon size={20} /> : <MoonIcon size={20} />}
     </Button>
   );
 };

@@ -310,7 +310,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
             <div className="flex items-center gap-3">
               {/* Desktop CTA Actions (lg and up) */}
               <div
-                className="items-center gap-3"
+                className="flex items-center gap-3"
                 style={{ display: 'none' }}
                 data-desktop-cta="true"
               >
@@ -323,7 +323,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
 
               {/* Tablet CTA Actions (md to lg) - Compact version */}
               <div
-                className="items-center gap-2"
+                className="flex items-center gap-2"
                 style={{ display: 'none' }}
                 data-tablet-cta="true"
               >

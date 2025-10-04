@@ -77,15 +77,15 @@ export const buttonVariants = cva(
           "h-8 text-xs gap-1",
           "px-[1.25rem]", // 20px padding - giảm từ 24px
           "min-w-[2rem]",
-          // Responsive: giới hạn chiều rộng hợp lý
-          "max-w-[6rem] xs:max-w-[8rem] sm:max-w-none",
+          // Responsive: cho phép chiều rộng hợp lý cho text ngắn như "Get Started"
+          "max-w-[10rem] xs:max-w-[12rem] sm:max-w-none",
         ],
         md: [
           "h-10 py-2 gap-2",
           "px-[1.5rem]", // 24px padding - giảm từ 32px
           "min-w-[2.5rem]",
-          // Responsive: giới hạn chiều rộng phù hợp cho mobile
-          "max-w-[8rem] xs:max-w-[10rem] sm:max-w-none",
+          // Responsive: cho phép chiều rộng đủ để hiển thị text cơ bản
+          "max-w-[12rem] xs:max-w-[14rem] sm:max-w-none",
         ],
         lg: [
           "h-12 text-base gap-2",

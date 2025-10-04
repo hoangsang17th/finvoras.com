@@ -1,4 +1,4 @@
-import { Button, Navbar, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
+import { Button, NavbarCTAButton, Navbar, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
 import { Home, DollarSign, BookOpen, User, LogIn, UserPlus, Edit, Edit2 } from "lucide-react";
@@ -45,27 +45,11 @@ const ctaActions: NavbarCTAAction[] = [
     showOnTablet: true,
   },
   {
-    id: "sign-in",
-    component: (
-      <Button variant="secondary" href="/register"   >
-        Register
-      </Button>
-    ),
-    compactComponent: (
-      <Button variant="default" size="icon" title="Get Started" href="/register">
-        <Edit2 size={16} />
-      </Button>
-    ),
-    showOnMobile: true,
-    showOnDesktop: true,
-    showOnTablet: true,
-  },
-  {
     id: "get-started",
     component: (
-      <Button variant="primary" href="/login">
+      <NavbarCTAButton variant="primary" href="/login">
         Get Started
-      </Button>
+      </NavbarCTAButton>
     ),
     compactComponent: (
       <Button variant="primary" size="icon" title="Get Started" href="/login">
