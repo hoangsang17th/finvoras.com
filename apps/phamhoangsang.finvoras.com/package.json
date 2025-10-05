@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@repo/google-forms": "workspace:*",
+    "@repo/i18n": "workspace:*",
     "@repo/ui": "*",
     "@types/js-cookie": "^3.0.6",
     "js-cookie": "^3.0.5",

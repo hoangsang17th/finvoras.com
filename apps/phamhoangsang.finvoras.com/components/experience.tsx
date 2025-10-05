@@ -2,11 +2,11 @@
 
 import { Card } from "@repo/ui";
 import { Calendar, MapPin, Building } from "lucide-react";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useI18n } from "@/lib/i18n";
 import type { Experience } from "@/lib/types/resume";
 
 const Experience = () => {
-  const { ui, resumeData } = useLanguage();
+  const { ui, resumeData } = useI18n();
 
   if (!resumeData?.experiences.length) {
     return <div className="py-20 px-6">Loading...</div>;

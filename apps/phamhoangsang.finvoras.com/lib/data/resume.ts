@@ -1,39 +1,53 @@
 import { ResumeData } from "../types/resume";
+import { yearsExperience } from "./ui-translations";
 
-// Dữ liệu cá nhân có thể thay đổi ngôn ngữ
+/** ---- Single Source of Truth for years of experience ----
+ *  Set START_YEAR to when you started professional Flutter dev.
+ *  We clamp to minimum 3+ so UI always shows "3+" or more.
+ */
+const START_YEAR = 2021;
+const years = Math.max(3, new Date().getFullYear() - START_YEAR);
+
+
+/** ---- Personal content (EN/VI) tuned to Flutter/ERP/Finvoras ---- */
 const personalContent = {
     en: {
-        title: "Full Stack Developer & UI/UX Designer",
-        bio: "Passionate full-stack developer with 5+ years of experience creating beautiful, functional web applications. I love turning complex problems into simple, elegant solutions.",
-        status: "Available for freelance work"
+        title: "Flutter Engineer • Mobile & Product Delivery",
+        bio:
+            `Flutter engineer with ${yearsExperience} years building long-lived mobile products. ` +
+            "I care about clean architecture, steady delivery, and features that users come back for.",
+        status: "Open to collaboration"
     },
     vi: {
-        title: "Full Stack Developer & UI/UX Designer",
-        bio: "Lập trình viên full-stack đam mê với hơn 5 năm kinh nghiệm tạo ra các ứng dụng web đẹp và hiệu quả. Tôi thích biến những vấn đề phức tạp thành các giải pháp đơn giản và tinh tế.",
-        status: "Sẵn sàng nhận freelance"
+        title: "Flutter Engineer • Mobile & Product Delivery",
+        bio:
+            `Flutter engineer với ${yearsExperience} năm kinh nghiệm phát triển sản phẩm di động bền vững. ` +
+            "Ưu tiên kiến trúc sạch, nhịp giao hàng ổn định và trải nghiệm người dùng quay lại.",
+        status: "Sẵn sàng hợp tác"
     }
 };
 
+/** ---- Statistics (EN/VI) aligned with SSOT years ---- */
 const statisticsContent = {
     en: [
-        { label: "Years Experience", value: "3+", description: "Professional software development" },
-        { label: "Projects Completed", value: "20+", description: "Successful project deliveries" },
-        { label: "Technologies Used", value: "10+", description: "Modern tech stack" },
-        { label: "Commitment", value: "100%", description: "Dedication to quality" },
+        { label: "Years Experience", value: yearsExperience, description: "Professional mobile development" },
+        { label: "Projects Shipped", value: "10+", description: "From ERP modules to consumer apps" },
+        { label: "Technologies Used", value: "15+", description: "Flutter, Firebase, CI/CD, Clean Arch" },
+        { label: "Reliability", value: "99.9%", description: "Calm, repeatable delivery" },
     ],
     vi: [
-        { label: "Năm Kinh Nghiệm", value: "3+", description: "Phát triển phần mềm chuyên nghiệp" },
-        { label: "Dự Án Hoàn Thành", value: "20+", description: "Giao hàng dự án thành công" },
-        { label: "Công Nghệ Sử Dụng", value: "10+", description: "Stack công nghệ hiện đại" },
-        { label: "Cam Kết", value: "100%", description: "Cống hiến cho chất lượng" },
+        { label: "Năm Kinh Nghiệm", value: yearsExperience, description: "Phát triển mobile chuyên nghiệp" },
+        { label: "Dự Án Đã Ship", value: "10+", description: "Từ module ERP đến app tiêu dùng" },
+        { label: "Công Nghệ Sử Dụng", value: "15+", description: "Flutter, Firebase, CI/CD, Clean Arch" },
+        { label: "Độ Tin Cậy", value: "99,9%", description: "Giao hàng ổn định, bình tĩnh" },
     ]
 };
 
-// Dữ liệu tĩnh không cần đa ngôn ngữ (hoặc ít thay đổi)
+/** ---- Static data, updated to reflect your real profile ---- */
 export const staticResumeData = {
     personalInfo: {
         name: "Phạm Hoàng Sang",
-        location: "Đà Nẵng City, Việt Nam",
+        location: "Đà Nẵng, Việt Nam",
         email: "phsang49@gmail.com",
         phone: "+84 332 148 505",
         website: "https://phamhoangsang.finvoras.com",
@@ -50,203 +64,161 @@ export const staticResumeData = {
         resume: "/resume.pdf",
     },
 
+    /** 
+     * Experiences — gắn với hành trình thật:
+     * - 2021–2025: EnC → tách thành Cleeksy (ERP) (Full-time)
+     * - 2024–Now: Finvoras (Side project/Product)
+     * - Tùy chọn: Freelance nhỏ
+     */
     experiences: [
         {
-            id: "exp-1",
-            title: "Senior Software Engineer",
-            company: "Tech Solutions Inc.",
-            location: "Ho Chi Minh City, Vietnam",
-            period: "2023 - Present",
+            id: "exp-cleeksy",
+            title: "Flutter Developer (ERP)",
+            company: "EnC → Cleeksy",
+            location: "Đà Nẵng / Remote",
+            period: "2021 - 2025",
             type: "Full-time" as const,
             description: [
-                "Led development of microservices architecture serving 100k+ users",
-                "Implemented CI/CD pipelines reducing deployment time by 60%",
-                "Mentored junior developers and conducted code reviews",
-                "Collaborated with cross-functional teams to deliver high-quality products"
+                "Phát triển và bảo trì ứng dụng ERP di động phục vụ >500 người dùng nội bộ.",
+                "Thiết kế kiến trúc sạch (Clean Architecture), module hóa, chuẩn hóa coding conventions.",
+                "Tích hợp Firebase (Auth, FCM), tối ưu hiệu năng rendering & offline-first.",
+                "Thiết lập CI/CD cho build & delivery ổn định; giảm lỗi release và rút ngắn vòng đời phát hành.",
+                "Phối hợp BA/PM để làm rõ yêu cầu, đo đếm tác động bằng chỉ số sử dụng thực tế."
             ],
-            technologies: ["React", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL"],
+            technologies: ["Flutter", "Dart", "Firebase", "GetX/MVVM", "SQLite", "REST", "CI/CD", "Clean Architecture"],
             featured: true,
         },
         {
-            id: "exp-2",
-            title: "Full-Stack Developer",
-            company: "Digital Agency Co.",
-            location: "Ho Chi Minh City, Vietnam",
-            period: "2022 - 2023",
-            type: "Full-time" as const,
+            id: "exp-finvoras",
+            title: "Founder / Flutter Engineer",
+            company: "Finvoras",
+            location: "Đà Nẵng / Remote",
+            period: "2024 - Present",
+            type: "Freelance" as const,
             description: [
-                "Developed responsive web applications using React and Next.js",
-                "Built RESTful APIs with Node.js and Express.js",
-                "Integrated third-party services and payment gateways",
-                "Optimized application performance and SEO"
+                "Xây dựng nền tảng quản lý tài chính cá nhân: theo dõi chi tiêu, ngân sách, insight giáo dục tài chính.",
+                "Thiết kế UX tối giản, ưu tiên retention: luồng nhập nhanh, nhắc nhở thông minh.",
+                "Thiết lập monorepo tooling, quản lý version & changelog; tự động hóa test/build.",
+                "Phát triển trang giới thiệu/marketing và nội dung SEO cơ bản."
             ],
-            technologies: ["React", "Next.js", "Node.js", "MongoDB", "Stripe", "Vercel"],
+            technologies: ["Flutter", "Dart", "Firebase", "Riverpod/GetX", "Supabase/PostgreSQL", "CI/CD"],
             featured: true,
         },
-        {
-            id: "exp-3",
-            title: "Frontend Developer",
-            company: "Startup Hub",
-            location: "Ho Chi Minh City, Vietnam",
-            period: "2021 - 2022",
-            type: "Full-time" as const,
-            description: [
-                "Created modern user interfaces with React and TypeScript",
-                "Implemented responsive designs and cross-browser compatibility",
-                "Worked closely with UX/UI designers to bring designs to life",
-                "Participated in agile development processes"
-            ],
-            technologies: ["React", "TypeScript", "SASS", "Material-UI", "Git", "Figma"],
-        },
-        {
-            id: "exp-4",
-            title: "Junior Web Developer",
-            company: "Local Web Agency",
-            location: "Ho Chi Minh City, Vietnam",
-            period: "2020 - 2021",
-            type: "Full-time" as const,
-            description: [
-                "Developed websites using HTML, CSS, and JavaScript",
-                "Learned React.js and modern development practices",
-                "Assisted senior developers in project delivery",
-                "Gained experience in version control and team collaboration"
-            ],
-            technologies: ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", "Git"],
-        }
+        // (Tùy chọn) thay thế nếu bạn có freelance thật:
+        // {
+        //   id: "exp-freelance",
+        //   title: "Mobile Developer (Freelance)",
+        //   company: "Self-employed",
+        //   location: "Remote",
+        //   period: "2023 - 2024",
+        //   type: "Freelance" as const,
+        //   description: [
+        //     "Xây MVP cho khách hàng SMEs: xác thực, đồng bộ dữ liệu và thông báo đẩy.",
+        //     "Tối ưu time-to-first-value, đo lường qua event tracking cơ bản."
+        //   ],
+        //   technologies: ["Flutter", "Firebase", "Stripe", "REST/GraphQL"],
+        // },
     ],
 
+    /** Skills — ưu tiên Mobile/Flutter; vẫn giữ độ phủ toolchain */
     skillCategories: [
         {
-            title: "Frontend",
-            icon: "🎨",
+            title: "Mobile (Flutter)",
+            icon: "📱",
             skills: [
-                { name: "React", level: 90 },
-                { name: "Next.js", level: 88 },
-                { name: "TypeScript", level: 85 },
-                { name: "JavaScript", level: 92 },
-                { name: "HTML5", level: 95 },
-                { name: "CSS3", level: 90 },
-                { name: "Tailwind CSS", level: 88 },
-                { name: "SASS/SCSS", level: 85 }
+                { name: "Flutter/Dart", level: 90 },
+                { name: "Clean Architecture", level: 88 },
+                { name: "State Mgmt (Riverpod/GetX)", level: 85 },
+                { name: "Offline-first/SQLite", level: 82 },
+                { name: "Animations/Custom UI", level: 80 },
+                { name: "Deeplink & Routing", level: 80 },
             ]
         },
         {
-            title: "Backend",
+            title: "Backend & Cloud",
             icon: "⚙️",
             skills: [
-                { name: "Node.js", level: 88 },
-                { name: "Express.js", level: 85 },
-                { name: "Python", level: 80 },
-                { name: "PHP", level: 75 },
-                { name: "RESTful APIs", level: 90 },
-                { name: "GraphQL", level: 78 },
-                { name: "Microservices", level: 82 },
-                { name: "Authentication", level: 85 }
+                { name: "Firebase (Auth/FCM/Firestore)", level: 85 },
+                { name: "REST/GraphQL APIs", level: 80 },
+                { name: "Supabase/PostgreSQL", level: 78 },
+                { name: "Node.js (basic services)", level: 70 },
             ]
         },
         {
-            title: "Database",
-            icon: "🗄️",
-            skills: [
-                { name: "PostgreSQL", level: 85 },
-                { name: "MongoDB", level: 80 },
-                { name: "MySQL", level: 75 },
-                { name: "Redis", level: 70 },
-                { name: "Database Design", level: 82 },
-                { name: "Query Optimization", level: 75 },
-                { name: "Data Modeling", level: 80 },
-                { name: "NoSQL", level: 78 }
-            ]
-        },
-        {
-            title: "DevOps & Tools",
+            title: "DevOps & Quality",
             icon: "🚀",
             skills: [
-                { name: "Git", level: 90 },
-                { name: "Docker", level: 80 },
-                { name: "AWS", level: 75 },
-                { name: "CI/CD", level: 82 },
-                { name: "Linux", level: 78 },
-                { name: "Nginx", level: 70 },
-                { name: "Monitoring", level: 72 },
-                { name: "Testing", level: 85 }
+                { name: "CI/CD (Fastlane/GitHub Actions)", level: 82 },
+                { name: "Testing (Unit/Widget/Golden)", level: 80 },
+                { name: "Crash/Perf Monitoring", level: 78 },
+                { name: "Code Review & Docs", level: 80 },
+            ]
+        },
+        {
+            title: "Design & Web (supporting)",
+            icon: "🎨",
+            skills: [
+                { name: "Design Systems & UX Writing", level: 78 },
+                { name: "Figma", level: 78 },
+                { name: "Next.js/React (landing)", level: 70 },
+                { name: "Tailwind CSS", level: 72 },
             ]
         }
     ],
 
+    /** Projects — nhấn mạnh Finvoras + ERP (private) */
     projects: [
         {
-            id: "proj-1",
-            title: "Finvoras - Personal Finance Platform",
-            description: "A comprehensive personal finance management platform helping users track expenses, manage budgets, and build wealth with personalized insights.",
+            id: "proj-finvoras",
+            title: "Finvoras — Personal Finance",
+            description:
+                "Nền tảng quản lý tài chính cá nhân: ghi chép chi tiêu, ngân sách, và insight giúp hình thành thói quen tốt.",
             image: "/projects/finvoras.jpg",
-            technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
+            technologies: ["Flutter", "Dart", "Firebase", "Supabase", "CI/CD"],
             features: [
-                "Expense tracking and categorization",
-                "Budget planning and management",
-                "Financial insights and analytics",
-                "Educational content and resources"
+                "Ghi chép siêu nhanh, phân loại & ngân sách",
+                "Đồng bộ đa thiết bị, offline-first",
+                "Nhắc nhở thông minh & dashboard thói quen",
+                "Trang giới thiệu & nội dung giáo dục tài chính"
             ],
             liveUrl: "https://finvoras.com",
-            githubUrl: "https://github.com/hoangsang17th/finvoras",
+            githubUrl: "https://github.com/hoangsang17th", // có thể trỏ repo cụ thể khi public
             status: "Live" as const,
             year: "2024",
             featured: true,
-            category: "Web Application"
+            category: "Mobile / Product"
         },
         {
-            id: "proj-2",
-            title: "E-Commerce Dashboard",
-            description: "Admin dashboard for e-commerce platform with real-time analytics, inventory management, and sales tracking.",
-            image: "/projects/dashboard.jpg",
-            technologies: ["React", "TypeScript", "Chart.js", "Express.js", "MongoDB"],
+            id: "proj-erp",
+            title: "ERP Mobile Suite (Internal)",
+            description:
+                "Ứng dụng ERP nội bộ: quy trình phê duyệt, quản lý kho/đơn, thông báo đẩy; tối ưu cho người dùng hiện trường.",
+            image: "/projects/erp.jpg",
+            technologies: ["Flutter", "Dart", "Firebase", "SQLite", "REST"],
             features: [
-                "Real-time sales analytics",
-                "Inventory management system",
-                "Customer data visualization",
-                "Revenue tracking and reporting"
+                "Quy trình phê duyệt và tác vụ ngoại tuyến",
+                "Đồng bộ nền & thông báo đẩy (FCM)",
+                "Theo dõi hiệu năng & crash, tối ưu TTI",
+                "Kiến trúc sạch, module hoá"
             ],
-            liveUrl: "https://dashboard-demo.com",
-            githubUrl: "https://github.com/hoangsang17th/ecommerce-dashboard",
             status: "Live" as const,
-            year: "2023",
+            year: "2022-2025",
             featured: true,
-            category: "Dashboard"
-        },
-        {
-            id: "proj-3",
-            title: "Task Management App",
-            description: "Collaborative task management application with real-time updates, team collaboration features, and progress tracking.",
-            image: "/projects/taskapp.jpg",
-            technologies: ["React", "Node.js", "Socket.io", "PostgreSQL", "Material-UI"],
-            features: [
-                "Real-time collaboration",
-                "Task assignment and tracking",
-                "Team communication tools",
-                "Progress visualization"
-            ],
-            liveUrl: "https://taskapp-demo.com",
-            githubUrl: "https://github.com/hoangsang17th/task-management",
-            status: "Live" as const,
-            year: "2023",
-            featured: false,
-            category: "Web Application"
+            category: "Enterprise"
         }
     ],
 
     additionalSkills: [
         "Problem Solving",
-        "Team Leadership",
-        "Project Management",
-        "UI/UX Design",
         "Technical Writing",
-        "Code Review",
         "Mentoring",
-        "Agile/Scrum"
+        "Agile/Scrum",
+        "Product Thinking",
+        "Stakeholder Communication"
     ]
 };
 
-// Function để lấy data theo ngôn ngữ
+/** ---- Getter giữ nguyên chữ ký ---- */
 export const getLocalizedResumeData = (locale: 'en' | 'vi'): ResumeData => {
     return {
         personalInfo: {

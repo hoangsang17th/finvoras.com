@@ -2,7 +2,9 @@ import { TooltipProvider } from "@repo/ui";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist } from "next/font/google";
+import { I18nProvider } from "@repo/i18n";
 import { Navbar } from "@/components/navbar";
+import { translations } from "@/lib/data/translations";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -110,14 +112,21 @@ export default function RootLayout({
         )}
       </head>
       <body className={`${geistSans.className} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TooltipProvider>
-            <Navbar />
-            <main className="pt-16 xs:pt-20 sm:pt-24">
-              {children}
-            </main>
-          </TooltipProvider>
-        </ThemeProvider>
+        <I18nProvider
+          translations={translations}
+          defaultLocale="en"
+          supportedLocales={["en", "vi"]}
+          storageKey="finvoras-locale"
+        >
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <TooltipProvider>
+              <Navbar />
+              <main className="pt-16 xs:pt-20 sm:pt-24">
+                {children}
+              </main>
+            </TooltipProvider>
+          </ThemeProvider>
+        </I18nProvider>
       </body>
     </html>
   );

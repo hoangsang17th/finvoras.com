@@ -7,13 +7,17 @@ const languages = [
   { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' }
 ];
 
+type FinvorasLanguageSwitcherProps = {
+  showName?: boolean;
+  className?: string;
+};
+
 export default function LanguageSwitcher() {
   return (
     <SharedLanguageSwitcher
       languages={languages}
       showName={false}
-      className=""
-      variant='switcher'
+      variant="switcher"
     />
   );
 }

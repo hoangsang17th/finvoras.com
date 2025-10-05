@@ -4,10 +4,10 @@ import { Badge, Button } from "@repo/ui";
 import { ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useI18n } from "@/lib/i18n";
 
 const Hero = () => {
-  const { ui, resumeData } = useLanguage();
+  const { ui, resumeData } = useI18n();
 
   if (!resumeData) {
     return <div className="min-h-[calc(100vh-6rem)] flex items-center justify-center">Loading...</div>;

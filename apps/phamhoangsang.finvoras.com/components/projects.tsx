@@ -4,11 +4,11 @@ import { Card, Button } from "@repo/ui";
 import { ExternalLink, Github, Calendar } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useI18n } from "@/lib/i18n";
 import type { Project } from "@/lib/types/resume";
 
 const Projects = () => {
-  const { resumeData } = useLanguage();
+  const { ui, resumeData } = useI18n();
   const projects = resumeData?.projects || [];
   const socialLinks = resumeData?.socialLinks || {};
 
@@ -51,10 +51,10 @@ const Projects = () => {
                 <div className="absolute top-4 right-4">
                   <span
                     className={`px-2 py-1 text-xs rounded-full font-medium ${project.status === "Live"
-                        ? "bg-brand-success text-white"
-                        : project.status === "In Development"
-                          ? "bg-brand-warning text-white"
-                          : "bg-muted text-muted-foreground"
+                      ? "bg-brand-success text-white"
+                      : project.status === "In Development"
+                        ? "bg-brand-warning text-white"
+                        : "bg-muted text-muted-foreground"
                       }`}
                   >
                     {project.status}

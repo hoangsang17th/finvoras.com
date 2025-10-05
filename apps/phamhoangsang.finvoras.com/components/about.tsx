@@ -2,11 +2,11 @@
 
 import { Card } from "@repo/ui";
 import { MapPin, Coffee, Code, Heart } from "lucide-react";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useI18n } from "@/lib/i18n";
 import type { Statistic } from "@/lib/types/resume";
 
 const About = () => {
-  const { ui, resumeData } = useLanguage();
+  const { ui, resumeData } = useI18n();
 
   if (!resumeData) {
     return <div className="py-20 px-6 bg-muted/30">Loading...</div>;
@@ -69,7 +69,7 @@ const About = () => {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-2 gap-6">
-                              {statistics.map((stat: Statistic, index: number) => (
+            {statistics.map((stat: Statistic, index: number) => (
               <Card key={index} className="p-6 text-center">
                 <div className="text-3xl font-bold text-brand-primary mb-2">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>

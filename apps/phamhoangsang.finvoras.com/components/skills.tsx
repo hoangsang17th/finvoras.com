@@ -1,11 +1,11 @@
 "use client";
 
 import { Card } from "@repo/ui";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useI18n } from "@/lib/i18n";
 import type { SkillCategory, Skill } from "@/lib/types/resume";
 
 const Skills = () => {
-  const { ui, resumeData } = useLanguage();
+  const { ui, resumeData } = useI18n();
 
   if (!resumeData?.skillCategories.length) {
     return <div className="py-20 px-6 bg-muted/30">Loading...</div>;
@@ -29,7 +29,7 @@ const Skills = () => {
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {skillCategories.map((category: SkillCategory, index: number) => (
+          {skillCategories.map((category: SkillCategory, index: number) => (
             <Card key={index} className="p-6">
               {/* Category Header */}
               <div className="flex items-center gap-3 mb-6">

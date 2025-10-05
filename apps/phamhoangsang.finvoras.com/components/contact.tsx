@@ -4,7 +4,7 @@ import { useState, useMemo, useCallback } from "react";
 import { Card, Button, Input, Label } from "@repo/ui";
 import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, CheckCircle2, Loader2 } from "lucide-react";
 import Link from "next/link";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useI18n } from "@/lib/i18n";
 import { submitToGoogleForm, createGoogleFormConfig } from "@repo/google-forms";
 
 // Types
@@ -280,7 +280,7 @@ const ContactForm = ({
 
 // Main Contact Component
 const Contact = () => {
-  const { resumeData, ui } = useLanguage();
+  const { resumeData, ui } = useI18n();
   const {
     formData,
     isSubmitting,

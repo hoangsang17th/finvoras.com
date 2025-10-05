@@ -3,18 +3,18 @@
 import { Button } from "@repo/ui";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import Link from "next/link";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useI18n } from "@/lib/i18n";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { ui, resumeData } = useLanguage();
+  const { ui, resumeData } = useI18n();
 
   if (!resumeData) {
     return null;
   }
 
   const { personalInfo, socialLinks } = resumeData;
-  
+
   const navigationItems = [
     { href: "#about", label: ui.nav.about },
     { href: "#experience", label: ui.nav.experience },

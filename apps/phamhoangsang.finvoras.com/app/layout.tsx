@@ -2,7 +2,7 @@ import { TooltipProvider } from "@repo/ui";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist } from "next/font/google";
-import { LanguageProvider } from "@/lib/contexts/LanguageContext";
+import { I18nProvider } from "@/lib/i18n";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,7 +32,7 @@ export default function RootLayout({
         )}
       </head>
       <body className={geistSans.className}>
-        <LanguageProvider>
+        <I18nProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -44,7 +44,7 @@ export default function RootLayout({
               {children}
             </TooltipProvider>
           </ThemeProvider>
-        </LanguageProvider>
+        </I18nProvider>
       </body>
     </html>
   );

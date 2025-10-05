@@ -3,7 +3,7 @@
 import { Navbar, Button, Logo, type NavMenuItem, type NavbarCTAAction, ThemeToggle } from "@repo/ui";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
-import { useLanguage } from "@/lib/contexts/LanguageContext";
+import { useI18n } from "@/lib/i18n";
 import LanguageSwitcher from "./language-switcher";
 import { User, Briefcase, Award, FolderOpen, Mail, Download } from "lucide-react";
 
@@ -59,7 +59,7 @@ const PortfolioLogo = ({ name }: { name: string }) => {
 };
 
 const PortfolioNavbar = () => {
-  const { ui, resumeData } = useLanguage();
+  const { ui, resumeData } = useI18n();
 
   // Return loading state if data is not ready
   if (!resumeData) {
@@ -85,22 +85,8 @@ const PortfolioNavbar = () => {
 
   // Define CTA actions
   const ctaActions: NavbarCTAAction[] = [
-    {
-      id: "language-switcher",
-      component: <LanguageSwitcher />,
-      compactComponent: <LanguageSwitcher />,
-      showOnMobile: true,
-      showOnDesktop: true,
-      showOnTablet: true,
-    },
-    {
-      id: "theme-toggle",
-      component: <ThemeToggle context="navbar" />,
-      compactComponent: <ThemeToggle context="navbar" />,
-      showOnMobile: true,
-      showOnDesktop: true,
-      showOnTablet: true,
-    },
+
+
     ...(resumeData.personalInfo.resumeUrl ? [{
       id: "download-cv",
       component: (
@@ -126,7 +112,24 @@ const PortfolioNavbar = () => {
       showOnMobile: true,
       showOnDesktop: true,
       showOnTablet: true,
-    }] : []),
+    },
+    {
+      id: "theme-toggle",
+      component: <ThemeToggle context="navbar" />,
+      compactComponent: <ThemeToggle context="navbar" />,
+      showOnMobile: true,
+      showOnDesktop: true,
+      showOnTablet: true,
+    },
+    {
+      id: "language-switcher",
+      component: <LanguageSwitcher />,
+      compactComponent: <LanguageSwitcher />,
+      showOnMobile: true,
+      showOnDesktop: true,
+      showOnTablet: true,
+    },
+    ] : []),
   ];
 
   return (
