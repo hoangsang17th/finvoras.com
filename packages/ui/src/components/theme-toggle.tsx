@@ -1,20 +1,28 @@
 "use client";
 
-import { Button } from "@repo/ui";
+import { Button } from "./button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { ButtonProps } from "./button/button.types";
 
-interface ThemeToggleProps {
-    variant?: "primary" | "secondary" | "default" | "link";
-    size?: "sm" | "md" | "lg" | "icon";
-    className?: string;
+interface ThemeToggleProps extends Pick<ButtonProps, "variant" | "size" | "className" | "context"> {
+    /**
+     * Title text for accessibility
+     */
+    title?: string;
 }
 
+/**
+ * Shared ThemeToggle component that works across all apps
+ * Supports all Button variants and contexts (default, navbar)
+ */
 export const ThemeToggle = ({
     variant = "secondary",
     size = "icon",
-    className = ""
+    className = "",
+    context = "default",
+    title,
 }: ThemeToggleProps) => {
     const [mounted, setMounted] = useState(false);
     const { resolvedTheme, setTheme } = useTheme();
@@ -35,13 +43,15 @@ export const ThemeToggle = ({
                 variant={variant}
                 size={size}
                 className={`${className} opacity-50`}
+                context={context}
                 disabled
                 title="Loading theme..."
-            >
-                <Sun className="h-5 w-5" />
-            </Button>
+                icon={<Sun className="h-5 w-5" />}
+            />
         );
     }
+
+    const currentTitle = title || `Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`;
 
     return (
         <Button
@@ -49,13 +59,16 @@ export const ThemeToggle = ({
             size={size}
             onClick={toggleTheme}
             className={`${className} transition-transform hover:scale-105`}
-            title={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
+            context={context}
+            title={currentTitle}
+            icon={
+                resolvedTheme === "dark" ? (
+                    <Sun className="h-5 w-5 rotate-0 scale-100 transition-all" />
+                ) : (
+                    <Moon className="h-5 w-5 rotate-0 scale-100 transition-all" />
+                )
+            }
         >
-            {resolvedTheme === "dark" ? (
-                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all" />
-            ) : (
-                <Moon className="h-5 w-5 rotate-0 scale-100 transition-all" />
-            )}
             <span className="sr-only">Toggle theme</span>
         </Button>
     );

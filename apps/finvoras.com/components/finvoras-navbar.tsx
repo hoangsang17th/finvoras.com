@@ -1,6 +1,4 @@
-import { Button, Navbar, Logo, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
-import Link from "next/link";
-import ThemeToggle from "./theme-toggle";
+import { Button, Navbar, Logo, type NavMenuItem, type NavbarCTAAction, ThemeToggle } from "@repo/ui"; 
 import { FinvorasLogo } from "./finvoras-logo";
 import { Home, DollarSign, BookOpen, User, LogIn, UserPlus, Edit, Edit2 } from "lucide-react";
 
@@ -23,8 +21,8 @@ const menuItems: NavMenuItem[] = [
 const ctaActions: NavbarCTAAction[] = [
   {
     id: "theme-toggle",
-    component: <ThemeToggle />,
-    compactComponent: <ThemeToggle />, // Same for all sizes
+    component: <ThemeToggle context="navbar" />,
+    compactComponent: <ThemeToggle context="navbar" />,
     showOnMobile: true,
     showOnDesktop: true,
     showOnTablet: true,

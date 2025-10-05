@@ -1,10 +1,9 @@
 "use client";
 
-import { Navbar, Button, Logo, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
+import { Navbar, Button, Logo, type NavMenuItem, type NavbarCTAAction, ThemeToggle } from "@repo/ui";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/contexts/LanguageContext";
-import ThemeToggle from "./theme-toggle";
 import LanguageSwitcher from "./language-switcher";
 import { User, Briefcase, Award, FolderOpen, Mail, Download } from "lucide-react";
 
@@ -96,8 +95,8 @@ const PortfolioNavbar = () => {
     },
     {
       id: "theme-toggle",
-      component: <ThemeToggle />,
-      compactComponent: <ThemeToggle />,
+      component: <ThemeToggle context="navbar" />,
+      compactComponent: <ThemeToggle context="navbar" />,
       showOnMobile: true,
       showOnDesktop: true,
       showOnTablet: true,

@@ -55,6 +55,8 @@ export {
 export { Navbar } from "./components/navbar";
 export type { NavbarProps, NavMenuItem, NavbarCTAAction } from "./components/navbar";
 
+export { ThemeToggle } from "./components/theme-toggle";
+
 export { Separator } from "./components/separator";
 
 export {

@@ -26,14 +26,11 @@ export default function LanguageSwitcher() {
       <Button
         variant="default"
         size="sm"
-        className="h-9 gap-2"
+        className=" gap-2"
         onClick={() => setIsOpen(!isOpen)}
-      >
-        <Languages className="h-4 w-4" />
-        <span className="hidden sm:inline">{currentLanguage?.flag}</span>
-        <ChevronDown className="h-3 w-3" />
-        <span className="sr-only">Switch language</span>
-      </Button>
+        icon={currentLanguage?.flag}
+      > 
+      </Button >
 
       {isOpen && (
         <>
