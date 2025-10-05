@@ -1,6 +1,14 @@
-# Turborepo starter
+# Finvoras.com
 
-This Turborepo starter is maintained by the Turborepo core team.
+Portfolio and business website built with Turborepo, Next.js, and React.
+
+## 📚 Documentation
+
+- 📋 **[Documentation Hub](./docs/README.md)** - Main documentation center
+- 🎯 **[Portfolio Strategy](./docs/PORTFOLIO_GUIDELINE.md)** - Make portfolio attractive to recruiters  
+- � **[Google Form Setup](./docs/Google_Form_Setup.md)** - Contact form with reCAPTCHA integration
+- 🔐 **[Advanced Features](./docs/ADVANCED_FEATURES.md)** - File upload, tracking, alternatives
+- 📝 **[Changelog](./docs/CHANGELOG.md)** - Project history and updates
 
 ## Using this example
 

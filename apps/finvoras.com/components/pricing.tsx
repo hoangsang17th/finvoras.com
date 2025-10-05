@@ -111,7 +111,7 @@ const Pricing = () => {
             </p>
 
             <Button
-              variant={plan.isPopular ? "brand" : "brand-outline"}
+              variant={plan.isPopular ? "primary" : "secondary"}
               size="lg"
               className="w-full mt-6 text-base"
             >

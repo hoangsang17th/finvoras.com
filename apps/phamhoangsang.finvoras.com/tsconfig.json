@@ -26,6 +26,9 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@repo/google-forms": [
+        "../../packages/google-forms/src"
       ]
     }
   },

@@ -6,13 +6,13 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 interface ThemeToggleProps {
-    variant?: "default" | "ghost" | "outline";
-    size?: "default" | "sm" | "lg" | "icon";
+    variant?: "primary" | "secondary" | "default" | "link";
+    size?: "sm" | "md" | "lg" | "icon";
     className?: string;
 }
 
 export const ThemeToggle = ({
-    variant = "ghost",
+    variant = "secondary",
     size = "icon",
     className = ""
 }: ThemeToggleProps) => {

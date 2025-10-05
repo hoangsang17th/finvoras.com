@@ -48,7 +48,7 @@ export interface NavbarProps {
 // Helper function to check if menu item is active
 const isMenuItemActive = (item: NavMenuItem, pathname: string, homePath: string, activeSection?: string): boolean => {
   const isHomepage = pathname === homePath;
-  
+
   // For homepage with fragments, use activeSection to determine active state
   if (isHomepage && item.fragmentId) {
     return activeSection === item.fragmentId;
@@ -104,7 +104,7 @@ const useActiveSection = (menuItems: NavMenuItem[], homePath: string) => {
     const hash = window.location.hash.replace('#', '');
     if (hash && menuItems.some(item => item.fragmentId === hash)) {
       setActiveSection(hash);
-    } else if (menuItems.length > 0 && menuItems[0].fragmentId) {
+    } else if (menuItems.length > 0 && menuItems[0]?.fragmentId) {
       setActiveSection(menuItems[0].fragmentId);
     }
 

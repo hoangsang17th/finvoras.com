@@ -33,7 +33,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <div className="bg-gradient-to-b from-muted/30 to-background py-8 px-6">
         <div className="max-w-4xl mx-auto">
           <Link href="/blog">
-            <Button variant="ghost" className="mb-6">
+            <Button variant="secondary" className="mb-6">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Blog
             </Button>
@@ -119,7 +119,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </h3>
                 <div className="space-y-3">
                   <Button
-                    variant="outline"
+                    variant="secondary"
                     className="w-full justify-start"
                     onClick={() => navigator.share?.({
                       title: post.title,
