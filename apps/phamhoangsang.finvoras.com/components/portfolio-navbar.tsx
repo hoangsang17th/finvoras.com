@@ -1,16 +1,64 @@
 "use client";
 
 import { Navbar, NavbarCTAButton, Logo, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
+import Image from "next/image";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/contexts/LanguageContext";
 import ThemeToggle from "./theme-toggle";
 import LanguageSwitcher from "./language-switcher";
 import { User, Briefcase, Award, FolderOpen, Mail, Download } from "lucide-react";
 
 // Portfolio Logo Component using shared Logo component
-const PortfolioLogo = ({ name }: { name: string }) => (
-  <Logo>{name}</Logo>
-);
+const PortfolioLogo = ({ name }: { name: string }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    // Nếu đang ở homepage, scroll lên top
+    if (pathname === '/') {
+      // Sử dụng requestAnimationFrame để đảm bảo scroll mượt mà hơn
+      const scrollToTop = () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > 0) {
+          window.requestAnimationFrame(scrollToTop);
+          // Giảm tốc độ scroll để có hiệu ứng mượt mà hơn
+          window.scrollTo(0, currentScroll - (currentScroll / 8));
+        }
+      };
+
+      // Fallback cho trình duyệt hỗ trợ smooth behavior
+      if ('scrollBehavior' in document.documentElement.style) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      } else {
+        // Sử dụng custom animation cho trình duyệt cũ
+        scrollToTop();
+      }
+    } else {
+      // Nếu ở page khác, navigate về home
+      router.push('/');
+    }
+  };
+
+  return (
+    <div onClick={handleLogoClick} className="cursor-pointer">
+      <Logo>
+        <Image
+          src="/logo.png"
+          alt={name}
+          width={56}
+          height={56}
+          className="object-contain"
+        />
+      </Logo>
+    </div>
+  );
+};
 
 const PortfolioNavbar = () => {
   const { ui, resumeData } = useLanguage();
