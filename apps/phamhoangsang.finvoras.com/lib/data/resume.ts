@@ -32,10 +32,10 @@ const statisticsContent = {
 // Dữ liệu tĩnh không cần đa ngôn ngữ (hoặc ít thay đổi)
 export const staticResumeData = {
     personalInfo: {
-        name: "Hoang Sang",
-        location: "Ho Chi Minh City, Vietnam",
-        email: "contact@hoangsang.dev",
-        phone: "+84 123 456 789",
+        name: "Phạm Hoàng Sang",
+        location: "Đà Nẵng City, Việt Nam",
+        email: "phsang49@gmail.com",
+        phone: "+84 332 148 505",
         website: "https://phamhoangsang.finvoras.com",
         avatar: "/avatar.jpg",
         availability: true,
@@ -44,9 +44,9 @@ export const staticResumeData = {
 
     socialLinks: {
         github: "https://github.com/hoangsang17th",
-        linkedin: "https://linkedin.com/in/hoangsang",
+        linkedin: "https://linkedin.com/in/phsang49",
         twitter: "https://twitter.com/hoangsang",
-        email: "contact@example.com",
+        email: "phsang49@gmail.com",
         resume: "/resume.pdf",
     },
 

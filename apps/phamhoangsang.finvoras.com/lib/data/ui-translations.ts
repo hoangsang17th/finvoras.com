@@ -34,7 +34,7 @@ export const uiTranslations: Record<'en' | 'vi', UITranslations> = {
             },
             contact: {
                 title: "Get in Touch",
-                subtitle: "Let's work together"
+                subtitle: "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology."
             }
         },
 
@@ -62,6 +62,24 @@ export const uiTranslations: Record<'en' | 'vi', UITranslations> = {
             emailPlaceholder: "your.email@example.com",
             messagePlaceholder: "Your message here...",
             subjectPlaceholder: "What's this about?",
+
+            // Contact page specific
+            letsConnect: "Let's Connect",
+            connectDescription: "Whether you have a project in mind, want to collaborate, or just want to say hello, I'd love to hear from you. Feel free to reach out through any of the channels below.",
+            sectionDescription: "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.",
+            sendAMessage: "Send a Message",
+            followMe: "Follow Me",
+            messageSent: "Message Sent!",
+            messageSentDescription: "Thank you for reaching out. I'll get back to you as soon as possible.",
+            sendAnotherMessage: "Send Another Message",
+            contactRequired: "*",
+            messagePlaceholderLong: "Tell me about your project or just say hello!",
+            errorMessage: "There was an issue sending your message. Please try again or contact me directly via email.",
+            responseTime: "I typically respond within 24 hours. Looking forward to hearing from you!",
+
+            // Contact info labels
+            phone: "Phone",
+            location: "Location",
 
             // Experience types
             present: "Present",
@@ -135,7 +153,7 @@ export const uiTranslations: Record<'en' | 'vi', UITranslations> = {
             },
             contact: {
                 title: "Liên Hệ",
-                subtitle: "Hãy cùng làm việc"
+                subtitle: "Tôi luôn sẵn sàng thảo luận về những cơ hội mới, dự án thú vị, hoặc chỉ là trò chuyện về công nghệ."
             }
         },
 
@@ -159,10 +177,28 @@ export const uiTranslations: Record<'en' | 'vi', UITranslations> = {
             subject: "Chủ đề",
 
             // Form placeholders
-            namePlaceholder: "Tên của bạn",
-            emailPlaceholder: "email.cua.ban@example.com",
+            namePlaceholder: "Họ và tên",
+            emailPlaceholder: "yourmail@example.com",
             messagePlaceholder: "Tin nhắn của bạn...",
             subjectPlaceholder: "Về điều gì?",
+
+            // Contact page specific
+            letsConnect: "Hãy Kết Nối",
+            connectDescription: "Cho dù bạn có ý tưởng dự án, muốn hợp tác, hay chỉ muốn chào hỏi, tôi rất mong được nghe từ bạn. Hãy liên hệ qua bất kỳ kênh nào dưới đây.",
+            sectionDescription: "Tôi luôn sẵn sàng thảo luận về những cơ hội mới, dự án thú vị, hoặc chỉ là trò chuyện về công nghệ.",
+            sendAMessage: "Gửi Tin Nhắn",
+            followMe: "Theo Dõi Tôi",
+            messageSent: "Tin Nhắn Đã Gửi!",
+            messageSentDescription: "Cảm ơn bạn đã liên hệ. Tôi sẽ phản hồi trong thời gian sớm nhất.",
+            sendAnotherMessage: "Gửi Tin Nhắn Khác",
+            contactRequired: "*",
+            messagePlaceholderLong: "Hãy kể cho tôi về dự án của bạn hoặc chỉ chào hỏi!",
+            errorMessage: "Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại hoặc liên hệ trực tiếp qua email.",
+            responseTime: "Tôi thường phản hồi trong vòng 24 giờ. Mong được nghe từ bạn!",
+
+            // Contact info labels
+            phone: "Điện thoại",
+            location: "Địa điểm",
 
             // Experience types
             present: "Hiện tại",

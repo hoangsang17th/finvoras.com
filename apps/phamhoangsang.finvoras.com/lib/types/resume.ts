@@ -50,6 +50,25 @@ export interface UITranslations {
         emailPlaceholder: string;
         messagePlaceholder: string;
         subjectPlaceholder: string;
+
+        // Contact page specific
+        letsConnect: string;
+        connectDescription: string;
+        sectionDescription: string;
+        sendAMessage: string;
+        followMe: string;
+        messageSent: string;
+        messageSentDescription: string;
+        sendAnotherMessage: string;
+        contactRequired: string;
+        messagePlaceholderLong: string;
+        errorMessage: string;
+        responseTime: string;
+
+        // Contact info labels
+        phone: string;
+        location: string;
+
         present: string;
         fullTime: string;
         partTime: string;
