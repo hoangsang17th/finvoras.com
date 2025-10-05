@@ -10,8 +10,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Hoang Sang - Software Engineer & Full-Stack Developer",
-  description: "Hoang Sang&apos;s professional resume.",
+  title: "Phạm Hoàng Sang - Software Engineer",
+  description: "Phạm Hoàng Sang&apos;s professional resume.",
 };
 
 export default function RootLayout({

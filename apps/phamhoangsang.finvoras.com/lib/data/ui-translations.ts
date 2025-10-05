@@ -1,9 +1,8 @@
 import type { UITranslations } from "../types/resume";
 
-// Cấu trúc UI translations - consolidation từ JSON files
-export const uiTranslations: Record<'en' | 'vi', UITranslations> = {
+// CV-mode v2 — consistent "3+ years"
+export const uiTranslations: Record<"en" | "vi", UITranslations> = {
     en: {
-        // Navigation
         nav: {
             home: "Home",
             about: "About",
@@ -11,7 +10,7 @@ export const uiTranslations: Record<'en' | 'vi', UITranslations> = {
             skills: "Skills",
             projects: "Projects",
             contact: "Contact",
-            downloadCv: "Download CV"
+            downloadCv: "Download CV",
         },
 
         // Section headers - static UI text
