@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback } from "react";
 import { Card, Button, Input, Label } from "@repo/ui";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, CheckCircle2, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/lib/contexts/LanguageContext";
 import { submitToGoogleForm, createGoogleFormConfig } from "@repo/google-forms";
@@ -263,18 +263,17 @@ const ContactForm = ({
       </div>
     )}
 
-    <Button type="submit" className="w-full" disabled={isSubmitting}>
-      {isSubmitting ? (
-        <>
-          <span className="h-4 w-4 mr-2 border-2 border-current border-t-transparent rounded-full animate-spin" />
-          {ui.ui.sending}
-        </>
-      ) : (
-        <>
-          <Send className="h-4 w-4 mr-2" />
-          {ui.ui.send}
-        </>
-      )}
+    <Button
+      type="submit"
+      className="w-full"
+      disabled={isSubmitting}
+      icon={
+        isSubmitting ?
+          <Loader2 className="h-4 w-4 animate-spin" /> :
+          <Send className="h-4 w-4" />
+      }
+    >
+      {isSubmitting ? ui.ui.sending : ui.ui.send}
     </Button>
   </form>
 );
