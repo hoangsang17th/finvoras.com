@@ -24,14 +24,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     asChild = false,
     title,
     href,
+    context = "default",
     ...props
   }, ref) => {
 
     // Determine button content with icon support and responsive handling
     const buttonContent = () => {
+      // For navbar context, ensure text never wraps
+      // For default context, also prevent wrapping but allow overflow handling
+      const textWrapperClass = "whitespace-nowrap";
+
       if (!icon) {
         return (
-          <span className="truncate">
+          <span className={textWrapperClass}>
             {children}
           </span>
         );
@@ -46,9 +51,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         );
       }
 
-      // Icon with text - sử dụng truncate để xử lý text dài
+      // Icon with text - prevent text wrapping for both contexts
       const textElement = (
-        <span className="truncate min-w-0">
+        <span className={cn(textWrapperClass, "min-w-0")}>
           {children}
         </span>
       );
@@ -76,23 +81,34 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       );
     };
 
+    // Compute button variants with context-specific overrides
+    const computedButtonVariants = cn(
+      buttonVariants({
+        variant,
+        size,
+        fullWidth,
+        disabled
+      }),
+      // Context-specific overrides
+      context === "navbar" && [
+        "flex items-center justify-center", // flex instead of inline-flex for navbar
+        "min-w-fit", // ensure button can expand with content
+        "max-w-none", // remove max-width constraints for navbar
+      ],
+      // Overflow handling
+      variant !== "link" && "overflow-hidden",
+      className
+    );
+
     // If href is provided, render as Link with button styling
     if (href && !asChild) {
       return (
         <Link
           href={href}
           className={cn(
-            buttonVariants({
-              variant,
-              size,
-              fullWidth,
-              disabled
-            }),
-            // Thêm overflow handling cho text
-            variant !== "link" && "overflow-hidden",
+            computedButtonVariants,
             "no-underline", // Remove default link underline
             disabled && "pointer-events-none", // Handle disabled state
-            className
           )}
           title={title}
           role="button" // Improve accessibility
@@ -113,17 +129,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         onClick={onClick}
         title={title}
-        className={cn(
-          buttonVariants({
-            variant,
-            size,
-            fullWidth,
-            disabled
-          }),
-          // Thêm overflow handling cho text
-          variant !== "link" && "overflow-hidden",
-          className
-        )}
+        className={computedButtonVariants}
         style={{
           outline: 'none',
           border: 'none',

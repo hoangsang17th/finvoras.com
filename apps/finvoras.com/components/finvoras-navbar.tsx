@@ -1,4 +1,4 @@
-import { Button, NavbarCTAButton, Navbar, Logo, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
+import { Button, Navbar, Logo, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
 import { FinvorasLogo } from "./finvoras-logo";
@@ -32,14 +32,12 @@ const ctaActions: NavbarCTAAction[] = [
   {
     id: "get-started",
     component: (
-      <NavbarCTAButton variant="primary" href="/login">
+      <Button variant="primary" href="/login" context="navbar">
         Get Started
-      </NavbarCTAButton>
+      </Button>
     ),
     compactComponent: (
-      <NavbarCTAButton variant="primary" size="icon" href="/login">
-        <LogIn size={16} />
-      </NavbarCTAButton>
+      <Button variant="primary" size="icon" href="/login" context="navbar" icon={<LogIn size={16} />} />
     ),
     showOnMobile: true,
     showOnDesktop: true,

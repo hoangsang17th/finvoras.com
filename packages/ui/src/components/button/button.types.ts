@@ -82,4 +82,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
    * URL to navigate to (will render as Link if provided)
    */
   href?: string;
+
+  /**
+   * Context where the button is used - affects layout behavior
+   * - default: Standard button with potential text truncation
+   * - navbar: Optimized for navbar with no text truncation and flex layout
+   */
+  context?: "default" | "navbar";
 }

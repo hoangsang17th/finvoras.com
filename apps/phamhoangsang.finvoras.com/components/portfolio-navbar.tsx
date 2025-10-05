@@ -1,8 +1,7 @@
 "use client";
 
-import { Navbar, NavbarCTAButton, Logo, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
+import { Navbar, Button, Logo, type NavMenuItem, type NavbarCTAAction } from "@repo/ui";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/contexts/LanguageContext";
 import ThemeToggle from "./theme-toggle";
@@ -106,15 +105,24 @@ const PortfolioNavbar = () => {
     ...(resumeData.personalInfo.resumeUrl ? [{
       id: "download-cv",
       component: (
-        <NavbarCTAButton variant="secondary" href={resumeData.personalInfo.resumeUrl}>
-          <Download className="h-4 w-4 mr-2" />
+        <Button
+          variant="secondary"
+          href={resumeData.personalInfo.resumeUrl}
+          icon={<Download className="h-4 w-4" />}
+          iconPosition="left"
+          context="navbar"
+        >
           {ui.nav.downloadCv}
-        </NavbarCTAButton>
+        </Button>
       ),
       compactComponent: (
-        <NavbarCTAButton variant="secondary" size="icon" href={resumeData.personalInfo.resumeUrl}>
-          <Download className="h-4 w-4" />
-        </NavbarCTAButton>
+        <Button
+          variant="secondary"
+          size="icon"
+          href={resumeData.personalInfo.resumeUrl}
+          icon={<Download className="h-4 w-4" />}
+          context="navbar"
+        />
       ),
       showOnMobile: true,
       showOnDesktop: true,

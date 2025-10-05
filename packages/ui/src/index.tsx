@@ -17,7 +17,6 @@ export { Avatar, AvatarImage, AvatarFallback } from "./components/avatar";
 // Export enhanced core components (preferred)
 export * from "./components/badge";
 export * from "./components/button";
-export { NavbarCTAButton } from "./components/navbar-cta-button";
 export { Logo } from "./components/logo";
 export * from "./components/card";
 export * from "./components/input";
