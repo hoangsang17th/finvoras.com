@@ -136,42 +136,42 @@ export const staticResumeData = {
             title: "Mobile (Flutter)",
             icon: "📱",
             skills: [
-                { name: "Flutter/Dart", level: 90 },
-                { name: "Clean Architecture", level: 88 },
-                { name: "State Mgmt (Riverpod/GetX)", level: 85 },
-                { name: "Offline-first/SQLite", level: 82 },
-                { name: "Animations/Custom UI", level: 80 },
-                { name: "Deeplink & Routing", level: 80 },
+                { name: "Flutter/Dart", level: "Expert" },
+                { name: "Clean Architecture", level: "Expert" },
+                { name: "State Mgmt (Riverpod/GetX)", level: "Expert" },
+                { name: "Offline-first/SQLite", level: "Proficient" },
+                { name: "Animations/Custom UI", level: "Proficient" },
+                { name: "Deeplink & Routing", level: "Proficient" },
             ]
         },
         {
             title: "Backend & Cloud",
             icon: "⚙️",
             skills: [
-                { name: "Firebase (Auth/FCM/Firestore)", level: 85 },
-                { name: "REST/GraphQL APIs", level: 80 },
-                { name: "Supabase/PostgreSQL", level: 78 },
-                { name: "Node.js (basic services)", level: 70 },
+                { name: "Firebase (Auth/FCM/Firestore)", level: "Proficient" },
+                { name: "REST/GraphQL APIs", level: "Proficient" },
+                { name: "Supabase/PostgreSQL", level: "Familiar" },
+                { name: "Node.js (basic services)", level: "Familiar" },
             ]
         },
         {
             title: "DevOps & Quality",
             icon: "🚀",
             skills: [
-                { name: "CI/CD (Fastlane/GitHub Actions)", level: 82 },
-                { name: "Testing (Unit/Widget/Golden)", level: 80 },
-                { name: "Crash/Perf Monitoring", level: 78 },
-                { name: "Code Review & Docs", level: 80 },
+                { name: "CI/CD (Fastlane/GitHub Actions)", level: "Proficient" },
+                { name: "Testing (Unit/Widget/Golden)", level: "Proficient" },
+                { name: "Crash/Perf Monitoring", level: "Familiar" },
+                { name: "Code Review & Docs", level: "Proficient" },
             ]
         },
         {
             title: "Design & Web (supporting)",
             icon: "🎨",
             skills: [
-                { name: "Design Systems & UX Writing", level: 78 },
-                { name: "Figma", level: 78 },
-                { name: "Next.js/React (landing)", level: 70 },
-                { name: "Tailwind CSS", level: 72 },
+                { name: "Design Systems & UX Writing", level: "Familiar" },
+                { name: "Figma", level: "Familiar" },
+                { name: "Next.js/React (landing)", level: "Familiar" },
+                { name: "Tailwind CSS", level: "Familiar" },
             ]
         }
     ],
@@ -182,7 +182,7 @@ export const staticResumeData = {
             id: "proj-finvoras",
             title: "Finvoras — Personal Finance",
             description:
-                "Nền tảng quản lý tài chính cá nhân: ghi chép chi tiêu, ngân sách, và insight giúp hình thành thói quen tốt.",
+                "Giải quyết bài toán phân mảnh tài chính cá nhân cho người Việt. Xây dựng hệ thống Offline-first với khả năng đồng bộ real-time, giúp người dùng truy cập dữ liệu tức thì ngay cả khi mất mạng. Tích hợp AI để tự động phân loại giao dịch với độ chính xác >90%.",
             image: "/projects/finvoras.jpg",
             technologies: ["Flutter", "Dart", "Firebase", "Supabase", "CI/CD"],
             features: [
@@ -202,7 +202,7 @@ export const staticResumeData = {
             id: "proj-erp",
             title: "ERP Mobile Suite (Internal)",
             description:
-                "Ứng dụng ERP nội bộ: quy trình phê duyệt, quản lý kho/đơn, thông báo đẩy; tối ưu cho người dùng hiện trường.",
+                "Hệ thống ERP xử lý >500 đơn hàng/ngày cho nhân viên hiện trường. Tối ưu hóa quy trình phê duyệt từ 3 ngày xuống còn 3 giờ nhờ Mobile App. Giảm 99% lỗi nhập liệu thủ công nhờ validate chặt chẽ ngay từ client.",
             image: "/projects/erp.jpg",
             technologies: ["Flutter", "Dart", "Firebase", "SQLite", "REST"],
             features: [

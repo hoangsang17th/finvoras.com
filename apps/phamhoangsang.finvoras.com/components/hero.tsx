@@ -11,7 +11,19 @@ const Hero = () => {
   const { ui, resumeData } = useI18n();
 
   if (!resumeData) {
-    return <div className="min-h-[calc(100vh-6rem)] flex items-center justify-center">Loading...</div>;
+    return (
+      <div className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-20 px-6">
+        <div className="w-32 h-32 rounded-full bg-muted animate-pulse mb-8" />
+        <div className="h-8 w-32 bg-muted animate-pulse rounded-full mb-6" />
+        <div className="h-16 w-3/4 max-w-2xl bg-muted animate-pulse rounded-lg mb-6" />
+        <div className="h-8 w-1/2 max-w-lg bg-muted animate-pulse rounded-lg mb-8" />
+        <div className="h-24 w-full max-w-3xl bg-muted animate-pulse rounded-lg mb-12" />
+        <div className="flex gap-4">
+          <div className="h-12 w-40 bg-muted animate-pulse rounded-full" />
+          <div className="h-12 w-40 bg-muted animate-pulse rounded-full" />
+        </div>
+      </div>
+    );
   }
 
   const { personalInfo, socialLinks } = resumeData;

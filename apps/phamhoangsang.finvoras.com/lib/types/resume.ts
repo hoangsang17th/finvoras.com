@@ -126,7 +126,7 @@ export interface Experience {
 // Skills Types
 export interface Skill {
     name: string;
-    level: number; // 0-100
+    level: string; // "Expert" | "Proficient" | "Familiar"
 }
 
 export interface SkillCategory {

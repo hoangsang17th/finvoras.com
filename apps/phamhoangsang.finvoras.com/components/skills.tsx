@@ -1,14 +1,53 @@
 "use client";
 
-import { Card } from "@repo/ui";
+import { Card, Badge } from "@repo/ui";
 import { useI18n } from "@/lib/i18n";
 import type { SkillCategory, Skill } from "@/lib/types/resume";
+
+const getLevelColor = (level: string) => {
+  switch (level) {
+    case "Expert":
+      return "bg-brand-primary text-white hover:bg-brand-primary/90";
+    case "Proficient":
+      return "bg-brand-blue text-white hover:bg-brand-blue/90";
+    case "Familiar":
+      return "bg-muted text-muted-foreground hover:bg-muted/80";
+    default:
+      return "bg-muted text-muted-foreground";
+  }
+};
+
+import { Skeleton } from "./ui/skeleton";
 
 const Skills = () => {
   const { ui, resumeData } = useI18n();
 
   if (!resumeData?.skillCategories.length) {
-    return <div className="py-20 px-6 bg-muted/30">Loading...</div>;
+    return (
+      <div className="py-20 px-6 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <Skeleton className="h-12 w-64 mx-auto mb-4" />
+            <Skeleton className="h-6 w-96 mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="p-6 border rounded-lg bg-card h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <Skeleton className="h-8 w-8 rounded-full" />
+                  <Skeleton className="h-8 w-48" />
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {[1, 2, 3, 4, 5].map((j) => (
+                    <Skeleton key={j} className="h-8 w-24 rounded-full" />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
   }
 
   const skillCategories = resumeData.skillCategories;
@@ -30,7 +69,7 @@ const Skills = () => {
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skillCategories.map((category: SkillCategory, index: number) => (
-            <Card key={index} className="p-6">
+            <Card key={index} className="p-6 h-full">
               {/* Category Header */}
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">{category.icon}</span>
@@ -38,20 +77,17 @@ const Skills = () => {
               </div>
 
               {/* Skills List */}
-              <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill: Skill, skillIndex: number) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-sm">{skill.name}</span>
-                      <span className="text-xs text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2">
-                      <div
-                        className="bg-gradient-to-r from-brand-primary to-brand-blue h-2 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
+                  <Badge
+                    key={skillIndex}
+                    className={`px-3 py-1 text-sm font-medium border-none ${getLevelColor(skill.level)}`}
+                  >
+                    {skill.name}
+                    <span className="ml-2 text-xs opacity-70 border-l pl-2 border-white/30">
+                      {skill.level}
+                    </span>
+                  </Badge>
                 ))}
               </div>
             </Card>
