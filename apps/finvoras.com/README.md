@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Static assets
+
+Files under `public/` are served from the root domain (`https://finvoras.com`). This includes:
+
+- `public/.well-known/apple-app-site-association` and `assetlinks.json` for Apple/Android universal links
+- `public/robots.txt`
+- `public/favicon.ico`
+
+Update these files here (instead of the backend) whenever you need to change deep-link metadata or favicons.

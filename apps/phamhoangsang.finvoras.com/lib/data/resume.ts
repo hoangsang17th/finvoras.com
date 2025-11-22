@@ -1,21 +1,30 @@
 import { ResumeData } from "../types/resume";
-import { yearsExperience } from "./ui-translations";
 
 /** ---- Single Source of Truth for years of experience ----
  *  Set START_YEAR to when you started professional Flutter dev.
  *  We clamp to minimum 3+ so UI always shows "3+" or more.
  */
-const START_YEAR = 2021;
-const years = Math.max(3, new Date().getFullYear() - START_YEAR);
+// single source of truth
+const START_DATE = new Date(2021, 11, 15); // December 15, 2021
+
+// Calculate years of experience more accurately
+const calculateYearsExperience = () => {
+    const now = new Date();
+    const diffInMs = now.getTime() - START_DATE.getTime();
+    const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
+    return Math.max(0, Math.floor(diffInYears));
+};
+
+export const yearsExperience = `${calculateYearsExperience()}+`;
 
 
 /** ---- Personal content (EN/VI) tuned to Flutter/ERP/Finvoras ---- */
 const personalContent = {
     en: {
-        title: "Flutter Engineer • Mobile & Product Delivery",
+        title: "Mobile Engineer - Flutter",
         bio:
-            `Flutter engineer with ${yearsExperience} years building long-lived mobile products. ` +
-            "I care about clean architecture, steady delivery, and features that users come back for.",
+            `${yearsExperience} yrs · Finance/ERP & Productivity · 15+ modules shipped · senior-track, performance-minded.`,
+        //Flutter dev (3+ yrs) focused on performance, clean architecture, and scalability. Expanding into NestJS and CI/CD for faster, more reliable shipping. Near-term goal: Senior Flutter Engineer with measurable impact.
         status: "Open to collaboration"
     },
     vi: {
@@ -23,6 +32,7 @@ const personalContent = {
         bio:
             `Flutter engineer với ${yearsExperience} năm kinh nghiệm phát triển sản phẩm di động bền vững. ` +
             "Ưu tiên kiến trúc sạch, nhịp giao hàng ổn định và trải nghiệm người dùng quay lại.",
+        // 3+ năm Flutter, mình tối ưu hiệu suất và kiến trúc để giảm lỗi, tăng tốc độ phát hành. Mình bổ sung NestJS + CI/CD nhằm rút ngắn lead time và giữ chất lượng ổn định. Đích đến: Senior Flutter dẫn dắt cải tiến dựa trên dữ liệu.
         status: "Sẵn sàng hợp tác"
     }
 };

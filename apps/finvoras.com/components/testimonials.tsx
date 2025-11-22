@@ -1,125 +1,67 @@
-import { Avatar, AvatarFallback, Button, Marquee } from "@repo/ui";
-import Link from "next/link";
-import React, { ComponentProps } from "react";
+"use client";
 
-const testimonials = [
-  {
-    id: 1,
-    name: "John Doe",
-    designation: "Software Engineer",
-    company: "TechCorp",
-    testimonial:
-      "This product has completely transformed the way we work. The efficiency and ease of use are unmatched!",
-    avatar: "https://randomuser.me/api/portraits/men/1.jpg",
-  },
-  {
-    id: 2,
-    name: "Sophia Lee",
-    designation: "Data Analyst",
-    company: "InsightTech",
-    testimonial:
-      "This tool has saved me hours of work! The analytics and reporting features are incredibly powerful.",
-    avatar: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-  {
-    id: 3,
-    name: "Michael Johnson",
-    designation: "UX Designer",
-    company: "DesignPro",
-    testimonial:
-      "An amazing tool that simplifies complex tasks. Highly recommended for professionals in the industry.",
-    avatar: "https://randomuser.me/api/portraits/men/3.jpg",
-  },
-  {
-    id: 4,
-    name: "Emily Davis",
-    designation: "Marketing Specialist",
-    company: "BrandBoost",
-    testimonial:
-      "I've seen a significant improvement in our team's productivity since we started using this service.",
-    avatar: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    id: 5,
-    name: "Daniel Martinez",
-    designation: "Full-Stack Developer",
-    company: "CodeCrafters",
-    testimonial:
-      "The best investment we've made! The support team is also super responsive and helpful.",
-    avatar: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    id: 6,
-    name: "Jane Smith",
-    designation: "Product Manager",
-    company: "InnovateX",
-    testimonial:
-      "The user experience is top-notch! The interface is clean, intuitive, and easy to navigate.",
-    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
-  },
-];
+import { useI18n } from "@repo/i18n";
+import type { Translations } from "@/lib/types/translations";
+import { Avatar, AvatarFallback, AvatarImage } from "@repo/ui";
+import { Quote } from "lucide-react";
 
-const Testimonials = () => (
-  <div id="testimonials" className="flex justify-center items-center py-20">
-    <div className="h-full w-full">
-      <h2 className="mb-12 text-4xl md:text-5xl font-bold text-center tracking-tight px-6">
-        Testimonials
-      </h2>
-      <div className="relative">
-        <div className="z-10 absolute left-0 inset-y-0 w-[15%] bg-gradient-to-r from-background to-transparent" />
-        <div className="z-10 absolute right-0 inset-y-0 w-[15%] bg-gradient-to-l from-background to-transparent" />
-        <Marquee pauseOnHover className="[--duration:20s]">
-          <TestimonialList />
-        </Marquee>
-        <Marquee pauseOnHover reverse className="mt-0 [--duration:20s]">
-          <TestimonialList />
-        </Marquee>
-      </div>
-    </div>
-  </div>
-);
+const Testimonials = () => {
+  const { t } = useI18n<Translations>();
+  const { testimonials } = t;
 
-const TestimonialList = () =>
-  testimonials.map((testimonial) => (
-    <div
-      key={testimonial.id}
-      className="min-w-96 max-w-sm bg-accent rounded-xl p-6"
-    >
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Avatar>
-            <AvatarFallback className="text-xl font-medium bg-primary text-primary-foreground">
-              {testimonial.name.charAt(0)}
-            </AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-lg font-semibold">{testimonial.name}</p>
-            <p className="text-sm text-gray-500">{testimonial.designation}</p>
-          </div>
+  // Fallback if items are not yet available in translations (during transition)
+  const items = testimonials.items || [];
+
+  return (
+    <div id="testimonials" className="w-full py-20 px-6 bg-muted/20">
+      <div className="max-w-screen-lg mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+            {testimonials.title}
+          </h2>
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            {testimonials.subtitle}
+          </p>
         </div>
-        <Button variant="default" size="icon" asChild>
-          <Link href="#" target="_blank">
-            <TwitterLogo className="w-4 h-4" />
-          </Link>
-        </Button>
-      </div>
-      <p className="mt-5 text-[17px]">{testimonial.testimonial}</p>
-    </div>
-  ));
 
-const TwitterLogo = (props: ComponentProps<"svg">) => (
-  <svg
-    role="img"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <title>X</title>
-    <path
-      fill="currentColor"
-      d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-    />
-  </svg>
-);
+        <div className="grid md:grid-cols-3 gap-8">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col bg-background rounded-2xl p-8 border shadow-sm relative"
+            >
+              <Quote className="absolute top-6 right-6 h-8 w-8 text-brand-primary/10" />
+
+              <p className="text-foreground/80 mb-6 relative z-10 italic">
+                "{item.content}"
+              </p>
+
+              <div className="mt-auto">
+                <div className="flex items-center gap-4 mb-4">
+                  <Avatar className="h-10 w-10 border">
+                    <AvatarFallback className="bg-brand-primary/10 text-brand-primary font-medium">
+                      {item.name.charAt(0)}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-semibold text-sm">{item.name}</p>
+                    <p className="text-xs text-muted-foreground">{item.role}</p>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t">
+                  <p className="text-sm font-medium text-green-600 dark:text-green-400 flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 rounded-full bg-green-500"></span>
+                    {item.outcome}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Testimonials;

@@ -9,7 +9,8 @@ export function LanguageSwitcher({
   className = '',
   variant = 'dropdown',
   showFlag = true,
-  showName = true
+  showName = true,
+  ...props
 }: LanguageSwitcherProps) {
   const { locale, setLocale } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
@@ -24,17 +25,18 @@ export function LanguageSwitcher({
     if (!firstLang || !secondLang) return null;
 
     const isFirstActive = locale === firstLang.code;
+    const orientation = (props as any).orientation || 'horizontal';
 
     return (
       <div className={`relative inline-flex items-center rounded-full border bg-background p-1 transition-colors ${className}`}>
         {/* Background toggle track */}
-        <div className="flex items-center gap-1">
+        <div className={`flex items-center gap-1 ${orientation === 'vertical' ? 'flex-col' : ''}`}>
           {/* First language button */}
           <button
             onClick={() => setLocale(firstLang.code)}
             className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-full text-lg transition-all duration-200 ${isFirstActive
-                ? 'bg-primary text-primary-foreground shadow-sm'
-                : 'hover:bg-muted/50'
+              ? 'bg-primary text-primary-foreground shadow-sm'
+              : 'hover:bg-muted/50'
               }`}
             aria-label={`Switch to ${firstLang.name}`}
           >
@@ -45,8 +47,8 @@ export function LanguageSwitcher({
           <button
             onClick={() => setLocale(secondLang.code)}
             className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-full text-lg transition-all duration-200 ${!isFirstActive
-                ? 'bg-primary text-primary-foreground shadow-sm'
-                : 'hover:bg-muted/50'
+              ? 'bg-primary text-primary-foreground shadow-sm'
+              : 'hover:bg-muted/50'
               }`}
             aria-label={`Switch to ${secondLang.name}`}
           >

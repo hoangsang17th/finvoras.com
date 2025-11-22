@@ -25,7 +25,7 @@ export const mockBlogPosts: BlogPost[] = [
     `,
     author: {
       name: "Sarah Johnson",
-      avatar: "/authors/sarah.jpg"
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=80"
     },
     publishedAt: new Date("2024-01-15"),
     updatedAt: new Date("2024-01-15"),
@@ -33,7 +33,7 @@ export const mockBlogPosts: BlogPost[] = [
     category: "Personal Finance",
     readingTime: 5,
     featured: true,
-    coverImage: "/blog/saving-money.jpg"
+    coverImage: "https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "2",
@@ -58,7 +58,7 @@ export const mockBlogPosts: BlogPost[] = [
     `,
     author: {
       name: "Michael Chen",
-      avatar: "/authors/michael.jpg"
+      avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=256&q=80"
     },
     publishedAt: new Date("2024-01-10"),
     updatedAt: new Date("2024-01-10"),
@@ -66,7 +66,7 @@ export const mockBlogPosts: BlogPost[] = [
     category: "Credit & Debt",
     readingTime: 7,
     featured: false,
-    coverImage: "/blog/credit-score.jpg"
+    coverImage: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "3",
@@ -92,7 +92,7 @@ export const mockBlogPosts: BlogPost[] = [
     `,
     author: {
       name: "Emily Rodriguez",
-      avatar: "/authors/emily.jpg"
+      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=256&q=80"
     },
     publishedAt: new Date("2024-01-05"),
     updatedAt: new Date("2024-01-05"),
@@ -100,7 +100,7 @@ export const mockBlogPosts: BlogPost[] = [
     category: "Investing",
     readingTime: 8,
     featured: true,
-    coverImage: "/blog/investing-basics.jpg"
+    coverImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "4",
@@ -127,7 +127,7 @@ export const mockBlogPosts: BlogPost[] = [
     `,
     author: {
       name: "David Kim",
-      avatar: "/authors/david.jpg"
+      avatar: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=256&q=80"
     },
     publishedAt: new Date("2023-12-28"),
     updatedAt: new Date("2023-12-28"),
@@ -135,7 +135,7 @@ export const mockBlogPosts: BlogPost[] = [
     category: "Personal Finance",
     readingTime: 6,
     featured: false,
-    coverImage: "/blog/emergency-fund.jpg"
+    coverImage: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "5",
@@ -167,7 +167,7 @@ export const mockBlogPosts: BlogPost[] = [
     `,
     author: {
       name: "Lisa Thompson",
-      avatar: "/authors/lisa.jpg"
+      avatar: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=256&q=80"
     },
     publishedAt: new Date("2023-12-20"),
     updatedAt: new Date("2023-12-20"),
@@ -175,7 +175,7 @@ export const mockBlogPosts: BlogPost[] = [
     category: "Credit & Debt",
     readingTime: 5,
     featured: false,
-    coverImage: "/blog/debt-strategy.jpg"
+    coverImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "6",
@@ -212,7 +212,7 @@ export const mockBlogPosts: BlogPost[] = [
     `,
     author: {
       name: "Carlos Martinez",
-      avatar: "/authors/carlos.jpg"
+      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=256&q=80"
     },
     publishedAt: new Date("2023-12-15"),
     updatedAt: new Date("2023-12-15"),
@@ -220,7 +220,7 @@ export const mockBlogPosts: BlogPost[] = [
     category: "Income & Career",
     readingTime: 9,
     featured: true,
-    coverImage: "/blog/side-hustles.jpg"
+    coverImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 

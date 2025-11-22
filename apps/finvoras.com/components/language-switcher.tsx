@@ -10,14 +10,18 @@ const languages = [
 type FinvorasLanguageSwitcherProps = {
   showName?: boolean;
   className?: string;
+  orientation?: 'horizontal' | 'vertical';
 };
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ orientation = 'horizontal', ...props }: FinvorasLanguageSwitcherProps) {
   return (
     <SharedLanguageSwitcher
       languages={languages}
       showName={false}
       variant="switcher"
+      // @ts-ignore - orientation is added to SharedLanguageSwitcher but types might not be updated yet
+      orientation={orientation}
+      {...props}
     />
   );
 }

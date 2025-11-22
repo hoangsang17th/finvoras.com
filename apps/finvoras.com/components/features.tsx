@@ -1,76 +1,87 @@
+'use client';
+
+import { BentoGrid, BentoCard } from "@/components/bento-grid";
+import { useI18n } from "@repo/i18n";
+import type { Translations } from "@/lib/types/translations";
 import {
-  Blocks,
-  Bot,
-  ChartPie,
-  Film,
-  MessageCircle,
-  Settings2,
+  PieChart,
+  Wallet,
+  TrendingUp,
+  ShieldCheck,
+  Smartphone,
+  Globe,
+  Zap
 } from "lucide-react";
-import React from "react";
+import { cn } from "@repo/ui";
 
-const features = [
-  {
-    icon: Settings2,
-    title: "Customizable Layouts",
-    description:
-      "Design your space with drag-and-drop simplicity—create grids, lists, or galleries in seconds.",
-  },
-  {
-    icon: Blocks,
-    title: "Interactive Widgets",
-    description:
-      "Embed polls, quizzes, or forms to keep your audience engaged.",
-  },
-  {
-    icon: Bot,
-    title: "AI-Powered Tools",
-    description:
-      "Generate summaries, auto-format content, or translate into multiple languages seamlessly.",
-  },
-  {
-    icon: Film,
-    title: "Media Integrations",
-    description:
-      "Connect with Spotify, Instagram, or your own media library for dynamic visuals and sound.",
-  },
-  {
-    icon: ChartPie,
-    title: "Advanced Analytics",
-    description:
-      "Track engagement, clicks, and user activity with intuitive charts and reports.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Seamless Collaboration",
-    description:
-      "Comment, tag, and assign tasks directly within your documents.",
-  },
-];
+export default function Features() {
+  const { t } = useI18n<Translations>();
+  const { features } = t;
 
-const Features = () => {
+  const items = [
+    {
+      title: features.expense.title,
+      description: features.expense.description,
+      header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100" />,
+      icon: <PieChart className="h-4 w-4 text-neutral-500" />,
+      className: "md:col-span-2",
+      href: "/features/expense-tracking",
+      cta: "Learn more",
+    },
+    {
+      title: features.budget.title,
+      description: features.budget.description,
+      header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100" />,
+      icon: <Wallet className="h-4 w-4 text-neutral-500" />,
+      className: "md:col-span-1",
+      href: "/features/budgeting",
+      cta: "Learn more",
+    },
+    {
+      title: features.insights.title,
+      description: features.insights.description,
+      header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100" />,
+      icon: <TrendingUp className="h-4 w-4 text-neutral-500" />,
+      className: "md:col-span-1",
+      href: "/features/insights",
+      cta: "Learn more",
+    },
+    {
+      title: "Bank Sync",
+      description: "Connect with 50+ banks in Vietnam securely.",
+      header: <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100" />,
+      icon: <Zap className="h-4 w-4 text-neutral-500" />,
+      className: "md:col-span-2",
+      href: "/features/bank-sync",
+      cta: "Learn more",
+    },
+  ];
+
   return (
-    <div id="features" className="w-full py-12 xs:py-20 px-6">
-      <h2 className="text-3xl xs:text-4xl sm:text-5xl font-bold tracking-tight text-center">
-        Unleash Your Creativity
-      </h2>
-      <div className="w-full max-w-screen-lg mx-auto mt-10 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map((feature) => (
-          <div
-            key={feature.title}
-            className="flex flex-col bg-background border rounded-xl py-6 px-5"
-          >
-            <div className="mb-3 h-10 w-10 flex items-center justify-center bg-muted rounded-full">
-              <feature.icon className="h-6 w-6" />
-            </div>
-            <span className="text-lg font-semibold">{feature.title}</span>
-            <p className="mt-1 text-foreground/80 text-[15px]">
-              {feature.description}
-            </p>
-          </div>
-        ))}
+    <div className="py-20 bg-muted/10">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{features.title}</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {features.subtitle}
+          </p>
+        </div>
+
+        <BentoGrid className="max-w-4xl mx-auto">
+          {items.map((item, i) => (
+            <BentoCard
+              key={i}
+              title={item.title}
+              description={item.description}
+              header={item.header}
+              icon={item.icon}
+              className={item.className}
+              href={item.href}
+              cta={item.cta}
+            />
+          ))}
+        </BentoGrid>
       </div>
     </div>
   );
 };
-
-export default Features;

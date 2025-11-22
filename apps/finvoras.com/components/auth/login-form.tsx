@@ -15,6 +15,7 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
   const [formData, setFormData] = useState<LoginRequest>({
     email: "",
     password: "",
+    isRemember: false,
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -115,7 +116,10 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
                 id="remember"
                 name="remember"
                 type="checkbox"
+                checked={!!formData.isRemember}
+                onChange={(event) => setFormData(prev => ({ ...prev, isRemember: event.target.checked }))}
                 className="h-4 w-4 text-brand-primary focus:ring-brand-primary border-brand-neutral-300 rounded"
+                disabled={isLoading}
               />
               <Label htmlFor="remember" className="text-sm text-brand-neutral-600 dark:text-brand-grey-350">
                 Remember me

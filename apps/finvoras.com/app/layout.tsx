@@ -1,9 +1,11 @@
 import { TooltipProvider } from "@repo/ui";
+import Script from "next/script";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist } from "next/font/google";
 import { I18nProvider } from "@repo/i18n";
 import { Navbar } from "@/components/navbar";
+import { FloatingUtilities } from "@/components/floating-utilities";
 import { translations } from "@/lib/data/translations";
 import "./globals.css";
 
@@ -103,15 +105,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* reCAPTCHA v3 Script */}
-        {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
-          <script
-            src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-            async
-            defer
-          />
-        )}
       </head>
       <body className={`${geistSans.className} antialiased`}>
+        {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+          <Script
+            src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+            strategy="lazyOnload"
+          />
+        )}
         <I18nProvider
           translations={translations}
           defaultLocale="en"
@@ -121,9 +122,10 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <TooltipProvider>
               <Navbar />
-              <main className="pt-16 xs:pt-20 sm:pt-24">
+              <main className="pt-16 xs:pt-20 sm:pt-24 pb-0">
                 {children}
               </main>
+              <FloatingUtilities />
             </TooltipProvider>
           </ThemeProvider>
         </I18nProvider>

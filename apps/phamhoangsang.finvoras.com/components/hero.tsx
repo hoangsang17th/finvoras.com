@@ -1,6 +1,7 @@
 "use client";
 
 import { Badge, Button } from "@repo/ui";
+import { WordFluidCursor } from "./ui/word-fluid-cursor";
 import { ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,7 +24,7 @@ const Hero = () => {
     .toUpperCase();
 
   return (
-    <div className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-20 px-6">
+    <div className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-20 px-6 ">
       <div className="text-center max-w-4xl">
         {/* Profile Image */}
         <div className="mb-8">

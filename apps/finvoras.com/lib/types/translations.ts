@@ -18,10 +18,23 @@ export interface Translations {
     title: string;
     subtitle: string;
     description: string;
+    subtext: string;
     primaryCta: string;
     secondaryCta: string;
     watchDemo: string;
     trustedBy: string;
+  };
+
+  // HowItWorks section
+  howItWorks: {
+    title: string;
+    description: string;
+    steps: {
+      title: string;
+      description: string;
+      cta?: string;
+      href?: string;
+    }[];
   };
 
   // Features section
@@ -72,16 +85,161 @@ export interface Translations {
       name: string;
       price: string;
       priceYearly: string;
+      pricePerMonth: string;
       description: string;
       features: string[];
       cta: string;
       popular: string;
     };
-    enterprise: {
+    family: {
       name: string;
       price: string;
+      priceYearly: string;
+      pricePerMonth: string;
       description: string;
       features: string[];
+      cta: string;
+    };
+    coaching: {
+      name: string;
+      price: string;
+      pricePerSession: string;
+      description: string;
+      features: string[];
+      cta: string;
+      note: string;
+    };
+    bundles: {
+      title: string;
+      subtitle: string;
+      student: {
+        name: string;
+        price: string;
+        duration: string;
+        description: string;
+        features: string[];
+        cta: string;
+        badge: string;
+      };
+      couple: {
+        name: string;
+        price: string;
+        duration: string;
+        description: string;
+        features: string[];
+        cta: string;
+        badge: string;
+      };
+    };
+    featureComparison: {
+      title: string;
+      subtitle: string;
+      categories: {
+        core: string;
+        budget: string;
+        insights: string;
+        collaboration: string;
+        learning: string;
+      };
+      features: Array<{
+        name: string;
+        category: string;
+        free: boolean | string;
+        pro: boolean | string;
+        family: boolean | string;
+      }>;
+    };
+    valueProps: {
+      roi: {
+        title: string;
+        subtitle: string;
+        proSavings: string;
+        proRoi: string;
+        familySavings: string;
+        familyRoi: string;
+      };
+      pilot: {
+        title: string;
+        subtitle: string;
+        features: string[];
+        cta: string;
+      };
+      loyalty: {
+        title: string;
+        subtitle: string;
+        tiers: {
+          silver: {
+            name: string;
+            requirement: string;
+            benefit: string;
+          };
+          gold: {
+            name: string;
+            requirement: string;
+            benefit: string;
+          };
+          ambassador: {
+            name: string;
+            requirement: string;
+            benefit: string;
+          };
+        };
+      };
+    };
+  };
+
+  // Trust Signals
+  trustSignals: {
+    title: string;
+    security: {
+      title: string;
+      description: string;
+    };
+    users: {
+      label: string;
+      count: string;
+    };
+    savings: {
+      label: string;
+      amount: string;
+    };
+    retention: {
+      label: string;
+      rate: string;
+    };
+    badges: {
+      gdpr: string;
+      encryption: string;
+      madeForVietnam: string;
+    };
+  };
+
+  // Persona Highlights
+  personaHighlights: {
+    title: string;
+    subtitle: string;
+    minh: {
+      name: string;
+      role: string;
+      painPoint: string;
+      solution: string;
+      outcome: string;
+      cta: string;
+    };
+    linhDuc: {
+      name: string;
+      role: string;
+      painPoint: string;
+      solution: string;
+      outcome: string;
+      cta: string;
+    };
+    an: {
+      name: string;
+      role: string;
+      painPoint: string;
+      solution: string;
+      outcome: string;
       cta: string;
     };
   };
@@ -90,12 +248,20 @@ export interface Translations {
   testimonials: {
     title: string;
     subtitle: string;
+    items: Array<{
+      name: string;
+      role: string;
+      content: string;
+      outcome: string;
+    }>;
   };
 
   // CTA Banner
   cta: {
     title: string;
     subtitle: string;
+    urgency: string;
+    riskReversal: string;
     primaryButton: string;
     secondaryButton: string;
   };
@@ -104,6 +270,11 @@ export interface Translations {
   faq: {
     title: string;
     subtitle: string;
+    questions: Array<{
+      question: string;
+      answer: string;
+      icon: string;
+    }>;
   };
 
   // Footer

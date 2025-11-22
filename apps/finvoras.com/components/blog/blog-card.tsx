@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BlogPost } from "@/lib/types";
-import { Badge, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui";
-import { Calendar, Clock, User } from "lucide-react";
+import { Badge, Card, CardContent, CardFooter, CardHeader, Avatar, AvatarImage, AvatarFallback } from "@repo/ui";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -11,72 +11,71 @@ export function BlogCard({ post }: BlogCardProps) {
   const formatDate = (date: Date) => {
     return new Intl.DateTimeFormat("en-US", {
       year: "numeric",
-      month: "long",
+      month: "short",
       day: "numeric",
     }).format(new Date(date));
   };
 
   return (
-    <Card className="group hover:shadow-lg transition-shadow duration-300">
-      <Link href={`/blog/${post.slug}`}>
+    <Link href={`/blog/${post.slug}`} className="group block h-full">
+      <Card className="h-full flex flex-col overflow-hidden border-border/60 bg-card transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-brand-primary/20">
         {post.coverImage && (
-          <div className="relative overflow-hidden rounded-t-xl">
+          <div className="relative overflow-hidden aspect-video">
             <img
               src={post.coverImage}
               alt={post.title}
-              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            {post.featured && (
-              <div className="absolute top-4 left-4">
-                <Badge className="bg-primary">Featured</Badge>
-              </div>
-            )}
+            <div className="absolute top-4 left-4 flex gap-2">
+              {post.featured && (
+                <Badge className="bg-brand-primary text-white border-none shadow-sm">Featured</Badge>
+              )}
+              <Badge variant="secondary" className="bg-background/90 backdrop-blur-sm shadow-sm">
+                {post.category}
+              </Badge>
+            </div>
           </div>
         )}
-        <CardHeader>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+
+        <CardHeader className="space-y-3 pb-3">
+          <div className="flex items-center gap-3 text-xs text-muted-foreground font-medium">
             <div className="flex items-center gap-1">
-              <Calendar className="h-4 w-4" />
+              <Calendar className="h-3.5 w-3.5" />
               {formatDate(post.publishedAt)}
             </div>
+            <span className="h-1 w-1 rounded-full bg-muted-foreground/30" />
             <div className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
+              <Clock className="h-3.5 w-3.5" />
               {post.readingTime} min read
             </div>
           </div>
-          <CardTitle className="line-clamp-2 group-hover:text-primary transition-colors">
+
+          <h3 className="text-xl font-bold leading-tight group-hover:text-brand-primary transition-colors line-clamp-2">
             {post.title}
-          </CardTitle>
-          <CardDescription className="line-clamp-3">
-            {post.excerpt}
-          </CardDescription>
+          </h3>
         </CardHeader>
-        <CardContent>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <User className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">
-                {post.author.name}
-              </span>
-            </div>
-            <Badge variant="secondary">{post.category}</Badge>
-          </div>
-          {post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-1 mt-3">
-              {post.tags.slice(0, 3).map((tag) => (
-                <Badge key={tag} variant="secondary" className="text-xs">
-                  {tag}
-                </Badge>
-              ))}
-              {post.tags.length > 3 && (
-                <Badge variant="secondary" className="text-xs">
-                  +{post.tags.length - 3}
-                </Badge>
-              )}
-            </div>
-          )}
+
+        <CardContent className="flex-grow pb-3">
+          <p className="text-muted-foreground line-clamp-3 text-sm leading-relaxed">
+            {post.excerpt}
+          </p>
         </CardContent>
-      </Link>
-    </Card>
+
+        <CardFooter className="pt-0 flex items-center justify-between border-t bg-muted/20 px-6 py-4 mt-auto">
+          <div className="flex items-center gap-3">
+            <Avatar className="h-8 w-8 border">
+              <AvatarImage src={post.author.avatar} alt={post.author.name} />
+              <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
+            </Avatar>
+            <span className="text-sm font-medium text-foreground/80">
+              {post.author.name}
+            </span>
+          </div>
+          <div className="text-brand-primary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+            <ArrowRight className="h-5 w-5" />
+          </div>
+        </CardFooter>
+      </Card>
+    </Link>
   );
 }

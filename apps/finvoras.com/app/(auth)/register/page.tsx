@@ -14,8 +14,7 @@ export default function RegisterPage() {
     setIsLoading(true);
     try {
       await authApi.register(userData);
-      // Redirect to dashboard or onboarding after successful registration
-      router.push("/onboarding");
+      router.push("/login?registered=1");
     } catch (error) {
       console.error("Registration failed:", error);
       // Error is handled in the form component

@@ -1,13 +1,19 @@
 {
-    "applinks": {
-        "apps": [],
-        "details": [
-            {
-                "appID": "Y7A9BCDE12.com.finvoras",
-                "paths": [
-                    "*"
-                ]
-            }
-        ]
-    }
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.com.finvora.app",
+        "paths": [ "*" ]
+      },
+      {
+        "appID": "TEAMID.com.finvora.qa",
+        "paths": [ "*" ]
+      },
+      {
+        "appID": "TEAMID.com.finvora.dev",
+        "paths": [ "*" ]
+      }
+    ]
+  }
 }

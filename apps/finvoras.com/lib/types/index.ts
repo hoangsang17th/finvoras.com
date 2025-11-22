@@ -10,6 +10,7 @@ export interface User {
 export interface LoginRequest {
   email: string;
   password: string;
+  isRemember?: boolean;
 }
 
 export interface RegisterRequest {
@@ -19,10 +20,10 @@ export interface RegisterRequest {
   name?: string;
 }
 
-export interface AuthResponse {
-  user: User;
-  token: string;
-  refreshToken?: string;
+export interface AuthTokens {
+  accessToken: string;
+  refreshToken: string;
+  expiredAt: string | Date;
 }
 
 // Blog Types

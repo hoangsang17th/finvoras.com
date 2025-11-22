@@ -150,13 +150,13 @@
   /* Mobile bottom navigation spacing */
   @media (max-width: 767px) {
     body {
-      @apply pb-24;
+      @apply pb-12;
       /* Space for bottom navigation - increased */
     }
 
     main,
     .main-content {
-      @apply pb-24;
+      @apply pb-12;
       /* Additional spacing for main content */
     }
   }

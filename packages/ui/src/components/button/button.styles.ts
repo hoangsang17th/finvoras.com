@@ -77,21 +77,16 @@ export const buttonVariants = cva(
           "h-8 text-xs gap-1",
           "px-[1.25rem]", // 20px padding - giảm từ 24px
           "min-w-[2rem]",
-          // Responsive: cho phép chiều rộng hợp lý cho text ngắn như "Get Started"
-          "max-w-[10rem] xs:max-w-[12rem] sm:max-w-none",
         ],
         md: [
           "h-10 py-2 gap-2",
           "px-[1.5rem]", // 24px padding - giảm từ 32px
           "min-w-[2.5rem]",
-          // Responsive: cho phép chiều rộng đủ để hiển thị text cơ bản
-          "max-w-[12rem] xs:max-w-[14rem] sm:max-w-none",
         ],
         lg: [
           "h-12 text-base gap-2",
           "px-[2rem]", // 32px padding - giảm từ 40px cho vừa phải hơn
           "min-w-[3rem]",
-          "max-w-[10rem] xs:max-w-[12rem] sm:max-w-none",
         ],
         icon: [
           "h-10 w-10 p-0", // Icon buttons có p-0 để centering
@@ -109,19 +104,6 @@ export const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      // Icon size adjustments
-      {
-        size: "sm",
-        className: "w-8 h-8", // Không có p-0
-      },
-      {
-        size: "md",
-        className: "w-10 h-10", // Không có p-0
-      },
-      {
-        size: "lg",
-        className: "w-12 h-12", // Không có p-0
-      },
       // Icon-only buttons need p-0 for centering
       {
         size: "icon",

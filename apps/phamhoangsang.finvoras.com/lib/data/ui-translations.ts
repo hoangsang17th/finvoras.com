@@ -1,17 +1,6 @@
 import type { UITranslations } from "../types/resume";
+import { yearsExperience } from "./resume";
 
-// single source of truth
-const START_DATE = new Date(2021, 11, 15); // December 15, 2021
-
-// Calculate years of experience more accurately
-const calculateYearsExperience = () => {
-    const now = new Date();
-    const diffInMs = now.getTime() - START_DATE.getTime();
-    const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
-    return Math.max(0, Math.floor(diffInYears));
-};
-
-export const yearsExperience = `${calculateYearsExperience()}+`;
 
 // Human-first / Warm tone
 export const uiTranslations: Record<"en" | "vi", UITranslations> = {
