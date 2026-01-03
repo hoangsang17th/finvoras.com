@@ -89,4 +89,9 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
    * - navbar: Optimized for navbar with no text truncation and flex layout
    */
   context?: "default" | "navbar";
+
+  /**
+   * Target attribute for the button (link target)
+   */
+  target?: string;
 }

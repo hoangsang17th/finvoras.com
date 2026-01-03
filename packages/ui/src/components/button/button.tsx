@@ -25,6 +25,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     title,
     href,
     context = "default",
+    target,
     ...props
   }, ref) => {
 
@@ -114,6 +115,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           role="button" // Improve accessibility
           tabIndex={disabled ? -1 : 0}
           aria-disabled={disabled}
+          target={target}
         >
           {buttonContent()}
         </Link>
