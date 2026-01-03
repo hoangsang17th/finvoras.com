@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <PortfolioNavbar />
-      <main className="pt-16 xs:pt-20 sm:pt-24">
+      <main>
         <section id="hero">
           <Hero />
         </section>

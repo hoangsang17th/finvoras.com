@@ -1,9 +1,10 @@
-import { TooltipProvider } from "@repo/ui";
+import { TooltipProvider, FloatingUtilities } from "@repo/ui";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist } from "next/font/google";
 import { I18nProvider } from "@/lib/i18n";
 import "./globals.css";
+import { LanguageSwitcher } from "@repo/i18n";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -42,6 +43,18 @@ export default function RootLayout({
           >
             <TooltipProvider>
               {children}
+              <FloatingUtilities
+                languageSwitcher={
+                  <LanguageSwitcher
+                    languages={[
+                      { code: 'en', name: 'English', flag: '🇺🇸' },
+                      { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' }
+                    ]}
+                    showName={false}
+                    variant="switcher"
+                    orientation='vertical'
+                  />}
+              />
             </TooltipProvider>
           </ThemeProvider>
         </I18nProvider>

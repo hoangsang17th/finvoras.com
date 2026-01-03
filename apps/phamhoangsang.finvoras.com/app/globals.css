@@ -245,3 +245,26 @@ html {
 .focus-visible {
   @apply outline-none ring-2 ring-ring ring-offset-2;
 }
+
+/* Hide reCAPTCHA badge (legal text added to form) */
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+@layer utilities {
+  @keyframes scroll {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(15px);
+      opacity: 0;
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+}
