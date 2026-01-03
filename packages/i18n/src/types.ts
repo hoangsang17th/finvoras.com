@@ -32,4 +32,5 @@ export interface LanguageSwitcherProps {
   variant?: 'dropdown' | 'buttons' | 'switcher';
   showFlag?: boolean;
   showName?: boolean;
+  orientation?: 'horizontal' | 'vertical';
 }

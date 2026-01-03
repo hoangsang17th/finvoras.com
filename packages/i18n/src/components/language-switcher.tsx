@@ -10,6 +10,7 @@ export function LanguageSwitcher({
   variant = 'dropdown',
   showFlag = true,
   showName = true,
+  orientation = 'horizontal',
   ...props
 }: LanguageSwitcherProps) {
   const { locale, setLocale } = useI18n();
@@ -25,7 +26,7 @@ export function LanguageSwitcher({
     if (!firstLang || !secondLang) return null;
 
     const isFirstActive = locale === firstLang.code;
-    const orientation = (props as any).orientation || 'horizontal';
+
 
     return (
       <div className={`relative inline-flex items-center rounded-full border bg-background p-1 transition-colors ${className}`}>

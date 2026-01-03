@@ -12,8 +12,8 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/react": "19.1.0",
     "eslint": "^9.34.0",
     "typescript": "5.9.2"
