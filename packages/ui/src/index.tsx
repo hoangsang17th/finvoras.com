@@ -11,6 +11,9 @@ export { Code } from "./code";
 // Export all components from components directory
 export { AnimatedGridPattern } from "./components/animated-grid-pattern";
 export type { AnimatedGridPatternProps } from "./components/animated-grid-pattern";
+export { DotPattern } from "./components/dot-pattern";
+
+export * from "./components/floating-utilities";
 
 export { Avatar, AvatarImage, AvatarFallback } from "./components/avatar";
 
