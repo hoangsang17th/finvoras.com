@@ -3,19 +3,18 @@
 // Portfolio i18n implementation using shared i18n system
 import React from 'react';
 import { I18nProvider as SharedI18nProvider, useI18n as useSharedI18n } from '@repo/i18n';
-import { portfolioTranslations, type UITranslations, type ResumeData } from './translations';
 
 type Locale = 'en' | 'vi';
 
 // Transform portfolio translations to shared i18n format
 const transformedTranslations = {
     en: {
-        ...portfolioTranslations.en!.ui,
-        resumeData: portfolioTranslations.en!.getLocalizedResumeData('en')
+        ...uiTranslations.en,
+        resumeData: getLocalizedResumeData('en')
     },
     vi: {
-        ...portfolioTranslations.vi!.ui,
-        resumeData: portfolioTranslations.vi!.getLocalizedResumeData('vi')
+        ...uiTranslations.vi,
+        resumeData: getLocalizedResumeData('vi')
     }
 };
 
@@ -32,9 +31,22 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     );
 }
 
+import { useRouter } from 'next/navigation';
+import { uiTranslations } from './data/ui-translations';
+import { getLocalizedResumeData } from './data/resume';
+import { ResumeData, UITranslations } from './types/resume';
+
 // Custom hook that provides portfolio-specific data structure
 export function useI18n() {
-    const { locale, setLocale, t } = useSharedI18n<any>();
+    const { locale, setLocale: sharedSetLocale, t } = useSharedI18n<any>();
+    const router = useRouter();
+
+    const setLocale = (newLocale: Locale) => {
+        sharedSetLocale(newLocale);
+        // router.refresh() tells Next.js to re-fetch Server Components (including Metadata)
+        // without a full page reload or losing client state.
+        router.refresh();
+    };
 
     return {
         locale: locale as Locale,
