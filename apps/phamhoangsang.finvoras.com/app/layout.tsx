@@ -16,15 +16,21 @@ const beVietnamPro = Be_Vietnam_Pro({
 export const metadata: Metadata = {
   title: "Phạm Hoàng Sang - Software Engineer",
   description: "Phạm Hoàng Sang&apos;s professional resume.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("portfolio-locale")?.value || "en") as 'en' | 'vi';
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         {/* reCAPTCHA v3 Script */}
         {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (

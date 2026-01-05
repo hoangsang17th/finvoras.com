@@ -144,7 +144,9 @@
   }
 
   body {
-    @apply text-foreground;
+    @apply text-foreground font-normal antialiased;
+    line-height: 1.6;
+    letter-spacing: -0.011em;
   }
 
   /* Mobile bottom navigation spacing */
