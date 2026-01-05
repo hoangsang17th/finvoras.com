@@ -23,6 +23,9 @@ export * from "./components/button";
 export { Logo } from "./components/logo";
 export * from "./components/card";
 export * from "./components/input";
+export * from "./components/social-button";
+export * from "./components/timeline";
+export * from "./components/text-link";
 
 // Export legacy components for backward compatibility
 export { Badge as LegacyBadge, badgeVariants as legacyBadgeVariants } from "./components/badge";
