@@ -1,13 +1,16 @@
 import { TooltipProvider, FloatingUtilities } from "@repo/ui";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Geist } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 import { I18nProvider } from "@/lib/i18n";
 import "./globals.css";
 import { LanguageSwitcher } from "@repo/i18n";
 
-const geistSans = Geist({
-  subsets: ["latin"],
+import { cookies } from "next/headers";
+
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +35,7 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className={geistSans.className}>
+      <body className={beVietnamPro.className}>
         <I18nProvider>
           <ThemeProvider
             attribute="class"
