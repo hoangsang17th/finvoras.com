@@ -33,6 +33,8 @@ export function I18nProvider<T = Record<string, any>>({
       return;
     }
 
+    if (newLocale === locale) return;
+
     setLocaleState(newLocale);
     saveLocale(newLocale, storageKey);
   };
