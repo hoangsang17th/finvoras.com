@@ -1,7 +1,7 @@
 "use client";
 
-import { Card } from "@repo/ui";
-import { Calendar, MapPin, Building } from "lucide-react";
+import { Badge, Card, Timeline } from "@repo/ui";
+import { Calendar, MapPin, Building, Users, UserCheck } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import type { Experience } from "@/lib/types/resume";
 
@@ -15,11 +15,11 @@ const Experience = () => {
   const experiences = resumeData.experiences;
 
   return (
-    <div className="py-20 px-6">
+    <section className="py-24 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
             {ui.sections.experience.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -27,73 +27,112 @@ const Experience = () => {
           </p>
         </div>
 
-        {/* Timeline */}
+        {/* Timeline container */}
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:transform md:-translate-x-0.5" />
+          <Timeline
+            layout="both"
+            items={experiences.map((exp: Experience) => ({
+              id: exp.id,
+              sideContent: (
+                <Badge variant="outlined" size="md">
+                  {exp.period}
+                </Badge>
+              ),
+              content: (
+                <Card hoverable className="p-8 bg-card border shadow-sm rounded-xl">
+                  {/* Mobile Date Badge */}
+                  <div className="md:hidden flex items-center gap-1.5 text-muted-foreground text-xs font-semibold mb-6">
+                    <Calendar className="h-4 w-4 opacity-70" />
+                    <span>{exp.period}</span>
+                  </div>
 
-          {/* Experience Items */}
-          <div className="space-y-12">
-            {experiences.map((exp: Experience, index: number) => (
-              <div
-                key={exp.id}
-                className={`relative flex items-start ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-2 md:left-1/2 w-4 h-4 bg-brand-primary rounded-full border-4 border-background shadow-lg md:transform md:-translate-x-2" />
-
-                {/* Content */}
-                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
-                  <Card className="p-6 shadow-sm hover:shadow-md transition-shadow">
-                    {/* Header */}
+                  <div>
+                    {/* Header: Title & Company */}
                     <div className="mb-4">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                        <Calendar className="h-4 w-4" />
-                        <span>{exp.period}</span>
-                        <span>•</span>
-                        <span>{exp.type}</span>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
+                        <h3 className="text-2xl font-bold tracking-tight">
+                          {exp.title}
+                        </h3>
+                        <Badge variant="flat" size="sm">
+                          {ui.ui.experience[exp.type]}
+                        </Badge>
                       </div>
-                      <h3 className="text-xl font-bold mb-1">{exp.title}</h3>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Building className="h-4 w-4" />
-                        <span className="font-medium">{exp.company}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                        <MapPin className="h-4 w-4" />
-                        <span>{exp.location}</span>
+
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-6 text-sm text-muted-foreground mt-4">
+                        {exp.company && (
+                          <div className="flex items-center gap-2 font-medium text-foreground/80">
+                            <Building className="h-4 w-4 text-brand-primary" />
+                            <span>{exp.company}</span>
+                          </div>
+                        )}
+                        <div className="flex items-center gap-2">
+                          <MapPin className="h-4 w-4 opacity-60" />
+                          <span>{exp.location}</span>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Description */}
-                    <ul className="space-y-2 mb-4">
-                      {exp.description.map((item: string, idx: number) => (
-                        <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <span className="text-brand-primary mt-1 flex-shrink-0">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Role & Team Metadata */}
+                    {(exp.role || exp.teamSize) && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 py-5 border-y border-border/40">
+                        {exp.role && (
+                          <div className="flex items-center gap-4">
+                            <div className="h-10 w-10 rounded-xl bg-muted flex items-center justify-center">
+                              <UserCheck className="h-5 w-5 text-muted-foreground" />
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-black">Position</span>
+                              <span className="text-sm font-bold text-foreground/90">{exp.role}</span>
+                            </div>
+                          </div>
+                        )}
+                        {exp.teamSize && (
+                          <div className="flex items-center gap-4">
+                            <div className="h-10 w-10 rounded-xl bg-muted flex items-center justify-center">
+                              <Users className="h-5 w-5 text-muted-foreground" />
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-black">Team</span>
+                              <span className="text-sm font-bold text-foreground/90">{exp.teamSize}</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
 
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech: string, index: number) => (
-                        <span
-                          key={index}
-                          className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded"
+                    {/* Contributions / Accomplishments */}
+                    <div className="space-y-4 mb-10">
+                      {exp.contributions.map((item: string, idx: number) => (
+                        <div key={idx} className="flex items-start gap-4">
+                          <div className="mt-2 h-1.5 w-1.5 rounded-full bg-brand-primary shrink-0" />
+                          <p className="text-[15px] leading-relaxed text-muted-foreground font-medium">
+                            {item}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 pt-2 border-t border-border/20">
+                      {exp.technologies.map((tech: string) => (
+                        <Badge
+                          key={tech}
+                          variant="flat"
+                          size="sm"
+                          className="bg-muted/50"
                         >
                           {tech}
-                        </span>
+                        </Badge>
                       ))}
                     </div>
-                  </Card>
-                </div>
-              </div>
-            ))}
-          </div>
+                  </div>
+                </Card>
+              )
+            }))}
+          />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

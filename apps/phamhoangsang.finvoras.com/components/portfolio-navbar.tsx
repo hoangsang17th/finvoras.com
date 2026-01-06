@@ -4,8 +4,8 @@ import { Navbar, Button, Logo, type NavMenuItem, type NavbarCTAAction, ThemeTogg
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
-import LanguageSwitcher from "./language-switcher";
-import { User, Briefcase, Award, FolderOpen, Mail, Download } from "lucide-react";
+import { Download } from "lucide-react";
+import { useNavigation } from "@/lib/hooks/use-navigation";
 
 // Portfolio Logo Component using shared Logo component
 const PortfolioLogo = ({ name }: { name: string }) => {
@@ -74,14 +74,7 @@ const PortfolioNavbar = () => {
     );
   }
 
-  // Define menu items using language context
-  const menuItems: NavMenuItem[] = [
-    { label: ui.nav.about, href: "/", fragmentId: "about", icon: <User size={16} /> },
-    { label: ui.nav.experience, href: "/", fragmentId: "experience", icon: <Briefcase size={16} /> },
-    { label: ui.nav.skills, href: "/", fragmentId: "skills", icon: <Award size={16} /> },
-    { label: ui.nav.projects, href: "/", fragmentId: "projects", icon: <FolderOpen size={16} /> },
-    { label: ui.nav.contact, href: "/", fragmentId: "contact", icon: <Mail size={16} /> },
-  ];
+  const { menuItems } = useNavigation();
 
   // Define CTA actions
   const ctaActions: NavbarCTAAction[] = [
@@ -91,7 +84,7 @@ const PortfolioNavbar = () => {
       id: "download-cv",
       component: (
         <Button
-          variant="secondary"
+          variant="primary"
           href={resumeData.personalInfo.resumeUrl}
           icon={<Download className="h-4 w-4" />}
           iconPosition="left"
@@ -102,7 +95,7 @@ const PortfolioNavbar = () => {
       ),
       compactComponent: (
         <Button
-          variant="secondary"
+          variant="primary"
           size="icon"
           href={resumeData.personalInfo.resumeUrl}
           icon={<Download className="h-4 w-4" />}
@@ -112,23 +105,7 @@ const PortfolioNavbar = () => {
       showOnMobile: true,
       showOnDesktop: true,
       showOnTablet: true,
-    },
-    {
-      id: "theme-toggle",
-      component: <ThemeToggle context="navbar" />,
-      compactComponent: <ThemeToggle context="navbar" />,
-      showOnMobile: true,
-      showOnDesktop: true,
-      showOnTablet: true,
-    },
-    {
-      id: "language-switcher",
-      component: <LanguageSwitcher />,
-      compactComponent: <LanguageSwitcher />,
-      showOnMobile: true,
-      showOnDesktop: true,
-      showOnTablet: true,
-    },
+    }
     ] : []),
   ];
 

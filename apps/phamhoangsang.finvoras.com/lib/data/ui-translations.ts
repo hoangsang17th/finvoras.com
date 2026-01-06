@@ -7,11 +7,10 @@ export const uiTranslations: Record<"en" | "vi", UITranslations> = {
     en: {
         // Navigation
         nav: {
-            home: "Home",
             about: "About",
+            projects: "Projects",
             experience: "Experience",
             skills: "Skills",
-            projects: "Projects",
             contact: "Contact",
             downloadCv: "Download CV",
         },
@@ -21,120 +20,114 @@ export const uiTranslations: Record<"en" | "vi", UITranslations> = {
             about: {
                 title: "About Me",
                 subtitle:
-                    "I build things that people actually use — simple, steady, and cared for.",
-            },
-            experience: {
-                title: "Experience",
-                subtitle:
-                    "From shipping features to keeping them healthy in the long run.",
-            },
-            skills: {
-                title: "Skills",
-                subtitle:
-                    "Tools I know well — and the curiosity to learn what’s next.",
+                    "From mobile development to system thinking and real-world problem solving",
             },
             projects: {
                 title: "Projects",
                 subtitle:
-                    "A few favorites — small wins, hard lessons, real impact.",
+                    "Selected work that reflects real-world constraints, long-term ownership, and technical depth.",
+            },
+            experience: {
+                title: "Experience",
+                subtitle:
+                    "Working across teams to turn evolving requirements into reliable software.",
+            },
+            skills: {
+                title: "Skills",
+                subtitle:
+                    "Technologies I work with, and the thinking behind them.",
             },
             contact: {
                 title: "Let’s talk",
                 subtitle:
-                    "Got an idea, a role, or a problem to untangle? I’m listening.",
+                    "Interested in working together, discussing a role, or exploring an idea?",
             },
+            workValues: "Core Values",
+            education: "Education",
+            additionalSkills: "Additional Skills",
         },
 
         // UI actions and labels
         ui: {
-            getInTouch: "Contact me",
-            viewProject: "View project",
-            viewCode: "View source",
-            liveDemo: "Live demo",
-            send: "Send",
-            sending: "Sending…",
-            success: "Thanks for your message — I’ll get back soon.",
-            error:
-                "Couldn’t send that. Please try again or reach me by email.",
-            downloadCv: "Download CV",
-            viewWork: "See my work",
+            actions: {
+                viewCode: "Source code",
+                liveDemo: "View demo",
+                send: "Send Message",
+                sending: "Sending...",
+                success: "Message received. I'll get back to you soon.",
+                error:
+                    "Unable to send message. Please try again or email me directly.",
+                sendAnotherMessage: "Send another message",
+                errorMessage:
+                    "Something went wrong. Please try again or email me directly.",
+                readBlog: "Read Blog",
+            },
 
-            // Form fields
-            name: "Name",
-            email: "Email",
-            message: "Message",
-            subject: "Subject",
+            form: {
+                name: "Name",
+                email: "Email",
+                message: "Message",
+                namePlaceholder: "Your full name",
+                emailPlaceholder: "name@example.com",
+                messagePlaceholder: "How can I help you?",
+                messagePlaceholderLong:
+                    "Please provide some context about your project, timeline, and goals.",
+                contactRequired: "*",
+            },
 
-            // Form placeholders
-            namePlaceholder: "Your full name",
-            emailPlaceholder: "you@domain.com",
-            messagePlaceholder: "What brought you here?",
-            subjectPlaceholder: "A short headline",
+            contact: {
+                letsConnect: "Let's Connect",
+                connectDescription:
+                    "Share your project details or challenges - I'm happy to discuss how I can help.",
+                messageSent: "Message Sent",
+                messageSentDescription:
+                    "Thanks for reaching out. I typically respond within 24 hours.",
+                responseTime:
+                    "Response time: usually within 24 hours.",
+                phone: "Phone",
+                location: "Location",
+            },
 
-            // Contact page specific
-            letsConnect: "Let’s connect",
-            connectDescription:
-                "Tell me what you’re building and where you’re stuck — we’ll figure it out.",
-            sectionDescription:
-                "I enjoy clear goals, honest feedback, and calm delivery.",
-            sendAMessage: "Send a message",
-            followMe: "Follow me",
-            messageSent: "Message sent",
-            messageSentDescription:
-                "Appreciate it. I usually reply within a day.",
-            sendAnotherMessage: "Send another message",
-            contactRequired: "*",
-            messagePlaceholderLong:
-                "Share a bit of context, links if any, and what success looks like.",
-            errorMessage:
-                "Something went wrong. Try again or email me directly.",
-            responseTime:
-                "Typical response: within 24 hours.",
+            experience: {
+                present: "Present",
+                fullTime: "Full-time",
+                partTime: "Part-time",
+                freelance: "Freelance",
+                contract: "Contract",
+            },
 
-            // Contact info labels
-            phone: "Phone",
-            location: "Location",
+            status: {
+                openToWork: "Looking for new opportunities",
+                building: "Building new products",
+            },
 
-            // Experience types
-            present: "Present",
-            fullTime: "Full-time",
-            partTime: "Part-time",
-            freelance: "Freelance",
-            contract: "Contract",
+            skillLevels: {
+                expert: "Expert",
+                proficient: "Proficient",
+                familiar: "Familiar",
+            },
         },
 
-        // Statistics labels
-        statistics: {
-            yearsExperience: `${yearsExperience} years building products`,
-            projectsCompleted: "Projects shipped",
-            technologiesUsed: "Technologies used",
-            commitment: "Consistency",
-            professionalDevelopment: "Professional software development",
-            successfulDeliveries: "On-time deliveries",
-            modernTechStack: "Modern stack",
-            dedicationToQuality: "Care for quality",
-        },
 
         // Footer text
         footer: {
             builtWith: "Built with",
             by: "by",
-            allRightsReserved: "All rights reserved",
+            allRightsReserved: "All rights reserved.",
         },
 
         // Theme and language
-        theme: { light: "Light", dark: "Dark", system: "System" },
-        language: { english: "English", vietnamese: "Tiếng Việt" },
+        theme: { light: "Light Mode", dark: "Dark Mode", system: "System Default" },
+        language: { english: "English", vietnamese: "Vietnamese" },
     },
 
     vi: {
         // Navigation
         nav: {
-            home: "Trang chủ",
-            about: "Giới thiệu",
+            about: "Về tôi",
+            projects: "Dự án",
             experience: "Kinh nghiệm",
             skills: "Kỹ năng",
-            projects: "Dự án",
             contact: "Liên hệ",
             downloadCv: "Tải CV",
         },
@@ -144,7 +137,12 @@ export const uiTranslations: Record<"en" | "vi", UITranslations> = {
             about: {
                 title: "Giới thiệu",
                 subtitle:
-                    "Mình làm những thứ người dùng thật sự dùng — gọn, bền, chăm chút.",
+                    "Từ phát triển mobile đến tư duy hệ thống và giải quyết vấn đề thực tế",
+            },
+            projects: {
+                title: "Dự án",
+                subtitle:
+                    "Vài sản phẩm mình thích - thắng nhỏ, bài học lớn, tác động thật.",
             },
             experience: {
                 title: "Kinh nghiệm",
@@ -154,99 +152,89 @@ export const uiTranslations: Record<"en" | "vi", UITranslations> = {
             skills: {
                 title: "Kỹ năng",
                 subtitle:
-                    "Công cụ mình quen tay — và luôn sẵn sàng học điều mới.",
-            },
-            projects: {
-                title: "Dự án",
-                subtitle:
-                    "Vài sản phẩm mình thích — thắng nhỏ, bài học lớn, tác động thật.",
+                    "Công cụ mình quen tay - và luôn sẵn sàng học điều mới.",
             },
             contact: {
                 title: "Cùng trò chuyện",
                 subtitle:
                     "Có ý tưởng, vị trí phù hợp, hay vấn đề cần gỡ? Cứ nói nhé.",
             },
+            workValues: "Giá trị cốt lõi",
+            education: "Học vấn",
+            additionalSkills: "Kỹ năng khác",
         },
 
         // UI actions and labels
         ui: {
-            getInTouch: "Liên hệ mình",
-            viewProject: "Xem dự án",
-            viewCode: "Xem mã nguồn",
-            liveDemo: "Xem demo",
-            send: "Gửi",
-            sending: "Đang gửi…",
-            success: "Cảm ơn vì tin nhắn — mình sẽ phản hồi sớm.",
-            error:
-                "Gửi chưa thành công. Thử lại hoặc email trực tiếp nhé.",
-            downloadCv: "Tải CV",
-            viewWork: "Xem sản phẩm",
+            actions: {
+                viewCode: "Xem mã nguồn",
+                liveDemo: "Xem demo",
+                send: "Gửi tin nhắn",
+                sending: "Đang gửi...",
+                success: "Đã nhận tin nhắn. Mình sẽ phản hồi sớm.",
+                error:
+                    "Không thể gửi tin nhắn. Vui lòng thử lại hoặc gửi email trực tiếp.",
+                sendAnotherMessage: "Gửi tin khác",
+                errorMessage:
+                    "Đã xảy ra lỗi. Vui lòng thử lại hoặc gửi email trực tiếp.",
+                readBlog: "Đọc bài viết",
+            },
 
-            // Form fields
-            name: "Họ tên",
-            email: "Email",
-            message: "Tin nhắn",
-            subject: "Chủ đề",
+            form: {
+                name: "Họ tên",
+                email: "Email",
+                message: "Tin nhắn",
+                namePlaceholder: "Họ và tên của bạn",
+                emailPlaceholder: "name@example.com",
+                messagePlaceholder: "Mình có thể giúp gì cho bạn?",
+                messagePlaceholderLong:
+                    "Vui lòng chia sẻ bối cảnh dự án, thời gian và mục tiêu của bạn.",
+                contactRequired: "*",
+            },
 
-            // Form placeholders
-            namePlaceholder: "Họ và tên của bạn",
-            emailPlaceholder: "ban@mien.com",
-            messagePlaceholder: "Điều gì đưa bạn tới đây?",
-            subjectPlaceholder: "Một tiêu đề ngắn",
+            contact: {
+                letsConnect: "Kết nối nhé",
+                connectDescription:
+                    "Chia sẻ chi tiết dự án hoặc khó khăn của bạn - mình rất vui được thảo luận cách hỗ trợ.",
+                messageSent: "Tin nhắn đã gửi",
+                messageSentDescription:
+                    "Cảm ơn bạn đã liên hệ. Mình thường phản hồi trong vòng 24 giờ.",
+                responseTime:
+                    "Thời gian phản hồi: thường trong vòng 24 giờ.",
+                phone: "Điện thoại",
+                location: "Địa điểm",
+            },
 
-            // Contact page specific
-            letsConnect: "Kết nối nhé",
-            connectDescription:
-                "Kể mình nghe bạn đang xây gì và đang kẹt ở đâu — rồi cùng tìm hướng.",
-            sectionDescription:
-                "Mình thích mục tiêu rõ, phản hồi thẳng, và nhịp giao hàng bình tĩnh.",
-            sendAMessage: "Gửi tin nhắn",
-            followMe: "Theo dõi",
-            messageSent: "Đã gửi",
-            messageSentDescription:
-                "Cảm ơn đã liên hệ. Thường mình trả lời trong một ngày.",
-            sendAnotherMessage: "Gửi tin khác",
-            contactRequired: "*",
-            messagePlaceholderLong:
-                "Chia sẻ bối cảnh, link (nếu có) và bức tranh thành công bạn mong muốn.",
-            errorMessage:
-                "Có lỗi xảy ra. Thử lại hoặc liên hệ qua email.",
-            responseTime:
-                "Thường phản hồi trong 24 giờ.",
+            experience: {
+                present: "Hiện tại",
+                fullTime: "Toàn thời gian",
+                partTime: "Bán thời gian",
+                freelance: "Freelance",
+                contract: "Hợp đồng",
+            },
 
-            // Contact info labels
-            phone: "Điện thoại",
-            location: "Địa điểm",
+            status: {
+                openToWork: "Đang tìm kiếm cơ hội mới",
+                building: "Đang xây dựng sản phẩm mới",
+            },
 
-            // Experience types
-            present: "Hiện tại",
-            fullTime: "Toàn thời gian",
-            partTime: "Bán thời gian",
-            freelance: "Freelance",
-            contract: "Hợp đồng",
+            skillLevels: {
+                expert: "Chuyên gia",
+                proficient: "Thành thạo",
+                familiar: "Quen thuộc",
+            },
         },
 
-        // Statistics labels
-        statistics: {
-            yearsExperience: `${yearsExperience} năm xây sản phẩm`,
-            projectsCompleted: "Dự án đã ship",
-            technologiesUsed: "Công nghệ sử dụng",
-            commitment: "Ổn định",
-            professionalDevelopment: "Phát triển phần mềm chuyên nghiệp",
-            successfulDeliveries: "Bàn giao đúng hẹn",
-            modernTechStack: "Stack hiện đại",
-            dedicationToQuality: "Chú trọng chất lượng",
-        },
 
         // Footer text
         footer: {
             builtWith: "Xây dựng với",
             by: "bởi",
-            allRightsReserved: "Đã đăng ký bản quyền",
+            allRightsReserved: "Đã đăng ký bản quyền.",
         },
 
         // Theme and language
-        theme: { light: "Sáng", dark: "Tối", system: "Hệ thống" },
+        theme: { light: "Chế độ sáng", dark: "Chế độ tối", system: "Mặc định hệ thống" },
         language: { english: "English", vietnamese: "Tiếng Việt" },
     },
 };

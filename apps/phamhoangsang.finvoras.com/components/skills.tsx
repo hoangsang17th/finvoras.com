@@ -1,19 +1,19 @@
 "use client";
 
-import { Card, Badge } from "@repo/ui";
+import { Card, Badge, Button } from "@repo/ui";
 import { useI18n } from "@/lib/i18n";
 import type { SkillCategory, Skill } from "@/lib/types/resume";
 
-const getLevelColor = (level: string) => {
-  switch (level) {
+const getLevelColor = (levelKey: string) => {
+  switch (levelKey) {
     case "Expert":
-      return "bg-brand-primary text-white hover:bg-brand-primary/90";
+      return "bg-brand-primary text-white border-brand-primary";
     case "Proficient":
-      return "bg-brand-blue text-white hover:bg-brand-blue/90";
+      return "bg-brand-blue text-white border-brand-blue";
     case "Familiar":
-      return "bg-muted text-muted-foreground hover:bg-muted/80";
+      return "bg-muted text-muted-foreground border-border";
     default:
-      return "bg-muted text-muted-foreground";
+      return "bg-muted text-muted-foreground border-border";
   }
 };
 
@@ -24,7 +24,7 @@ const Skills = () => {
 
   if (!resumeData?.skillCategories.length) {
     return (
-      <div className="py-20 px-6 bg-muted/30">
+      <div className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <Skeleton className="h-12 w-64 mx-auto mb-4" />
@@ -54,7 +54,7 @@ const Skills = () => {
   const additionalSkills = resumeData.additionalSkills;
 
   return (
-    <div className="py-20 px-6 bg-muted/30">
+    <div className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -67,13 +67,15 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category: SkillCategory, index: number) => (
-            <Card key={index} className="p-6 h-full">
+            <Card key={index} hoverable className="p-8 border rounded-xl shadow-sm">
               {/* Category Header */}
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-2xl">{category.icon}</span>
-                <h3 className="text-xl font-bold">{category.title}</h3>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-10 h-10 flex items-center justify-center bg-muted rounded-lg text-xl border">
+                  {category.icon}
+                </div>
+                <h3 className="text-xl font-bold tracking-tight">{category.title}</h3>
               </div>
 
               {/* Skills List */}
@@ -81,11 +83,11 @@ const Skills = () => {
                 {category.skills.map((skill: Skill, skillIndex: number) => (
                   <Badge
                     key={skillIndex}
-                    className={`px-3 py-1 text-sm font-medium border-none ${getLevelColor(skill.level)}`}
+                    className={`px-3 py-1 text-[10px] font-bold border rounded-full uppercase tracking-wider shadow-none ${getLevelColor(skill.level)}`}
                   >
                     {skill.name}
-                    <span className="ml-2 text-xs opacity-70 border-l pl-2 border-white/30">
-                      {skill.level}
+                    <span className="ml-2 text-[10px] opacity-70 border-l pl-2 border-current/20">
+                      {ui.ui.skillLevels[skill.level.toLowerCase() as keyof typeof ui.ui.skillLevels]}
                     </span>
                   </Badge>
                 ))}
@@ -97,15 +99,17 @@ const Skills = () => {
         {/* Additional Skills */}
         {additionalSkills.length > 0 && (
           <div className="mt-12">
-            <h3 className="text-xl font-bold text-center mb-8">Additional Skills</h3>
+            <h3 className="text-xl font-bold text-center mb-8">{ui.sections.additionalSkills}</h3>
             <div className="flex flex-wrap justify-center gap-3">
               {additionalSkills.map((skill: string, index: number) => (
-                <span
+                <Badge
                   key={index}
-                  className="px-4 py-2 bg-card border rounded-full text-sm font-medium hover:bg-accent transition-colors"
+                  variant="outlined"
+                  size="md"
+                  className="px-4 py-2"
                 >
                   {skill}
-                </span>
+                </Badge>
               ))}
             </div>
           </div>

@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import { Card, Button, Input, Label } from "@repo/ui";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, CheckCircle2, Loader2 } from "lucide-react";
-import Link from "next/link";
+import { Card, Button, Input, Label, TextLink } from "@repo/ui";
+import { Mail, MapPin, Phone, Send, CheckCircle2, Loader2 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { submitToGoogleForm, createGoogleFormConfig } from "@repo/google-forms";
 
@@ -106,29 +105,23 @@ const ContactInfo = ({ personalInfo, socialLinks, ui }: ContactInfoProps & { ui:
     },
     {
       icon: Phone,
-      label: ui.ui.phone,
+      label: ui.ui.contact.phone,
       value: personalInfo.phone,
       href: `tel:${personalInfo.phone}`,
     },
     {
       icon: MapPin,
-      label: ui.ui.location,
+      label: ui.ui.contact.location,
       value: personalInfo.location,
     },
   ], [personalInfo, ui]);
 
-  const socialPlatforms = useMemo(() => [
-    { icon: Github, href: socialLinks?.github, label: "GitHub" },
-    { icon: Linkedin, href: socialLinks?.linkedin, label: "LinkedIn" },
-    { icon: Twitter, href: socialLinks?.twitter, label: "Twitter" },
-  ].filter(platform => platform.href), [socialLinks]);
-
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-2xl font-bold mb-6">{ui.ui.letsConnect}</h3>
+        <h3 className="text-2xl font-bold mb-6">{ui.ui.contact.letsConnect}</h3>
         <p className="text-muted-foreground mb-8">
-          {ui.ui.connectDescription}
+          {ui.ui.contact.connectDescription}
         </p>
       </div>
 
@@ -142,12 +135,9 @@ const ContactInfo = ({ personalInfo, socialLinks, ui }: ContactInfoProps & { ui:
             <div>
               <div className="font-medium">{label}</div>
               {href ? (
-                <Link
-                  href={href}
-                  className="text-muted-foreground hover:text-brand-primary transition-colors"
-                >
+                <TextLink href={href} external>
                   {value}
-                </Link>
+                </TextLink>
               ) : (
                 <span className="text-muted-foreground">{value}</span>
               )}
@@ -155,22 +145,6 @@ const ContactInfo = ({ personalInfo, socialLinks, ui }: ContactInfoProps & { ui:
           </div>
         ))}
       </div>
-
-      {/* Social Links */}
-      {socialPlatforms.length > 0 && (
-        <div>
-          <h4 className="font-medium mb-4">{ui.ui.followMe}</h4>
-          <div className="flex gap-4">
-            {socialPlatforms.map(({ icon: Icon, href, label }) => (
-              <Button key={label} variant="secondary" size="icon" className="rounded-full" asChild>
-                <Link href={href!} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                  <Icon className="h-5 w-5" />
-                </Link>
-              </Button>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 };
@@ -181,12 +155,12 @@ const SuccessMessage = ({ onReset, ui }: { onReset: () => void; ui: any }) => (
     <div className="w-16 h-16 bg-brand-success/10 rounded-full flex items-center justify-center mx-auto mb-4">
       <CheckCircle2 className="h-8 w-8 text-brand-success" />
     </div>
-    <h4 className="text-xl font-semibold mb-2">{ui.ui.messageSent}</h4>
+    <h4 className="text-xl font-semibold mb-2">{ui.ui.contact.messageSent}</h4>
     <p className="text-muted-foreground mb-6">
-      {ui.ui.messageSentDescription}
+      {ui.ui.contact.messageSentDescription}
     </p>
-    <Button variant="secondary" onClick={onReset} className="mb-4 w-full">
-      {ui.ui.sendAnotherMessage}
+    <Button variant="secondary" onClick={onReset} fullWidth className="mb-4">
+      {ui.ui.actions.sendAnotherMessage}
     </Button>
   </div>
 );
@@ -213,11 +187,11 @@ const ContactForm = ({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div className="space-y-2">
         <Label htmlFor="name">
-          {ui.ui.name} <span className="text-destructive">{ui.ui.contactRequired}</span>
+          {ui.ui.form.name} <span className="text-destructive">{ui.ui.form.contactRequired}</span>
         </Label>
         <Input
           id="name"
-          placeholder={ui.ui.namePlaceholder}
+          placeholder={ui.ui.form.namePlaceholder}
           required
           value={formData.name}
           onChange={(e) => onFieldChange("name", e.target.value)}
@@ -226,12 +200,12 @@ const ContactForm = ({
       </div>
       <div className="space-y-2">
         <Label htmlFor="email">
-          {ui.ui.email} <span className="text-destructive">{ui.ui.contactRequired}</span>
+          {ui.ui.form.email} <span className="text-destructive">{ui.ui.form.contactRequired}</span>
         </Label>
         <Input
           id="email"
           type="email"
-          placeholder={ui.ui.emailPlaceholder}
+          placeholder={ui.ui.form.emailPlaceholder}
           required
           value={formData.email}
           onChange={(e) => onFieldChange("email", e.target.value)}
@@ -242,12 +216,12 @@ const ContactForm = ({
 
     <div className="space-y-2">
       <Label htmlFor="message">
-        {ui.ui.message} <span className="text-destructive">{ui.ui.contactRequired}</span>
+        {ui.ui.form.message} <span className="text-destructive">{ui.ui.form.contactRequired}</span>
       </Label>
       <textarea
         id="message"
         className="w-full min-h-[120px] px-3 py-2 border border-input bg-background text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 rounded-md resize-none"
-        placeholder={ui.ui.messagePlaceholderLong}
+        placeholder={ui.ui.form.messagePlaceholderLong}
         required
         value={formData.message}
         onChange={(e) => onFieldChange("message", e.target.value)}
@@ -258,14 +232,14 @@ const ContactForm = ({
     {submitStatus === "error" && (
       <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-md">
         <p className="text-sm text-destructive">
-          {ui.ui.errorMessage}
+          {ui.ui.actions.errorMessage}
         </p>
       </div>
     )}
 
     <Button
       type="submit"
-      className="w-full"
+      fullWidth
       disabled={isSubmitting}
       icon={
         isSubmitting ?
@@ -273,7 +247,7 @@ const ContactForm = ({
           <Send className="h-4 w-4" />
       }
     >
-      {isSubmitting ? ui.ui.sending : ui.ui.send}
+      {isSubmitting ? ui.ui.actions.sending : ui.ui.actions.send}
     </Button>
   </form>
 );
@@ -316,7 +290,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <Card className="p-8">
-              <h3 className="text-xl font-bold mb-6">{ui.ui.send}</h3>
+              <h3 className="text-xl font-bold mb-6">{ui.ui.actions.send}</h3>
 
               {submitStatus === "success" ? (
                 <SuccessMessage onReset={resetForm} ui={ui} />
@@ -333,7 +307,7 @@ const Contact = () => {
 
                   <div className="mt-6 pt-6 border-t">
                     <p className="text-sm text-muted-foreground text-center">
-                      {ui.ui.responseTime}
+                      {ui.ui.contact.responseTime}
                     </p>
                   </div>
                 </>

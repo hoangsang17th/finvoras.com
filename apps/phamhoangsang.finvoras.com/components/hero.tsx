@@ -1,8 +1,7 @@
 "use client";
 
-import { Badge, Button } from "@repo/ui";
-import { WordFluidCursor } from "./ui/word-fluid-cursor";
-import { ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import { Badge, DotPattern, SocialButton, cn } from "@repo/ui";
+import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useI18n } from "@/lib/i18n";
@@ -13,7 +12,7 @@ const Hero = () => {
   if (!resumeData) {
     return (
       <div className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-20 px-6">
-        <div className="w-32 h-32 rounded-full bg-muted animate-pulse mb-8" />
+        <div className="w-32 h-32 rounded-[2rem] bg-muted animate-pulse mb-8" />
         <div className="h-8 w-32 bg-muted animate-pulse rounded-full mb-6" />
         <div className="h-16 w-3/4 max-w-2xl bg-muted animate-pulse rounded-lg mb-6" />
         <div className="h-8 w-1/2 max-w-lg bg-muted animate-pulse rounded-lg mb-8" />
@@ -36,100 +35,113 @@ const Hero = () => {
     .toUpperCase();
 
   return (
-    <div className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-20 px-6 ">
-      <div className="text-center max-w-4xl">
-        {/* Profile Image */}
-        <div className="mb-8">
-          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1">
-            <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-4xl font-bold overflow-hidden">
-              {personalInfo.avatar ? (
-                <Image
-                  src={personalInfo.avatar}
-                  alt={personalInfo.name}
-                  width={128}
-                  height={128}
-                  className="rounded-full object-cover"
-                />
-              ) : (
-                <span className="text-muted-foreground">{initials}</span>
+    <div className="min-h-screen w-full flex items-center justify-center relative overflow-hidden pt-24 pb-20 px-6">
+      {/* Background Pattern */}
+      <DotPattern
+        className={cn(
+          "mask-image:none"
+        )}
+      />
+
+      <div className="container max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-center">
+
+          {/* Content Column */}
+          <div className="lg:col-span-2 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
+
+            {/* Status Badge */}
+            <Badge
+              className={cn(
+                "text-white rounded-full py-1.5 px-4 border-none mb-6 font-medium transition-all duration-300",
+                personalInfo.statusKey === 'open_to_work'
+                  ? 'bg-emerald-500 hover:bg-emerald-600 shadow-[0_0_15px_rgba(16,185,129,0.3)]'
+                  : 'bg-blue-500 hover:bg-blue-600 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
               )}
+            >
+              <span className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className={cn(
+                    "relative inline-flex rounded-full h-2 w-2 bg-white",
+                    personalInfo.statusKey === 'open_to_work' && "shadow-[0_0_8px_white]"
+                  )}></span>
+                </span>
+                {personalInfo.statusKey === 'open_to_work' ? ui.ui.status.openToWork : ui.ui.status.building}
+              </span>
+            </Badge>
+
+            {/* Main Title */}
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold !leading-[1.1] tracking-tight mb-6">
+              {personalInfo.name}
+            </h2>
+
+            {/* Description */}
+            <p className="text-base xs:text-lg text-muted-foreground max-w-2xl mb-10 text-pretty leading-relaxed">
+              {personalInfo.summary}
+            </p>
+
+            {/* Social Links */}
+            <div className="flex items-center justify-center lg:justify-start gap-5">
+              {socialLinks.github && (
+                <SocialButton
+                  href={socialLinks.github}
+                  icon={<Github className="h-6 w-6" />}
+                  label="Github"
+                />
+              )}
+              {socialLinks.linkedin && (
+                <SocialButton
+                  href={socialLinks.linkedin}
+                  icon={<Linkedin className="h-6 w-6" />}
+                  label="LinkedIn"
+                />
+              )}
+              <SocialButton
+                href={`mailto:${socialLinks.email}`}
+                icon={<Mail className="h-6 w-6" />}
+                label="Email"
+              />
             </div>
           </div>
-        </div>
 
-        {/* Status Badge */}
-        <Badge className={`${personalInfo.availability ? 'bg-brand-success hover:bg-brand-success' : 'bg-muted hover:bg-muted'} text-white rounded-full py-1 border-none mb-6`}>
-          {personalInfo.status}
-        </Badge>
+          {/* Avatar Column */}
+          <div className="lg:col-span-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[26rem] lg:h-[26rem] group">
+              {/* Soft Ambient Glow */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-brand-primary/30 to-brand-primary-600/30 blur-3xl rounded-[3rem] opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
 
-        {/* Main Title */}
-        <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-bold !leading-[1.1] tracking-tight mb-6">
-          {personalInfo.name}
-        </h1>
+              {/* Glassy Frame */}
+              <div className="relative h-full w-full rounded-[2.5rem] border border-white/20 bg-white/10 backdrop-blur-sm shadow-2xl transition-transform duration-500 group-hover:scale-[1.01] overflow-hidden">
+                {/* Subtle Gradient Border Effect */}
+                <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-white/20 via-transparent to-black/10 pointer-events-none"></div>
 
-        <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-semibold text-muted-foreground mb-8">
-          {personalInfo.title}
-        </h2>
+                {/* Inner Image Container */}
+                <div className="absolute inset-2 rounded-[2.2rem] overflow-hidden bg-muted/20">
+                  {personalInfo.avatarUrl ? (
+                    <Image
+                      src={personalInfo.avatarUrl}
+                      alt={personalInfo.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      priority
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-muted/30 backdrop-blur-md">
+                      <span className="text-6xl font-bold text-muted-foreground/50">{initials}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
 
-        {/* Description */}
-        <p className="text-lg xs:text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
-          {personalInfo.bio}
-        </p>
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Button
-            variant="default"
-            size="lg"
-            className="w-full sm:w-auto rounded-full text-base"
-            asChild
-          >
-            <Link href="#contact">
-              {ui.ui.getInTouch} <Mail className="!h-5 !w-5" />
-            </Link>
-          </Button>
-          {socialLinks.resume && (
-            <Button
-              variant="secondary"
-              size="lg"
-              className="w-full sm:w-auto rounded-full text-base"
-              asChild
-            >
-              <Link href={socialLinks.resume} target="_blank">
-                {ui.nav.downloadCv} <Download className="!h-5 !w-5" />
-              </Link>
-            </Button>
-          )}
-        </div>
-
-        {/* Social Links */}
-        <div className="flex items-center justify-center gap-6">
-          {socialLinks.github && (
-            <Button variant="default" size="icon" className="rounded-full" asChild>
-              <Link href={socialLinks.github} target="_blank" rel="noopener noreferrer">
-                <Github className="h-6 w-6" />
-              </Link>
-            </Button>
-          )}
-          {socialLinks.linkedin && (
-            <Button variant="default" size="icon" className="rounded-full" asChild>
-              <Link href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
-                <Linkedin className="h-6 w-6" />
-              </Link>
-            </Button>
-          )}
-          <Button variant="default" size="icon" className="rounded-full" asChild>
-            <Link href={`mailto:${socialLinks.email}`}>
-              <Mail className="h-6 w-6" />
-            </Link>
-          </Button>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="animate-bounce">
-          <ArrowUpRight className="h-6 w-6 text-muted-foreground rotate-90" />
+      {/* Mouse Scroll Animation */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 hidden sm:flex flex-col items-center gap-2 pointer-events-none">
+        <div className="w-[30px] h-[50px] rounded-full border-2 border-muted-foreground/20 flex justify-center p-2 bg-background/50 backdrop-blur-[2px]">
+          <div className="w-1 h-2.5 bg-brand-primary rounded-full animate-scroll" />
         </div>
       </div>
     </div>
