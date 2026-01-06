@@ -188,50 +188,47 @@ Tôi xem những vấn đề này là một phần tự nhiên của quá trình
         },
         quickInfo: [
             { label: "Năm Kinh Nghiệm", value: yearsExperience, description: "Flutter trong môi trường production" },
-            { label: "Dự Án Đã Phát Hành", value: "10+", description: "Từ module ERP đến app tiêu dùng" },
-            { label: "Công Nghệ Sử Dụng", value: "15+", description: "Flutter, Firebase, CI/CD, Clean Arch" },
-            { label: "Cam Kết", value: "100%", description: "Hợp tác chủ động" },
+            { label: "Sản Phẩm FinTech", value: "1", description: "Sở hữu sản phẩm end-to-end" },
+            { label: "Edge Cases", value: "30+", description: "Xử lý trong các tình huống thực tế" },
+            { label: "Phạm Vi Chức Năng", value: "Đa dạng", description: "Mobile, tích hợp backend, kiến trúc" },
         ],
         experiences: [
             {
-                id: "exp-enlab-cleeksy",
-                title: "Flutter Engineer | ERP → Nền tảng Low-code (Eldesk → Cleeksy)",
-                company: "ENLAB SOFTWARE/ CLEEKSY",
+                id: "exp-enlab",
+                title: "Cleeksy - Nền tảng Vận hành Số hóa",
+                company: "Enlab Software",
                 location: "Đà Nẵng",
-                period: "Tháng 12/2021 - Tháng 10/2025",
+                period: "12/2021 - 10/2025",
                 type: "fullTime",
                 contributions: [
-                    "Bắt đầu với vị trí Flutter Intern tại Enlab và trở thành Engineer chính thức.",
-                    "Tiếp tục phát triển sản phẩm cốt lõi thông qua quá trình tái cấu trúc công ty thành Cleeksy (2023).",
-                    "Xây dựng và bảo trì hơn 10 module ERP, tích hợp sâu các thư viện bên thứ ba (như Quill editor, biểu đồ dữ liệu) với logic nghiệp vụ và tối ưu hóa hiệu năng.",
-                    "Đóng góp vào quá trình chuyển đổi sang nền tảng Low-code (2024 - nay), thiết kế các component UI có khả năng tái sử dụng và công cụ cấu hình động cho người dùng cuối.",
-                    "Áp dụng Clean Architecture để cải thiện khả năng bảo trì và mở rộng; giảm thời gian làm quen (onboarding) cho các developer mới.",
-                    "Phối hợp với UI/UX designer để mang lại trải nghiệm nhất quán, chuẩn chỉnh đến từng pixel và cải thiện khả năng sử dụng.",
-                    "Tạo tài liệu chi tiết cho các module cũ phức tạp, giúp giảm thiểu rào cản kiến thức và chi phí bảo trì."
+                    "Bắt đầu với vị trí Flutter Intern tại Enlab và chuyển sang vị trí Engineer chính thức.",
+                    "Tiếp tục phát triển cùng sản phẩm cốt lõi qua quá trình tái cấu trúc công ty thành Cleeksy (2023).",
+                    "Áp dụng Clean Architecture để cải thiện khả năng bảo trì và mở rộng; giảm thời gian làm quen cho developer mới.",
+                    "Đóng góp vào quá trình chuyển đổi sang Nền tảng Low-code (2024 - nay), thiết kế các component UI có thể tái sử dụng và công cụ cấu hình động cho người dùng cuối.",
+                    "Phối hợp với UI/UX designer để mang lại trải nghiệm nhất quán, chuẩn chỉnh từng pixel và cải thiện khả năng sử dụng.",
+                    "Xây dựng và bảo trì hơn 10 module, tích hợp sâu các thư viện bên thứ ba (ví dụ: Quill editor, biểu đồ dữ liệu) với logic nghiệp vụ và tối ưu hiệu năng.",
+                    "Tạo tài liệu chi tiết cho các module cũ phức tạp, cắt giảm rào cản kiến thức và chi phí bảo trì."
                 ],
-                description: "Phát triển và bảo trì các module ERP cốt lõi, chuyển đổi sang nền tảng Low-code.",
+                description: "Dẫn dắt phát triển Flutter cho các module ERP cốt lõi và chuyển đổi nền tảng low-code, bảo trì hơn 10 module.",
                 technologies: ["Flutter", "Dart", "Clean Architecture", "Low-code", "ERP"],
-                role: "Senior Flutter Engineer",
-                teamSize: "Hơn 15 thành viên",
+                role: "Mobile Engineer",
+                teamSize: "3-7 thành viên",
             },
             {
-                id: "exp-finvora",
-                title: "Finvora | Ứng dụng Tài chính & Nền tảng (Đang phát triển)",
-                company: "Các dự án chọn lọc",
+                id: "early-exp",
+                title: "Kinh Nghiệm Kỹ Thuật Ban Đầu",
                 location: "Remote",
-                period: "Tháng 2/2021 - Hiện tại",
-                type: "freelance",
+                period: "7/2021 - 9/2021",
+                type: "partTime",
                 contributions: [
-                    "Xây dựng ứng dụng Flutter full-stack tập trung vào khả năng mở rộng và trải nghiệm người dùng.",
-                    "Kiến trúc modular monorepo với hơn 6 package cho các tiện ích dùng chung và chủ đề (theming).",
-                    "Phát triển công cụ nội bộ: CLI tùy chỉnh để tạo asset và custom_lint để đảm bảo tính nhất quán.",
-                    "Thiết kế kiến trúc local-first với hệ thống design system được token hóa.",
-                    "Thiết lập quy trình CI/CD tự động cho việc build và phát hành (release)."
+                    "Tham gia phân tích hệ thống và thiết kế kiến trúc cơ bản dựa trên yêu cầu khách hàng",
+                    "Xây dựng giao diện người dùng responsive và tích hợp RESTful API",
+                    "Triển khai sản phẩm lên Netlify và lập tài liệu vòng đời phát triển, bao gồm luồng hệ thống và sơ đồ"
                 ],
-                description: "Xây dựng ứng dụng và kiến trúc nền tảng, tập trung vào UX và khả năng mở rộng.",
-                technologies: ["Flutter", "Melos", "Monorepo", "CI/CD", "Local-first"],
-                role: "Nhà phát triển chính / Kiến trúc sư",
-                teamSize: "Cá nhân / Đóng góp chính",
+                description: "Phát triển Frontend với ReactJS, phân tích hệ thống và triển khai.",
+                technologies: ["ReactJS", "JavaScript", "Figma", "Netlify"],
+                role: "Frontend Intern",
+                teamSize: "3 thành viên",
             },
         ],
         skillCategories: [
@@ -241,19 +238,20 @@ Tôi xem những vấn đề này là một phần tự nhiên của quá trình
                 skills: [
                     { name: "Flutter", level: "Expert" },
                     { name: "Dart", level: "Expert" },
-                    { name: "Typescript (Cơ bản)", level: "Familiar" },
-                    { name: "NestJS (Cơ bản)", level: "Familiar" },
-                    { name: "Angular (Cơ bản)", level: "Familiar" },
+                    { name: "NestJS (Backend)", level: "Familiar" },
+                    { name: "NextJs (Frontend)", level: "Familiar" },
+                    { name: "Angular", level: "Familiar" },
+                    { name: "Typescript", level: "Familiar" },
                 ]
             },
             {
-                title: "Kiến trúc & Quản lý trạng thái",
+                title: "Kiến trúc & Quản lý State",
                 icon: "🏗️",
                 skills: [
                     { name: "Clean Architecture", level: "Expert" },
-                    { name: "GetX", level: "Expert" },
-                    { name: "MVVM", level: "Expert" },
+                    { name: "MVVM", level: "Familiar" },
                     { name: "SOLID/DRY/KISS", level: "Expert" },
+                    { name: "GetX", level: "Expert" },
                 ]
             },
             {
@@ -279,51 +277,34 @@ Tôi xem những vấn đề này là một phần tự nhiên của quá trình
         ],
         projects: [
             {
-                title: "Finvoras - Tài chính cá nhân",
+                title: "Finvoras | Sản Phẩm Tài Chính Cá Nhân & Nền Tảng Kỹ Thuật",
                 description:
-                    "Ứng dụng Flutter full-stack với kiến trúc modular monorepo, local-first và các công cụ hỗ trợ phát triển nội bộ.",
+                    "Một sản phẩm tài chính cá nhân end-to-end phát triển từ phiên bản production trước đó (FinFree). Finvoras được thiết kế với trọng tâm mạnh mẽ vào độ tin cậy hệ thống, kiến trúc modular và khả năng bảo trì lâu dài, phục vụ cả người dùng thực và tăng trưởng sản phẩm bền vững.",
                 image: "/projects/finvoras.jpg",
                 technologies: ["Flutter", "Dart", "Firebase", "Supabase", "CI/CD"],
                 contributions: [
-                    "Kiến trúc modular monorepo",
-                    "Công cụ phát triển nội bộ (CLI, custom_lint)",
-                    "Kiến trúc local-first",
-                    "Quy trình CI/CD tự động"
+                    "Thiết kế và bảo trì Flutter monorepo modular để tái sử dụng code và phát triển có khả năng mở rộng",
+                    "Xây dựng công cụ phát triển nội bộ (CLI tùy chỉnh, custom_lint) để cải thiện DX và đảm bảo tính nhất quán",
+                    "Triển khai kiến trúc local-first để đảm bảo độ tin cậy dữ liệu và khả năng hoạt động offline",
+                    "Tích hợp dịch vụ backend và quản lý luồng dữ liệu cross-layer giữa mobile và API",
+                    "Thiết lập pipeline CI/CD tự động để hỗ trợ tích hợp và phân phối liên tục"
                 ],
-                urls: ["https://finvoras.com", "https://github.com/hoangsang17th"],
+                urls: ["https://finvoras.com"],
                 status: "in_development",
                 date: new Date("2024-01-01"),
                 featured: true,
-                category: "Sản phẩm"
+                category: "Sản phẩm",
             },
-            {
-                title: "Cleeksy - Nền tảng Low-code",
-                description:
-                    "Đóng góp vào quá trình chuyển đổi sang nền tảng Low-code, thiết kế các component tái sử dụng và công cụ cấu hình động.",
-                image: "/projects/erp.jpg",
-                technologies: ["Flutter", "Low-code", "Clean Architecture"],
-                contributions: [
-                    "Component UI có khả năng tái sử dụng",
-                    "Công cụ cấu hình động",
-                    "Tích hợp sâu thư viện bên thứ ba",
-                    "Tối ưu hóa hiệu năng"
-                ],
-                urls: [],
-                status: "live",
-                date: new Date("2023-01-01"),
-                featured: true,
-                category: "Doanh nghiệp"
-            }
         ],
         education: [
             {
                 id: "edu-vku",
-                institution: "Trường Đại học Công nghệ Thông tin và Truyền thông Việt - Hàn (VKU)",
+                institution: "Đại học CNTT và TT Việt - Hàn",
                 institutionUrl: "https://vku.udn.vn",
                 degree: "Bằng Kỹ sư Kỹ thuật Phần mềm",
                 location: "Đà Nẵng, Việt Nam",
                 locationUrl: "https://maps.app.goo.gl/w6f3XvYnNqZJ8Y3Yp",
-                period: "Tháng 8/2019 - Tháng 3/2024",
+                period: "8/2019 - 3/2024",
                 gpa: "3.25 / 4.0",
                 achievements: [
                     "Giải thưởng Thiết kế Web xuất sắc nhất SICT 2020 (Top 20).",
