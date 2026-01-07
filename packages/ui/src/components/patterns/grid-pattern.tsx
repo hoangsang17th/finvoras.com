@@ -10,9 +10,9 @@ import {
   useState,
 } from "react";
 
-import { cn } from "../utils";
+import { cn } from "../../utils";
 
-export interface AnimatedGridPatternProps
+export interface GridPatternProps
   extends ComponentPropsWithoutRef<"svg"> {
   width?: number;
   height?: number;
@@ -24,7 +24,7 @@ export interface AnimatedGridPatternProps
   duration?: number;
 }
 
-export function AnimatedGridPattern({
+export function GridPattern({
   width = 40,
   height = 40,
   x = -1,
@@ -35,7 +35,7 @@ export function AnimatedGridPattern({
   maxOpacity = 0.5,
   duration = 4,
   ...props
-}: AnimatedGridPatternProps) {
+}: GridPatternProps) {
   const id = useId();
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });

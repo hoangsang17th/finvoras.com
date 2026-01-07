@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { ThemeToggle, cn } from "../index";
+import { ThemeToggle } from "./theme-toggle";
+import { Button } from "../core/button";
+import { cn } from "../../index";
 
 interface FloatingUtilitiesProps {
     languageSwitcher?: ReactNode;
@@ -10,12 +12,12 @@ interface FloatingUtilitiesProps {
 
 export const FloatingUtilities = ({
     languageSwitcher,
-    className,
+    className
 }: FloatingUtilitiesProps) => {
     const [isVisible, setIsVisible] = useState(false);
 
-    // Show after a small delay or scroll to avoid initial clutter
     useEffect(() => {
+        // Show after a short delay for entry animation
         const timer = setTimeout(() => {
             setIsVisible(true);
         }, 1000);

@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "./button";
+import { Button } from "../core/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { ButtonProps } from "./button/button.types";
+import { ButtonProps } from "../core/button/button.types";
 
 interface ThemeToggleProps extends Pick<ButtonProps, "variant" | "size" | "className" | "context"> {
     /**

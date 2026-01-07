@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ReactNode, forwardRef, useState, useEffect } from "react";
 import { Menu } from "lucide-react";
-import { cn } from "../utils";
-import { Button } from "./button";
+import { cn } from "../../utils";
+import { Button } from "../core/button";
 import {
   NavigationMenu,
   NavigationMenuItem,

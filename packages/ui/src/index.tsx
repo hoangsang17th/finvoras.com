@@ -8,44 +8,30 @@ export * from "./types/common";
 // Export standalone components
 export { Code } from "./code";
 
-// Export all components from components directory
-export { AnimatedGridPattern } from "./components/animated-grid-pattern";
-export type { AnimatedGridPatternProps } from "./components/animated-grid-pattern";
-export { DotPattern } from "./components/dot-pattern";
+// --- Components ---
 
-export * from "./components/floating-utilities";
-
-export { Avatar, AvatarImage, AvatarFallback } from "./components/avatar";
-
-// Export enhanced core components (preferred)
-export * from "./components/badge";
-export * from "./components/button";
-export { Logo } from "./components/logo";
-export * from "./components/card";
-export * from "./components/input";
-export * from "./components/social-button";
-export * from "./components/timeline";
-export * from "./components/text-link";
-
-// Export legacy components for backward compatibility
-export { Badge as LegacyBadge, badgeVariants as legacyBadgeVariants } from "./components/badge";
-export type { BadgeProps as LegacyBadgeProps } from "./components/badge";
-
+// Core
+export * from "./components/core/badge";
+export * from "./components/core/button";
+export * from "./components/core/card";
+export { Logo } from "./components/core/logo";
+export { Avatar, AvatarImage, AvatarFallback } from "./components/core/avatar";
+export { Separator } from "./components/core/separator";
+export * from "./components/core/text-link";
 export {
-    Card as LegacyCard,
-    CardHeader as LegacyCardHeader,
-    CardFooter as LegacyCardFooter,
-    CardTitle as LegacyCardTitle,
-    CardDescription as LegacyCardDescription,
-    CardContent as LegacyCardContent,
-} from "./components/card";
+    Tooltip,
+    TooltipTrigger,
+    TooltipContent,
+    TooltipProvider,
+} from "./components/core/tooltip";
 
-export { Input as LegacyInput } from "./components/input";
+// Forms
+export * from "./components/forms/input";
+export { Label } from "./components/forms/label";
 
-export { Label } from "./components/label";
-
-export { default as Marquee } from "./components/marquee";
-
+// Layout
+export { Navbar } from "./components/layout/navbar";
+export type { NavbarProps, NavMenuItem, NavbarCTAAction } from "./components/layout/navbar";
 export {
     navigationMenuTriggerStyle,
     NavigationMenu,
@@ -56,15 +42,7 @@ export {
     NavigationMenuLink,
     NavigationMenuIndicator,
     NavigationMenuViewport,
-} from "./components/navigation-menu";
-
-export { Navbar } from "./components/navbar";
-export type { NavbarProps, NavMenuItem, NavbarCTAAction } from "./components/navbar";
-
-export { ThemeToggle } from "./components/theme-toggle";
-
-export { Separator } from "./components/separator";
-
+} from "./components/layout/navigation-menu";
 export {
     Sheet,
     SheetPortal,
@@ -76,13 +54,37 @@ export {
     SheetFooter,
     SheetTitle,
     SheetDescription,
-} from "./components/sheet";
+} from "./components/layout/sheet";
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/layout/tabs";
 
-export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/tabs";
+// Patterns
+export { GridPattern as AnimatedGridPattern } from "./components/patterns/grid-pattern"; // Keep alias for compatibility
+export { GridPattern } from "./components/patterns/grid-pattern";
+export type { GridPatternProps as AnimatedGridPatternProps } from "./components/patterns/grid-pattern";
+export type { GridPatternProps } from "./components/patterns/grid-pattern";
+export { DotPattern } from "./components/patterns/dot-pattern";
+export * from "./components/patterns/grid-background";
+
+// Effects
+export { default as Marquee } from "./components/effects/marquee";
+export * from "./components/effects/timeline";
+
+// Shared
+export * from "./components/shared/floating-utilities";
+export * from "./components/shared/theme-toggle";
+export * from "./components/shared/social-button";
+
+// --- Legacy Exports (Compatibility) ---
+export { Badge as LegacyBadge, badgeVariants as legacyBadgeVariants } from "./components/core/badge";
+export type { BadgeProps as LegacyBadgeProps } from "./components/core/badge";
 
 export {
-    Tooltip,
-    TooltipTrigger,
-    TooltipContent,
-    TooltipProvider,
-} from "./components/tooltip";
+    Card as LegacyCard,
+    CardHeader as LegacyCardHeader,
+    CardFooter as LegacyCardFooter,
+    CardTitle as LegacyCardTitle,
+    CardDescription as LegacyCardDescription,
+    CardContent as LegacyCardContent,
+} from "./components/core/card";
+
+export { Input as LegacyInput } from "./components/forms/input";

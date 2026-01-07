@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
-import { Button } from "./button";
-import { ButtonProps } from "./button/button.types";
+import { Button } from "../core/button";
+import { ButtonProps } from "../core/button/button.types";
 
 /**
  * NavbarCTAButton - Alias for Button with navbar context

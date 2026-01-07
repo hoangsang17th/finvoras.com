@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { COMPONENT_SIZES, BORDER_RADIUS, A11Y } from "../../constants/design-system";
+import { COMPONENT_SIZES, BORDER_RADIUS, A11Y } from "../../../constants/design-system";
 
 /**
  * Button style variants using CVA (Class Variance Authority)

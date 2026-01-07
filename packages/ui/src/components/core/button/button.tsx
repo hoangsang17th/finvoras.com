@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import Link from "next/link";
 import { Slot } from "@radix-ui/react-slot";
-import { cn } from "../../utils";
+import { cn } from "../../../utils";
 import { buttonVariants } from "./button.styles";
 import { ButtonProps } from "./button.types";
 

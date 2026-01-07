@@ -1,7 +1,7 @@
 import * as React from "react"
 import Link from "next/link"
-import { Button } from "./button/button"
-import { cn } from "../utils"
+import { Button } from "../core/button"
+import { cn } from "../../utils"
 
 export interface SocialButtonProps {
     href: string
