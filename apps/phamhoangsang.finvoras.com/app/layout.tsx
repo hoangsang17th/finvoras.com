@@ -14,8 +14,8 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Flutter Engineer | Software Engineer building scalable mobile products",
-  description: "Phạm Hoàng Sang&apos;s professional resume.",
+  title: "Flutter Engineer | Phạm Hoàng Sang&apos;s professional resume.",
+  description: "Software Engineer building scalable mobile products",
   icons: {
     icon: "/favicon.ico",
   },
