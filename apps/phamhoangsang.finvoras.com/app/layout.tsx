@@ -2,9 +2,9 @@ import { TooltipProvider, FloatingUtilities } from "@repo/ui";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Be_Vietnam_Pro } from "next/font/google";
-import { I18nProvider } from "@/lib/i18n";
+import { transformedTranslations } from "@/lib/i18n";
 import "./globals.css";
-import { LanguageSwitcher } from "@repo/i18n";
+import { I18nProvider, LanguageSwitcher } from "@repo/i18n";
 
 import { cookies } from "next/headers";
 
@@ -42,7 +42,12 @@ export default async function RootLayout({
         )}
       </head>
       <body className={beVietnamPro.className}>
-        <I18nProvider>
+        <I18nProvider
+          translations={transformedTranslations}
+          defaultLocale="en"
+          supportedLocales={['en', 'vi']}
+          storageKey="portfolio-locale"
+        >
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

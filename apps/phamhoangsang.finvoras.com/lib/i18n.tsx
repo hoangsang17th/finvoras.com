@@ -1,13 +1,13 @@
 "use client";
 
 // Portfolio i18n implementation using shared i18n system
-import React from 'react';
-import { I18nProvider as SharedI18nProvider, useI18n as useSharedI18n } from '@repo/i18n';
+
+import {  useI18n as useSharedI18n } from '@repo/i18n';
 
 type Locale = 'en' | 'vi';
 
 // Transform portfolio translations to shared i18n format
-const transformedTranslations = {
+export const transformedTranslations = {
     en: {
         ...uiTranslations.en,
         resumeData: getLocalizedResumeData('en')
@@ -18,18 +18,6 @@ const transformedTranslations = {
     }
 };
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
-    return (
-        <SharedI18nProvider
-            translations={transformedTranslations}
-            defaultLocale="en"
-            supportedLocales={['en', 'vi']}
-            storageKey="portfolio-locale"
-        >
-            {children}
-        </SharedI18nProvider>
-    );
-}
 
 import { useRouter } from 'next/navigation';
 import { uiTranslations } from './data/ui-translations';
