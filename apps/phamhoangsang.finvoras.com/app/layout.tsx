@@ -8,6 +8,8 @@ import { I18nProvider, LanguageSwitcher } from "@repo/i18n";
 
 import { cookies } from "next/headers";
 
+export const runtime = 'edge';
+
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
