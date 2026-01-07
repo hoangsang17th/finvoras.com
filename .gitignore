@@ -36,7 +36,7 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
-package-lock.json
+*-lock.json
 *.tsbuildinfo
 .idea/
 .vscode/
