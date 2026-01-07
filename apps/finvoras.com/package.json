@@ -4,9 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "APP_ENV=dev next dev --turbopack --port 3000",
-    "dev:qa": "APP_ENV=qa next dev --turbopack --port 3000",
-    "dev:prod": "APP_ENV=prod next dev --turbopack --port 3000",
+    "dev": "APP_ENV=dev next dev --turbopack --port 12001",
+    "dev:qa": "APP_ENV=qa next dev --turbopack --port 12001",
+    "dev:prod": "APP_ENV=prod next dev --turbopack --port 12001",
     "build": "APP_ENV=prod next build",
     "build:dev": "APP_ENV=dev next build",
     "build:qa": "APP_ENV=qa next build",
@@ -18,23 +18,26 @@
   },
   "dependencies": {
     "@repo/google-forms": "workspace:*",
+    "@repo/http-client": "workspace:*",
     "@repo/i18n": "workspace:*",
     "@repo/ui": "workspace:*",
     "lucide-react": "^0.469.0",
+    "marked": "^17.0.1",
     "next": "15.5.4",
     "next-themes": "^0.4.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "eslint": "^9.34.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "5.9.2"
   }
 }

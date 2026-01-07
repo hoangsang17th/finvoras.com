@@ -5,7 +5,7 @@ import { useI18n } from "@repo/i18n";
 import type { Translations } from "@/lib/types/translations";
 import { ShieldCheck, Lightbulb, Heart, Sparkles } from "lucide-react";
 
-export default function Values() {
+export default function Values({ showEducationOnly = false }: { showEducationOnly?: boolean }) {
     const { t } = useI18n<Translations>();
     const { about } = t;
 
@@ -40,10 +40,17 @@ export default function Values() {
         <div className="w-full py-16 xs:py-24 px-6 bg-background">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">{about.values.title}</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                        {showEducationOnly ? about.education.title : about.values.title}
+                    </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        {about.vision.description}
+                        {showEducationOnly ? about.education.subtitle : about.vision.description}
                     </p>
+                    {showEducationOnly && (
+                        <p className="mt-4 text-muted-foreground">
+                            {about.education.description}
+                        </p>
+                    )}
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

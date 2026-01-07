@@ -2,15 +2,16 @@ import { TooltipProvider } from "@repo/ui";
 import Script from "next/script";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Geist } from "next/font/google";
-import { I18nProvider } from "@repo/i18n";
+import { Be_Vietnam_Pro } from "next/font/google";
+import { I18nProvider, LanguageSwitcher } from "@repo/i18n";
 import { Navbar } from "@/components/navbar";
-import { FloatingUtilities } from "@/components/floating-utilities";
-import { translations } from "@/lib/data/translations";
+import { FloatingUtilities } from "@repo/ui";
+import { finvorasTranslations as translations } from "@/lib/translations";
 import "./globals.css";
 
-const geistSans = Geist({
-  subsets: ["latin"],
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -106,7 +107,7 @@ export default function RootLayout({
       <head>
         {/* reCAPTCHA v3 Script */}
       </head>
-      <body className={`${geistSans.className} antialiased`}>
+      <body className={`${beVietnamPro.className} antialiased`}>
         {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
           <Script
             src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
@@ -119,13 +120,28 @@ export default function RootLayout({
           supportedLocales={["en", "vi"]}
           storageKey="finvoras-locale"
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem={true}
+            disableTransitionOnChange={false}
+            storageKey="finvoras.com-theme"
+          >
             <TooltipProvider>
               <Navbar />
-              <main className="pt-16 xs:pt-20 sm:pt-24 pb-0">
-                {children}
-              </main>
-              <FloatingUtilities />
+              {children}
+              <FloatingUtilities
+                languageSwitcher={
+                  <LanguageSwitcher
+                    languages={[
+                      { code: 'en', name: 'English', flag: '🇺🇸' },
+                      { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' }
+                    ]}
+                    showName={false}
+                    variant="switcher"
+                    orientation='vertical'
+                  />}
+              />
             </TooltipProvider>
           </ThemeProvider>
         </I18nProvider>

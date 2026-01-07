@@ -2,15 +2,11 @@ export interface Translations {
   // Navigation
   nav: {
     home: string;
+    products: string;
     pricing: string;
     blog: string;
     about: string;
-    features: string;
-    contact: string;
     getStarted: string;
-    login: string;
-    register: string;
-    dashboard: string;
   };
 
   // Hero section
@@ -23,6 +19,56 @@ export interface Translations {
     secondaryCta: string;
     watchDemo: string;
     trustedBy: string;
+  };
+
+  // About section
+  about: {
+    title: string;
+    subtitle: string;
+    mission: string;
+    description: string;
+    team: {
+      title: string;
+      subtitle: string;
+    };
+    values: {
+      title: string;
+      transparency: { title: string; description: string; };
+      security: { title: string; description: string; };
+      simplicity: { title: string; description: string; };
+      education: { title: string; description: string; };
+    };
+    vision: {
+      title: string;
+      description: string;
+    };
+    education: {
+      title: string;
+      subtitle: string;
+      description: string;
+    };
+  };
+
+  // Problems section
+  problems: {
+    title: string;
+    subtitle: string;
+    items: Array<{
+      title: string;
+      description: string;
+      icon: string;
+    }>;
+  };
+
+  // Solutions section
+  solutions: {
+    title: string;
+    subtitle: string;
+    items: Array<{
+      title: string;
+      description: string;
+      icon: string;
+    }>;
   };
 
   // HowItWorks section
@@ -298,57 +344,7 @@ export interface Translations {
     };
   };
 
-  // Auth
-  auth: {
-    login: {
-      title: string;
-      subtitle: string;
-      email: string;
-      password: string;
-      rememberMe: string;
-      forgotPassword: string;
-      loginButton: string;
-      noAccount: string;
-      signUp: string;
-      orContinueWith: string;
-    };
-    register: {
-      title: string;
-      subtitle: string;
-      firstName: string;
-      lastName: string;
-      email: string;
-      password: string;
-      confirmPassword: string;
-      agreeToTerms: string;
-      registerButton: string;
-      haveAccount: string;
-      signIn: string;
-      orContinueWith: string;
-    };
-  };
-
-  // Contact
-  contact: {
-    title: string;
-    subtitle: string;
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-    send: string;
-    sending: string;
-    success: string;
-    error: string;
-    info: {
-      address: string;
-      phone: string;
-      email: string;
-      hours: string;
-    };
-  };
-
-  // Common UI elements
+  // UI elements
   ui: {
     loading: string;
     error: string;
@@ -374,43 +370,6 @@ export interface Translations {
     getStarted: string;
     tryFree: string;
     comingSoon: string;
-  };
-
-  // About page
-  about: {
-    title: string;
-    subtitle: string;
-    mission: {
-      title: string;
-      description: string;
-    };
-    vision: {
-      title: string;
-      description: string;
-    };
-    values: {
-      title: string;
-      transparency: {
-        title: string;
-        description: string;
-      };
-      security: {
-        title: string;
-        description: string;
-      };
-      simplicity: {
-        title: string;
-        description: string;
-      };
-      education: {
-        title: string;
-        description: string;
-      };
-    };
-    team: {
-      title: string;
-      subtitle: string;
-    };
   };
 
   // Blog

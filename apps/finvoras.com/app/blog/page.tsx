@@ -1,5 +1,5 @@
 import { BlogCard } from "@/components/blog/blog-card";
-import { Button, Badge, Input, AnimatedGridPattern, cn, Avatar, AvatarImage, AvatarFallback } from "@repo/ui";
+import { Button, Badge, Input, GridPattern, cn, Avatar, AvatarImage, AvatarFallback } from "@repo/ui";
 import { mockBlogPosts, mockCategories, getFeaturedPosts } from "@/lib/data/blog";
 import { Search, TrendingUp, ArrowRight, Calendar, Clock } from "lucide-react";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export default function BlogPage() {
       {/* Hero Section */}
       <div className="relative overflow-hidden border-b">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/5 via-background to-background z-0" />
-        <AnimatedGridPattern
+        <GridPattern
           numSquares={30}
           maxOpacity={0.1}
           duration={3}

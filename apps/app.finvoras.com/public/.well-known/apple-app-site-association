@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.com.finvora.app",
+        "paths": [ "*" ]
+      },
+      {
+        "appID": "TEAMID.com.finvora.qa",
+        "paths": [ "*" ]
+      },
+      {
+        "appID": "TEAMID.com.finvora.dev",
+        "paths": [ "*" ]
+      }
+    ]
+  }
+}

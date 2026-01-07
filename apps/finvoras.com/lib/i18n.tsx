@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { translations } from './data/translations';
+import { finvorasTranslations as translations } from './translations'; // Force tsc refresh
 import type { Translations } from './types/translations';
 
 type Locale = 'en' | 'vi';
