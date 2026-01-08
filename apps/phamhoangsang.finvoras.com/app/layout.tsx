@@ -19,7 +19,9 @@ export const metadata: Metadata = {
   title: "Flutter Engineer | Phạm Hoàng Sang&apos;s professional resume.",
   description: "Software Engineer building scalable mobile products",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.ico?v=4",
+    shortcut: "/favicon.ico?v=4",
+    apple: "/logo.png",
   },
 };
 

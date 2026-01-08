@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { X, Calendar, CheckCircle2 } from "lucide-react";
-import { Button, Badge } from "@repo/ui";
+import { Button, Badge, Modal } from "@repo/ui";
 import type { Project } from "@/lib/types/resume";
-import { createPortal } from "react-dom";
 
 interface ProjectDetailModalProps {
     isOpen: boolean;
@@ -18,7 +17,6 @@ interface ProjectDetailModalProps {
 import { getActionMetadata } from "./projects";
 
 const ProjectDetailModal = ({ isOpen, onClose, project, ui }: ProjectDetailModalProps) => {
-    const modalRef = useRef<HTMLDivElement>(null);
     const [imageError, setImageError] = useState(false);
 
     // Reset image error when modal opens with new project
@@ -26,31 +24,7 @@ const ProjectDetailModal = ({ isOpen, onClose, project, ui }: ProjectDetailModal
         setImageError(false);
     }, [project]);
 
-    // Close on Escape key
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === "Escape") onClose();
-        };
-
-        if (isOpen) {
-            document.addEventListener("keydown", handleKeyDown);
-            document.body.style.overflow = "hidden"; // Prevent background scrolling
-        }
-
-        return () => {
-            document.removeEventListener("keydown", handleKeyDown);
-            document.body.style.overflow = "unset";
-        };
-    }, [isOpen, onClose]);
-
-    // Handle click outside
-    const handleBackdropClick = (e: React.MouseEvent) => {
-        if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-            onClose();
-        }
-    };
-
-    if (!isOpen || !project) return null;
+    if (!project) return null;
 
     const statusColors = {
         live: "bg-brand-success text-white border-none",
@@ -61,14 +35,14 @@ const ProjectDetailModal = ({ isOpen, onClose, project, ui }: ProjectDetailModal
     const statusLabel = project.status === "in_development" ? "In Development" :
         project.status === "live" ? "Live" : project.status;
 
-    const modalContent = (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-background/80 backdrop-blur-sm animate-in fade-in duration-200" onClick={handleBackdropClick}>
-            <div
-                ref={modalRef}
-                className="bg-card border shadow-2xl rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-200 slide-in-from-bottom-2"
-                role="dialog"
-                aria-modal="true"
-            >
+    return (
+        <Modal
+            isOpen={isOpen}
+            onClose={onClose}
+            className="w-full max-w-4xl p-0" // Override padding and max-width for custom layout
+            showCloseButton={false} // Custom close button used inside
+        >
+            <div className="flex flex-col max-h-[90vh]">
                 {/* Header / Image Area */}
                 <div className="relative h-48 sm:h-64 bg-muted flex-shrink-0">
                     {project.image && !imageError ? (
@@ -170,12 +144,8 @@ const ProjectDetailModal = ({ isOpen, onClose, project, ui }: ProjectDetailModal
                     </Button>
                 </div>
             </div>
-        </div>
+        </Modal>
     );
-
-    // Use createPortal to render at document body level
-    if (typeof document === "undefined") return null;
-    return createPortal(modalContent, document.body);
 };
 
 

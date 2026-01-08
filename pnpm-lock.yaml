@@ -23,6 +23,9 @@ importers:
 
   apps/app.finvoras.com:
     dependencies:
+      '@repo/assets':
+        specifier: workspace:*
+        version: link:../../packages/assets
       '@repo/google-forms':
         specifier: workspace:*
         version: link:../../packages/google-forms
@@ -84,6 +87,9 @@ importers:
 
   apps/finvoras.com:
     dependencies:
+      '@repo/assets':
+        specifier: workspace:*
+        version: link:../../packages/assets
       '@repo/google-forms':
         specifier: workspace:*
         version: link:../../packages/google-forms
@@ -148,6 +154,9 @@ importers:
 
   apps/phamhoangsang.finvoras.com:
     dependencies:
+      '@repo/assets':
+        specifier: workspace:*
+        version: link:../../packages/assets
       '@repo/google-forms':
         specifier: workspace:*
         version: link:../../packages/google-forms
@@ -218,6 +227,8 @@ importers:
       wrangler:
         specifier: ^4.57.0
         version: 4.57.0
+
+  packages/assets: {}
 
   packages/eslint-config:
     devDependencies:
