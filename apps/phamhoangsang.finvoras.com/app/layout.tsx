@@ -28,8 +28,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const locale = (cookieStore.get("portfolio-locale")?.value || "en") as 'en' | 'vi';
+  const locale = "en";
 
   return (
     <html lang={locale} suppressHydrationWarning>
