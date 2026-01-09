@@ -16,9 +16,13 @@ export function middleware(request: NextRequest) {
         '/_next',
         '/api',
         '/favicon.ico',
+        '/logo.png',
         '/robots.txt',
         '/sitemap.xml',
-        '/images', // Assuming static images are here or in public
+        '/images',
+        '/preview.png',
+        '/apple-touch-icon.png',
+        '/site.webmanifest',
     ]
 
     const { pathname } = request.nextUrl
@@ -49,6 +53,6 @@ export const config = {
          * - _next/image (image optimization files)
          * - favicon.ico (favicon file)
          */
-        '/((?!api|_next/static|_next/image|favicon.ico).*)',
+        '/((?!api|_next/static|_next/image|favicon.ico|logo.png|preview.png|apple-touch-icon.png|site.webmanifest).*)',
     ],
 }
