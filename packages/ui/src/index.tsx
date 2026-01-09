@@ -14,6 +14,7 @@ export { Code } from "./code";
 export * from "./components/core/badge";
 export * from "./components/core/button";
 export * from "./components/core/card";
+export * from "./components/core/modal";
 export { Logo } from "./components/core/logo";
 export { Avatar, AvatarImage, AvatarFallback } from "./components/core/avatar";
 export { Separator } from "./components/core/separator";
@@ -67,6 +68,7 @@ export * from "./components/patterns/grid-background";
 
 // Effects
 export { default as Marquee } from "./components/effects/marquee";
+export * from "./components/effects/interactive-background";
 export * from "./components/effects/timeline";
 
 // Shared
