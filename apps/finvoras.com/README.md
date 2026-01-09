@@ -44,3 +44,13 @@ Files under `public/` are served from the root domain (`https://finvoras.com`). 
 - `public/favicon.ico`
 
 Update these files here (instead of the backend) whenever you need to change deep-link metadata or favicons.
+
+Nếu làm social cho finvoras thì nên tập trung vào 3 nền tảng sau
+1. FB
+2. Tiktok
+3. Blog
+
+Các nền tảng mở rộng khi có lượng user lớn + nhiều tiền
+1. Instagram
+2. Youtube
+3. KOL

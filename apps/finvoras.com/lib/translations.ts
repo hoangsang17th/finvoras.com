@@ -1,6 +1,7 @@
 import { uiTranslations } from "./data/translations/ui";
 import { homeTranslations } from "./data/translations/home";
 import { productionTranslations } from "./data/translations/production";
+import { comingSoonTranslations } from "./data/translations/coming-soon";
 import type { Translations } from "./types/translations";
 
 // Helper to merge local translation parts
@@ -9,6 +10,7 @@ const mergeTranslations = (locale: "en" | "vi"): Translations => {
     ...uiTranslations[locale],
     ...homeTranslations[locale],
     ...productionTranslations[locale],
+    ...comingSoonTranslations[locale],
     blog: {
       title: locale === "en" ? "Financial Insights & Tips" : "Hiểu Biết & Mẹo Tài Chính",
       subtitle: locale === "en" ? "Stay informed with the latest in personal finance and wealth building" : "Cập nhật thông tin mới nhất về tài chính cá nhân và xây dựng tài sản",

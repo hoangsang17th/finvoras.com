@@ -398,4 +398,48 @@ export interface Translations {
     dark: string;
     system: string;
   };
+
+  // Coming Soon
+  comingSoon: {
+    hero: {
+      title: string;
+      subtitle: string;
+      badge: string;
+    };
+    waitlist: {
+      namePlaceholder: string;
+      placeholder: string;
+      button: string;
+      successTitle: string;
+      successMessage: string;
+      joinCount: string;
+      modalTitle: string;
+      modalSubtitle: string;
+    };
+    features: {
+      budget: {
+        title: string;
+        description: string;
+      };
+      goals: {
+        title: string;
+        description: string;
+      };
+      education: {
+        title: string;
+        description: string;
+      };
+    };
+    countdown: {
+      days: string;
+      hours: string;
+      minutes: string;
+      seconds: string;
+    };
+    footer: {
+      rightsReserved: string;
+      privacy: string;
+      terms: string;
+    };
+  };
 }
