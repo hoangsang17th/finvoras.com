@@ -3,9 +3,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Be_Vietnam_Pro } from "next/font/google";
-import { I18nProvider, LanguageSwitcher } from "@repo/i18n";
-import { Navbar } from "@/components/navbar";
-import { FloatingUtilities } from "@repo/ui";
+import { I18nProvider } from "@repo/i18n";
 import { finvorasTranslations as translations } from "@/lib/translations";
 import "./globals.css";
 
@@ -128,20 +126,7 @@ export default function RootLayout({
             storageKey="finvoras.com-theme"
           >
             <TooltipProvider>
-              <Navbar />
               {children}
-              <FloatingUtilities
-                languageSwitcher={
-                  <LanguageSwitcher
-                    languages={[
-                      { code: 'en', name: 'English', flag: '🇺🇸' },
-                      { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' }
-                    ]}
-                    showName={false}
-                    variant="switcher"
-                    orientation='vertical'
-                  />}
-              />
             </TooltipProvider>
           </ThemeProvider>
         </I18nProvider>

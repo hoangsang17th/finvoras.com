@@ -30,6 +30,8 @@ interface ContactInfoProps {
 
 // Constants
 const FORM_CONFIG = createGoogleFormConfig({
+  formId: process.env.NEXT_PUBLIC_GOOGLE_FORM_ID!,
+  recaptchaSiteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
   fields: {
     name: "entry.1162529122",
     email: "entry.318983509",

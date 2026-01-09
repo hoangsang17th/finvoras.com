@@ -229,46 +229,11 @@ export function submitToGoogleFormViaIframe(
  * 3. Find input names like "entry.123456789" for each field
  * 4. Replace the default values below with your actual entry IDs
  */
-export function createGoogleFormConfig(overrides?: Partial<GoogleFormConfig>): GoogleFormConfig {
-    const defaultConfig: GoogleFormConfig = {
-        // Replace with your form ID from the Google Form URL
-        // Or set NEXT_PUBLIC_GOOGLE_FORM_ID in .env.local
-        formId: process.env.NEXT_PUBLIC_GOOGLE_FORM_ID || "YOUR_FORM_ID_HERE",
-
-        // Optional: Add your reCAPTCHA v3 site key
-        // Get it from: https://www.google.com/recaptcha/admin
-        // Or set NEXT_PUBLIC_RECAPTCHA_SITE_KEY in .env.local
-        recaptchaSiteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || undefined,
-
-        // Map your field names to Google Form entry IDs
-        // ⚠️ CRITICAL: These are PLACEHOLDER values and MUST be replaced!
-        // To find these:
-        // 1. Open your form in preview mode
-        // 2. Inspect the page
-        // 3. Look for input names like "entry.123456789"
-        // 4. Replace the values below with YOUR actual entry IDs
-        fields: {
-            name: "entry.123456789",      // ⚠️ REPLACE with actual entry ID for name field
-            email: "entry.987654321",     // ⚠️ REPLACE with actual entry ID for email field
-            message: "entry.222222222",   // ⚠️ REPLACE with actual entry ID for message field
-
-            // Optional: Tracking fields (create hidden text fields in Google Form)
-            // tracking_source: "entry.444444444",
-            // tracking_medium: "entry.555555555",
-            // tracking_campaign: "entry.666666666",
-            // tracking_referrer: "entry.777777777",
-            // tracking_userAgent: "entry.888888888",
-            // tracking_timestamp: "entry.999999999",
-        },
-    };
-
-    // Properly merge configs, especially the fields object
+export function createGoogleFormConfig(config: GoogleFormConfig): GoogleFormConfig {
     return {
-        ...defaultConfig,
-        ...overrides,
+        ...config,
         fields: {
-            // ...defaultConfig.fields, 
-            ...(overrides?.fields || {}),
+            ...config.fields,
         },
     };
 }
