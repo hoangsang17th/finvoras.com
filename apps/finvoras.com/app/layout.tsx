@@ -106,10 +106,12 @@ export default function RootLayout({
         {/* reCAPTCHA v3 Script */}
       </head>
       <body className={`${beVietnamPro.className} antialiased`}>
+        {/* reCAPTCHA v3 Script */}
         {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
-          <Script
+          <script
             src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-            strategy="lazyOnload"
+            async
+            defer
           />
         )}
         <I18nProvider
