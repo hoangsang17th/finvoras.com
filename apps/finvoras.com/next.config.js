@@ -48,6 +48,7 @@ const nextConfig = {
   compress: true,
   images: {
     formats: ['image/avif', 'image/webp'],
+    unoptimized: true,
   },
   async redirects() {
     return [

@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     description: "Read the terms and conditions for using the Finvoras platform.",
 };
 
+export const runtime = 'edge';
+
 export default async function TermsPage() {
     const initialDocument = await fetchActiveLegalDocument("TERMS_OF_SERVICE", "en", "GLOBAL");
 

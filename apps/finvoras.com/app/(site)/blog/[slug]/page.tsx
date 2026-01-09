@@ -11,6 +11,8 @@ interface BlogPostPageProps {
   }>;
 }
 
+export const runtime = 'edge';
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = getBlogPost(slug);

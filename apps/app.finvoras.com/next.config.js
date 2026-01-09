@@ -33,10 +33,10 @@ const parseEnvFile = (filePath) => {
 
 if (existsSync(envPath)) {
   parseEnvFile(envPath);
-  console.log(`[finvoras.com] Loaded environment variables from ${envFileName}`);
+  console.log(`[app.finvoras.com] Loaded environment variables from ${envFileName}`);
 } else {
   console.warn(
-    `[finvoras.com] ${envFileName} not found. Ensure APP_ENV is set correctly or create this file.`
+    `[app.finvoras.com] ${envFileName} not found. Ensure APP_ENV is set correctly or create this file.`
   );
 }
 
@@ -48,6 +48,7 @@ const nextConfig = {
   compress: true,
   images: {
     formats: ['image/avif', 'image/webp'],
+    unoptimized: true,
   },
   async redirects() {
     return [

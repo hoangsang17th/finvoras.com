@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     description: "Learn how Finvoras handles your data and protects your privacy.",
 };
 
+export const runtime = 'edge';
+
 export default async function PrivacyPage() {
     const initialDocument = await fetchActiveLegalDocument("PRIVACY_POLICY", "en", "GLOBAL");
 
