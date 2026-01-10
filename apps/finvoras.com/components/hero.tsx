@@ -33,11 +33,11 @@ const Hero = () => {
             <Button
               size="lg"
               className="w-full sm:w-auto h-12 px-8 text-base rounded-full"
-              href={`${process.env.NEXT_PUBLIC_APP_URL}/register`}
+              href={`${process.env.NEXT_PUBLIC_APP_URL}/login`}
               icon={<ArrowRight className="h-4 w-4" />}
               iconPosition="right"
             >
-              {t.hero.primaryCta}
+              {t.nav.login || "Login"}
             </Button>
             <Button
               variant="secondary"

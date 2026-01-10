@@ -13,9 +13,9 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Finvoras - Smart Personal Finance Management",
+  title: "Finvoras - Smart Personal Finance & AI Financial Assistant",
   description:
-    "Take control of your finances with Finvoras. Track expenses, manage budgets, and build wealth with personalized insights and financial education.",
+    "Empowering financial freedom through smart management. Track expenses, manage budgets, and build wealth with our AI financial assistant and localized financial education for Millennials and Gen Z.",
   keywords: [
     "Finvoras",
     "Personal Finance",
@@ -29,15 +29,23 @@ export const metadata: Metadata = {
     "Budget App",
     "Expense App",
     "Finance Tracker",
+    "AI Financial Assistant",
+    "Smart Finance",
+    "Finance for Millennials",
+    "Finance for Gen Z",
+    "Financial Freedom Vietnam",
+    "Quản lý tài chính cá nhân",
+    "Ứng dụng quản lý chi tiêu",
+    "Trợ lý tài chính AI",
   ],
   openGraph: {
     type: "website",
     siteName: "Finvoras",
     locale: "en_US",
     url: "https://finvoras.com",
-    title: "Finvoras - Smart Personal Finance Management",
+    title: "Finvoras - Smart Personal Finance & AI Financial Assistant",
     description:
-      "Take control of your finances with Finvoras. Track expenses, manage budgets, and build wealth with personalized insights and financial education.",
+      "Empowering financial freedom through smart management. Track expenses, manage budgets, and build wealth with our AI financial assistant and localized financial education.",
     images: [
       {
         url: "/preview.png",
@@ -49,11 +57,15 @@ export const metadata: Metadata = {
   },
   authors: [
     {
+      name: "Phạm Hoàng Sang",
+      url: "https://phamhoangsang.finvoras.com",
+    },
+    {
       name: "Finvoras Team",
       url: "https://finvoras.com",
     },
   ],
-  creator: "Finvoras Team",
+  creator: "Phạm Hoàng Sang",
   icons: [
     {
       rel: "icon",
@@ -93,6 +105,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   manifest: "/site.webmanifest",
+  other: {
+    "link:preload": "/preview.png",
+  },
 };
 
 export default function RootLayout({
@@ -106,12 +121,11 @@ export default function RootLayout({
         {/* reCAPTCHA v3 Script */}
       </head>
       <body className={`${beVietnamPro.className} antialiased`}>
-        {/* reCAPTCHA v3 Script */}
+        {/* reCAPTCHA v3 Script - Loaded with lazyOnload to prioritize LCP */}
         {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
-          <script
+          <Script
             src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-            async
-            defer
+            strategy="lazyOnload"
           />
         )}
         <I18nProvider

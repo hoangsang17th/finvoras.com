@@ -4,8 +4,8 @@ export default function robots(): MetadataRoute.Robots {
     return {
         rules: {
             userAgent: '*',
-            allow: '/',
+            allow: ['/login', '/(auth)/login'],
+            disallow: '/',
         },
-        sitemap: 'https://finvoras.com/sitemap.xml',
     }
 }

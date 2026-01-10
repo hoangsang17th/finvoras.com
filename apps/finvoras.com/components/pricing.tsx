@@ -76,6 +76,7 @@ const Pricing = () => {
               variant={plan.popular ? "primary" : "secondary"}
               size="lg"
               className="w-full mt-6 text-base"
+              href={`${process.env.NEXT_PUBLIC_APP_URL}/login`}
             >
               {plan.cta}
             </Button>

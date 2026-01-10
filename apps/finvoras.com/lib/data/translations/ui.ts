@@ -6,7 +6,7 @@ export const uiTranslations = {
             pricing: "Pricing",
             blog: "Blog",
             about: "About",
-            getStarted: "Get Started",
+            login: "Login",
         },
         ui: {
             loading: "Loading...",
@@ -51,7 +51,7 @@ export const uiTranslations = {
             pricing: "Bảng giá",
             blog: "Blog",
             about: "Về chúng tôi",
-            getStarted: "Bắt đầu",
+            login: "Đăng nhập",
         },
         ui: {
             loading: "Đang tải...",

@@ -211,8 +211,9 @@ export const mockBlogPosts: BlogPost[] = [
       </ul>
     `,
     author: {
-      name: "Carlos Martinez",
-      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=256&q=80"
+      name: "Phạm Hoàng Sang",
+      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=256&q=80",
+      website: "https://phamhoangsang.finvoras.com"
     },
     publishedAt: new Date("2023-12-15"),
     updatedAt: new Date("2023-12-15"),
@@ -264,7 +265,7 @@ export function getFeaturedPosts(): BlogPost[] {
 }
 
 export function getPostsByCategory(category: string): BlogPost[] {
-  return mockBlogPosts.filter(post => 
+  return mockBlogPosts.filter(post =>
     post.category.toLowerCase().replace(/\s+/g, '-') === category
   );
 }

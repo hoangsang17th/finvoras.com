@@ -6,7 +6,7 @@ export const homeTranslations = {
             description:
                 "Transform your financial life with Finvoras. Track expenses, manage budgets, and build wealth with personalized insights and education.",
             subtext: "Join 10,000+ users saving an average of 3M VNĐ per month with our AI-powered financial ecosystem",
-            primaryCta: "Start Your Journey",
+            primaryCta: "Login",
             secondaryCta: "Explore Features",
             watchDemo: "See How It Works",
             trustedBy: "Trusted by thousands of users worldwide",
@@ -96,10 +96,10 @@ export const homeTranslations = {
             description: "A simple 3-step process to get started with Finvoras.",
             steps: [
                 {
-                    title: "Sign Up",
-                    description: "Create your free account in seconds.",
-                    cta: "Get Started",
-                    href: "/register",
+                    title: "Ready to go",
+                    description: "Access your account in seconds.",
+                    cta: "Login",
+                    href: `${process.env.NEXT_PUBLIC_APP_URL}/login`,
                 },
                 {
                     title: "Connect Your Accounts",
@@ -185,7 +185,7 @@ export const homeTranslations = {
                     "Community access",
                     "Mobile app access",
                 ],
-                cta: "Get Started Free",
+                cta: "Login",
             },
             pro: {
                 name: "Pro",
@@ -203,7 +203,7 @@ export const homeTranslations = {
                     "Advanced analytics",
                     "Priority support",
                 ],
-                cta: "Start Pro Trial",
+                cta: "Login to Pro",
                 popular: "Most Popular",
             },
             family: {
@@ -222,7 +222,7 @@ export const homeTranslations = {
                     "Monthly coaching group session",
                     "Family financial reports",
                 ],
-                cta: "Start Family Trial",
+                cta: "Login to Family",
             },
             coaching: {
                 name: "1:1 Coaching",
@@ -429,7 +429,7 @@ export const homeTranslations = {
             subtitle: "Join thousands of users who are already taking control of their finances with Finvoras.",
             urgency: "Limited time offer: Save 20% on annual plans!",
             riskReversal: "30-day money-back guarantee. No questions asked.",
-            primaryButton: "Start Free Today",
+            primaryButton: "Login Now",
             secondaryButton: "Schedule Demo",
         },
         faq: {
@@ -495,7 +495,7 @@ export const homeTranslations = {
             description:
                 "Thay đổi cuộc sống tài chính với Finvoras. Theo dõi chi tiêu, quản lý ngân sách và xây dựng tài sản với những hiểu biết và giáo dục cá nhân hóa.",
             subtext: "Tham gia cùng 10.000+ người dùng tiết kiệm trung bình 3 triệu VNĐ/tháng với hệ sinh thái tài chính AI của chúng tôi",
-            primaryCta: "Bắt Đầu Hành Trình",
+            primaryCta: "Đăng nhập",
             secondaryCta: "Khám Phá Tính Năng",
             watchDemo: "Xem Cách Hoạt Động",
             trustedBy: "Được tin tưởng bởi hàng nghìn người dùng trên toàn thế giới",
@@ -585,10 +585,10 @@ export const homeTranslations = {
             description: "Quy trình 3 bước đơn giản để bắt đầu với Finvoras.",
             steps: [
                 {
-                    title: "Đăng Ký",
-                    description: "Tạo tài khoản miễn phí trong vài giây.",
-                    cta: "Bắt Đầu",
-                    href: "/register",
+                    title: "Sẵn sàng",
+                    description: "Truy cập tài khoản trong vài giây.",
+                    cta: "Đăng nhập",
+                    href: `${process.env.NEXT_PUBLIC_APP_URL}/login`,
                 },
                 {
                     title: "Kết Nối Tài Khoản",
@@ -674,7 +674,7 @@ export const homeTranslations = {
                     "Truy cập cộng đồng",
                     "Ứng dụng di động",
                 ],
-                cta: "Bắt Đầu Miễn Phí",
+                cta: "Đăng nhập",
             },
             pro: {
                 name: "Pro",
@@ -692,7 +692,7 @@ export const homeTranslations = {
                     "Phân tích nâng cao",
                     "Hỗ trợ ưu tiên",
                 ],
-                cta: "Dùng Thử Pro",
+                cta: "Đăng nhập Pro",
                 popular: "Phổ Biến Nhất",
             },
             family: {
@@ -711,7 +711,7 @@ export const homeTranslations = {
                     "Coaching group hàng tháng",
                     "Báo cáo tài chính gia đình",
                 ],
-                cta: "Dùng Thử Gói Gia Đình",
+                cta: "Đăng nhập Family",
             },
             coaching: {
                 name: "Coaching 1:1",

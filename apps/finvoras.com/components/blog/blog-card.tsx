@@ -63,13 +63,33 @@ export function BlogCard({ post }: BlogCardProps) {
 
         <CardFooter className="pt-0 flex items-center justify-between border-t bg-muted/20 px-6 py-4 mt-auto">
           <div className="flex items-center gap-3">
-            <Avatar className="h-8 w-8 border">
-              <AvatarImage src={post.author.avatar} alt={post.author.name} />
-              <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
-            </Avatar>
-            <span className="text-sm font-medium text-foreground/80">
-              {post.author.name}
-            </span>
+            {post.author.website ? (
+              <a
+                href={post.author.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 group/author z-20"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Avatar className="h-8 w-8 border group-hover/author:border-brand-primary transition-colors">
+                  <AvatarImage src={post.author.avatar} alt={post.author.name} />
+                  <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <span className="text-sm font-medium text-foreground/80 group-hover/author:text-brand-primary transition-colors">
+                  {post.author.name}
+                </span>
+              </a>
+            ) : (
+              <>
+                <Avatar className="h-8 w-8 border">
+                  <AvatarImage src={post.author.avatar} alt={post.author.name} />
+                  <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <span className="text-sm font-medium text-foreground/80">
+                  {post.author.name}
+                </span>
+              </>
+            )}
           </div>
           <div className="text-brand-primary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
             <ArrowRight className="h-5 w-5" />

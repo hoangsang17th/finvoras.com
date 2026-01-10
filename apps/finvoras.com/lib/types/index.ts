@@ -50,6 +50,7 @@ export interface BlogPost {
   author: {
     name: string;
     avatar?: string;
+    website?: string;
   };
   publishedAt: Date;
   updatedAt: Date;

@@ -124,6 +124,7 @@ const Hero = () => {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       priority
+                      sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 416px"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-muted/30 backdrop-blur-md">

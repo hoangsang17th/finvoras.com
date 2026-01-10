@@ -50,12 +50,12 @@ export default function CTABanner() {
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <Button
               size="lg"
-              href="/register"
+              href={`${process.env.NEXT_PUBLIC_APP_URL}/login`}
               icon={<ArrowUpRight className="!h-5 !w-5" />}
               iconPosition="right"
               className="w-full sm:w-auto"
             >
-              {t.cta.primaryButton}
+              {t.nav.login || "Login"}
             </Button>
             <Button
               size="lg"

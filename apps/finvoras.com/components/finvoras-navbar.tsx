@@ -46,7 +46,7 @@ const FinvorasNavbar = () => {
       id: "get-started",
       component: (
         <Button variant="primary" href={`${process.env.NEXT_PUBLIC_APP_URL}/login`} context="navbar">
-          {t.nav.getStarted}
+          {t.nav.login || "Login"}
         </Button>
       ),
       compactComponent: (

@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
                 allow: '/',
             },
         ],
-        sitemap: 'https://finvoras.com/sitemap.xml',
+        sitemap: 'https://phamhoangsang.finvoras.com/sitemap.xml',
     }
 }

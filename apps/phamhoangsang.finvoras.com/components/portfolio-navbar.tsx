@@ -100,6 +100,7 @@ const PortfolioNavbar = () => {
           href={resumeData.personalInfo.resumeUrl}
           icon={<Download className="h-4 w-4" />}
           context="navbar"
+          aria-label="Download CV"
         />
       ),
       showOnMobile: true,

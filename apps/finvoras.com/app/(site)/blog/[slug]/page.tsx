@@ -55,10 +55,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </p>
 
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                <span>{post.author.name}</span>
-              </div>
+              {post.author.website ? (
+                <a href={post.author.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand-primary transition-colors">
+                  <User className="h-4 w-4" />
+                  <span>{post.author.name}</span>
+                </a>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  <span>{post.author.name}</span>
+                </div>
+              )}
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
                 <span>{formatDate(post.publishedAt)}</span>
@@ -137,15 +144,33 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="bg-muted rounded-lg p-6">
                 <h3 className="font-semibold mb-4">About the Author</h3>
                 <div className="flex items-start gap-3">
-                  {post.author.avatar && (
-                    <img
-                      src={post.author.avatar}
-                      alt={post.author.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
+                  {post.author.website ? (
+                    <a href={post.author.website} target="_blank" rel="noopener noreferrer" className="shrink-0">
+                      {post.author.avatar && (
+                        <img
+                          src={post.author.avatar}
+                          alt={post.author.name}
+                          className="w-12 h-12 rounded-full object-cover hover:ring-2 hover:ring-brand-primary transition-all"
+                        />
+                      )}
+                    </a>
+                  ) : (
+                    post.author.avatar && (
+                      <img
+                        src={post.author.avatar}
+                        alt={post.author.name}
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
+                    )
                   )}
                   <div>
-                    <h4 className="font-medium">{post.author.name}</h4>
+                    {post.author.website ? (
+                      <a href={post.author.website} target="_blank" rel="noopener noreferrer">
+                        <h4 className="font-medium hover:text-brand-primary transition-colors">{post.author.name}</h4>
+                      </a>
+                    ) : (
+                      <h4 className="font-medium">{post.author.name}</h4>
+                    )}
                     <p className="text-sm text-muted-foreground mt-1">
                       Financial advisor and content creator helping people achieve financial freedom.
                     </p>

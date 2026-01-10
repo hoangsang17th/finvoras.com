@@ -6,7 +6,7 @@ export interface Translations {
     pricing: string;
     blog: string;
     about: string;
-    getStarted: string;
+    login: string;
   };
 
   // Hero section

@@ -113,14 +113,29 @@ export default function BlogPage() {
 
                 <div className="flex items-center justify-between pt-6 border-t">
                   <div className="flex items-center gap-3">
-                    <Avatar className="h-10 w-10 border">
-                      <AvatarImage src={heroPost.author.avatar} alt={heroPost.author.name} />
-                      <AvatarFallback>{heroPost.author.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="font-semibold text-sm">{heroPost.author.name}</p>
-                      <p className="text-xs text-muted-foreground">Author</p>
-                    </div>
+                    {heroPost.author.website ? (
+                      <Link href={heroPost.author.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group/author">
+                        <Avatar className="h-10 w-10 border group-hover/author:border-brand-primary transition-colors">
+                          <AvatarImage src={heroPost.author.avatar} alt={heroPost.author.name} />
+                          <AvatarFallback>{heroPost.author.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <p className="font-semibold text-sm group-hover/author:text-brand-primary transition-colors">{heroPost.author.name}</p>
+                          <p className="text-xs text-muted-foreground">Author</p>
+                        </div>
+                      </Link>
+                    ) : (
+                      <>
+                        <Avatar className="h-10 w-10 border">
+                          <AvatarImage src={heroPost.author.avatar} alt={heroPost.author.name} />
+                          <AvatarFallback>{heroPost.author.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <p className="font-semibold text-sm">{heroPost.author.name}</p>
+                          <p className="text-xs text-muted-foreground">Author</p>
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <Button asChild className="rounded-full group/btn">
