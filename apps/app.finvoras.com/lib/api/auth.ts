@@ -31,9 +31,16 @@ class ApiClient {
 
   constructor(baseURL: string) {
     // Initialize HTTP client
+    const isDev = process.env.NODE_ENV === "development";
     this.httpClient = new HttpClient({
       baseURL,
       timeout: 30000,
+      appInfo: {
+        name: process.env.NEXT_PUBLIC_APP_NAME || "Finvoras",
+        version: process.env.NEXT_PUBLIC_APP_VERSION || "1.0.0",
+        buildNumber: process.env.NEXT_PUBLIC_APP_BUILD_NUMBER || process.env.NEXT_PUBLIC_APP_BUILD,
+      },
+      debug: isDev,
     });
 
     // Load token from localStorage
@@ -62,8 +69,8 @@ class ApiClient {
     // Add interceptors
     this.httpClient.addRequestInterceptor(this.tokenInterceptor);
     this.httpClient.addResponseInterceptor(this.tokenInterceptor);
-    this.httpClient.addRequestInterceptor(new LoggerInterceptor());
-    this.httpClient.addResponseInterceptor(new LoggerInterceptor());
+    this.httpClient.addRequestInterceptor(new LoggerInterceptor(isDev));
+    this.httpClient.addResponseInterceptor(new LoggerInterceptor(isDev));
     this.httpClient.addResponseInterceptor(new ExceptionInterceptor());
   }
 

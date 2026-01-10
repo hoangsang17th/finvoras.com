@@ -4,7 +4,7 @@ import type { RequestInterceptor, ResponseInterceptor, HttpError } from '../type
 export class LoggerInterceptor implements RequestInterceptor, ResponseInterceptor {
     private enabled: boolean;
 
-    constructor(enabled: boolean = process.env.NODE_ENV === 'development') {
+    constructor(enabled: boolean = false) {
         this.enabled = enabled;
     }
 
@@ -14,10 +14,14 @@ export class LoggerInterceptor implements RequestInterceptor, ResponseIntercepto
     onRequest = async (config: any) => {
         if (!this.enabled) return config;
 
-        const timestamp = new Date().toISOString();
-        console.group(`🚀 HTTP Request [${timestamp}]`);
-        console.log('Method:', config.method || 'GET');
-        console.log('URL:', config.url);
+        const timestamp = new Date().toLocaleTimeString();
+        const method = (config.method || 'GET').toUpperCase();
+        const url = config.url;
+
+        console.log(`🚀 [${timestamp}] HTTP Request: ${method} ${url}`);
+
+        // Detailed group (collapsed by default in many browsers)
+        console.groupCollapsed(`👉 Details for ${method} ${url}`);
 
         if (config.params && Object.keys(config.params).length > 0) {
             console.log('Query Params:', config.params);
@@ -43,10 +47,14 @@ export class LoggerInterceptor implements RequestInterceptor, ResponseIntercepto
     onResponse = async <T>(response: any) => {
         if (!this.enabled) return response;
 
-        const timestamp = new Date().toISOString();
-        console.group(`✅ HTTP Response [${timestamp}]`);
-        console.log('Status:', response.status, response.statusText);
-        console.log('URL:', response.config?.url);
+        const timestamp = new Date().toLocaleTimeString();
+        const status = response.status;
+        const method = (response.config?.method || 'GET').toUpperCase();
+        const url = response.config?.url;
+
+        console.log(`✅ [${timestamp}] HTTP Response (${status}): ${method} ${url}`);
+
+        console.groupCollapsed(`👉 Details for ${method} ${url}`);
 
         if (response.headers) {
             console.log('Headers:', response.headers);
@@ -67,17 +75,16 @@ export class LoggerInterceptor implements RequestInterceptor, ResponseIntercepto
     onResponseError = async (error: HttpError) => {
         if (!this.enabled) throw error;
 
-        const timestamp = new Date().toISOString();
-        console.group(`❌ HTTP Error [${timestamp}]`);
+        const timestamp = new Date().toLocaleTimeString();
+        const status = error.status || 'Network Error';
+        const method = (error.config?.method || 'GET').toUpperCase();
+        const url = error.config?.url || 'Unknown URL';
+
+        console.error(`❌ [${timestamp}] HTTP Error (${status}): ${method} ${url}`);
+
+        console.groupCollapsed(`👉 Details for ${method} ${url}`);
+
         console.error('Message:', error.message);
-
-        if (error.status) {
-            console.error('Status:', error.status, error.statusText);
-        }
-
-        if (error.config?.url) {
-            console.error('URL:', error.config.url);
-        }
 
         if (error.response) {
             console.error('Response:', error.response);

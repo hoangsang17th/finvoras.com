@@ -13,6 +13,7 @@ export class RetryInterceptor implements ResponseInterceptor {
             maxDelay: config.maxDelay ?? 30000, // 30 seconds
             retryStatusCodes: config.retryStatusCodes ?? [408, 500, 502, 503, 504],
             shouldRetry: config.shouldRetry ?? this.defaultShouldRetry,
+            debug: config.debug ?? false,
         };
     }
 
@@ -78,7 +79,7 @@ export class RetryInterceptor implements ResponseInterceptor {
         // Calculate and wait for delay
         const delay = this.calculateDelay(nextRetry);
 
-        if (process.env.NODE_ENV === 'development') {
+        if (this.config.debug) {
             console.log(
                 `🔄 Retrying request (${nextRetry}/${this.config.maxRetries}) after ${delay}ms:`,
                 requestId

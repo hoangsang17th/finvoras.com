@@ -31,7 +31,7 @@ export class HttpClient {
     }
 
     private async initializeHeaders(): Promise<void> {
-        this.defaultHeaders = await buildHeaders(this.config.locale);
+        this.defaultHeaders = await buildHeaders(this.config.appInfo, this.config.locale);
         if (this.config.headers) {
             this.defaultHeaders = { ...this.defaultHeaders, ...this.config.headers };
         }
@@ -88,6 +88,7 @@ export class HttpClient {
         // Build request configuration
         let config: HttpRequestConfig = {
             ...requestConfig,
+            method,
             url: this.buildURL(endpoint, requestConfig.params), // Set full URL
             headers: {
                 ...this.defaultHeaders,

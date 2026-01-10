@@ -1,5 +1,6 @@
 // HTTP Headers Builder
 import { v4 as uuidv4 } from 'uuid';
+import type { AppInfo } from './types';
 
 interface BrowserInfo {
     name: string;
@@ -105,22 +106,6 @@ function getOSInfo(): OSInfo {
 }
 
 /**
- * Get application info from package.json
- * Note: In Next.js, we can't directly import package.json in client code
- * We'll need to inject this via environment variables or a config
- */
-function getAppInfo(): { name: string; version: string } {
-    return {
-        name: process.env.NEXT_PUBLIC_APP_NAME || 'Finvoras',
-        version: process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0',
-    };
-}
-
-function getAppBuildNumber(): string | undefined {
-    return process.env.NEXT_PUBLIC_APP_BUILD_NUMBER || process.env.NEXT_PUBLIC_APP_BUILD || undefined;
-}
-
-/**
  * Build a simple device agent string for audit logging
  */
 function getDeviceAgent(): string {
@@ -167,7 +152,7 @@ function getDeviceId(): string {
 /**
  * Build standardized HTTP headers for all requests
  */
-export async function buildHeaders(locale?: string): Promise<Record<string, string>> {
+export async function buildHeaders(appInfo?: AppInfo, locale?: string): Promise<Record<string, string>> {
     const headers: Record<string, string> = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -184,12 +169,12 @@ export async function buildHeaders(locale?: string): Promise<Record<string, stri
     }
 
     // App info
-    const appInfo = getAppInfo();
-    headers['app-name'] = appInfo.name;
-    headers['app-version'] = appInfo.version;
-    const appBuild = getAppBuildNumber();
-    if (appBuild) {
-        headers['app-build-number'] = appBuild;
+    if (appInfo) {
+        headers['app-name'] = appInfo.name;
+        headers['app-version'] = appInfo.version;
+        if (appInfo.buildNumber) {
+            headers['app-build-number'] = appInfo.buildNumber;
+        }
     }
 
     // Browser info (device model for web)

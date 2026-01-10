@@ -1,15 +1,24 @@
 // HTTP Client Type Definitions
 
+export interface AppInfo {
+    name: string;
+    version: string;
+    buildNumber?: string;
+}
+
 export interface HttpClientConfig {
     baseURL: string;
     timeout?: number;
     headers?: Record<string, string>;
     locale?: string;
     withCredentials?: boolean;
+    appInfo?: AppInfo;
+    debug?: boolean;
 }
 
 export interface HttpRequestConfig {
     url?: string;
+    method?: string;
     headers?: Record<string, string>;
     params?: Record<string, any>;
     body?: any;
@@ -56,6 +65,7 @@ export interface RetryConfig {
     maxDelay?: number;
     retryStatusCodes?: number[];
     shouldRetry?: (error: HttpError) => boolean;
+    debug?: boolean;
 }
 
 export interface TokenConfig {

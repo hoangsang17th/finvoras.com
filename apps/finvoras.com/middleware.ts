@@ -2,8 +2,14 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
+    const { pathname } = request.nextUrl
     // Check if Coming Soon mode is enabled
     const isComingSoon = process.env.NEXT_PUBLIC_IS_COMING_SOON === 'true'
+
+    // If we are on coming-soon page but mode is disabled, return 404
+    if (!isComingSoon && pathname === '/coming-soon') {
+        return NextResponse.rewrite(new URL('/404', request.url))
+    }
 
     // If not coming soon, allow all requests
     if (!isComingSoon) {
@@ -26,20 +32,12 @@ export function middleware(request: NextRequest) {
         '/.well-known',
     ]
 
-    const { pathname } = request.nextUrl
-
     // Check if path is allowed
     const isAllowed = allowedPaths.some(path => pathname.startsWith(path))
 
     // If coming soon is enabled and path is not allowed, redirect to coming soon
     if (isComingSoon && !isAllowed) {
         return NextResponse.redirect(new URL('/coming-soon', request.url))
-    }
-
-    // If we are on coming-soon page but mode is disabled, redirect to home
-    // This part is optional but good for user experience if they cached the url
-    if (!isComingSoon && pathname === '/coming-soon') {
-        return NextResponse.redirect(new URL('/', request.url))
     }
 
     return NextResponse.next()
