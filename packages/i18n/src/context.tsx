@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import type { I18nContextType, I18nProviderProps } from './types';
 import { detectBrowserLanguage, getSavedLocale, saveLocale } from './utils';
 

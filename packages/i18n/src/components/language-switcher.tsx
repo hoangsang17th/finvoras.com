@@ -11,7 +11,6 @@ export function LanguageSwitcher({
   showFlag = true,
   showName = true,
   orientation = 'horizontal',
-  ...props
 }: LanguageSwitcherProps) {
   const { locale, setLocale } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
