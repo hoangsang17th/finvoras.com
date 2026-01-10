@@ -101,6 +101,7 @@ const PortfolioNavbar = () => {
           icon={<Download className="h-4 w-4" />}
           context="navbar"
           aria-label="Download CV"
+          className="bg-primary text-primary-foreground hover:bg-primary/90"
         />
       ),
       showOnMobile: true,

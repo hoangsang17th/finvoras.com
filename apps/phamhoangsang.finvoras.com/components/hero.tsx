@@ -54,8 +54,8 @@ const Hero = () => {
               className={cn(
                 "text-white rounded-full py-1.5 px-4 border-none mb-6 font-medium transition-all duration-300",
                 personalInfo.statusKey === 'open_to_work'
-                  ? 'bg-emerald-500 hover:bg-emerald-600 shadow-[0_0_15px_rgba(16,185,129,0.3)]'
-                  : 'bg-blue-500 hover:bg-blue-600 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
+                  ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-[0_0_15px_rgba(5,150,105,0.4)]'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]'
               )}
             >
               <span className="flex items-center gap-2">
@@ -124,6 +124,7 @@ const Hero = () => {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       priority
+                      fetchPriority="high"
                       sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 416px"
                     />
                   ) : (
