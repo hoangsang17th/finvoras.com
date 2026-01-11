@@ -15,6 +15,7 @@ export * from "./components/core/badge";
 export * from "./components/core/button";
 export * from "./components/core/card";
 export * from "./components/core/modal";
+export * from "./components/core/dropdown";
 export { Logo } from "./components/core/logo";
 export { Avatar, AvatarImage, AvatarFallback } from "./components/core/avatar";
 export { Separator } from "./components/core/separator";
