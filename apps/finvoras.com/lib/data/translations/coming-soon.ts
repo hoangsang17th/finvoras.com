@@ -17,37 +17,28 @@ Finvoras brings a comprehensive financial platform for both you and your family.
                 modalTitle: "Join the Early Access List",
                 modalSubtitle: "We will notify you when Finvoras launches and send you early access benefits.",
             },
+            footer: {
+                privacy: "Privacy Policy",
+                terms: "Terms of Service",
+                rightsReserved: "© {year} Finvoras. All rights reserved.",
+            },
+            features: {
+                budget: { title: "", description: "" },
+                goals: { title: "", description: "" },
+                education: { title: "", description: "" },
+            },
             countdown: {
                 days: "Days",
                 hours: "Hours",
                 minutes: "Minutes",
                 seconds: "Seconds",
             },
-            features: {
-                budget: {
-                    title: "Smart Budgeting",
-                    description: "Automated tracking and smart categorization to keep your spending in check.",
-                },
-                goals: {
-                    title: "Wealth Goals",
-                    description: "Set personalized financial goals and track your progress with ease.",
-                },
-                education: {
-                    title: "Financial Education",
-                    description: "Learn how to manage money effectively with bite-sized lessons and tips.",
-                },
-            },
-            footer: {
-                rightsReserved: "Finvoras. All rights reserved.",
-                privacy: "Privacy Policy",
-                terms: "Terms of Service",
-            },
         },
     },
     vi: {
         comingSoon: {
             hero: {
-                title: "Không chỉ là công cụ. Là nền tảng tài chính cho cá nhân và gia đình",
+                title: "Không chỉ là công cụ. Là nền tảng tài chính cho cá nhân và gia đình.",
                 subtitle: "Quản lý chi tiêu dễ dàng, hiểu tài chính theo cách đơn giản và xây dựng thói quen tốt từ sớm. Finvoras mang đến một nền tảng tài chính dành cho cả bạn và gia đình của bạn.",
                 badge: "Sắp Ra Mắt",
             },
@@ -61,30 +52,21 @@ Finvoras brings a comprehensive financial platform for both you and your family.
                 modalTitle: "Danh sách trải nghiệm sớm",
                 modalSubtitle: "Chúng tôi sẽ thông báo cho bạn khi Finvoras ra mắt và gửi các ưu đãi truy cập sớm.",
             },
+            footer: {
+                privacy: "Chính sách bảo mật",
+                terms: "Điều khoản sử dụng",
+                rightsReserved: "© {year} Finvoras. Bảo lưu mọi quyền.",
+            },
+            features: {
+                budget: { title: "", description: "" },
+                goals: { title: "", description: "" },
+                education: { title: "", description: "" },
+            },
             countdown: {
                 days: "Ngày",
                 hours: "Giờ",
                 minutes: "Phút",
                 seconds: "Giây",
-            },
-            features: {
-                budget: {
-                    title: "Quản Lý Ngân Sách",
-                    description: "Tự động theo dõi và phân loại chi tiêu thông minh để kiểm soát tài chính.",
-                },
-                goals: {
-                    title: "Mục Tiêu Tài Sản",
-                    description: "Thiết lập mục tiêu tài chính cá nhân hóa và theo dõi tiến độ dễ dàng.",
-                },
-                education: {
-                    title: "Giáo Dục Tài Chính",
-                    description: "Học cách quản lý tiền hiệu quả với các bài học và mẹo nhỏ bổ ích.",
-                },
-            },
-            footer: {
-                rightsReserved: "Finvoras. Đã đăng ký bản quyền.",
-                privacy: "Chính sách bảo mật",
-                terms: "Điều khoản dịch vụ",
             },
         },
     },

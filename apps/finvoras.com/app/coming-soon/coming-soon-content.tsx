@@ -70,6 +70,28 @@ export function ComingSoonContent() {
                 </Modal>
             </InteractiveBackground>
 
+            <footer className="relative z-10 py-8 px-4 border-t border-neutral-100 dark:border-neutral-900 bg-white/50 dark:bg-neutral-950/50 backdrop-blur-sm">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                        {t.comingSoon.footer.rightsReserved.replace('{year}', new Date().getFullYear().toString())}
+                    </p>
+                    <div className="flex items-center gap-6">
+                        <a
+                            href="/privacy"
+                            className="text-sm text-neutral-500 hover:text-brand-primary transition-colors hover:underline"
+                        >
+                            {t.comingSoon.footer.privacy}
+                        </a>
+                        <a
+                            href="/terms"
+                            className="text-sm text-neutral-500 hover:text-brand-primary transition-colors hover:underline"
+                        >
+                            {t.comingSoon.footer.terms}
+                        </a>
+                    </div>
+                </div>
+            </footer>
+
             <FloatingUtilities
                 languageSwitcher={
                     <LanguageSwitcher
