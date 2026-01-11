@@ -24,34 +24,34 @@ function getBrowserInfo(): BrowserInfo {
     let name = 'Unknown';
     let version = 'Unknown';
 
-    // Chrome
-    if (ua.includes('Chrome') && !ua.includes('Edg')) {
-        name = 'Chrome';
-        const match = ua.match(/Chrome\/([\d.]+)/);
-        version = match && match[1] ? match[1] : 'Unknown';
-    }
     // Edge
-    else if (ua.includes('Edg')) {
+    if (ua.includes('Edg/')) {
         name = 'Edge';
         const match = ua.match(/Edg\/([\d.]+)/);
         version = match && match[1] ? match[1] : 'Unknown';
     }
+    // Opera
+    else if (ua.includes('OPR/') || ua.includes('Opera/')) {
+        name = 'Opera';
+        const match = ua.match(/(OPR|Opera)\/([\d.]+)/);
+        version = match && match[2] ? match[2] : 'Unknown';
+    }
+    // Chrome
+    else if (ua.includes('Chrome/') && !ua.includes('Edg/')) {
+        name = 'Chrome';
+        const match = ua.match(/Chrome\/([\d.]+)/);
+        version = match && match[1] ? match[1] : 'Unknown';
+    }
     // Firefox
-    else if (ua.includes('Firefox')) {
+    else if (ua.includes('Firefox/')) {
         name = 'Firefox';
         const match = ua.match(/Firefox\/([\d.]+)/);
         version = match && match[1] ? match[1] : 'Unknown';
     }
     // Safari
-    else if (ua.includes('Safari') && !ua.includes('Chrome')) {
+    else if (ua.includes('Safari/') && !ua.includes('Chrome/')) {
         name = 'Safari';
         const match = ua.match(/Version\/([\d.]+)/);
-        version = match && match[1] ? match[1] : 'Unknown';
-    }
-    // Opera
-    else if (ua.includes('OPR')) {
-        name = 'Opera';
-        const match = ua.match(/OPR\/([\d.]+)/);
         version = match && match[1] ? match[1] : 'Unknown';
     }
 
@@ -70,27 +70,8 @@ function getOSInfo(): OSInfo {
     let name = 'Unknown';
     let version = 'Unknown';
 
-    // Windows
-    if (ua.includes('Windows')) {
-        name = 'Windows';
-        if (ua.includes('Windows NT 10.0')) version = '10';
-        else if (ua.includes('Windows NT 6.3')) version = '8.1';
-        else if (ua.includes('Windows NT 6.2')) version = '8';
-        else if (ua.includes('Windows NT 6.1')) version = '7';
-    }
-    // macOS
-    else if (ua.includes('Mac OS X')) {
-        name = 'macOS';
-        const match = ua.match(/Mac OS X ([\d_]+)/);
-        version = match && match[1] ? match[1].replace(/_/g, '.') : 'Unknown';
-    }
-    // Linux
-    else if (ua.includes('Linux')) {
-        name = 'Linux';
-        version = 'Unknown';
-    }
     // iOS
-    else if (ua.includes('iPhone') || ua.includes('iPad')) {
+    if (/iPhone|iPad|iPod/.test(ua)) {
         name = 'iOS';
         const match = ua.match(/OS ([\d_]+)/);
         version = match && match[1] ? match[1].replace(/_/g, '.') : 'Unknown';
@@ -101,64 +82,107 @@ function getOSInfo(): OSInfo {
         const match = ua.match(/Android ([\d.]+)/);
         version = match && match[1] ? match[1] : 'Unknown';
     }
+    // Windows
+    else if (ua.includes('Windows')) {
+        name = 'Windows';
+        const match = ua.match(/Windows NT ([\d.]+)/);
+        if (match) {
+            const ntVersion = match[1];
+            if (ntVersion === '10.0') version = '10/11';
+            else if (ntVersion === '6.3') version = '8.1';
+            else if (ntVersion === '6.2') version = '8';
+            else if (ntVersion === '6.1') version = '7';
+            else version = ntVersion || 'Unknown';
+        }
+    }
+    // macOS
+    else if (ua.includes('Mac OS X')) {
+        name = 'macOS';
+        const match = ua.match(/Mac OS X ([\d_]+)/);
+        version = match && match[1] ? match[1].replace(/_/g, '.') : 'Unknown';
+    }
+    // Linux
+    else if (ua.includes('Linux')) {
+        name = 'Linux';
+    }
 
     return { name, version };
 }
 
 /**
  * Build a simple device agent string for audit logging
+ * Format: AppName/Version (OS Name OS Version; DeviceModel)
  */
-function getDeviceAgent(): string {
+function formatDeviceAgent(appInfo?: AppInfo): string {
     if (typeof navigator === 'undefined') {
         return 'web-ssr';
     }
 
-    return navigator.userAgent || 'web';
+    const os = getOSInfo();
+    const browser = getBrowserInfo();
+
+    const appPart = appInfo ? `${appInfo.name}/${appInfo.version}` : 'WebBrowser';
+    const osPart = `${os.name} ${os.version}`;
+    const browserPart = `${browser.name} ${browser.version}`;
+
+    return `${appPart} (${osPart}; ${browserPart})`;
 }
 
 function getHostname(): string | undefined {
+    if (typeof window !== 'undefined') {
+        try {
+            return window.location.hostname;
+        } catch {
+            return undefined;
+        }
+    }
+    return undefined;
+}
+
+/**
+ * Generate device fingerprint (consistent identifier)
+ */
+function getDeviceId(): string {
     if (typeof window === 'undefined') {
-        return undefined;
+        return 'server-side';
     }
 
     try {
-        return window.location.hostname;
+        const id = localStorage.getItem('device_id');
+        if (id) return id;
+
+        const newId = uuidv4();
+        localStorage.setItem('device_id', newId);
+        return newId;
     } catch {
-        return undefined;
+        return 'non-persistent-browser';
     }
 }
 
 /**
- * Generate device fingerprint (simple hash)
- * This creates a consistent identifier for the browser/device
+ * Detect platform for x-platform header
  */
-function getDeviceId(): string {
-    if (typeof window === 'undefined') {
-        return 'server-side-rendering';
-    }
+function getPlatform(): string {
+    if (typeof navigator === 'undefined') return 'web';
 
-    // Try to get existing device ID from localStorage
-    const existingId = localStorage.getItem('device_id');
-    if (existingId) {
-        return existingId;
-    }
+    const ua = navigator.userAgent;
+    if (/iPhone|iPad|iPod/.test(ua)) return 'ios';
+    if (/Android/.test(ua)) return 'android';
 
-    // Generate new device ID
-    const newId = uuidv4();
-    localStorage.setItem('device_id', newId);
-    return newId;
+    return 'web';
 }
 
 /**
  * Build standardized HTTP headers for all requests
  */
-export async function buildHeaders(appInfo?: AppInfo, locale?: string): Promise<Record<string, string>> {
+export function buildHeaders(appInfo?: AppInfo, locale?: string): Record<string, string> {
     const headers: Record<string, string> = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'x-request-id': uuidv4(),
         'x-api-version': '1',
-        'x-platform': 'web',
+        'x-platform': getPlatform(),
+        'x-timezone': Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
 
     // Locale/Language
@@ -177,21 +201,18 @@ export async function buildHeaders(appInfo?: AppInfo, locale?: string): Promise<
         }
     }
 
-    // Browser info (device model for web)
-    const browserInfo = getBrowserInfo();
-    headers['device-model'] = `${browserInfo.name} ${browserInfo.version}`;
+    // OS & Browser info
+    const os = getOSInfo();
+    const browser = getBrowserInfo();
 
-    // OS info
-    const osInfo = getOSInfo();
-    headers['os-version'] = `${osInfo.name} ${osInfo.version}`;
+    headers['os-version'] = `${os.name} ${os.version}`;
+    headers['device-model'] = `${browser.name} ${browser.version}`;
 
-    // Device agent helps backend correlate sessions
-    headers['device-agent'] = getDeviceAgent();
+    // Device agent (Audit logging)
+    headers['device-agent'] = formatDeviceAgent(appInfo);
 
     // Device ID
-    if (typeof window !== 'undefined') {
-        headers['device-id'] = getDeviceId();
-    }
+    headers['device-id'] = getDeviceId();
 
     const hostname = getHostname();
     if (hostname) {

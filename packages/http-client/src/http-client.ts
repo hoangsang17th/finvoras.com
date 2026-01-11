@@ -30,8 +30,8 @@ export class HttpClient {
         this.initializeHeaders();
     }
 
-    private async initializeHeaders(): Promise<void> {
-        this.defaultHeaders = await buildHeaders(this.config.appInfo, this.config.locale);
+    private initializeHeaders(): void {
+        this.defaultHeaders = buildHeaders(this.config.appInfo, this.config.locale);
         if (this.config.headers) {
             this.defaultHeaders = { ...this.defaultHeaders, ...this.config.headers };
         }
@@ -40,9 +40,9 @@ export class HttpClient {
     /**
      * Update locale and refresh headers
      */
-    async updateLocale(locale: string): Promise<void> {
+    updateLocale(locale: string): void {
         this.config.locale = locale;
-        this.defaultHeaders = updateLocaleHeader(this.defaultHeaders, locale);
+        this.initializeHeaders();
     }
 
     /**
@@ -63,7 +63,17 @@ export class HttpClient {
      * Build full URL
      */
     private buildURL(endpoint: string, params?: Record<string, any>): string {
-        const url = new URL(endpoint, this.config.baseURL);
+        // Ensure baseURL ends with a slash and endpoint doesn't start with one
+        // to preserve the subpath in baseURL when using new URL(endpoint, baseURL)
+        const base = this.config.baseURL.endsWith('/')
+            ? this.config.baseURL
+            : `${this.config.baseURL}/`;
+
+        const relative = endpoint.startsWith('/')
+            ? endpoint.substring(1)
+            : endpoint;
+
+        const url = new URL(relative, base);
 
         if (params) {
             Object.keys(params).forEach(key => {
