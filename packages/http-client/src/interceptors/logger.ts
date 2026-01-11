@@ -21,22 +21,22 @@ export class LoggerInterceptor implements RequestInterceptor, ResponseIntercepto
         console.log(`🚀 [${timestamp}] HTTP Request: ${method} ${url}`);
 
         // Detailed group (collapsed by default in many browsers)
-        console.groupCollapsed(`👉 Details for ${method} ${url}`);
+        // this.safeGroupCollapsed(`👉 Details for ${method} ${url}`);
 
-        if (config.params && Object.keys(config.params).length > 0) {
-            console.log('Query Params:', config.params);
-        }
+        // if (config.params && Object.keys(config.params).length > 0) {
+        //     console.log('Query Params:', config.params);
+        // }
 
-        if (config.headers) {
-            const sanitizedHeaders = this.sanitizeHeaders(config.headers);
-            console.log('Headers:', sanitizedHeaders);
-        }
+        // if (config.headers) {
+        //     const sanitizedHeaders = this.sanitizeHeaders(config.headers);
+        //     console.log('Headers:', sanitizedHeaders);
+        // }
 
-        if (config.body) {
-            console.log('Body:', config.body);
-        }
+        // if (config.body) {
+        //     console.log('Body:', config.body);
+        // }
 
-        console.groupEnd();
+        this.safeGroupEnd();
 
         return config;
     };
@@ -54,17 +54,17 @@ export class LoggerInterceptor implements RequestInterceptor, ResponseIntercepto
 
         console.log(`✅ [${timestamp}] HTTP Response (${status}): ${method} ${url}`);
 
-        console.groupCollapsed(`👉 Details for ${method} ${url}`);
+        // this.safeGroupCollapsed(`👉 Details for ${method} ${url}`);
 
-        if (response.headers) {
-            console.log('Headers:', response.headers);
-        }
+        // if (response.headers) {
+        //     console.log('Headers:', response.headers);
+        // }
 
-        if (response.data !== undefined) {
-            console.log('Data:', response.data);
-        }
+        // if (response.data !== undefined) {
+        //     console.log('Data:', response.data);
+        // }
 
-        console.groupEnd();
+        this.safeGroupEnd();
 
         return response;
     };
@@ -82,7 +82,7 @@ export class LoggerInterceptor implements RequestInterceptor, ResponseIntercepto
 
         console.error(`❌ [${timestamp}] HTTP Error (${status}): ${method} ${url}`);
 
-        console.groupCollapsed(`👉 Details for ${method} ${url}`);
+        this.safeGroupCollapsed(`👉 Details for ${method} ${url}`);
 
         console.error('Message:', error.message);
 
@@ -90,7 +90,7 @@ export class LoggerInterceptor implements RequestInterceptor, ResponseIntercepto
             console.error('Response:', error.response);
         }
 
-        console.groupEnd();
+        this.safeGroupEnd();
 
         throw error;
     };
@@ -112,5 +112,27 @@ export class LoggerInterceptor implements RequestInterceptor, ResponseIntercepto
         });
 
         return sanitized;
+    }
+
+    /**
+     * Safe wrapper for console.groupCollapsed
+     */
+    private safeGroupCollapsed(label: string): void {
+        if (typeof console.groupCollapsed === 'function') {
+            console.groupCollapsed(label);
+        } else if (typeof console.group === 'function') {
+            console.group(label);
+        } else {
+            console.log(`[GROUP] ${label}`);
+        }
+    }
+
+    /**
+     * Safe wrapper for console.groupEnd
+     */
+    private safeGroupEnd(): void {
+        if (typeof console.groupEnd === 'function') {
+            console.groupEnd();
+        }
     }
 }
