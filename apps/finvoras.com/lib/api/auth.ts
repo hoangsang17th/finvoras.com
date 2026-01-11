@@ -1,47 +1,17 @@
-// Refactored Auth API using new HTTP Client
 import { AuthSession, LoginRequest, RefreshTokenResponse, RegisterRequest } from "@/lib/types";
-import { HttpClient, TokenInterceptor, LoggerInterceptor, ExceptionInterceptor } from "@repo/http-client";
+import { HttpClient, TokenInterceptor } from "@repo/http-client";
 
-const FALLBACK_API_BASE_URL = "http://localhost:3000/api";
-const API_BASE_URL = (() => {
-  const configuredUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
-  if (configuredUrl) {
-    return configuredUrl.replace(/\/$/, "");
-  }
-
-  if (process.env.NODE_ENV !== "production") {
-    console.warn(
-      "NEXT_PUBLIC_API_URL is not defined. Falling back to",
-      FALLBACK_API_BASE_URL
-    );
-    return FALLBACK_API_BASE_URL;
-  }
-
-  throw new Error(
-    "NEXT_PUBLIC_API_URL is required in production to communicate with the backend API."
-  );
-})();
-
-const AUTH_BASE_PATH = "/auth";
+import { createHttpClient } from "./client";
+import { API_ENDPOINTS } from "./endpoints";
 
 class ApiClient {
   private httpClient: HttpClient;
   private token: string | null = null;
   private tokenInterceptor: TokenInterceptor;
 
-  constructor(baseURL: string) {
+  constructor() {
     // Initialize HTTP client
-    const isDev = process.env.NODE_ENV === "development";
-    this.httpClient = new HttpClient({
-      baseURL,
-      timeout: 30000,
-      appInfo: {
-        name: process.env.NEXT_PUBLIC_APP_NAME || "Finvoras",
-        version: process.env.NEXT_PUBLIC_APP_VERSION || "1.0.0",
-        buildNumber: process.env.NEXT_PUBLIC_APP_BUILD_NUMBER || process.env.NEXT_PUBLIC_APP_BUILD,
-      },
-      debug: isDev,
-    });
+    this.httpClient = createHttpClient();
 
     // Load token from localStorage
     if (typeof window !== "undefined") {
@@ -56,22 +26,19 @@ class ApiClient {
       refreshTokenFn: () => this.refreshTokenInternal(),
       onTokenExpired: () => this.clearToken(),
       pathsWithoutAuth: [
-        `${AUTH_BASE_PATH}/login`,
-        `${AUTH_BASE_PATH}/register`,
-        `${AUTH_BASE_PATH}/forgot-password`,
-        `${AUTH_BASE_PATH}/reset-password`,
-        `${AUTH_BASE_PATH}/verify-email`,
-        `${AUTH_BASE_PATH}/resend-email-verify`,
-        `${AUTH_BASE_PATH}/re-active`,
+        API_ENDPOINTS.AUTH.LOGIN,
+        API_ENDPOINTS.AUTH.REGISTER,
+        API_ENDPOINTS.AUTH.FORGOT_PASSWORD,
+        API_ENDPOINTS.AUTH.RESET_PASSWORD,
+        API_ENDPOINTS.AUTH.VERIFY_EMAIL,
+        API_ENDPOINTS.AUTH.RESEND_EMAIL_VERIFY,
+        API_ENDPOINTS.AUTH.RE_ACTIVE,
       ],
     });
 
     // Add interceptors
     this.httpClient.addRequestInterceptor(this.tokenInterceptor);
     this.httpClient.addResponseInterceptor(this.tokenInterceptor);
-    this.httpClient.addRequestInterceptor(new LoggerInterceptor(isDev));
-    this.httpClient.addResponseInterceptor(new LoggerInterceptor(isDev));
-    this.httpClient.addResponseInterceptor(new ExceptionInterceptor());
   }
 
   getHttpClient(): HttpClient {
@@ -89,7 +56,7 @@ class ApiClient {
     };
 
     const response = await this.httpClient.post<AuthSession>(
-      `${AUTH_BASE_PATH}/login`,
+      API_ENDPOINTS.AUTH.LOGIN,
       payload
     );
 
@@ -105,7 +72,7 @@ class ApiClient {
     formData.append("acceptLegalDocuments", String(userData.acceptLegalDocuments));
 
     await this.httpClient.post<void>(
-      `${AUTH_BASE_PATH}/register`,
+      API_ENDPOINTS.AUTH.REGISTER,
       formData
     );
   }
@@ -119,7 +86,7 @@ class ApiClient {
 
     try {
       await this.httpClient.delete<void>(
-        `${AUTH_BASE_PATH}/logout`,
+        API_ENDPOINTS.AUTH.LOGOUT,
         { params: { refreshToken } }
       );
     } catch (error) {
@@ -136,7 +103,7 @@ class ApiClient {
     }
 
     const response = await this.httpClient.post<RefreshTokenResponse>(
-      `${AUTH_BASE_PATH}/refresh-token`,
+      API_ENDPOINTS.AUTH.REFRESH_TOKEN,
       null,
       { params: { token: refreshToken } }
     );
@@ -148,7 +115,7 @@ class ApiClient {
 
   async verifyEmail(token: string): Promise<void> {
     await this.httpClient.put<void>(
-      `${AUTH_BASE_PATH}/verify-email`,
+      API_ENDPOINTS.AUTH.VERIFY_EMAIL,
       null,
       { params: { token } }
     );
@@ -156,21 +123,21 @@ class ApiClient {
 
   async resendVerificationEmail(email: string): Promise<void> {
     await this.httpClient.post<void>(
-      `${AUTH_BASE_PATH}/resend-email-verify`,
+      API_ENDPOINTS.AUTH.RESEND_EMAIL_VERIFY,
       { email }
     );
   }
 
   async forgotPassword(email: string): Promise<void> {
     await this.httpClient.post<void>(
-      `${AUTH_BASE_PATH}/forgot-password`,
+      API_ENDPOINTS.AUTH.FORGOT_PASSWORD,
       { email }
     );
   }
 
   async resetPassword(token: string, password: string): Promise<void> {
     await this.httpClient.put<void>(
-      `${AUTH_BASE_PATH}/reset-password`,
+      API_ENDPOINTS.AUTH.RESET_PASSWORD,
       { password },
       { params: { token } }
     );
@@ -178,14 +145,14 @@ class ApiClient {
 
   async requestAccountReactivation(email: string): Promise<void> {
     await this.httpClient.post<void>(
-      `${AUTH_BASE_PATH}/re-active`,
+      API_ENDPOINTS.AUTH.RE_ACTIVE,
       { email }
     );
   }
 
   async reactivateAccount(token: string): Promise<void> {
     await this.httpClient.put<void>(
-      `${AUTH_BASE_PATH}/re-active`,
+      API_ENDPOINTS.AUTH.RE_ACTIVE,
       null,
       { params: { token } }
     );
@@ -245,7 +212,7 @@ class ApiClient {
 }
 
 // Export singleton instance
-export const apiClient = new ApiClient(API_BASE_URL);
+export const apiClient = new ApiClient();
 
 // Convenience auth functions
 export const authApi = {

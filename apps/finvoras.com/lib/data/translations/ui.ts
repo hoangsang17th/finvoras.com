@@ -33,6 +33,10 @@ export const uiTranslations = {
             getStarted: "Get Started",
             tryFree: "Try Free",
             comingSoon: "Coming Soon",
+            legalErrorTitle: "Document Unavailable",
+            legalErrorMessage: "We're sorry, this legal document is currently unavailable. We are working to restore access as soon as possible.",
+            legalErrorAction: "Go Back Home",
+            legalContactInfo: "For immediate assistance, please contact us at",
         },
         language: {
             english: "English",
@@ -78,6 +82,10 @@ export const uiTranslations = {
             getStarted: "Bắt Đầu",
             tryFree: "Dùng Thử Miễn Phí",
             comingSoon: "Sắp Ra Mắt",
+            legalErrorTitle: "Tài Liệu Không Khả Dụng",
+            legalErrorMessage: "Rất tiếc, tài liệu pháp lý này hiện không khả dụng. Chúng tôi đang nỗ lực để khôi phục truy cập trong thời gian sớm nhất.",
+            legalErrorAction: "Quay Lại Trang Chủ",
+            legalContactInfo: "Để được hỗ trợ ngay lập tức, vui lòng liên hệ với chúng tôi tại",
         },
         language: {
             english: "English",

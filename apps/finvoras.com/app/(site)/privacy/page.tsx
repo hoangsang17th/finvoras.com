@@ -1,27 +1,51 @@
 import { Metadata } from "next";
+import { headers, cookies } from "next/headers";
 import { fetchActiveLegalDocument } from "@/lib/api/legal";
 import { LegalDocument } from "@/components/legal/LegalDocument";
+import { resolveLegalLanguage } from "@/lib/utils/language";
 
-export const metadata: Metadata = {
-    title: "Privacy Policy • Finvoras",
-    description: "Learn how Finvoras handles your data and protects your privacy.",
-};
+
+export async function generateMetadata(): Promise<Metadata> {
+    const headersList = await headers();
+    const cookieStore = await cookies();
+    const lang = resolveLegalLanguage(
+        headersList.get("accept-language"),
+        cookieStore.get("finvoras-locale")?.value
+    );
+
+    return {
+        title: 'Privacy Policy • Finvoras',
+        description: 'Learn how Finvoras handles your data and protects your privacy.',
+    };
+}
 
 export const runtime = 'edge';
 
-export default async function PrivacyPage() {
-    const initialDocument = await fetchActiveLegalDocument("PRIVACY_POLICY", "en", "GLOBAL");
+import PageLayout from "@/components/layout/page-layout";
 
-    async function handleRegionChangeAction(region: string) {
+export default async function PrivacyPage() {
+    const headersList = await headers();
+    const cookieStore = await cookies();
+    const lang = resolveLegalLanguage(
+        headersList.get("accept-language"),
+        cookieStore.get("finvoras-locale")?.value
+    );
+
+    const initialDocument = await fetchActiveLegalDocument("PRIVACY_POLICY", lang);
+
+    async function handleDocumentChangeAction(language: string) {
         "use server";
-        return fetchActiveLegalDocument("PRIVACY_POLICY", "en", region);
+        return fetchActiveLegalDocument("PRIVACY_POLICY", language);
     }
 
     return (
-        <LegalDocument
-            initialDocument={initialDocument}
-            type="PRIVACY_POLICY"
-            onRegionChange={handleRegionChangeAction}
-        />
+        <PageLayout>
+            <LegalDocument
+                initialDocument={initialDocument}
+                type="PRIVACY_POLICY"
+                onDocumentChange={handleDocumentChangeAction}
+                currentLanguage={lang}
+            />
+        </PageLayout>
     );
 }

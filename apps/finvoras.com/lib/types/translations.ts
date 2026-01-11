@@ -370,6 +370,10 @@ export interface Translations {
     getStarted: string;
     tryFree: string;
     comingSoon: string;
+    legalErrorTitle: string;
+    legalErrorMessage: string;
+    legalErrorAction: string;
+    legalContactInfo: string;
   };
 
   // Blog
@@ -441,5 +445,22 @@ export interface Translations {
       privacy: string;
       terms: string;
     };
+  };
+
+  // Legal
+  legal: {
+    label: string;
+    summary: string;
+    snapshotNotice: string;
+    menu: string;
+    inThisDocument: string;
+    contents: string;
+    onThisPage: string;
+    published: string;
+    effective: string;
+    updated: string;
+    languageLabel: string;
+    privacyPolicy: string;
+    termsOfService: string;
   };
 }

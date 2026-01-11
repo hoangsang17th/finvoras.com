@@ -1,32 +1,21 @@
-import { privacyPolicyFallback } from "../data/legal/privacy-policy";
-import { termsOfServiceFallback } from "../data/legal/terms-of-service";
-
-const FALLBACK_API_BASE_URL = "http://localhost:3000/api";
-
-const resolveApiBaseUrl = () => {
-  const configured = process.env.NEXT_PUBLIC_API_URL?.trim();
-  if (configured) {
-    return configured.replace(/\/$/, "");
-  }
-
-  if (process.env.NODE_ENV !== "production") {
-    console.warn(
-      "NEXT_PUBLIC_API_URL is not defined. Falling back to",
-      FALLBACK_API_BASE_URL
-    );
-    return FALLBACK_API_BASE_URL;
-  }
-
-  throw new Error(
-    "NEXT_PUBLIC_API_URL is required in production to load legal content."
-  );
-};
+import { createHttpClient } from "./client";
+import { API_ENDPOINTS } from "./endpoints";
+import { formatLanguageForBackend } from "../utils/language";
 
 export type LegalDocumentType = "PRIVACY_POLICY" | "TERMS_OF_SERVICE";
 
+export const SUPPORTED_LANGUAGES = [
+  { code: "en", label: "English" },
+  { code: "vi", label: "Tiếng Việt" },
+  { code: "id", label: "Bahasa Indonesia" },
+  { code: "th", label: "ไทย" },
+  { code: "de", label: "Deutsch" },
+  { code: "fr", label: "Français" },
+] as const;
+
+export type LegalLanguage = (typeof SUPPORTED_LANGUAGES)[number]["code"];
+
 export interface LegalDocumentContext {
-  region: string;
-  regionSource: string;
   language: string;
   languageCode: string;
   languageSource: string;
@@ -39,7 +28,6 @@ export interface LegalDocumentResponse {
   title: string;
   version: string;
   language: string;
-  region: string;
   summary?: string;
   content: string;
   status: string;
@@ -52,40 +40,26 @@ export interface LegalDocumentResponse {
   isFallback?: boolean;
 }
 
+// Create a shared HttpClient for legal documents
+const legalHttpClient = createHttpClient();
+
 export async function fetchActiveLegalDocument(
   type: LegalDocumentType,
-  language: string,
-  region?: string
-): Promise<LegalDocumentResponse> {
-  const baseUrl = resolveApiBaseUrl();
-  let url = `${baseUrl}/legal-documents/active/${type}?language=${language}`;
-  if (region) {
-    url += `&region=${region}`;
-  }
+  language: string
+): Promise<LegalDocumentResponse | null> {
+  const endpoint = API_ENDPOINTS.LEGAL.ACTIVE_DOCUMENT(type);
 
   try {
-    const response = await fetch(url, {
-      cache: "no-store",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+    const response = await legalHttpClient.get<LegalDocumentResponse>(endpoint, {
+      params: {
+        language: formatLanguageForBackend(language),
+        region: "GLOBAL",
       },
-      next: { revalidate: 3600 } // Add some revalidation
     });
 
-    if (!response.ok) {
-      console.warn(`API returned ${response.status} for ${type}. Falling back to static content.`);
-      return getFallback(type);
-    }
-
-    return await response.json();
+    return response.data;
   } catch (error) {
-    console.error(`Fetch failed for ${type}. Falling back to static content:`, error);
-    return getFallback(type);
+    console.error(`Fetch failed for ${type}:`, error);
+    return null;
   }
-}
-
-function getFallback(type: LegalDocumentType): LegalDocumentResponse {
-  const fallback = type === "PRIVACY_POLICY" ? privacyPolicyFallback : termsOfServiceFallback;
-  return { ...fallback, isFallback: true };
 }

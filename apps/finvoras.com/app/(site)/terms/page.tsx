@@ -1,27 +1,52 @@
 import { Metadata } from "next";
+import { headers, cookies } from "next/headers";
 import { fetchActiveLegalDocument } from "@/lib/api/legal";
 import { LegalDocument } from "@/components/legal/LegalDocument";
+import { resolveLegalLanguage } from "@/lib/utils/language";
+import PageLayout from "@/components/layout/page-layout";
 
-export const metadata: Metadata = {
-    title: "Terms of Service • Finvoras",
-    description: "Read the terms and conditions for using the Finvoras platform.",
-};
+
+
+export async function generateMetadata(): Promise<Metadata> {
+    const headersList = await headers();
+    const cookieStore = await cookies();
+    const lang = resolveLegalLanguage(
+        headersList.get("accept-language"),
+        cookieStore.get("finvoras-locale")?.value
+    );
+
+    return {
+        title: 'Terms of Service • Finvoras',
+        description: 'Read the terms and conditions for using the Finvoras platform.',
+    };
+}
 
 export const runtime = 'edge';
 
 export default async function TermsPage() {
-    const initialDocument = await fetchActiveLegalDocument("TERMS_OF_SERVICE", "en", "GLOBAL");
+    const headersList = await headers();
+    const cookieStore = await cookies();
+    const lang = resolveLegalLanguage(
+        headersList.get("accept-language"),
+        cookieStore.get("finvoras-locale")?.value
+    );
 
-    async function handleRegionChangeAction(region: string) {
+    const initialDocument = await fetchActiveLegalDocument("TERMS_OF_SERVICE", lang);
+
+    async function handleDocumentChangeAction(language: string) {
         "use server";
-        return fetchActiveLegalDocument("TERMS_OF_SERVICE", "en", region);
+        return fetchActiveLegalDocument("TERMS_OF_SERVICE", language);
     }
 
     return (
-        <LegalDocument
-            initialDocument={initialDocument}
-            type="TERMS_OF_SERVICE"
-            onRegionChange={handleRegionChangeAction}
-        />
+
+        <PageLayout>
+            <LegalDocument
+                initialDocument={initialDocument}
+                type="TERMS_OF_SERVICE"
+                onDocumentChange={handleDocumentChangeAction}
+                currentLanguage={lang}
+            />
+        </PageLayout>
     );
 }
