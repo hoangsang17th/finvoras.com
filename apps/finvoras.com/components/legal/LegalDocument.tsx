@@ -115,7 +115,7 @@ export function LegalDocument({ initialDocument, type, onDocumentChange, current
         if (toc.length >= 0) setActiveHeading(toc[0]!.id);
         const handleScroll = () => {
             const headings = toc.map(item => window.document.getElementById(item.id));
-            const scrollPosition = window.scrollY + 125;
+            const scrollPosition = window.scrollY + 100;
 
             for (let i = headings.length - 1; i >= 0; i--) {
                 const heading = headings[i];
@@ -190,7 +190,7 @@ export function LegalDocument({ initialDocument, type, onDocumentChange, current
         <div className="relative min-h-screen bg-background">
 
             {/* Main Layout */}
-            <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-20 lg:pt-32 pb-16">
+            <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-28 lg:pt-32 pb-16">
                 <div className="flex flex-col lg:flex-row gap-12">
 
                     {/* Sidebar TOC - Desktop */}
