@@ -7,14 +7,7 @@ import PageLayout from "@/components/layout/page-layout";
 
 
 
-export async function generateMetadata(): Promise<Metadata> {
-    const headersList = await headers();
-    const cookieStore = await cookies();
-    const lang = resolveLegalLanguage(
-        headersList.get("accept-language"),
-        cookieStore.get("finvoras-locale")?.value
-    );
-
+export async function generateMetadata(): Promise<Metadata> { 
     return {
         title: 'Terms of Service • Finvoras',
         description: 'Read the terms and conditions for using the Finvoras platform.',

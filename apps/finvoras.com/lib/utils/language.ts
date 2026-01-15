@@ -1,8 +1,8 @@
 
-export const SUPPORTED_LEGAL_LANGUAGES = ["en", "vi", "id", "th", "de", "fr"] as const;
+export const SUPPORTED_LEGAL_LANGUAGES = ["En", "Vi", "Id", "Th", "De", "Fr"] as const;
 export type LegalLanguage = (typeof SUPPORTED_LEGAL_LANGUAGES)[number];
 
-export const DEFAULT_LEGAL_LANGUAGE: LegalLanguage = "en";
+export const DEFAULT_LEGAL_LANGUAGE: LegalLanguage = "En";
 
 /**
  * Extracts and matches the best language from Accept-Language header

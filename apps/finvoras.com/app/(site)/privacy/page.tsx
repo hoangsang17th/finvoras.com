@@ -6,13 +6,6 @@ import { resolveLegalLanguage } from "@/lib/utils/language";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-    const headersList = await headers();
-    const cookieStore = await cookies();
-    const lang = resolveLegalLanguage(
-        headersList.get("accept-language"),
-        cookieStore.get("finvoras-locale")?.value
-    );
-
     return {
         title: 'Privacy Policy • Finvoras',
         description: 'Learn how Finvoras handles your data and protects your privacy.',
