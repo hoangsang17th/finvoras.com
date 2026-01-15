@@ -19,6 +19,8 @@ export function middleware(request: NextRequest) {
     // Paths to always allow
     const allowedPaths = [
         '/coming-soon',
+        '/privacy',
+        '/terms',
         '/_next',
         '/api',
         '/favicon.ico',
