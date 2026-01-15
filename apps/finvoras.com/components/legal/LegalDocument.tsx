@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { marked } from "marked";
 import { Globe, Clock, ChevronRight, Menu, X, AlertCircle, ArrowLeft, Mail, Languages, ChevronDown } from "lucide-react";
-import { type LegalDocumentResponse, SUPPORTED_LANGUAGES } from "@/lib/api/legal";
+import { type LegalDocumentResponse, LANGUAGE_LABELS } from "@/lib/api/legal";
 import { useI18n } from "@repo/i18n";
 import { type Translations } from "@/lib/types/translations";
 import { Button, Dropdown } from "@repo/ui";
@@ -202,9 +202,9 @@ export function LegalDocument({ initialDocument, type, onDocumentChange, current
                                     label="Language"
                                     value={selectedLanguage}
                                     onChange={handleDocumentChange}
-                                    options={SUPPORTED_LANGUAGES.map(l => ({
-                                        value: l.code,
-                                        label: l.label,
+                                    options={(document?.context?.supportedLanguages || []).map(code => ({
+                                        value: code,
+                                        label: LANGUAGE_LABELS[code] || code.toUpperCase(),
                                         icon: <Languages size={16} className="text-primary" />
                                     }))}
                                     leadingIcon={<Languages size={16} className="text-primary" />}
@@ -316,7 +316,7 @@ export function LegalDocument({ initialDocument, type, onDocumentChange, current
                                             </div>
                                             <div className="flex flex-col">
                                                 <span className="text-[10px] font-bold uppercase tracking-wider opacity-50">{t.legal.languageLabel}</span>
-                                                <span className="text-foreground font-medium">{SUPPORTED_LANGUAGES.find(l => l.code === document.language)?.label || document.language}</span>
+                                                <span className="text-foreground font-medium">{LANGUAGE_LABELS[document.language] || document.language.toUpperCase()}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -389,9 +389,9 @@ export function LegalDocument({ initialDocument, type, onDocumentChange, current
                                         handleDocumentChange(val);
                                         setIsSidebarOpen(false);
                                     }}
-                                    options={SUPPORTED_LANGUAGES.map(l => ({
-                                        value: l.code,
-                                        label: l.label,
+                                    options={(document?.context?.supportedLanguages || []).map(code => ({
+                                        value: code,
+                                        label: LANGUAGE_LABELS[code] || code.toUpperCase(),
                                         icon: <Languages size={20} className="text-primary" />
                                     }))}
                                     leadingIcon={<Languages size={20} className="text-primary" />}

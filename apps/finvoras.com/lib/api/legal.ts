@@ -4,16 +4,16 @@ import { formatLanguageForBackend } from "../utils/language";
 
 export type LegalDocumentType = "PRIVACY_POLICY" | "TERMS_OF_SERVICE";
 
-export const SUPPORTED_LANGUAGES = [
-  { code: "en", label: "English" },
-  { code: "vi", label: "Tiếng Việt" },
-  { code: "id", label: "Bahasa Indonesia" },
-  { code: "th", label: "ไทย" },
-  { code: "de", label: "Deutsch" },
-  { code: "fr", label: "Français" },
-] as const;
+export const LANGUAGE_LABELS: Record<string, string> = {
+  en: "English",
+  vi: "Tiếng Việt",
+  id: "Bahasa Indonesia",
+  th: "ไทย",
+  de: "Deutsch",
+  fr: "Français",
+};
 
-export type LegalLanguage = (typeof SUPPORTED_LANGUAGES)[number]["code"];
+export type LegalLanguage = string;
 
 export interface LegalDocumentContext {
   language: string;
