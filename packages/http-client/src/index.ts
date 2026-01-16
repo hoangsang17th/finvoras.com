@@ -17,3 +17,6 @@ export { TokenInterceptor } from './interceptors/token';
 export { LoggerInterceptor } from './interceptors/logger';
 export { ExceptionInterceptor } from './interceptors/exception';
 export { RetryInterceptor } from './interceptors/retry';
+// Shared Configuration & Factory
+export * from './config';
+export * from './factory';
