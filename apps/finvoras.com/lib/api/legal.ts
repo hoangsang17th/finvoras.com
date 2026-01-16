@@ -1,4 +1,4 @@
-import { createHttpClient } from "./client";
+import { createHttpClient } from "@repo/http-client";
 import { API_ENDPOINTS } from "./endpoints";
 import { formatLanguageForBackend } from "../utils/language";
 

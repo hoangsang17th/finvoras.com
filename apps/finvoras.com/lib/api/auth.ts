@@ -1,7 +1,7 @@
 import { AuthSession, LoginRequest, RefreshTokenResponse, RegisterRequest } from "@/lib/types";
 import { HttpClient, TokenInterceptor } from "@repo/http-client";
 
-import { createHttpClient } from "./client";
+import { createHttpClient } from "@repo/http-client";
 import { API_ENDPOINTS } from "./endpoints";
 
 class ApiClient {
