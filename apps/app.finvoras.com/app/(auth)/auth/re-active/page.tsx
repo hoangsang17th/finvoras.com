@@ -5,10 +5,13 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button, Input, Label } from "@repo/ui";
 import { authApi } from "@/lib/api/auth";
+import { useI18n } from "@repo/i18n";
+import type { Translations } from "@/lib/types/translations";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 function ReActiveAccountContent() {
+  const { t } = useI18n<Translations>();
   const searchParams = useSearchParams();
   const token = searchParams.get("token") ?? "";
   const [status, setStatus] = useState<Status>("idle");
@@ -27,13 +30,13 @@ function ReActiveAccountContent() {
     try {
       await authApi.reactivateAccount(token);
       setStatus("success");
-      setMessage("Your account has been re-activated successfully.");
+      setMessage(t.auth.reactivateAccount.successMessage);
     } catch (error) {
       setStatus("error");
       setMessage(
         error instanceof Error
           ? error.message
-          : "We couldn’t re-activate your account. Please try again."
+          : t.auth.reactivateAccount.errorMessage
       );
     }
   };
@@ -46,13 +49,11 @@ function ReActiveAccountContent() {
     try {
       await authApi.requestAccountReactivation(requestEmail);
       setRequestStatus("success");
-      setRequestMessage(
-        "If this email is eligible, a new reactivation link is on its way."
-      );
+      setRequestMessage(t.auth.reactivateAccount.requestSuccess);
     } catch (error) {
       setRequestStatus("error");
       setRequestMessage(
-        error instanceof Error ? error.message : "Unable to send reactivation email."
+        error instanceof Error ? error.message : t.auth.reactivateAccount.requestError
       );
     }
   };
@@ -60,18 +61,17 @@ function ReActiveAccountContent() {
   return (
     <main className="mx-auto flex min-h-[70vh] w-full max-w-2xl flex-col justify-center gap-8 px-4">
       <section className="text-center space-y-4">
-        <h1 className="text-3xl font-semibold">Restore your account</h1>
+        <h1 className="text-3xl font-semibold">{t.auth.reactivateAccount.title}</h1>
         <p className="text-base text-muted-foreground">
-          Follow this step only if you requested the reactivation email.
+          {t.auth.reactivateAccount.subtitle}
         </p>
         {token ? (
           <p className="rounded-md border border-dashed border-foreground/30 bg-foreground/[0.03] px-4 py-2 text-sm">
-            Confirming session token: <span className="font-mono break-all">{token}</span>
+            {t.auth.reactivateAccount.confirmingToken} <span className="font-mono break-all">{token}</span>
           </p>
         ) : (
           <p className="rounded-md border border-destructive/40 bg-destructive/10 px-4 py-2 text-sm text-destructive">
-            Re-activation token missing. Please reopen the link from the latest email or
-            request a new one below.
+            {t.auth.reactivateAccount.tokenMissing}
           </p>
         )}
 
@@ -90,25 +90,24 @@ function ReActiveAccountContent() {
           disabled={!token || isRestoring}
           className="mx-auto w-full max-w-xs"
         >
-          {isRestoring ? "Restoring..." : "Restore account"}
+          {isRestoring ? t.auth.reactivateAccount.restoring : t.auth.reactivateAccount.restoreAccount}
         </Button>
 
         {status === "success" && (
           <p className="text-sm text-muted-foreground">
-            Head to{" "}
+            {t.auth.reactivateAccount.headTo}{" "}
             <Link href="/login" className="text-brand-primary hover:underline">
-              the login page
+              {t.auth.reactivateAccount.loginPage}
             </Link>{" "}
-            to access Finvoras.
+            {t.auth.reactivateAccount.toAccess}
           </p>
         )}
       </section>
 
       <section className="rounded-xl border border-foreground/10 p-6">
-        <h2 className="text-xl font-semibold text-center mb-2">Need a new link?</h2>
+        <h2 className="text-xl font-semibold text-center mb-2">{t.auth.reactivateAccount.needNewLink}</h2>
         <p className="text-sm text-muted-foreground text-center mb-4">
-          Enter your account email and we&apos;ll send instructions to start the reactivation
-          process again.
+          {t.auth.reactivateAccount.needNewLinkDescription}
         </p>
 
         {requestMessage && (
@@ -122,19 +121,19 @@ function ReActiveAccountContent() {
 
         <form className="flex flex-col gap-4" onSubmit={handleRequestLink}>
           <Label className="text-sm flex flex-col gap-2">
-            Email
+            {t.auth.reactivateAccount.email}
             <Input
               type="email"
               value={requestEmail}
               onChange={(event) => setRequestEmail(event.target.value)}
-              placeholder="you@example.com"
+              placeholder={t.auth.reactivateAccount.emailPlaceholder}
               disabled={isRequesting}
               required
             />
           </Label>
 
           <Button type="submit" disabled={isRequesting}>
-            {isRequesting ? "Sending..." : "Send reactivation email"}
+            {isRequesting ? t.auth.reactivateAccount.sending : t.auth.reactivateAccount.sendReactivationEmail}
           </Button>
         </form>
       </section>

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Button, Input, Label, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui";
 import { LoginRequest } from "@/lib/types";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { useI18n } from "@repo/i18n";
+import type { Translations } from "@/lib/types/translations";
 
 interface LoginFormProps {
   onSubmit: (data: LoginRequest) => Promise<void>;
@@ -12,6 +14,7 @@ interface LoginFormProps {
 }
 
 export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
+  const { t } = useI18n<Translations>();
   const [formData, setFormData] = useState<LoginRequest>({
     email: "",
     password: "",
@@ -26,9 +29,9 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
 
     // Basic validation
     const newErrors: Record<string, string> = {};
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.password) newErrors.password = "Password is required";
-    if (!formData.email.includes("@")) newErrors.email = "Valid email is required";
+    if (!formData.email) newErrors.email = t.auth.login.emailRequired;
+    if (!formData.password) newErrors.password = t.auth.login.passwordRequired;
+    if (!formData.email.includes("@")) newErrors.email = t.auth.login.validEmailRequired;
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -38,7 +41,7 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
     try {
       await onSubmit(formData);
     } catch {
-      setErrors({ general: "Login failed. Please check your credentials and try again." });
+      setErrors({ general: t.auth.login.loginFailed });
     }
   };
 
@@ -55,9 +58,9 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
         <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
           <span className="text-2xl font-bold text-white">F</span>
         </div>
-        <CardTitle className="text-2xl font-bold text-foreground">Welcome back</CardTitle>
+        <CardTitle className="text-2xl font-bold text-foreground">{t.auth.login.cardTitle}</CardTitle>
         <CardDescription className="text-brand-neutral-600 dark:text-brand-grey-350">
-          Sign in to your Finvoras account to continue managing your finances
+          {t.auth.login.cardDescription}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -70,12 +73,12 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email" className="text-sm font-medium text-foreground">
-              Email address
+              {t.auth.login.email}
             </Label>
             <Input
               id="email"
               type="email"
-              placeholder="you@example.com"
+              placeholder={t.auth.login.emailPlaceholder}
               value={formData.email}
               onChange={handleChange("email")}
               className={`h-11 ${errors.email ? 'border-brand-red focus:border-brand-red' : 'focus:border-brand-primary'}`}
@@ -86,13 +89,13 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
 
           <div className="space-y-2">
             <Label htmlFor="password" className="text-sm font-medium text-foreground">
-              Password
+              {t.auth.login.password}
             </Label>
             <div className="relative">
               <Input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
+                placeholder={t.auth.login.passwordPlaceholder}
                 value={formData.password}
                 onChange={handleChange("password")}
                 className={`h-11 pr-10 ${errors.password ? 'border-brand-red focus:border-brand-red' : 'focus:border-brand-primary'}`}
@@ -122,14 +125,14 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
                 disabled={isLoading}
               />
               <Label htmlFor="remember" className="text-sm text-brand-neutral-600 dark:text-brand-grey-350">
-                Remember me
+                {t.auth.login.rememberMe}
               </Label>
             </div>
             <Link
               href="/forgot-password"
               className="text-sm font-medium text-brand-primary hover:text-brand-primary-700 transition-colors"
             >
-              Forgot password?
+              {t.auth.login.forgotPassword}
             </Link>
           </div>
 
@@ -143,22 +146,22 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Signing in...
+                {t.auth.login.signingIn}
               </>
             ) : (
-              "Sign in"
+              t.auth.login.loginButton
             )}
           </Button>
         </form>
 
         <div className="text-center pt-4 border-t border-brand-neutral-200 dark:border-brand-grey-700">
           <p className="text-sm text-brand-neutral-600 dark:text-brand-grey-350">
-            Don't have an account?{" "}
+            {t.auth.login.noAccount}{" "}
             <Link
               href="/register"
               className="font-medium text-brand-primary hover:text-brand-primary-700 transition-colors"
             >
-              Sign up for free
+              {t.auth.login.signUpFree}
             </Link>
           </p>
         </div>

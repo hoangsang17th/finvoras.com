@@ -5,10 +5,13 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button, Input, Label } from "@repo/ui";
 import { authApi } from "@/lib/api/auth";
+import { useI18n } from "@repo/i18n";
+import type { Translations } from "@/lib/types/translations";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 function ResetPasswordContent() {
+  const { t } = useI18n<Translations>();
   const searchParams = useSearchParams();
   const token = searchParams.get("token") ?? "";
   const [password, setPassword] = useState("");
@@ -30,31 +33,30 @@ function ResetPasswordContent() {
       setStatus("success");
       setPassword("");
       setConfirmPassword("");
-      setMessage("Password updated. You can now sign in with your new credentials.");
+      setMessage(t.auth.resetPassword.successMessage);
     } catch (error) {
       setStatus("error");
       setMessage(
         error instanceof Error
           ? error.message
-          : "Password reset failed. Please try again."
+          : t.auth.resetPassword.errorMessage
       );
     }
   };
 
   return (
-    <main className="mx-auto flex min-h-[70vh] w-full max-w-lg flex-col justify-center gap-6 px-4">
+    <main className="w-full flex flex-col justify-center gap-6">
       <header className="text-center">
-        <p className="text-sm text-muted-foreground">Reset your password</p>
-        <h1 className="text-3xl font-semibold">Choose a new password</h1>
+        <p className="text-sm text-muted-foreground">{t.auth.resetPassword.title}</p>
+        <h1 className="text-3xl font-semibold">{t.auth.resetPassword.subtitle}</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Your new password must be different from the previous one and include uppercase,
-          lowercase, number, and special characters.
+          {t.auth.resetPassword.description}
         </p>
       </header>
 
       {!token && (
         <p className="rounded-md border border-destructive/40 bg-destructive/10 px-4 py-2 text-sm text-destructive">
-          Reset token missing. Please reopen the link from the password reset email.
+          {t.auth.resetPassword.tokenMissing}
         </p>
       )}
 
@@ -69,45 +71,45 @@ function ResetPasswordContent() {
 
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <Label className="flex flex-col gap-2 text-left text-sm">
-          New password
+          {t.auth.resetPassword.newPassword}
           <Input
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            placeholder="••••••••"
+            placeholder={t.auth.resetPassword.passwordPlaceholder}
             disabled={status === "loading"}
           />
         </Label>
 
         <Label className="flex flex-col gap-2 text-left text-sm">
-          Confirm password
+          {t.auth.resetPassword.confirmPassword}
           <Input
             type="password"
             value={confirmPassword}
             onChange={(event) => setConfirmPassword(event.target.value)}
-            placeholder="••••••••"
+            placeholder={t.auth.resetPassword.passwordPlaceholder}
             disabled={status === "loading"}
           />
         </Label>
 
         <Button type="submit" className="mt-2" disabled={isDisabled}>
-          {status === "loading" ? "Updating..." : "Update password"}
+          {status === "loading" ? t.auth.resetPassword.updating : t.auth.resetPassword.updatePassword}
         </Button>
 
         {token && (
           <p className="text-center text-xs text-muted-foreground">
-            Reset token: <span className="font-mono break-all">{token}</span>
+            {t.auth.resetPassword.resetToken} <span className="font-mono break-all">{token}</span>
           </p>
         )}
       </form>
 
       {status === "success" && (
         <p className="text-center text-sm">
-          Head back to{" "}
+          {t.auth.resetPassword.backToLogin}{" "}
           <Link href="/login" className="text-brand-primary hover:underline">
-            the login page
+            {t.auth.resetPassword.loginPage}
           </Link>{" "}
-          to access your account.
+          {t.auth.resetPassword.toAccessAccount}
         </p>
       )}
     </main>

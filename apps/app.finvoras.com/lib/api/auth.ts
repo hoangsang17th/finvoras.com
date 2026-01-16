@@ -1,26 +1,7 @@
 // Refactored Auth API using new HTTP Client
 import { AuthSession, LoginRequest, RefreshTokenResponse, RegisterRequest } from "@/lib/types";
-import { HttpClient, TokenInterceptor, LoggerInterceptor, ExceptionInterceptor } from "@repo/http-client";
-
-const FALLBACK_API_BASE_URL = "http://localhost:3000/api";
-const API_BASE_URL = (() => {
-  const configuredUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
-  if (configuredUrl) {
-    return configuredUrl.replace(/\/$/, "");
-  }
-
-  if (process.env.NODE_ENV !== "production") {
-    console.warn(
-      "NEXT_PUBLIC_API_URL is not defined. Falling back to",
-      FALLBACK_API_BASE_URL
-    );
-    return FALLBACK_API_BASE_URL;
-  }
-
-  throw new Error(
-    "NEXT_PUBLIC_API_URL is required in production to communicate with the backend API."
-  );
-})();
+import { HttpClient, TokenInterceptor } from "@repo/http-client";
+import { createHttpClient, resolveApiBaseUrl } from "@repo/http-client";
 
 const AUTH_BASE_PATH = "/auth";
 
@@ -29,19 +10,9 @@ class ApiClient {
   private token: string | null = null;
   private tokenInterceptor: TokenInterceptor;
 
-  constructor(baseURL: string) {
-    // Initialize HTTP client
-    const isDev = process.env.NODE_ENV === "development";
-    this.httpClient = new HttpClient({
-      baseURL,
-      timeout: 30000,
-      appInfo: {
-        name: process.env.NEXT_PUBLIC_APP_NAME || "Finvoras",
-        version: process.env.NEXT_PUBLIC_APP_VERSION || "1.0.0",
-        buildNumber: process.env.NEXT_PUBLIC_APP_BUILD_NUMBER || process.env.NEXT_PUBLIC_APP_BUILD,
-      },
-      debug: isDev,
-    });
+  constructor() {
+    // Initialize HTTP client using shared factory
+    this.httpClient = createHttpClient();
 
     // Load token from localStorage
     if (typeof window !== "undefined") {
@@ -66,12 +37,9 @@ class ApiClient {
       ],
     });
 
-    // Add interceptors
+    // Add Auth interceptor (others are added in createHttpClient)
     this.httpClient.addRequestInterceptor(this.tokenInterceptor);
     this.httpClient.addResponseInterceptor(this.tokenInterceptor);
-    this.httpClient.addRequestInterceptor(new LoggerInterceptor(isDev));
-    this.httpClient.addResponseInterceptor(new LoggerInterceptor(isDev));
-    this.httpClient.addResponseInterceptor(new ExceptionInterceptor());
   }
 
   getHttpClient(): HttpClient {
@@ -147,6 +115,7 @@ class ApiClient {
   }
 
   async verifyEmail(token: string): Promise<void> {
+    console.log("Verifying email... ", token);
     await this.httpClient.put<void>(
       `${AUTH_BASE_PATH}/verify-email`,
       null,
@@ -245,7 +214,7 @@ class ApiClient {
 }
 
 // Export singleton instance
-export const apiClient = new ApiClient(API_BASE_URL);
+export const apiClient = new ApiClient();
 
 // Convenience auth functions
 export const authApi = {

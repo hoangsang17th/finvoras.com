@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { I18nProvider, LanguageSwitcher } from "@repo/i18n";
-import { Navbar } from "@/components/navbar";
 import { FloatingUtilities } from "@repo/ui";
 import translations from "@/lib/translations";
+import { env } from "@/lib/env";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -108,9 +108,9 @@ export default function RootLayout({
         {/* reCAPTCHA v3 Script */}
       </head>
       <body className={`${beVietnamPro.className} antialiased`}>
-        {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+        {env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
           <Script
-            src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+            src={`https://www.google.com/recaptcha/api.js?render=${env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
             strategy="lazyOnload"
           />
         )}
@@ -128,8 +128,7 @@ export default function RootLayout({
             storageKey="app.finvoras.com-theme"
           >
             <TooltipProvider>
-              <Navbar />
-              <main className="pt-16 xs:pt-20 sm:pt-24 pb-0">
+              <main>
                 {children}
               </main>
               <FloatingUtilities

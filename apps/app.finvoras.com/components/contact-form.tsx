@@ -4,12 +4,13 @@ import { useState } from "react";
 import { Button, Input } from "@repo/ui";
 import { Send, CheckCircle2 } from "lucide-react";
 import { submitToGoogleForm, createGoogleFormConfig } from "@repo/google-forms";
+import { env } from "@/lib/env";
 
 // TODO: Update these entry IDs with your actual Google Form entry IDs
 // See: packages/google-forms/example-config.ts for detailed instructions
 const createContactFormConfig = () => {
   return createGoogleFormConfig({
-    formId: process.env.NEXT_PUBLIC_GOOGLE_FORM_ID!,
+    formId: env.NEXT_PUBLIC_GOOGLE_FORM_ID!,
     fields: {
       name: "entry.123456789",    // TODO: Replace with your actual name field entry ID
       email: "entry.987654321",   // TODO: Replace with your actual email field entry ID
