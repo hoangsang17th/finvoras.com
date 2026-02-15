@@ -15,14 +15,14 @@ export const runtime = "edge";
 
 type LayoutProps = Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: "en" | "vi" }>;
+  params: Promise<{ locale: string }>;
 }>;
 
 export async function generateMetadata({
   params,
 }: LayoutProps): Promise<Metadata> {
   const { locale } = await params;
-  return getSiteMetadata(locale);
+  return getSiteMetadata(locale === "vi" ? "vi" : "en");
 }
 
 export default async function LocaleLayout({ children, params }: LayoutProps) {
