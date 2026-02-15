@@ -7,9 +7,7 @@ import Contact from "@/components/contact";
 import PortfolioNavbar from "@/components/portfolio-navbar";
 import Footer from "@/components/footer";
 
-export const runtime = 'edge';
-
-export default function Home() {
+export default function HomeContent() {
   return (
     <>
       <PortfolioNavbar />

@@ -71,9 +71,9 @@ const Hero = () => {
             </Badge>
 
             {/* Main Title */}
-            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold !leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold !leading-[1.1] tracking-tight mb-6">
               {personalInfo.name}
-            </h2>
+            </h1>
 
             {/* Description */}
             <p className="text-base xs:text-lg text-muted-foreground max-w-2xl mb-10 text-pretty leading-relaxed">

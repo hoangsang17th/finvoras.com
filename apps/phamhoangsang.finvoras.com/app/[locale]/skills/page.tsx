@@ -1,0 +1,18 @@
+import type { Metadata } from "next";
+import HomeContent from "@/components/home-content";
+import ScrollToSection from "@/components/scroll-to-section";
+import { getPageMetadata } from "@/lib/seo/metadata";
+import { PageProps } from "../page";
+
+export function generateMetadata({ params }: PageProps): Metadata {
+  return getPageMetadata("skills", params.locale);
+}
+
+export default function SkillsPage() {
+  return (
+    <>
+      <ScrollToSection id="skills" />
+      <HomeContent />
+    </>
+  );
+}

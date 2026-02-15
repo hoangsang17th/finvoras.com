@@ -24,7 +24,7 @@ const localizedContent = {
         personal: {
             name: "Sang Pham",
             summary:
-                "Flutter-focused Software Engineer building production mobile applications with a strong emphasis on system reliability, performance, and long-term maintainability.",
+                "Flutter Engineer and Mobile App Developer building production apps with a strong emphasis on system reliability, performance, and long-term maintainability.",
             bio: `I am a Flutter-focused Software Engineer with over four years of hands-on experience building and maintaining production mobile applications. While Flutter is my core specialization, my work consistently extends into system design, performance optimization, debugging complex edge cases, and making pragmatic technical trade-offs under real-world constraints.
 
 I am currently building Finvoras, a personal finance application, where I take end-to-end responsibility for feature development, system stability, and long-term maintainability. Many of the challenges I solve are uncovered in real user scenarios—such as memory issues during large file uploads, state inconsistencies across accounts, editor performance bottlenecks, and platform-specific behaviors on iOS and Android.
@@ -175,7 +175,7 @@ I treat these problems as part of the engineering process—analyzing root cause
         personal: {
             name: "Phạm Hoàng Sang",
             summary:
-                "Software Engineer tập trung vào Flutter, xây dựng ứng dụng mobile chạy thực tế với trọng tâm là độ ổn định hệ thống, hiệu năng và khả năng duy trì lâu dài.",
+                "Flutter Engineer và Mobile App Developer, xây dựng ứng dụng mobile chạy thực tế với trọng tâm là độ ổn định hệ thống, hiệu năng và khả năng duy trì lâu dài.",
             bio: `Tôi là một Software Engineer tập trung vào Flutter, với hơn bốn năm kinh nghiệm thực tế trong việc xây dựng và duy trì các ứng dụng mobile chạy trong môi trường production. Flutter là chuyên môn cốt lõi của tôi, tuy nhiên phạm vi công việc thường xuyên mở rộng sang thiết kế hệ thống, tối ưu hiệu năng, xử lý các edge case phức tạp và đưa ra những đánh đổi kỹ thuật phù hợp với bối cảnh thực tế.
 
 Hiện tại, tôi đang xây dựng Finvoras — một ứng dụng quản lý tài chính cá nhân, nơi tôi chịu trách nhiệm end-to-end cho phát triển tính năng, độ ổn định hệ thống và khả năng bảo trì dài hạn. Phần lớn các vấn đề tôi giải quyết đến từ hành vi sử dụng thực tế của người dùng, chẳng hạn như lỗi bộ nhớ khi upload dữ liệu lớn, sai lệch state giữa các tài khoản, nghẽn hiệu năng trong editor, hay sự khác biệt hành vi giữa iOS và Android.

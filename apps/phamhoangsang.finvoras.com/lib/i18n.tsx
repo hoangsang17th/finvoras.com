@@ -19,7 +19,7 @@ export const transformedTranslations = {
 };
 
 
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { uiTranslations } from './data/ui-translations';
 import { getLocalizedResumeData } from './data/resume';
 import { ResumeData, UITranslations } from './types/resume';
@@ -28,12 +28,37 @@ import { ResumeData, UITranslations } from './types/resume';
 export function useI18n() {
     const { locale, setLocale: sharedSetLocale, t } = useSharedI18n<any>();
     const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
 
     const setLocale = (newLocale: Locale) => {
         sharedSetLocale(newLocale);
-        // router.refresh() tells Next.js to re-fetch Server Components (including Metadata)
-        // without a full page reload or losing client state.
-        router.refresh();
+        const path = pathname || '/';
+        const segments = path.split('/').filter(Boolean);
+        const hasLocalePrefix = segments.length > 0 && (segments[0] === 'en' || segments[0] === 'vi');
+        const sectionPaths = new Set(['about', 'projects', 'experience', 'skills', 'contact']);
+
+        if (hasLocalePrefix) {
+            segments[0] = newLocale;
+        } else {
+            segments.unshift(newLocale);
+        }
+
+        const nextPath = `/${segments.join('/')}`;
+        const query = searchParams?.toString();
+        const url = query ? `${nextPath}?${query}` : nextPath;
+
+        // Preserve scroll position only for root page; section pages will auto-scroll.
+        const currentSection = hasLocalePrefix ? segments[1] : segments[0];
+        if (!currentSection || !sectionPaths.has(currentSection)) {
+            try {
+                sessionStorage.setItem('scroll-restore', String(window.scrollY));
+            } catch {
+                // ignore storage errors
+            }
+        }
+
+        router.push(url, { scroll: false });
     };
 
     return {

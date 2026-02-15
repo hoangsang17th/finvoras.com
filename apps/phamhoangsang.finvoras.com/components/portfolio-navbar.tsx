@@ -8,7 +8,7 @@ import { Download } from "lucide-react";
 import { useNavigation } from "@/lib/hooks/use-navigation";
 
 // Portfolio Logo Component using shared Logo component
-const PortfolioLogo = ({ name }: { name: string }) => {
+const PortfolioLogo = ({ name, homePath }: { name: string; homePath: string }) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -16,7 +16,7 @@ const PortfolioLogo = ({ name }: { name: string }) => {
     e.preventDefault();
 
     // Nếu đang ở homepage, scroll lên top
-    if (pathname === '/') {
+    if (pathname === homePath) {
       // Sử dụng requestAnimationFrame để đảm bảo scroll mượt mà hơn
       const scrollToTop = () => {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
@@ -39,7 +39,7 @@ const PortfolioLogo = ({ name }: { name: string }) => {
       }
     } else {
       // Nếu ở page khác, navigate về home
-      router.push('/');
+      router.push(homePath);
     }
   };
 
@@ -59,7 +59,8 @@ const PortfolioLogo = ({ name }: { name: string }) => {
 };
 
 const PortfolioNavbar = () => {
-  const { ui, resumeData } = useI18n();
+  const { ui, resumeData, locale } = useI18n();
+  const homePath = `/${locale}`;
 
   // Return loading state if data is not ready
   if (!resumeData) {
@@ -113,10 +114,10 @@ const PortfolioNavbar = () => {
 
   return (
     <Navbar
-      logo={<PortfolioLogo name={resumeData.personalInfo.name} />}
+      logo={<PortfolioLogo name={resumeData.personalInfo.name} homePath={homePath} />}
       menuItems={menuItems}
       ctaActions={ctaActions}
-      homePath="/"
+      homePath={homePath}
     />
   );
 };
