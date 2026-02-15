@@ -24,6 +24,7 @@ export interface I18nProviderProps<T = Record<string, any>> {
   defaultLocale: string;
   supportedLocales: string[];
   storageKey?: string;
+  initialLocale?: string;
 }
 
 export interface LanguageSwitcherProps {

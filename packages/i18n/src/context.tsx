@@ -11,21 +11,26 @@ export function I18nProvider<T = Record<string, any>>({
   translations,
   defaultLocale,
   supportedLocales,
-  storageKey = 'locale'
+  storageKey = 'locale',
+  initialLocale
 }: I18nProviderProps<T>) {
-  const [locale, setLocaleState] = useState<string>(defaultLocale);
+  const [locale, setLocaleState] = useState<string>(initialLocale || defaultLocale);
 
   useEffect(() => {
+    if (initialLocale && supportedLocales.includes(initialLocale)) {
+      setLocaleState(initialLocale);
+      return;
+    }
     // Get locale from localStorage or browser preference
     const savedLocale = getSavedLocale(storageKey);
     const browserLocale = detectBrowserLanguage(supportedLocales);
 
-    const initialLocale = savedLocale && supportedLocales.includes(savedLocale)
+    const resolvedLocale = savedLocale && supportedLocales.includes(savedLocale)
       ? savedLocale
       : browserLocale;
 
-    setLocaleState(initialLocale);
-  }, [supportedLocales, storageKey]);
+    setLocaleState(resolvedLocale);
+  }, [initialLocale, supportedLocales, storageKey]);
 
   const setLocale = (newLocale: string) => {
     if (!supportedLocales.includes(newLocale)) {
