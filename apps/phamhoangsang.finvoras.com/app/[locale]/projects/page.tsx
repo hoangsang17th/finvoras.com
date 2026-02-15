@@ -5,17 +5,17 @@ import { getPageMetadata } from "@/lib/seo/metadata";
 import { PageProps } from "../page";
 
 export async function generateMetadata({
-  params,
+	params,
 }: PageProps): Promise<Metadata> {
-  const { locale } = await params;
-  return getPageMetadata("projects", locale);
+	const { locale } = await params;
+	return getPageMetadata("projects", locale);
 }
 
 export default function ProjectsPage() {
-  return (
-    <>
-      <ScrollToSection id="projects" />
-      <HomeContent />
-    </>
-  );
+	return (
+		<>
+			<ScrollToSection id="projects" />
+			<HomeContent />
+		</>
+	);
 }

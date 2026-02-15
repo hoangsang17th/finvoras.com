@@ -3,270 +3,271 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* Finvoras Brand Theme - Light Mode */
-    --background: 0 0% 100%;
-    --foreground: 216 13% 8%;
-    /* grey-900 equivalent */
+	:root {
+		/* Finvoras Brand Theme - Light Mode */
+		--background: 0 0% 100%;
+		--foreground: 216 13% 8%;
+		/* grey-900 equivalent */
 
-    --card: 0 0% 100%;
-    --card-foreground: 216 13% 8%;
+		--card: 0 0% 100%;
+		--card-foreground: 216 13% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 216 13% 8%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 216 13% 8%;
 
-    /* Using Finvoras brand orange as primary */
-    --primary: 38 100% 50%;
-    /* brand-primary-500 #FFA500 */
-    --primary-foreground: 0 0% 100%;
+		/* Using Finvoras brand orange as primary */
+		--primary: 38 100% 50%;
+		/* brand-primary-500 #FFA500 */
+		--primary-foreground: 0 0% 100%;
 
-    --secondary: 32 100% 85%;
-    /* warm orange tone */
-    --secondary-foreground: 216 13% 8%;
+		--secondary: 32 100% 85%;
+		/* warm orange tone */
+		--secondary-foreground: 216 13% 8%;
 
-    --muted: 220 13% 91%;
-    /* neutral-200 */
-    --muted-foreground: 215 16% 47%;
-    /* neutral-600 */
+		--muted: 220 13% 91%;
+		/* neutral-200 */
+		--muted-foreground: 215 16% 47%;
+		/* neutral-600 */
 
-    --accent: 38 100% 50%;
-    /* same as primary for brand consistency */
-    --accent-foreground: 0 0% 100%;
+		--accent: 38 100% 50%;
+		/* same as primary for brand consistency */
+		--accent-foreground: 0 0% 100%;
 
-    --destructive: 348 83% 47%;
-    /* brand-red-500 */
-    --destructive-foreground: 0 0% 100%;
+		--destructive: 348 83% 47%;
+		/* brand-red-500 */
+		--destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    /* neutral-200 */
-    --input: 220 13% 91%;
-    --ring: 38 100% 50%;
-    /* brand-primary-500 */
+		--border: 220 13% 91%;
+		/* neutral-200 */
+		--input: 220 13% 91%;
+		--ring: 38 100% 50%;
+		/* brand-primary-500 */
 
-    /* Chart colors using Finvoras palette */
-    --chart-1: 38 100% 50%;
-    /* brand-primary-500 */
-    --chart-2: 102 49% 40%;
-    /* brand-success-500 */
-    --chart-3: 45 95% 53%;
-    /* brand-yellow-500 */
-    --chart-4: 213 94% 68%;
-    /* brand-blue-500 */
-    --chart-5: 348 83% 47%;
-    /* brand-red-500 */
+		/* Chart colors using Finvoras palette */
+		--chart-1: 38 100% 50%;
+		/* brand-primary-500 */
+		--chart-2: 102 49% 40%;
+		/* brand-success-500 */
+		--chart-3: 45 95% 53%;
+		/* brand-yellow-500 */
+		--chart-4: 213 94% 68%;
+		/* brand-blue-500 */
+		--chart-5: 348 83% 47%;
+		/* brand-red-500 */
 
-    --radius: 0.5rem;
+		--radius: 0.5rem;
 
-    /* Brand colors */
-    --brand-primary: 38 100% 50%;
-    --brand-primary-600: 32 100% 40%;
-    --brand-success: 102 49% 40%;
-    --brand-warning: 45 95% 53%;
-    --brand-red: 348 83% 47%;
-    --brand-blue: 213 94% 68%;
-    --brand-neutral-500: 215 16% 47%;
-    --brand-neutral-600: 0 0% 45%;
-    --brand-grey-350: 0 0% 57%;
-  }
+		/* Brand colors */
+		--brand-primary: 38 100% 50%;
+		--brand-primary-600: 32 100% 40%;
+		--brand-success: 102 49% 40%;
+		--brand-warning: 45 95% 53%;
+		--brand-red: 348 83% 47%;
+		--brand-blue: 213 94% 68%;
+		--brand-neutral-500: 215 16% 47%;
+		--brand-neutral-600: 0 0% 45%;
+		--brand-grey-350: 0 0% 57%;
+	}
 
-  .dark {
-    /* Finvoras Brand Theme - Dark Mode */
-    --background: 0 0% 13%;
-    /* grey-850 equivalent */
-    --foreground: 0 0% 95%;
-    /* grey-250 equivalent */
+	.dark {
+		/* Finvoras Brand Theme - Dark Mode */
+		--background: 0 0% 13%;
+		/* grey-850 equivalent */
+		--foreground: 0 0% 95%;
+		/* grey-250 equivalent */
 
-    --card: 0 0% 17%;
-    /* grey-800 */
-    --card-foreground: 0 0% 95%;
+		--card: 0 0% 17%;
+		/* grey-800 */
+		--card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 17%;
-    --popover-foreground: 0 0% 95%;
+		--popover: 0 0% 17%;
+		--popover-foreground: 0 0% 95%;
 
-    /* Darker orange for dark mode */
-    --primary: 32 100% 55%;
-    /* brand-primary-700 */
-    --primary-foreground: 0 0% 95%;
+		/* Darker orange for dark mode */
+		--primary: 32 100% 55%;
+		/* brand-primary-700 */
+		--primary-foreground: 0 0% 95%;
 
-    --secondary: 0 0% 17%;
-    /* grey-800 */
-    --secondary-foreground: 0 0% 95%;
+		--secondary: 0 0% 17%;
+		/* grey-800 */
+		--secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 25%;
-    /* grey-700 */
-    --muted-foreground: 0 0% 57%;
-    /* grey-350 */
+		--muted: 0 0% 25%;
+		/* grey-700 */
+		--muted-foreground: 0 0% 57%;
+		/* grey-350 */
 
-    --accent: 32 100% 55%;
-    --accent-foreground: 0 0% 95%;
+		--accent: 32 100% 55%;
+		--accent-foreground: 0 0% 95%;
 
-    --destructive: 348 70% 50%;
-    /* darker red for dark mode */
-    --destructive-foreground: 0 0% 95%;
+		--destructive: 348 70% 50%;
+		/* darker red for dark mode */
+		--destructive-foreground: 0 0% 95%;
 
-    --border: 0 0% 25%;
-    /* grey-700 */
-    --input: 0 0% 25%;
-    --ring: 32 100% 55%;
+		--border: 0 0% 25%;
+		/* grey-700 */
+		--input: 0 0% 25%;
+		--ring: 32 100% 55%;
 
-    /* Chart colors for dark mode */
-    --chart-1: 32 100% 55%;
-    /* darker orange */
-    --chart-2: 102 40% 45%;
-    /* darker green */
-    --chart-3: 45 85% 60%;
-    /* adjusted yellow */
-    --chart-4: 213 80% 60%;
-    /* adjusted blue */
-    --chart-5: 348 70% 50%;
-    /* darker red */
+		/* Chart colors for dark mode */
+		--chart-1: 32 100% 55%;
+		/* darker orange */
+		--chart-2: 102 40% 45%;
+		/* darker green */
+		--chart-3: 45 85% 60%;
+		/* adjusted yellow */
+		--chart-4: 213 80% 60%;
+		/* adjusted blue */
+		--chart-5: 348 70% 50%;
+		/* darker red */
 
-    /* Brand colors for dark mode */
-    --brand-primary: 32 100% 55%;
-    --brand-primary-600: 32 100% 45%;
-    --brand-success: 102 40% 45%;
-    --brand-warning: 45 85% 60%;
-    --brand-red: 348 70% 50%;
-    --brand-blue: 213 80% 60%;
-    --brand-neutral-500: 0 0% 50%;
-    --brand-neutral-600: 0 0% 60%;
-    --brand-grey-350: 0 0% 40%;
-  }
+		/* Brand colors for dark mode */
+		--brand-primary: 32 100% 55%;
+		--brand-primary-600: 32 100% 45%;
+		--brand-success: 102 40% 45%;
+		--brand-warning: 45 85% 60%;
+		--brand-red: 348 70% 50%;
+		--brand-blue: 213 80% 60%;
+		--brand-neutral-500: 0 0% 50%;
+		--brand-neutral-600: 0 0% 60%;
+		--brand-grey-350: 0 0% 40%;
+	}
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+	* {
+		@apply border-border outline-ring/50;
+	}
 
-  html {
-    @apply scroll-smooth scroll-pt-12;
-  }
+	html {
+		@apply scroll-smooth scroll-pt-12;
+	}
 
-  body {
-    @apply text-foreground font-normal antialiased;
-    line-height: 1.6;
-    letter-spacing: -0.011em;
-  }
+	body {
+		@apply text-foreground font-normal antialiased;
+		line-height: 1.6;
+		letter-spacing: -0.011em;
+	}
 
-  /* Mobile bottom navigation spacing */
-  @media (max-width: 767px) {
-    body {
-      @apply pb-12;
-      /* Space for bottom navigation - increased */
-    }
+	/* Mobile bottom navigation spacing */
+	@media (max-width: 767px) {
+		body {
+			@apply pb-12;
+			/* Space for bottom navigation - increased */
+		}
 
-    main,
-    .main-content {
-      @apply pb-12;
-      /* Additional spacing for main content */
-    }
-  }
+		main,
+		.main-content {
+			@apply pb-12;
+			/* Additional spacing for main content */
+		}
+	}
 
-  /* Navbar responsive display */
-  /* Desktop: >= 1024px */
-  @media (min-width: 1024px) {
-    [data-desktop-menu="true"] {
-      display: flex !important;
-    }
+	/* Navbar responsive display */
+	/* Desktop: >= 1024px */
+	@media (min-width: 1024px) {
+		[data-desktop-menu="true"] {
+			display: flex !important;
+		}
 
-    [data-tablet-menu="true"] {
-      display: none !important;
-    }
+		[data-tablet-menu="true"] {
+			display: none !important;
+		}
 
-    [data-desktop-cta="true"] {
-      display: flex !important;
-    }
+		[data-desktop-cta="true"] {
+			display: flex !important;
+		}
 
-    [data-tablet-cta="true"] {
-      display: none !important;
-    }
-  }
+		[data-tablet-cta="true"] {
+			display: none !important;
+		}
+	}
 
-  /* Tablet: 768px - 1023px */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    [data-desktop-menu="true"] {
-      display: none !important;
-    }
+	/* Tablet: 768px - 1023px */
+	@media (min-width: 768px) and (max-width: 1023px) {
+		[data-desktop-menu="true"] {
+			display: none !important;
+		}
 
-    [data-tablet-menu="true"] {
-      display: flex !important;
-    }
+		[data-tablet-menu="true"] {
+			display: flex !important;
+		}
 
-    [data-desktop-cta="true"] {
-      display: none !important;
-    }
+		[data-desktop-cta="true"] {
+			display: none !important;
+		}
 
-    [data-tablet-cta="true"] {
-      display: flex !important;
-    }
-  }
+		[data-tablet-cta="true"] {
+			display: flex !important;
+		}
+	}
 }
 
 /* Smooth theme transitions */
 * {
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+		color 0.2s ease-in-out;
 }
 
 /* Disable transitions for specific elements that should change instantly */
 .no-transition,
 .no-transition * {
-  transition: none !important;
+	transition: none !important;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+	width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
+	background: hsl(var(--muted));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground));
-  border-radius: 4px;
+	background: hsl(var(--muted-foreground));
+	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--foreground));
+	background: hsl(var(--foreground));
 }
 
 /* Smooth scroll behavior */
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 /* Selection colors */
 ::selection {
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+	background: hsl(var(--primary));
+	color: hsl(var(--primary-foreground));
 }
 
 /* Focus styles */
 .focus-visible {
-  @apply outline-none ring-2 ring-ring ring-offset-2;
+	@apply outline-none ring-2 ring-ring ring-offset-2;
 }
 
 /* Hide reCAPTCHA badge (legal text added to form) */
 .grecaptcha-badge {
-  visibility: hidden;
+	visibility: hidden;
 }
 
 @layer utilities {
-  @keyframes scroll {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
+	@keyframes scroll {
+		0% {
+			transform: translateY(0);
+			opacity: 1;
+		}
 
-    100% {
-      transform: translateY(15px);
-      opacity: 0;
-    }
-  }
+		100% {
+			transform: translateY(15px);
+			opacity: 0;
+		}
+	}
 
-  .animate-scroll {
-    animation: scroll 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-  }
+	.animate-scroll {
+		animation: scroll 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+	}
 }
