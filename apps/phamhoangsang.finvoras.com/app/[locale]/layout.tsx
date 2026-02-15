@@ -15,20 +15,24 @@ export const runtime = "edge";
 
 type LayoutProps = Readonly<{
   children: React.ReactNode;
-  params: { locale: "en" | "vi" };
+  params: Promise<{ locale: "en" | "vi" }>;
 }>;
 
-export function generateMetadata({ params }: LayoutProps): Metadata {
-  return getSiteMetadata(params.locale);
+export async function generateMetadata({
+  params,
+}: LayoutProps): Promise<Metadata> {
+  const { locale } = await params;
+  return getSiteMetadata(locale);
 }
 
-export default function LocaleLayout({ children, params }: LayoutProps) {
-  const locale = params.locale === "vi" ? "vi" : "en";
-  const structuredData = getStructuredData(locale);
+export default async function LocaleLayout({ children, params }: LayoutProps) {
+  const { locale } = await params;
+  const resolvedLocale = locale === "vi" ? "vi" : "en";
+  const structuredData = getStructuredData(resolvedLocale);
 
   return (
     <>
-      <LocaleHtml lang={locale} />
+      <LocaleHtml lang={resolvedLocale} />
       <ScrollRestore />
       {/* reCAPTCHA v3 Script - Loaded with lazyOnload to prioritize LCP */}
       {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
@@ -39,8 +43,8 @@ export default function LocaleLayout({ children, params }: LayoutProps) {
       )}
       <I18nProvider
         translations={transformedTranslations}
-        defaultLocale={locale}
-        initialLocale={locale}
+        defaultLocale={resolvedLocale}
+        initialLocale={resolvedLocale}
         supportedLocales={["en", "vi"]}
         storageKey="portfolio-locale"
       >

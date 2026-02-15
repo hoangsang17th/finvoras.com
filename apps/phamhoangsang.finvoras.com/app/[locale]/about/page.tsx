@@ -4,8 +4,11 @@ import ScrollToSection from "@/components/scroll-to-section";
 import { getPageMetadata } from "@/lib/seo/metadata";
 import { PageProps } from "../page";
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  return getPageMetadata("about", params.locale);
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  return getPageMetadata("about", locale);
 }
 
 export default function AboutPage() {

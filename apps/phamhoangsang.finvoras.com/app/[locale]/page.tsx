@@ -4,17 +4,21 @@ import HashRedirect from "@/components/hash-redirect";
 import { getPageMetadata } from "@/lib/seo/metadata";
 
 export type PageProps = {
-  params: { locale: "en" | "vi" };
+  params: Promise<{ locale: "en" | "vi" }>;
 };
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  return getPageMetadata("root", params.locale);
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  return getPageMetadata("root", locale);
 }
 
-export default function HomePage({ params }: PageProps) {
+export default async function HomePage({ params }: PageProps) {
+  const { locale } = await params;
   return (
     <>
-      <HashRedirect locale={params.locale} />
+      <HashRedirect locale={locale} />
       <HomeContent />
     </>
   );
