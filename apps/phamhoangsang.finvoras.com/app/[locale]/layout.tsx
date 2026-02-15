@@ -1,4 +1,4 @@
-import { TooltipProvider, FloatingUtilities } from "@repo/ui";
+import { TooltipProvider } from "@repo/ui";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { transformedTranslations } from "@/lib/i18n";
@@ -8,7 +8,6 @@ import Script from "next/script";
 import { getSiteMetadata } from "@/lib/seo/metadata";
 import { getStructuredData } from "@/lib/seo/structured-data";
 import LocaleHtml from "@/components/locale-html";
-import LocaleLanguageSwitcher from "@/components/locale-language-switcher";
 import ScrollRestore from "@/components/scroll-restore";
 import { getLocale } from "@/lib/utils/parse-locale";
 
@@ -58,19 +57,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 				>
 					<TooltipProvider>
 						{children}
-						<FloatingUtilities
-							languageSwitcher={
-								<LocaleLanguageSwitcher
-									languages={[
-										{ code: "en", name: "English", flag: "🇺🇸" },
-										{ code: "vi", name: "Tiếng Việt", flag: "🇻🇳" },
-									]}
-									showName={false}
-									variant="switcher"
-									orientation="vertical"
-								/>
-							}
-						/>
 					</TooltipProvider>
 				</ThemeProvider>
 			</I18nProvider>

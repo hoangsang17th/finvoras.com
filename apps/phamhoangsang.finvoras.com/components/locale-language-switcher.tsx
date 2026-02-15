@@ -41,17 +41,33 @@ export default function LocaleLanguageSwitcher({
 
 		return (
 			<div
-				className={`relative inline-flex items-center rounded-full border bg-background p-1 transition-colors ${className}`}
+				className={`relative inline-flex items-center rounded-2xl border bg-gradient-to-b from-background to-muted/30 p-1 shadow-sm ${className}`}
 			>
 				<div
-					className={`flex items-center gap-1 ${orientation === "vertical" ? "flex-col" : ""}`}
+					className={`relative flex items-center gap-1 ${orientation === "vertical" ? "flex-col" : ""}`}
 				>
+					<span
+						aria-hidden
+						className={`pointer-events-none absolute rounded-xl bg-primary/10 ring-1 ring-primary/20 transition-all duration-200 ${
+							orientation === "vertical"
+								? "left-1/2 -translate-x-1/2 w-9 h-9"
+								: "top-1/2 -translate-y-1/2 h-9 w-9"
+						} ${
+							isFirstActive
+								? orientation === "vertical"
+									? "top-0"
+									: "left-0"
+								: orientation === "vertical"
+									? "top-10"
+									: "left-10"
+						}`}
+					/>
 					<button
 						onClick={() => setLocale(firstLang.code as "en" | "vi")}
-						className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-full text-lg transition-all duration-200 ${
+						className={`relative z-10 flex items-center justify-center w-9 h-9 rounded-xl text-lg transition-all duration-200 ${
 							isFirstActive
-								? "bg-primary text-primary-foreground shadow-sm"
-								: "hover:bg-muted/50"
+								? "text-primary"
+								: "text-muted-foreground hover:text-foreground"
 						}`}
 						aria-label={`Switch to ${firstLang.name}`}
 					>
@@ -60,10 +76,10 @@ export default function LocaleLanguageSwitcher({
 
 					<button
 						onClick={() => setLocale(secondLang.code as "en" | "vi")}
-						className={`relative z-10 flex items-center justify-center w-8 h-8 rounded-full text-lg transition-all duration-200 ${
+						className={`relative z-10 flex items-center justify-center w-9 h-9 rounded-xl text-lg transition-all duration-200 ${
 							!isFirstActive
-								? "bg-primary text-primary-foreground shadow-sm"
-								: "hover:bg-muted/50"
+								? "text-primary"
+								: "text-muted-foreground hover:text-foreground"
 						}`}
 						aria-label={`Switch to ${secondLang.name}`}
 					>

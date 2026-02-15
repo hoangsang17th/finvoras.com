@@ -1,11 +1,18 @@
 "use client";
 
-import { Navbar, Button, Logo, type NavbarCTAAction } from "@repo/ui";
+import {
+	Navbar,
+	Button,
+	Logo,
+	ThemeToggle,
+	type NavbarCTAAction,
+} from "@repo/ui";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import { Download } from "lucide-react";
 import { useNavigation } from "@/lib/hooks/use-navigation";
+import LocaleLanguageMenu from "@/components/locale-language-menu";
 
 // Portfolio Logo Component using shared Logo component
 const PortfolioLogo = ({
@@ -82,6 +89,54 @@ const PortfolioNavbar = () => {
 
 	// Define CTA actions
 	const ctaActions: NavbarCTAAction[] = [
+		{
+			id: "theme-toggle",
+			component: (
+				<ThemeToggle
+					variant="secondary"
+					size="icon"
+					context="navbar"
+					className="rounded-full"
+					title="Toggle theme"
+				/>
+			),
+			compactComponent: (
+				<ThemeToggle
+					variant="secondary"
+					size="icon"
+					context="navbar"
+					className="rounded-full"
+					title="Toggle theme"
+				/>
+			),
+			showOnMobile: true,
+			showOnDesktop: true,
+			showOnTablet: true,
+		},
+		{
+			id: "language-toggle",
+			component: (
+				<LocaleLanguageMenu
+					languages={[
+						{ code: "en", name: "English", flag: "🇺🇸" },
+						{ code: "vi", name: "Tiếng Việt", flag: "🇻🇳" },
+					]}
+					label="Language"
+				/>
+			),
+			compactComponent: (
+				<LocaleLanguageMenu
+					languages={[
+						{ code: "en", name: "English", flag: "🇺🇸" },
+						{ code: "vi", name: "Tiếng Việt", flag: "🇻🇳" },
+					]}
+					label="Language"
+				/>
+			),
+			showOnMobile: true,
+			showOnDesktop: true,
+			showOnTablet: true,
+		},
 		...(resumeData.personalInfo.resumeUrl
 			? [
 					{
