@@ -24,6 +24,7 @@ export interface NavMenuItem {
   href: string;
   icon: ReactNode; // Required icon for menu item
   fragmentId?: string; // For homepage sections
+  scroll?: boolean; // Control Next.js scroll behavior
   disabled?: boolean;
 }
 
@@ -82,7 +83,15 @@ const useActiveSection = (menuItems: NavMenuItem[], homePath: string) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
           if (sectionId) {
+            // console.log(`Section in view: ${sectionId}`);
+            // if (sectionId === "hero") {
+            //   const firstFragmentId = menuItems.find(item => item.fragmentId)?.fragmentId;
+            //   if (firstFragmentId) {
+            //     setActiveSection(firstFragmentId);
+            //   }
+            // } else {
             setActiveSection(sectionId);
+            // }
           }
         }
       });
@@ -100,12 +109,14 @@ const useActiveSection = (menuItems: NavMenuItem[], homePath: string) => {
       }
     });
 
+    const firstFragmentId = menuItems.find(item => item.fragmentId)?.fragmentId;
+
     // Set initial active section based on hash or first section
     const hash = window.location.hash.replace('#', '');
     if (hash && menuItems.some(item => item.fragmentId === hash)) {
       setActiveSection(hash);
-    } else if (menuItems.length > 0 && menuItems[0]?.fragmentId) {
-      setActiveSection(menuItems[0].fragmentId);
+    } else if (firstFragmentId) {
+      setActiveSection(firstFragmentId);
     }
 
     return () => observer.disconnect();
@@ -141,8 +152,8 @@ const SmartNavMenu = forwardRef<HTMLElement, SmartNavMenuProps>(
           {menuItems.map((item) => {
             if (item.disabled) return null;
 
-            // Use fragment link if on homepage and item has fragmentId, otherwise use absolute link
-            const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
+            // Always use route hrefs for consistent navigation across pages.
+            const href = item.href;
             const isActive = isMenuItemActive(item, pathname, homePath, activeSection);
 
             return (
@@ -150,6 +161,7 @@ const SmartNavMenu = forwardRef<HTMLElement, SmartNavMenuProps>(
                 <NavigationMenuLink asChild>
                   <Link
                     href={href}
+                    scroll={item.scroll}
                     className={cn(
                       "flex items-center transition-colors rounded-full",
                       iconOnly ? "flex-col gap-1 text-xs p-2" : "flex-row gap-2 px-3 py-2",
@@ -206,13 +218,14 @@ const BottomNavigation = ({ menuItems, homePath = "/" }: BottomNavigationProps) 
         {menuItems.map((item) => {
           if (item.disabled) return null;
 
-          const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
+          const href = item.href;
           const isActive = isMenuItemActive(item, pathname, homePath, activeSection);
 
           return (
             <Link
               key={item.label}
               href={href}
+              scroll={item.scroll}
               className={cn(
                 "flex flex-col items-center justify-center gap-1 flex-1 py-2 px-1 text-xs transition-colors min-w-0 rounded-full",
                 isActive
@@ -334,13 +347,14 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(
                 {menuItems.map((item) => {
                   if (item.disabled) return null;
 
-                  const href = isHomepage && item.fragmentId ? `#${item.fragmentId}` : item.href;
+                  const href = item.href;
                   const isActive = isMenuItemActive(item, pathname, homePath, activeSection);
 
                   return (
                     <Link
                       key={item.label}
                       href={href}
+                      scroll={item.scroll}
                       className={cn(
                         "flex items-center justify-center p-2 rounded-full transition-colors",
                         isActive
