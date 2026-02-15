@@ -81,6 +81,16 @@ export interface Translations {
       features: string[];
       cta: string;
     };
+    plus: {
+      name: string;
+      price: string;
+      priceYearly: string;
+      pricePerMonth: string;
+      description: string;
+      features: string[];
+      cta: string;
+      popular?: string;
+    };
     pro: {
       name: string;
       price: string;
@@ -90,15 +100,6 @@ export interface Translations {
       features: string[];
       cta: string;
       popular: string;
-    };
-    family: {
-      name: string;
-      price: string;
-      priceYearly: string;
-      pricePerMonth: string;
-      description: string;
-      features: string[];
-      cta: string;
     };
     coaching: {
       name: string;
@@ -146,7 +147,7 @@ export interface Translations {
         category: string;
         free: boolean | string;
         pro: boolean | string;
-        family: boolean | string;
+        plus: boolean | string;
       }>;
     };
     valueProps: {
@@ -155,8 +156,8 @@ export interface Translations {
         subtitle: string;
         proSavings: string;
         proRoi: string;
-        familySavings: string;
-        familyRoi: string;
+        plusSavings: string;
+        plusRoi: string;
       };
       pilot: {
         title: string;
