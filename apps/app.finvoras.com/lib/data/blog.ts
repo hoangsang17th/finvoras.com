@@ -2,12 +2,13 @@ import { BlogPost } from "@/lib/types";
 
 // Mock data for development
 export const mockBlogPosts: BlogPost[] = [
-  {
-    id: "1",
-    title: "10 Simple Ways to Start Saving Money Today",
-    slug: "10-simple-ways-start-saving-money-today",
-    excerpt: "Discover practical and easy-to-implement strategies that can help you build your savings account without dramatically changing your lifestyle.",
-    content: `
+	{
+		id: "1",
+		title: "10 Simple Ways to Start Saving Money Today",
+		slug: "10-simple-ways-start-saving-money-today",
+		excerpt:
+			"Discover practical and easy-to-implement strategies that can help you build your savings account without dramatically changing your lifestyle.",
+		content: `
       <h2>Introduction</h2>
       <p>Saving money doesn't have to be complicated or require major lifestyle changes. With the right strategies, you can start building your savings today while still enjoying life.</p>
       
@@ -23,24 +24,27 @@ export const mockBlogPosts: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>Small steps lead to big results. Start implementing these strategies today and watch your savings grow.</p>
     `,
-    author: {
-      name: "Sarah Johnson",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=80"
-    },
-    publishedAt: new Date("2024-01-15"),
-    updatedAt: new Date("2024-01-15"),
-    tags: ["saving", "budgeting", "personal-finance"],
-    category: "Personal Finance",
-    readingTime: 5,
-    featured: true,
-    coverImage: "https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: "2",
-    title: "Understanding Credit Scores: A Beginner's Guide",
-    slug: "understanding-credit-scores-beginners-guide",
-    excerpt: "Learn what credit scores are, how they're calculated, and practical steps you can take to improve yours.",
-    content: `
+		author: {
+			name: "Sarah Johnson",
+			avatar:
+				"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=80",
+		},
+		publishedAt: new Date("2024-01-15"),
+		updatedAt: new Date("2024-01-15"),
+		tags: ["saving", "budgeting", "personal-finance"],
+		category: "Personal Finance",
+		readingTime: 5,
+		featured: true,
+		coverImage:
+			"https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=1200&q=80",
+	},
+	{
+		id: "2",
+		title: "Understanding Credit Scores: A Beginner's Guide",
+		slug: "understanding-credit-scores-beginners-guide",
+		excerpt:
+			"Learn what credit scores are, how they're calculated, and practical steps you can take to improve yours.",
+		content: `
       <h2>What is a Credit Score?</h2>
       <p>A credit score is a three-digit number that represents your creditworthiness to lenders.</p>
       
@@ -56,24 +60,27 @@ export const mockBlogPosts: BlogPost[] = [
       <h2>How to Improve Your Credit Score</h2>
       <p>Focus on paying bills on time, keeping credit utilization low, and maintaining old credit accounts.</p>
     `,
-    author: {
-      name: "Michael Chen",
-      avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=256&q=80"
-    },
-    publishedAt: new Date("2024-01-10"),
-    updatedAt: new Date("2024-01-10"),
-    tags: ["credit-score", "credit", "financial-health"],
-    category: "Credit & Debt",
-    readingTime: 7,
-    featured: false,
-    coverImage: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: "3",
-    title: "Investment Basics for Young Adults",
-    slug: "investment-basics-young-adults",
-    excerpt: "Get started with investing in your 20s and 30s. Learn about different investment types and how to build a diversified portfolio.",
-    content: `
+		author: {
+			name: "Michael Chen",
+			avatar:
+				"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=256&q=80",
+		},
+		publishedAt: new Date("2024-01-10"),
+		updatedAt: new Date("2024-01-10"),
+		tags: ["credit-score", "credit", "financial-health"],
+		category: "Credit & Debt",
+		readingTime: 7,
+		featured: false,
+		coverImage:
+			"https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+	},
+	{
+		id: "3",
+		title: "Investment Basics for Young Adults",
+		slug: "investment-basics-young-adults",
+		excerpt:
+			"Get started with investing in your 20s and 30s. Learn about different investment types and how to build a diversified portfolio.",
+		content: `
       <h2>Why Start Investing Young?</h2>
       <p>The power of compound interest means that starting early, even with small amounts, can lead to significant wealth over time.</p>
       
@@ -90,24 +97,27 @@ export const mockBlogPosts: BlogPost[] = [
       <h2>Getting Started</h2>
       <p>Start with low-cost index funds through a retirement account like a 401(k) or IRA.</p>
     `,
-    author: {
-      name: "Emily Rodriguez",
-      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=256&q=80"
-    },
-    publishedAt: new Date("2024-01-05"),
-    updatedAt: new Date("2024-01-05"),
-    tags: ["investing", "stocks", "retirement"],
-    category: "Investing",
-    readingTime: 8,
-    featured: true,
-    coverImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: "4",
-    title: "Emergency Fund: How Much Do You Really Need?",
-    slug: "emergency-fund-how-much-do-you-need",
-    excerpt: "Learn how to calculate the right emergency fund size for your situation and strategies to build it faster.",
-    content: `
+		author: {
+			name: "Emily Rodriguez",
+			avatar:
+				"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=256&q=80",
+		},
+		publishedAt: new Date("2024-01-05"),
+		updatedAt: new Date("2024-01-05"),
+		tags: ["investing", "stocks", "retirement"],
+		category: "Investing",
+		readingTime: 8,
+		featured: true,
+		coverImage:
+			"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+	},
+	{
+		id: "4",
+		title: "Emergency Fund: How Much Do You Really Need?",
+		slug: "emergency-fund-how-much-do-you-need",
+		excerpt:
+			"Learn how to calculate the right emergency fund size for your situation and strategies to build it faster.",
+		content: `
       <h2>What is an Emergency Fund?</h2>
       <p>An emergency fund is money set aside to cover unexpected expenses or financial emergencies.</p>
       
@@ -125,24 +135,27 @@ export const mockBlogPosts: BlogPost[] = [
       <h2>Building Your Emergency Fund</h2>
       <p>Start small with $500-$1000, then gradually build to your target amount.</p>
     `,
-    author: {
-      name: "David Kim",
-      avatar: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=256&q=80"
-    },
-    publishedAt: new Date("2023-12-28"),
-    updatedAt: new Date("2023-12-28"),
-    tags: ["emergency-fund", "saving", "financial-planning"],
-    category: "Personal Finance",
-    readingTime: 6,
-    featured: false,
-    coverImage: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: "5",
-    title: "Debt Snowball vs. Debt Avalanche: Which Strategy is Right for You?",
-    slug: "debt-snowball-vs-debt-avalanche-strategy",
-    excerpt: "Compare two popular debt repayment strategies and learn which one might work best for your financial situation.",
-    content: `
+		author: {
+			name: "David Kim",
+			avatar:
+				"https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=256&q=80",
+		},
+		publishedAt: new Date("2023-12-28"),
+		updatedAt: new Date("2023-12-28"),
+		tags: ["emergency-fund", "saving", "financial-planning"],
+		category: "Personal Finance",
+		readingTime: 6,
+		featured: false,
+		coverImage:
+			"https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80",
+	},
+	{
+		id: "5",
+		title: "Debt Snowball vs. Debt Avalanche: Which Strategy is Right for You?",
+		slug: "debt-snowball-vs-debt-avalanche-strategy",
+		excerpt:
+			"Compare two popular debt repayment strategies and learn which one might work best for your financial situation.",
+		content: `
       <h2>Understanding Debt Repayment Strategies</h2>
       <p>When you're ready to tackle debt, having a strategy can make all the difference.</p>
       
@@ -165,24 +178,27 @@ export const mockBlogPosts: BlogPost[] = [
       <h2>Which Should You Choose?</h2>
       <p>Consider your personality: do you need quick wins (snowball) or prefer mathematical optimization (avalanche)?</p>
     `,
-    author: {
-      name: "Lisa Thompson",
-      avatar: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=256&q=80"
-    },
-    publishedAt: new Date("2023-12-20"),
-    updatedAt: new Date("2023-12-20"),
-    tags: ["debt", "debt-repayment", "financial-strategy"],
-    category: "Credit & Debt",
-    readingTime: 5,
-    featured: false,
-    coverImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: "6",
-    title: "Side Hustles That Can Boost Your Income in 2024",
-    slug: "side-hustles-boost-income-2024",
-    excerpt: "Explore profitable side hustle opportunities that fit your skills and schedule to increase your earning potential.",
-    content: `
+		author: {
+			name: "Lisa Thompson",
+			avatar:
+				"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=256&q=80",
+		},
+		publishedAt: new Date("2023-12-20"),
+		updatedAt: new Date("2023-12-20"),
+		tags: ["debt", "debt-repayment", "financial-strategy"],
+		category: "Credit & Debt",
+		readingTime: 5,
+		featured: false,
+		coverImage:
+			"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
+	},
+	{
+		id: "6",
+		title: "Side Hustles That Can Boost Your Income in 2024",
+		slug: "side-hustles-boost-income-2024",
+		excerpt:
+			"Explore profitable side hustle opportunities that fit your skills and schedule to increase your earning potential.",
+		content: `
       <h2>Why Consider a Side Hustle?</h2>
       <p>Extra income can accelerate your financial goals, whether it's paying off debt, building savings, or investing for the future.</p>
       
@@ -210,61 +226,63 @@ export const mockBlogPosts: BlogPost[] = [
         <li>Set aside money for taxes</li>
       </ul>
     `,
-    author: {
-      name: "Carlos Martinez",
-      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=256&q=80"
-    },
-    publishedAt: new Date("2023-12-15"),
-    updatedAt: new Date("2023-12-15"),
-    tags: ["side-hustle", "income", "entrepreneurship"],
-    category: "Income & Career",
-    readingTime: 9,
-    featured: true,
-    coverImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
-  }
+		author: {
+			name: "Carlos Martinez",
+			avatar:
+				"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=256&q=80",
+		},
+		publishedAt: new Date("2023-12-15"),
+		updatedAt: new Date("2023-12-15"),
+		tags: ["side-hustle", "income", "entrepreneurship"],
+		category: "Income & Career",
+		readingTime: 9,
+		featured: true,
+		coverImage:
+			"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+	},
 ];
 
 export const mockCategories = [
-  {
-    id: "1",
-    name: "Personal Finance",
-    slug: "personal-finance",
-    description: "Budgeting, saving, and money management basics",
-    postCount: 2
-  },
-  {
-    id: "2",
-    name: "Credit & Debt",
-    slug: "credit-debt",
-    description: "Understanding and managing credit and debt",
-    postCount: 2
-  },
-  {
-    id: "3",
-    name: "Investing",
-    slug: "investing",
-    description: "Investment strategies and market insights",
-    postCount: 1
-  },
-  {
-    id: "4",
-    name: "Income & Career",
-    slug: "income-career",
-    description: "Growing your income and career development",
-    postCount: 1
-  }
+	{
+		id: "1",
+		name: "Personal Finance",
+		slug: "personal-finance",
+		description: "Budgeting, saving, and money management basics",
+		postCount: 2,
+	},
+	{
+		id: "2",
+		name: "Credit & Debt",
+		slug: "credit-debt",
+		description: "Understanding and managing credit and debt",
+		postCount: 2,
+	},
+	{
+		id: "3",
+		name: "Investing",
+		slug: "investing",
+		description: "Investment strategies and market insights",
+		postCount: 1,
+	},
+	{
+		id: "4",
+		name: "Income & Career",
+		slug: "income-career",
+		description: "Growing your income and career development",
+		postCount: 1,
+	},
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
-  return mockBlogPosts.find(post => post.slug === slug);
+	return mockBlogPosts.find((post) => post.slug === slug);
 }
 
 export function getFeaturedPosts(): BlogPost[] {
-  return mockBlogPosts.filter(post => post.featured);
+	return mockBlogPosts.filter((post) => post.featured);
 }
 
 export function getPostsByCategory(category: string): BlogPost[] {
-  return mockBlogPosts.filter(post => 
-    post.category.toLowerCase().replace(/\s+/g, '-') === category
-  );
+	return mockBlogPosts.filter(
+		(post) => post.category.toLowerCase().replace(/\s+/g, "-") === category,
+	);
 }

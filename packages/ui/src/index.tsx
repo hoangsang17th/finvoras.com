@@ -21,10 +21,10 @@ export { Avatar, AvatarImage, AvatarFallback } from "./components/core/avatar";
 export { Separator } from "./components/core/separator";
 export * from "./components/core/text-link";
 export {
-    Tooltip,
-    TooltipTrigger,
-    TooltipContent,
-    TooltipProvider,
+	Tooltip,
+	TooltipTrigger,
+	TooltipContent,
+	TooltipProvider,
 } from "./components/core/tooltip";
 
 // Forms
@@ -33,31 +33,40 @@ export { Label } from "./components/forms/label";
 
 // Layout
 export { Navbar } from "./components/layout/navbar";
-export type { NavbarProps, NavMenuItem, NavbarCTAAction } from "./components/layout/navbar";
+export type {
+	NavbarProps,
+	NavMenuItem,
+	NavbarCTAAction,
+} from "./components/layout/navbar";
 export {
-    navigationMenuTriggerStyle,
-    NavigationMenu,
-    NavigationMenuList,
-    NavigationMenuItem,
-    NavigationMenuContent,
-    NavigationMenuTrigger,
-    NavigationMenuLink,
-    NavigationMenuIndicator,
-    NavigationMenuViewport,
+	navigationMenuTriggerStyle,
+	NavigationMenu,
+	NavigationMenuList,
+	NavigationMenuItem,
+	NavigationMenuContent,
+	NavigationMenuTrigger,
+	NavigationMenuLink,
+	NavigationMenuIndicator,
+	NavigationMenuViewport,
 } from "./components/layout/navigation-menu";
 export {
-    Sheet,
-    SheetPortal,
-    SheetOverlay,
-    SheetTrigger,
-    SheetClose,
-    SheetContent,
-    SheetHeader,
-    SheetFooter,
-    SheetTitle,
-    SheetDescription,
+	Sheet,
+	SheetPortal,
+	SheetOverlay,
+	SheetTrigger,
+	SheetClose,
+	SheetContent,
+	SheetHeader,
+	SheetFooter,
+	SheetTitle,
+	SheetDescription,
 } from "./components/layout/sheet";
-export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/layout/tabs";
+export {
+	Tabs,
+	TabsList,
+	TabsTrigger,
+	TabsContent,
+} from "./components/layout/tabs";
 
 // Patterns
 export { GridPattern as AnimatedGridPattern } from "./components/patterns/grid-pattern"; // Keep alias for compatibility
@@ -78,16 +87,19 @@ export * from "./components/shared/theme-toggle";
 export * from "./components/shared/social-button";
 
 // --- Legacy Exports (Compatibility) ---
-export { Badge as LegacyBadge, badgeVariants as legacyBadgeVariants } from "./components/core/badge";
+export {
+	Badge as LegacyBadge,
+	badgeVariants as legacyBadgeVariants,
+} from "./components/core/badge";
 export type { BadgeProps as LegacyBadgeProps } from "./components/core/badge";
 
 export {
-    Card as LegacyCard,
-    CardHeader as LegacyCardHeader,
-    CardFooter as LegacyCardFooter,
-    CardTitle as LegacyCardTitle,
-    CardDescription as LegacyCardDescription,
-    CardContent as LegacyCardContent,
+	Card as LegacyCard,
+	CardHeader as LegacyCardHeader,
+	CardFooter as LegacyCardFooter,
+	CardTitle as LegacyCardTitle,
+	CardDescription as LegacyCardDescription,
+	CardContent as LegacyCardContent,
 } from "./components/core/card";
 
 export { Input as LegacyInput } from "./components/forms/input";

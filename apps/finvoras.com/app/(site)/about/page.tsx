@@ -6,13 +6,13 @@ import CTABanner from "@/components/cta-banner";
 import Footer from "@/components/footer";
 
 export default function AboutPage() {
-    return (
-        <PageLayout className="min-h-screen bg-background">
-            <AboutHero />
-            <Values />
-            <Team />
-            <CTABanner />
-            <Footer />
-        </PageLayout>
-    );
+	return (
+		<PageLayout className="min-h-screen bg-background">
+			<AboutHero />
+			<Values />
+			<Team />
+			<CTABanner />
+			<Footer />
+		</PageLayout>
+	);
 }

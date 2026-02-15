@@ -1,27 +1,27 @@
 {
-  "name": "@repo/google-forms",
-  "version": "0.0.0",
-  "private": true,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
-  "exports": {
-    ".": "./src/index.ts"
-  },
-  "license": "MIT",
-  "scripts": {
-    "lint": "eslint .",
-    "generate:component": "turbo gen react-component"
-  },
-  "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.1",
-    "eslint": "^9.34.0",
-    "react": "^19.1.0",
-    "typescript": "5.9.2"
-  },
-  "peerDependencies": {
-    "react": "^19.1.0"
-  }
+	"name": "@repo/google-forms",
+	"version": "0.0.0",
+	"private": true,
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"license": "MIT",
+	"scripts": {
+		"lint": "eslint .",
+		"generate:component": "turbo gen react-component"
+	},
+	"devDependencies": {
+		"@repo/eslint-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"@types/react": "19.1.0",
+		"@types/react-dom": "19.1.1",
+		"eslint": "^9.34.0",
+		"react": "^19.1.0",
+		"typescript": "5.9.2"
+	},
+	"peerDependencies": {
+		"react": "^19.1.0"
+	}
 }

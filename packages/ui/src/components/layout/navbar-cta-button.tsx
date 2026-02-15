@@ -8,9 +8,9 @@ import { ButtonProps } from "../core/button/button.types";
  * @deprecated Consider using Button with context="navbar" directly
  */
 export const NavbarCTAButton = forwardRef<HTMLButtonElement, ButtonProps>(
-    (props, ref) => {
-        return <Button {...props} context="navbar" ref={ref} />;
-    }
+	(props, ref) => {
+		return <Button {...props} context="navbar" ref={ref} />;
+	},
 );
 
 NavbarCTAButton.displayName = "NavbarCTAButton";

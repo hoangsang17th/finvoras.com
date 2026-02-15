@@ -1,914 +1,981 @@
 export const home = {
-    en: {
-        hero: {
-            title: "Take Control of Your Financial Future",
-            subtitle: "Smart Personal Finance Management",
-            description:
-                "Transform your financial life with Finvoras. Track expenses, manage budgets, and build wealth with personalized insights and education.",
-            subtext: "Join 10,000+ users saving an average of 3M VNĐ per month with our AI-powered financial ecosystem",
-            primaryCta: "Start Your Journey",
-            secondaryCta: "Explore Features",
-            watchDemo: "See How It Works",
-            trustedBy: "Trusted by thousands of users worldwide",
-        },
-        howItWorks: {
-            title: "How It Works",
-            description: "A simple 3-step process to get started with Finvoras.",
-            steps: [
-                {
-                    title: "Sign Up",
-                    description: "Create your free account in seconds.",
-                    cta: "Get Started",
-                    href: "/register",
-                },
-                {
-                    title: "Connect Your Accounts",
-                    description: "Link your bank accounts securely.",
-                    cta: "Connect",
-                    href: "/settings",
-                },
-                {
-                    title: "Track & Grow",
-                    description: "Monitor spending and achieve goals.",
-                    cta: "Start Tracking",
-                    href: "/dashboard",
-                },
-            ],
-        },
-        trustSignals: {
-            title: "Trusted by Thousands",
-            security: {
-                title: "Bank-Level Security",
-                description: "Your data protected with AES-256 encryption and GDPR compliance",
-            },
-            users: {
-                label: "Active Users",
-                count: "10,000+",
-            },
-            savings: {
-                label: "Average Monthly Savings",
-                amount: "3M VNĐ",
-            },
-            retention: {
-                label: "User Satisfaction",
-                rate: "95%",
-            },
-            badges: {
-                gdpr: "GDPR Compliant",
-                encryption: "AES-256 Encrypted",
-                madeForVietnam: "Made for Vietnam",
-            },
-        },
-        personaHighlights: {
-            title: "Built for Your Financial Journey",
-            subtitle: "Whether you're starting out, planning together, or building your career—Finvoras has you covered",
-            minh: {
-                name: "For Young Professionals",
-                role: "Like Minh, 26, Marketing Manager",
-                painPoint: "Lost track of spending across multiple bank accounts and wallets",
-                solution: "FinNote + Budget + AI Coach helps you track every đồng, optimize spending, and build wealth",
-                outcome: "Save 3M+ VNĐ/month, reduce unclear spending from 30% to <10%",
-                cta: "Start Tracking Smart",
-            },
-            linhDuc: {
-                name: "For Couples & Families",
-                role: "Like Linh & Đức, planning their future",
-                painPoint: "Struggled with transparent finances and joint goals",
-                solution: "MoneyLove + Shared Goals helps couples manage money together with trust and clarity",
-                outcome: "Saved 100M VNĐ for home deposit in 12 months, zero money arguments",
-                cta: "Plan Together",
-            },
-            an: {
-                name: "For Ambitious Students",
-                role: "Like An, 21, University Student",
-                painPoint: "Limited budget, no financial knowledge, apps too complicated",
-                solution: "Student Mode + Micro-courses makes budgeting simple and builds financial literacy",
-                outcome: "Complete 30-day financial challenge, save 200k/week consistently",
-                cta: "Learn & Grow",
-            },
-        },
-        pricing: {
-            title: "Choose Your Plan",
-            subtitle: "Simple pricing for everyone. Start free, upgrade as you grow.",
-            monthly: "Monthly",
-            yearly: "Yearly",
-            savePercent: "Save 15%",
-            free: {
-                name: "Free",
-                price: "Free",
-                description: "Perfect for getting started with personal finance management",
-                features: [
-                    "FinNote basic expense tracking",
-                    "Manual transaction entry",
-                    "Weekly reports",
-                    "1 savings goal",
-                    "Community access",
-                    "Mobile app access",
-                ],
-                cta: "Get Started Free",
-            },
-            plus: {
-                name: "Plus",
-                price: "49,000 VNĐ",
-                priceYearly: "39,000 VNĐ",
-                pricePerMonth: "/month",
-                description: "Build momentum with structured budgets, monthly insights, and clear progress.",
-                features: [
-                    "Everything in Free",
-                    "Budget templates",
-                    "Goal planning (up to 3 goals)",
-                    "Monthly insights",
-                    "Export reports",
-                    "Email support",
-                ],
-                cta: "Start Plus Trial",
-            },
-            pro: {
-                name: "Pro",
-                price: "99,000 VNĐ",
-                priceYearly: "84,150 VNĐ",
-                pricePerMonth: "/month",
-                description: "For young professionals who want control and growth",
-                features: [
-                    "Everything in Free",
-                    "Multi-source transaction sync",
-                    "Budget blueprint (50/30/20)",
-                    "AI coach personalized insights",
-                    "5 financial goals",
-                    "Micro-course: 30-Day Budget Mastery",
-                    "Advanced analytics",
-                    "Priority support",
-                ],
-                cta: "Start Pro Trial",
-                popular: "Most Popular",
-            },
-            coaching: {
-                name: "1:1 Coaching",
-                price: "499,000 VNĐ",
-                pricePerSession: "/session",
-                description: "Deep-dive financial consulting with certified experts",
-                features: [
-                    "60-minute personalized session",
-                    "Certified Financial Planner (CFP)",
-                    "Custom action plan",
-                    "Investment roadmap guidance",
-                    "Follow-up resources",
-                    "Priority booking for Pro users",
-                ],
-                cta: "Book a Session",
-                note: "Available for Pro members",
-            },
-            bundles: {
-                title: "Special Bundles",
-                subtitle: "Get more value with our curated bundles",
-                student: {
-                    name: "Student Bundle",
-                    price: "199,000 VNĐ",
-                    duration: "3 months",
-                    description: "Perfect for ambitious students building financial habits",
-                    features: [
-                        "Full Pro access for 3 months",
-                        "Financial literacy micro-courses",
-                        "Finvoras Student certificate",
-                        "Online workshop access",
-                        "Campus community challenges",
-                    ],
-                    cta: "Get Student Bundle",
-                    badge: "Best for Students",
-                },
-                couple: {
-                    name: "Couple Kickstart",
-                    price: "499,000 VNĐ",
-                    duration: "3 months",
-                    description: "Jumpstart your financial journey together",
-                    features: [
-                        "Pro tier for 3 months",
-                        "2 coaching group sessions",
-                        "Pre-baby financial template",
-                        "Home deposit planning worksheet",
-                        "Couples finance guide",
-                    ],
-                    cta: "Start Together",
-                    badge: "Perfect for Couples",
-                },
-            },
-            featureComparison: {
-                title: "Compare All Features",
-                subtitle: "See what's included in each plan",
-                categories: {
-                    core: "Core Features",
-                    budget: "Budgeting & Goals",
-                    insights: "AI & Insights",
-                    collaboration: "Collaboration",
-                    learning: "Learning & Support",
-                },
-                features: [
-                    {
-                        name: "Manual expense tracking",
-                        category: "core",
-                        free: true,
-                        pro: true,
-                        plus: true,
-                    },
-                    {
-                        name: "Multi-source transaction sync",
-                        category: "core",
-                        free: false,
-                        pro: true,
-                        plus: true,
-                    },
-                    {
-                        name: "Financial goals",
-                        category: "budget",
-                        free: "1 goal",
-                        pro: "5 goals",
-                        plus: "5 goals",
-                    },
-                    {
-                        name: "Budget blueprint (50/30/20)",
-                        category: "budget",
-                        free: false,
-                        pro: true,
-                        plus: true,
-                    },
-                    {
-                        name: "AI coach insights",
-                        category: "insights",
-                        free: false,
-                        pro: "Personalized",
-                        plus: "Personalized",
-                    },
-                    {
-                        name: "Reports frequency",
-                        category: "insights",
-                        free: "Weekly",
-                        pro: "Daily",
-                        plus: "Daily",
-                    },
-                    {
-                        name: "Shared wallet (MoneyLove)",
-                        category: "collaboration",
-                        free: false,
-                        pro: false,
-                        plus: false,
-                    },
-                    {
-                        name: "Additional accounts",
-                        category: "collaboration",
-                        free: false,
-                        pro: false,
-                        plus: false,
-                    },
-                    {
-                        name: "Micro-courses",
-                        category: "learning",
-                        free: "Community only",
-                        pro: "30-Day Budget Mastery",
-                        plus: "30-Day Budget Mastery",
-                    },
-                    {
-                        name: "Support",
-                        category: "learning",
-                        free: "Community",
-                        pro: "Priority email",
-                        plus: "Priority email",
-                    },
-                ],
-            },
-            valueProps: {
-                roi: {
-                    title: "Smart Investment",
-                    subtitle: "See your potential returns",
-                    proSavings: "Average Pro users save 3M+ VNĐ per month",
-                    proRoi: "That's 30× return on your 99k investment",
-                    plusSavings: "Plus users save 100M VNĐ in 12 months",
-                    plusRoi: "Reach your home deposit goal faster",
-                },
-                pilot: {
-                    title: "Join Our Beta Program",
-                    subtitle: "Limited spots available",
-                    features: [
-                        "2 months free Plus/Pro after pilot",
-                        "Personalized onboarding via video call",
-                        "Money-back guarantee if goals not met",
-                        "Early access to new features",
-                    ],
-                    cta: "Apply for Beta",
-                },
-                loyalty: {
-                    title: "Loyalty Rewards",
-                    subtitle: "The longer you stay, the more you save",
-                    tiers: {
-                        silver: {
-                            name: "Silver",
-                            requirement: "6 months",
-                            benefit: "10% discount from month 7",
-                        },
-                        gold: {
-                            name: "Gold",
-                            requirement: "12 months",
-                            benefit: "1 free coaching session + Champion badge",
-                        },
-                        ambassador: {
-                            name: "Ambassador",
-                            requirement: "Refer 5 paid users",
-                            benefit: "1 month free + early beta access",
-                        },
-                    },
-                },
-            },
-        },
-        testimonials: {
-            title: "What Our Users Say",
-            subtitle: "Join thousands of satisfied users who've transformed their financial lives",
-            items: [
-                {
-                    name: "Minh Nguyen",
-                    role: "Marketing Manager, Ho Chi Minh City",
-                    content: "Finvoras helped me finally understand where my money goes. The AI coach gives personalized tips that actually work for Vietnamese lifestyle.",
-                    outcome: "Saved 60M VNĐ in first year",
-                },
-                {
-                    name: "Linh & Đức",
-                    role: "Young Couple, Hanoi",
-                    content: "MoneyLove transformed how we handle money as a couple. We can see our shared goals and track progress together without any awkward conversations.",
-                    outcome: "Reached 100M VNĐ home deposit goal",
-                },
-                {
-                    name: "An Tran",
-                    role: "University Student, Da Nang",
-                    content: "As a student with limited income, Finvoras taught me budgeting basics. The gamification keeps me motivated and I love the campus challenges!",
-                    outcome: "Built emergency fund of 5M VNĐ",
-                },
-            ],
-        },
-        cta: {
-            title: "Ready to Transform Your Financial Life?",
-            subtitle: "Join thousands of users who are already taking control of their finances with Finvoras.",
-            urgency: "Limited time offer: Save 20% on annual plans!",
-            riskReversal: "30-day money-back guarantee. No questions asked.",
-            primaryButton: "Start Free Today",
-            secondaryButton: "Schedule Demo",
-        },
-        faq: {
-            title: "Frequently Asked Questions",
-            subtitle: "Find answers to common questions about Finvoras",
-            questions: [
-                {
-                    question: "Is Finvoras free to use?",
-                    answer: "Yes! Finvoras offers a free tier with essential features including expense tracking, basic budgeting, and monthly reports. You can upgrade to Plus (49,000 VNĐ/month) or Pro (99,000 VNĐ/month) for advanced features like AI insights and goal planning.",
-                    icon: "BadgeDollarSign",
-                },
-                {
-                    question: "Is my financial data secure?",
-                    answer: "Absolutely. We use bank-level encryption (AES-256) to protect your data. Your information is encrypted both in transit and at rest. We never sell your data to third parties and comply with international security standards including GDPR.",
-                    icon: "ShieldCheck",
-                },
-                {
-                    question: "Does Finvoras support Vietnamese language?",
-                    answer: "Yes! Finvoras is fully localized for Vietnamese users with native language support, culturally-adapted financial advice, and AI coaching designed specifically for the Vietnamese market. You can switch between English and Vietnamese anytime.",
-                    icon: "Languages",
-                },
-                {
-                    question: "Which banks can I connect to Finvoras?",
-                    answer: "We're currently developing integrations with major Vietnamese banks including Vietcombank, BIDV, VietinBank, and Techcombank. Manual transaction entry is available now, with automatic bank sync coming in our beta release.",
-                    icon: "Building2",
-                },
-                {
-                    question: "How do I upgrade from Free to Pro?",
-                    answer: "You can upgrade anytime from your account settings. Simply choose your preferred plan (Plus or Pro), select your payment method, and you'll get instant access to all premium features. We offer monthly and yearly billing with 15% savings on annual plans.",
-                    icon: "TrendingUp",
-                },
-                {
-                    question: "Is Finvoras suitable for couples and families?",
-                    answer: "Yes! Plus and Pro tiers are designed for couples and families. They include advanced budgeting, goal tracking, and collaboration habits to manage household finances together.",
-                    icon: "Users",
-                },
-            ],
-        },
-        footer: {
-            description: "Empowering individuals to achieve financial wellness through smart tools and education.",
-            product: "Product",
-            company: "Company",
-            support: "Support",
-            legal: "Legal",
-            followUs: "Follow Us",
-            allRightsReserved: "All rights reserved.",
-            links: {
-                privacy: "Privacy Policy",
-                terms: "Terms of Service",
-                cookies: "Cookie Policy",
-                contact: "Contact Us",
-                about: "About Us",
-                careers: "Careers",
-                help: "Help Center",
-                documentation: "Documentation",
-            },
-        },
-        about: {
-            title: "About Finvoras",
-            subtitle: "Empowering financial wellness through technology and education",
-            mission: {
-                title: "Our Mission",
-                description: "To democratize financial wellness by providing accessible, intelligent tools that help everyone make better financial decisions.",
-            },
-            vision: {
-                title: "Our Vision",
-                description: "A world where everyone has the knowledge and tools to achieve financial freedom and security.",
-            },
-            values: {
-                title: "Our Values",
-                transparency: {
-                    title: "Transparency",
-                    description: "We believe in clear, honest communication about your finances and our services.",
-                },
-                security: {
-                    title: "Security",
-                    description: "Your financial data is protected with the highest security standards.",
-                },
-                simplicity: {
-                    title: "Simplicity",
-                    description: "Complex financial concepts made simple and actionable for everyone.",
-                },
-                education: {
-                    title: "Education",
-                    description: "Empowering users with knowledge to make informed financial decisions.",
-                },
-            },
-            team: {
-                title: "Our Team",
-                subtitle: "Meet the people behind Finvoras",
-            },
-        },
-        blog: {
-            title: "Financial Insights & Tips",
-            subtitle: "Stay informed with the latest in personal finance and wealth building",
-            readMore: "Read More",
-            shareArticle: "Share Article",
-            relatedPosts: "Related Posts",
-            categories: "Categories",
-            tags: "Tags",
-            author: "Author",
-            publishedOn: "Published on",
-            readTime: "min read",
-            noResults: "No articles found",
-            searchPlaceholder: "Search articles...",
-        },
-    },
-    vi: {
-        hero: {
-            title: "Kiểm Soát Tương Lai Tài Chính Của Bạn",
-            subtitle: "Quản Lý Tài Chính Cá Nhân Thông Minh",
-            description:
-                "Thay đổi cuộc sống tài chính với Finvoras. Theo dõi chi tiêu, quản lý ngân sách và xây dựng tài sản với những hiểu biết và giáo dục cá nhân hóa.",
-            subtext: "Tham gia cùng 10.000+ người dùng tiết kiệm trung bình 3 triệu VNĐ/tháng với hệ sinh thái tài chính AI của chúng tôi",
-            primaryCta: "Bắt Đầu Hành Trình",
-            secondaryCta: "Khám Phá Tính Năng",
-            watchDemo: "Xem Cách Hoạt Động",
-            trustedBy: "Được tin tưởng bởi hàng nghìn người dùng trên toàn thế giới",
-        },
-        howItWorks: {
-            title: "Cách Thức Hoạt Động",
-            description: "Quy trình 3 bước đơn giản để bắt đầu với Finvoras.",
-            steps: [
-                {
-                    title: "Đăng Ký",
-                    description: "Tạo tài khoản miễn phí trong vài giây.",
-                    cta: "Bắt Đầu",
-                    href: "/register",
-                },
-                {
-                    title: "Kết Nối Tài Khoản",
-                    description: "Liên kết tài khoản ngân hàng một cách an toàn.",
-                    cta: "Kết Nối",
-                    href: "/settings",
-                },
-                {
-                    title: "Theo Dõi & Phát Triển",
-                    description: "Giám sát chi tiêu và đạt mục tiêu.",
-                    cta: "Bắt Đầu Theo Dõi",
-                    href: "/dashboard",
-                },
-            ],
-        },
-        trustSignals: {
-            title: "Được Hàng Nghìn Người Tin Tưởng",
-            security: {
-                title: "Bảo Mật Cấp Ngân Hàng",
-                description: "Dữ liệu của bạn được bảo vệ với mã hóa AES-256 và tuân thủ GDPR",
-            },
-            users: {
-                label: "Người Dùng Hoạt Động",
-                count: "10.000+",
-            },
-            savings: {
-                label: "Tiết Kiệm Trung Bình/Tháng",
-                amount: "3 triệu VNĐ",
-            },
-            retention: {
-                label: "Độ Hài Lòng Người Dùng",
-                rate: "95%",
-            },
-            badges: {
-                gdpr: "Tuân Thủ GDPR",
-                encryption: "Mã Hóa AES-256",
-                madeForVietnam: "Được Tạo Cho Việt Nam",
-            },
-        },
-        personaHighlights: {
-            title: "Được Xây Dựng Cho Hành Trình Tài Chính Của Bạn",
-            subtitle: "Dù bạn đang khởi đầu, lập kế hoạch cùng nhau, hay xây dựng sự nghiệp—Finvoras đều hỗ trợ bạn",
-            minh: {
-                name: "Cho Chuyên Gia Trẻ",
-                role: "Như Minh, 26 tuổi, Quản Lý Marketing",
-                painPoint: "Mất kiểm soát chi tiêu qua nhiều tài khoản ngân hàng và ví điện tử",
-                solution: "FinNote + Budget + AI Coach giúp bạn theo dõi từng đồng, tối ưu chi tiêu và xây dựng tài sản",
-                outcome: "Tiết kiệm 3 triệu+ VNĐ/tháng, giảm chi tiêu không rõ từ 30% xuống <10%",
-                cta: "Bắt Đầu Theo Dõi Thông Minh",
-            },
-            linhDuc: {
-                name: "Cho Cặp Đôi & Gia Đình",
-                role: "Như Linh & Đức, đang lập kế hoạch tương lai",
-                painPoint: "Khó khăn với minh bạch tài chính và mục tiêu chung",
-                solution: "MoneyLove + Mục Tiêu Chung giúp cặp đôi quản lý tiền bạc cùng nhau với niềm tin và rõ ràng",
-                outcome: "Tiết kiệm 100 triệu VNĐ cho đặt cọc nhà trong 12 tháng, không tranh cãi về tiền",
-                cta: "Lập Kế Hoạch Cùng Nhau",
-            },
-            an: {
-                name: "Cho Sinh Viên Năng Động",
-                role: "Như An, 21 tuổi, Sinh Viên Đại Học",
-                painPoint: "Ngân sách hạn chế, thiếu kiến thức tài chính, app quá phức tạp",
-                solution: "Chế Độ Sinh Viên + Khóa Học Nhỏ giúp lập ngân sách đơn giản và xây dựng kiến thức tài chính",
-                outcome: "Hoàn thành thử thách tài chính 30 ngày, tiết kiệm 200k/tuần ổn định",
-                cta: "Học Hỏi & Phát Triển",
-            },
-        },
-        pricing: {
-            title: "Chọn Gói Của Bạn",
-            subtitle: "Giá cả đơn giản cho mọi người. Bắt đầu miễn phí, nâng cấp khi phát triển.",
-            monthly: "Hàng tháng",
-            yearly: "Hàng năm",
-            savePercent: "Tiết kiệm 15%",
-            free: {
-                name: "Miễn phí",
-                price: "Miễn phí",
-                description: "Hoàn hảo để bắt đầu with quản lý tài chính cá nhân",
-                features: [
-                    "Theo dõi chi tiêu FinNote cơ bản",
-                    "Nhập giao dịch thủ công",
-                    "Báo cáo hàng tuần",
-                    "1 mục tiêu tiết kiệm",
-                    "Truy cập cộng đồng",
-                    "Ứng dụng di động",
-                ],
-                cta: "Bắt Đầu Miễn Phí",
-            },
-            plus: {
-                name: "Plus",
-                price: "49.000 VNĐ",
-                priceYearly: "39.000 VNĐ",
-                pricePerMonth: "/tháng",
-                description: "Tăng tốc với ngân sách chuẩn, insight hàng tháng và tiến độ rõ ràng.",
-                features: [
-                    "Mọi thứ trong gói Miễn phí",
-                    "Mẫu ngân sách",
-                    "Lập mục tiêu (tối đa 3 mục tiêu)",
-                    "Tổng quan hàng tháng",
-                    "Xuất báo cáo",
-                    "Hỗ trợ email",
-                ],
-                cta: "Dùng Thử Plus",
-            },
-            pro: {
-                name: "Pro",
-                price: "99.000 VNĐ",
-                priceYearly: "84.150 VNĐ",
-                pricePerMonth: "/tháng",
-                description: "Dành cho chuyên gia trẻ muốn kiểm soát và phát triển",
-                features: [
-                    "Mọi thứ trong gói Miễn phí",
-                    "Đồng bộ giao dịch đa nguồn",
-                    "Blueprint ngân sách (50/30/20)",
-                    "AI coach cá nhân hóa",
-                    "5 mục tiêu tài chính",
-                    "Khóa học: Làm Chủ Ngân Sách 30 Ngày",
-                    "Phân tích nâng cao",
-                    "Hỗ trợ ưu tiên",
-                ],
-                cta: "Dùng Thử Pro",
-                popular: "Phổ Biến Nhất",
-            },
-            coaching: {
-                name: "Coaching 1:1",
-                price: "499.000 VNĐ",
-                pricePerSession: "/buổi",
-                description: "Tư vấn tài chính chuyên sâu với chuyên gia được chứng nhận",
-                features: [
-                    "Buổi tư vấn 60 phút",
-                    "Chuyên gia CFP được chứng nhận",
-                    "Kế hoạch hành động cá nhân hóa",
-                    "Lộ trình đầu tư hướng dẫn",
-                    "Tài liệu theo dõi",
-                    "Ưu tiên đặt lịch cho Pro",
-                ],
-                cta: "Đặt Buổi Tư Vấn",
-                note: "Dành cho thành viên Pro",
-            },
-            bundles: {
-                title: "Gói Đặc Biệt",
-                subtitle: "Nhận thêm giá trị với các gói được tuyển chọn",
-                student: {
-                    name: "Gói Sinh Viên",
-                    price: "199.000 VNĐ",
-                    duration: "3 tháng",
-                    description: "Hoàn hảo cho sinh viên năng động xây dựng thói quen tài chính",
-                    features: [
-                        "Truy cập đầy đủ Pro trong 3 tháng",
-                        "Khóa học kiến thức tài chính",
-                        "Chứng chỉ Finvoras Student",
-                        "Workshop trực tuyến",
-                        "Thử thách cộng đồng campus",
-                    ],
-                    cta: "Nhận Gói Sinh Viên",
-                    badge: "Tốt Nhất Cho Sinh Viên",
-                },
-                couple: {
-                    name: "Khởi Đầu Cặp Đôi",
-                    price: "499.000 VNĐ",
-                    duration: "3 tháng",
-                    description: "Bắt đầu hành trình tài chính cùng nhau",
-                    features: [
-                        "Gói Pro trong 3 tháng",
-                        "2 buổi coaching nhóm",
-                        "Template tài chính chuẩn bị sinh con",
-                        "Bảng kế hoạch đặt cọc nhà",
-                        "Hướng dẫn tài chính cặp đôi",
-                    ],
-                    cta: "Bắt Đầu Cùng Nhau",
-                    badge: "Hoàn Hảo Cho Cặp Đôi",
-                },
-            },
-            featureComparison: {
-                title: "So Sánh Tất Cả Tính Năng",
-                subtitle: "Xem những gì có trong mỗi gói",
-                categories: {
-                    core: "Tính Năng Cốt Lõi",
-                    budget: "Ngân Sách & Mục Tiêu",
-                    insights: "AI & Phân Tích",
-                    collaboration: "Cộng Tác",
-                    learning: "Học Tập & Hỗ Trợ",
-                },
-                features: [
-                    {
-                        name: "Theo dõi chi tiêu thủ công",
-                        category: "core",
-                        free: true,
-                        pro: true,
-                        plus: true,
-                    },
-                    {
-                        name: "Đồng bộ giao dịch đa nguồn",
-                        category: "core",
-                        free: false,
-                        pro: true,
-                        plus: true,
-                    },
-                    {
-                        name: "Mục tiêu tài chính",
-                        category: "budget",
-                        free: "1 mục tiêu",
-                        pro: "5 mục tiêu",
-                        plus: "5 mục tiêu",
-                    },
-                    {
-                        name: "Blueprint ngân sách (50/30/20)",
-                        category: "budget",
-                        free: false,
-                        pro: true,
-                        plus: true,
-                    },
-                    {
-                        name: "AI coach",
-                        category: "insights",
-                        free: false,
-                        pro: "Cá nhân hóa",
-                        plus: "Cá nhân hóa",
-                    },
-                    {
-                        name: "Tần suất báo cáo",
-                        category: "insights",
-                        free: "Hàng tuần",
-                        pro: "Hàng ngày",
-                        plus: "Hàng ngày",
-                    },
-                    {
-                        name: "Ví chung (MoneyLove)",
-                        category: "collaboration",
-                        free: false,
-                        pro: false,
-                        plus: false,
-                    },
-                    {
-                        name: "Tài khoản phụ",
-                        category: "collaboration",
-                        free: false,
-                        pro: false,
-                        plus: false,
-                    },
-                    {
-                        name: "Khóa học nhỏ",
-                        category: "learning",
-                        free: "Chỉ cộng đồng",
-                        pro: "Làm Chủ Ngân Sách 30 Ngày",
-                        plus: "Làm Chủ Ngân Sách 30 Ngày",
-                    },
-                    {
-                        name: "Hỗ trợ",
-                        category: "learning",
-                        free: "Cộng đồng",
-                        pro: "Email ưu tiên",
-                        plus: "Email ưu tiên",
-                    },
-                ],
-            },
-            valueProps: {
-                roi: {
-                    title: "Đầu Tư Thông Minh",
-                    subtitle: "Xem lợi nhuận tiềm năng của bạn",
-                    proSavings: "Người dùng Pro tiết kiệm trung bình 3 triệu+ VNĐ/tháng",
-                    proRoi: "Đó là lợi nhuận gấp 30 lần so với khoản đầu tư 99k",
-                    plusSavings: "Người dùng Plus tiết kiệm 100 triệu VNĐ trong 12 tháng",
-                    plusRoi: "Đạt mục tiêu đặt cọc nhà nhanh hơn",
-                },
-                pilot: {
-                    title: "Tham Gia Chương Trình Beta",
-                    subtitle: "Số lượng có hạn",
-                    features: [
-                        "Miễn phí 2 tháng Plus/Pro sau pilot",
-                        "Onboarding cá nhân qua video call",
-                        "Hoàn tiền nếu không đạt mục tiêu",
-                        "Truy cập sớm tính năng mới",
-                    ],
-                    cta: "Đăng Ký Beta",
-                },
-                loyalty: {
-                    title: "Phần Thưởng Trung Thành",
-                    subtitle: "Càng ở lâu, càng tiết kiệm nhiều",
-                    tiers: {
-                        silver: {
-                            name: "Bạc",
-                            requirement: "6 tháng",
-                            benefit: "Giảm 10% từ tháng thứ 7",
-                        },
-                        gold: {
-                            name: "Vàng",
-                            requirement: "12 tháng",
-                            benefit: "1 buổi coaching miễn phí + Huy hiệu Champion",
-                        },
-                        ambassador: {
-                            name: "Đại Sứ",
-                            requirement: "Giới thiệu 5 người dùng trả phí",
-                            benefit: "1 tháng miễn phí + Beta sớm",
-                        },
-                    },
-                },
-            },
-        },
-        testimonials: {
-            title: "Người Dùng Nói Gì",
-            subtitle: "Tham gia cùng hàng nghìn người dùng hài lòng đã thay đổi cuộc sống tài chính",
-            items: [
-                {
-                    name: "Minh Nguyễn",
-                    role: "Quản Lý Marketing, TP Hồ Chí Minh",
-                    content: "Finvoras giúp mình cuối cùng cũng hiểu tiền của mình đi đâu. AI coach đưa ra những lời khuyên cá nhân hóa thực sự phù hợp với lối sống người Việt.",
-                    outcome: "Tiết kiệm được 60 triệu VNĐ trong năm đầu",
-                },
-                {
-                    name: "Linh & Đức",
-                    role: "Cặp Đôi Trẻ, Hà Nội",
-                    content: "MoneyLove thay đổi hoàn toàn cách chúng mình quản lý tiền bạc. Chúng mình có thể thấy mục tiêu chung và theo dõi tiến độ mà không cần trò chuyện khó xử nào.",
-                    outcome: "Đạt mục tiêu 100 triệu VNĐ đặt cọc nhà",
-                },
-                {
-                    name: "An Trần",
-                    role: "Sinh Viên Đại Học, Đà Nẵng",
-                    content: "Là sinh viên với thu nhập hạn chế, Finvoras dạy mình những kiến thức cơ bản về lập ngân sách. Gamification giữ cho mình có động lực và mình rất thích các thử thách campus!",
-                    outcome: "Xây dựng quỹ khẩn cấp 5 triệu VNĐ",
-                },
-            ],
-        },
-        cta: {
-            title: "Sẵn Sàng Thay Đổi Cuộc Sống Tài Chính?",
-            subtitle: "Tham gia cùng hàng nghìn người dùng đang kiểm soát tài chính với Finvoras.",
-            urgency: "Ưu đãi có hạn: Tiết kiệm 20% cho gói năm!",
-            riskReversal: "Hoàn tiền trong 30 ngày. Không cần lý do.",
-            primaryButton: "Bắt Đầu Miễn Phí",
-            secondaryButton: "Đặt Lịch Demo",
-        },
-        faq: {
-            title: "Câu Hỏi Thường Gặp",
-            subtitle: "Tìm câu trả lời cho những câu hỏi phổ biến về Finvoras",
-            questions: [
-                {
-                    question: "Finvoras có miễn phí không?",
-                    answer: "Có! Finvoras cung cấp gói miễn phí with các tính năng thiết yếu bao gồm theo dõi chi tiêu, lập ngân sách cơ bản và báo cáo hàng tháng. Bạn có thể nâng cấp lên Plus (49.000 VNĐ/tháng) hoặc Pro (99.000 VNĐ/tháng) để có thêm tính năng nâng cao như AI insights và lập kế hoạch mục tiêu.",
-                    icon: "BadgeDollarSign",
-                },
-                {
-                    question: "Dữ liệu tài chính của tôi có an toàn không?",
-                    answer: "Hoàn toàn an toàn. Chúng tôi sử dụng mã hóa cấp ngân hàng (AES-256) để bảo vệ dữ liệu của bạn. Thông tin được mã hóa cả khi truyền tải và lưu trữ. Chúng tôi không bao giờ bán dữ liệu của bạn cho bên thứ ba và tuân thủ các tiêu chuẩn bảo mật quốc tế bao gồm GDPR.",
-                    icon: "ShieldCheck",
-                },
-                {
-                    question: "Finvoras có hỗ trợ tiếng Việt không?",
-                    answer: "Có! Finvoras được bản địa hóa hoàn toàn cho người dùng Việt Nam with hỗ trợ ngôn ngữ bản địa, lời khuyên tài chính phù hợp văn hóa và AI coaching được thiết kế riêng cho thị trường Việt Nam. Bạn có thể chuyển đổi giữa tiếng Anh và tiếng Việt bất cứ lúc nào.",
-                    icon: "Languages",
-                },
-                {
-                    question: "Tôi có thể kết nối ngân hàng nào with Finvoras?",
-                    answer: "Chúng tôi đang phát triển tích hợp with các ngân hàng lớn tại Việt Nam bao gồm Vietcombank, BIDV, VietinBank và Techcombank. Hiện tại bạn có thể nhập giao dịch thủ công, tính năng đồng bộ ngân hàng tự động sẽ có trong bản beta.",
-                    icon: "Building2",
-                },
-                {
-                    question: "Làm sao để nâng cấp từ Free lên Pro?",
-                    answer: "Bạn có thể nâng cấp bất cứ lúc nào từ cài đặt tài khoản. Chỉ cần chọn gói bạn muốn (Plus hoặc Pro), chọn phương thức thanh toán và bạn sẽ có quyền truy cập ngay vào tất cả tính năng cao cấp. Chúng tôi cung cấp thanh toán theo tháng và năm with ưu đãi tiết kiệm 15% cho gói năm.",
-                    icon: "TrendingUp",
-                },
-                {
-                    question: "Finvoras có phù hợp cho cặp đôi và gia đình không?",
-                    answer: "Có! Các gói Plus và Pro phù hợp cho cặp đôi và gia đình. Bạn sẽ có công cụ lập ngân sách, theo dõi mục tiêu và thói quen tài chính để quản lý gia đình hiệu quả.",
-                    icon: "Users",
-                },
-            ],
-        },
-        footer: {
-            description: "Trao quyền cho cá nhân đạt được sức khỏe tài chính thông qua công cụ thông minh và giáo dục.",
-            product: "Sản phẩm",
-            company: "Công ty",
-            support: "Hỗ trợ",
-            legal: "Pháp lý",
-            followUs: "Theo dõi",
-            allRightsReserved: "Đã đăng ký bản quyền.",
-            links: {
-                privacy: "Chính Sách Bảo Mật",
-                terms: "Điều Khoản Dịch Vụ",
-                cookies: "Chính Sách Cookie",
-                contact: "Liên Hệ",
-                about: "Về Chúng Tôi",
-                careers: "Tuyển Dụng",
-                help: "Trung Tâm Trợ Giúp",
-                documentation: "Tài Liệu",
-            },
-        },
-        about: {
-            title: "Về Finvoras",
-            subtitle: "Trao quyền sức khỏe tài chính thông qua công nghệ và giáo dục",
-            mission: {
-                title: "Sứ Mệnh",
-                description: "Dân chủ hóa sức khỏe tài chính bằng cách cung cấp các công cụ thông minh, dễ tiếp cận giúp mọi người đưa ra quyết định tài chính tốt hơn.",
-            },
-            vision: {
-                title: "Tầm Nhìn",
-                description: "Một thế giới nơi mọi người đều có kiến thức và công cụ để đạt được tự do và an ninh tài chính.",
-            },
-            values: {
-                title: "Giá Trị",
-                transparency: {
-                    title: "Minh Bạch",
-                    description: "Chúng tôi tin vào việc giao tiếp rõ ràng, trung thực về tài chính và dịch vụ của bạn.",
-                },
-                security: {
-                    title: "Bảo Mật",
-                    description: "Dữ liệu tài chính của bạn được bảo vệ with tiêu chuẩn bảo mật cao nhất.",
-                },
-                simplicity: {
-                    title: "Đơn Giản",
-                    description: "Các khái niệm tài chính phức tạp được làm đơn giản và có thể thực hiện cho mọi người.",
-                },
-                education: {
-                    title: "Giáo Dục",
-                    description: "Trao quyền cho người dùng with kiến thức để đưa ra quyết định tài chính sáng suốt.",
-                },
-            },
-            team: {
-                title: "Đội Ngũ",
-                subtitle: "Gặp gỡ những người đằng sau Finvoras",
-            },
-        },
-        blog: {
-            title: "Hiểu Biết & Mẹo Tài Chính",
-            subtitle: "Cập nhật thông tin mới nhất về tài chính cá nhân và xây dựng tài sản",
-            readMore: "Đọc Thêm",
-            shareArticle: "Chia Sẻ Bài Viết",
-            relatedPosts: "Bài Viết Liên Quan",
-            categories: "Danh Mục",
-            tags: "Thẻ",
-            author: "Tác Giả",
-            publishedOn: "Xuất bản vào",
-            readTime: "phút đọc",
-            noResults: "Không tìm thấy bài viết",
-            searchPlaceholder: "Tìm kiếm bài viết...",
-        },
-    },
+	en: {
+		hero: {
+			title: "Take Control of Your Financial Future",
+			subtitle: "Smart Personal Finance Management",
+			description:
+				"Transform your financial life with Finvoras. Track expenses, manage budgets, and build wealth with personalized insights and education.",
+			subtext:
+				"Join 10,000+ users saving an average of 3M VNĐ per month with our AI-powered financial ecosystem",
+			primaryCta: "Start Your Journey",
+			secondaryCta: "Explore Features",
+			watchDemo: "See How It Works",
+			trustedBy: "Trusted by thousands of users worldwide",
+		},
+		howItWorks: {
+			title: "How It Works",
+			description: "A simple 3-step process to get started with Finvoras.",
+			steps: [
+				{
+					title: "Sign Up",
+					description: "Create your free account in seconds.",
+					cta: "Get Started",
+					href: "/register",
+				},
+				{
+					title: "Connect Your Accounts",
+					description: "Link your bank accounts securely.",
+					cta: "Connect",
+					href: "/settings",
+				},
+				{
+					title: "Track & Grow",
+					description: "Monitor spending and achieve goals.",
+					cta: "Start Tracking",
+					href: "/dashboard",
+				},
+			],
+		},
+		trustSignals: {
+			title: "Trusted by Thousands",
+			security: {
+				title: "Bank-Level Security",
+				description:
+					"Your data protected with AES-256 encryption and GDPR compliance",
+			},
+			users: {
+				label: "Active Users",
+				count: "10,000+",
+			},
+			savings: {
+				label: "Average Monthly Savings",
+				amount: "3M VNĐ",
+			},
+			retention: {
+				label: "User Satisfaction",
+				rate: "95%",
+			},
+			badges: {
+				gdpr: "GDPR Compliant",
+				encryption: "AES-256 Encrypted",
+				madeForVietnam: "Made for Vietnam",
+			},
+		},
+		personaHighlights: {
+			title: "Built for Your Financial Journey",
+			subtitle:
+				"Whether you're starting out, planning together, or building your career—Finvoras has you covered",
+			minh: {
+				name: "For Young Professionals",
+				role: "Like Minh, 26, Marketing Manager",
+				painPoint:
+					"Lost track of spending across multiple bank accounts and wallets",
+				solution:
+					"FinNote + Budget + AI Coach helps you track every đồng, optimize spending, and build wealth",
+				outcome: "Save 3M+ VNĐ/month, reduce unclear spending from 30% to <10%",
+				cta: "Start Tracking Smart",
+			},
+			linhDuc: {
+				name: "For Couples & Families",
+				role: "Like Linh & Đức, planning their future",
+				painPoint: "Struggled with transparent finances and joint goals",
+				solution:
+					"MoneyLove + Shared Goals helps couples manage money together with trust and clarity",
+				outcome:
+					"Saved 100M VNĐ for home deposit in 12 months, zero money arguments",
+				cta: "Plan Together",
+			},
+			an: {
+				name: "For Ambitious Students",
+				role: "Like An, 21, University Student",
+				painPoint:
+					"Limited budget, no financial knowledge, apps too complicated",
+				solution:
+					"Student Mode + Micro-courses makes budgeting simple and builds financial literacy",
+				outcome:
+					"Complete 30-day financial challenge, save 200k/week consistently",
+				cta: "Learn & Grow",
+			},
+		},
+		pricing: {
+			title: "Choose Your Plan",
+			subtitle: "Simple pricing for everyone. Start free, upgrade as you grow.",
+			monthly: "Monthly",
+			yearly: "Yearly",
+			savePercent: "Save 15%",
+			free: {
+				name: "Free",
+				price: "Free",
+				description:
+					"Perfect for getting started with personal finance management",
+				features: [
+					"FinNote basic expense tracking",
+					"Manual transaction entry",
+					"Weekly reports",
+					"1 savings goal",
+					"Community access",
+					"Mobile app access",
+				],
+				cta: "Get Started Free",
+			},
+			plus: {
+				name: "Plus",
+				price: "49,000 VNĐ",
+				priceYearly: "39,000 VNĐ",
+				pricePerMonth: "/month",
+				description:
+					"Build momentum with structured budgets, monthly insights, and clear progress.",
+				features: [
+					"Everything in Free",
+					"Budget templates",
+					"Goal planning (up to 3 goals)",
+					"Monthly insights",
+					"Export reports",
+					"Email support",
+				],
+				cta: "Start Plus Trial",
+			},
+			pro: {
+				name: "Pro",
+				price: "99,000 VNĐ",
+				priceYearly: "84,150 VNĐ",
+				pricePerMonth: "/month",
+				description: "For young professionals who want control and growth",
+				features: [
+					"Everything in Free",
+					"Multi-source transaction sync",
+					"Budget blueprint (50/30/20)",
+					"AI coach personalized insights",
+					"5 financial goals",
+					"Micro-course: 30-Day Budget Mastery",
+					"Advanced analytics",
+					"Priority support",
+				],
+				cta: "Start Pro Trial",
+				popular: "Most Popular",
+			},
+			coaching: {
+				name: "1:1 Coaching",
+				price: "499,000 VNĐ",
+				pricePerSession: "/session",
+				description: "Deep-dive financial consulting with certified experts",
+				features: [
+					"60-minute personalized session",
+					"Certified Financial Planner (CFP)",
+					"Custom action plan",
+					"Investment roadmap guidance",
+					"Follow-up resources",
+					"Priority booking for Pro users",
+				],
+				cta: "Book a Session",
+				note: "Available for Pro members",
+			},
+			bundles: {
+				title: "Special Bundles",
+				subtitle: "Get more value with our curated bundles",
+				student: {
+					name: "Student Bundle",
+					price: "199,000 VNĐ",
+					duration: "3 months",
+					description:
+						"Perfect for ambitious students building financial habits",
+					features: [
+						"Full Pro access for 3 months",
+						"Financial literacy micro-courses",
+						"Finvoras Student certificate",
+						"Online workshop access",
+						"Campus community challenges",
+					],
+					cta: "Get Student Bundle",
+					badge: "Best for Students",
+				},
+				couple: {
+					name: "Couple Kickstart",
+					price: "499,000 VNĐ",
+					duration: "3 months",
+					description: "Jumpstart your financial journey together",
+					features: [
+						"Pro tier for 3 months",
+						"2 coaching group sessions",
+						"Pre-baby financial template",
+						"Home deposit planning worksheet",
+						"Couples finance guide",
+					],
+					cta: "Start Together",
+					badge: "Perfect for Couples",
+				},
+			},
+			featureComparison: {
+				title: "Compare All Features",
+				subtitle: "See what's included in each plan",
+				categories: {
+					core: "Core Features",
+					budget: "Budgeting & Goals",
+					insights: "AI & Insights",
+					collaboration: "Collaboration",
+					learning: "Learning & Support",
+				},
+				features: [
+					{
+						name: "Manual expense tracking",
+						category: "core",
+						free: true,
+						pro: true,
+						plus: true,
+					},
+					{
+						name: "Multi-source transaction sync",
+						category: "core",
+						free: false,
+						pro: true,
+						plus: true,
+					},
+					{
+						name: "Financial goals",
+						category: "budget",
+						free: "1 goal",
+						pro: "5 goals",
+						plus: "5 goals",
+					},
+					{
+						name: "Budget blueprint (50/30/20)",
+						category: "budget",
+						free: false,
+						pro: true,
+						plus: true,
+					},
+					{
+						name: "AI coach insights",
+						category: "insights",
+						free: false,
+						pro: "Personalized",
+						plus: "Personalized",
+					},
+					{
+						name: "Reports frequency",
+						category: "insights",
+						free: "Weekly",
+						pro: "Daily",
+						plus: "Daily",
+					},
+					{
+						name: "Shared wallet (MoneyLove)",
+						category: "collaboration",
+						free: false,
+						pro: false,
+						plus: false,
+					},
+					{
+						name: "Additional accounts",
+						category: "collaboration",
+						free: false,
+						pro: false,
+						plus: false,
+					},
+					{
+						name: "Micro-courses",
+						category: "learning",
+						free: "Community only",
+						pro: "30-Day Budget Mastery",
+						plus: "30-Day Budget Mastery",
+					},
+					{
+						name: "Support",
+						category: "learning",
+						free: "Community",
+						pro: "Priority email",
+						plus: "Priority email",
+					},
+				],
+			},
+			valueProps: {
+				roi: {
+					title: "Smart Investment",
+					subtitle: "See your potential returns",
+					proSavings: "Average Pro users save 3M+ VNĐ per month",
+					proRoi: "That's 30× return on your 99k investment",
+					plusSavings: "Plus users save 100M VNĐ in 12 months",
+					plusRoi: "Reach your home deposit goal faster",
+				},
+				pilot: {
+					title: "Join Our Beta Program",
+					subtitle: "Limited spots available",
+					features: [
+						"2 months free Plus/Pro after pilot",
+						"Personalized onboarding via video call",
+						"Money-back guarantee if goals not met",
+						"Early access to new features",
+					],
+					cta: "Apply for Beta",
+				},
+				loyalty: {
+					title: "Loyalty Rewards",
+					subtitle: "The longer you stay, the more you save",
+					tiers: {
+						silver: {
+							name: "Silver",
+							requirement: "6 months",
+							benefit: "10% discount from month 7",
+						},
+						gold: {
+							name: "Gold",
+							requirement: "12 months",
+							benefit: "1 free coaching session + Champion badge",
+						},
+						ambassador: {
+							name: "Ambassador",
+							requirement: "Refer 5 paid users",
+							benefit: "1 month free + early beta access",
+						},
+					},
+				},
+			},
+		},
+		testimonials: {
+			title: "What Our Users Say",
+			subtitle:
+				"Join thousands of satisfied users who've transformed their financial lives",
+			items: [
+				{
+					name: "Minh Nguyen",
+					role: "Marketing Manager, Ho Chi Minh City",
+					content:
+						"Finvoras helped me finally understand where my money goes. The AI coach gives personalized tips that actually work for Vietnamese lifestyle.",
+					outcome: "Saved 60M VNĐ in first year",
+				},
+				{
+					name: "Linh & Đức",
+					role: "Young Couple, Hanoi",
+					content:
+						"MoneyLove transformed how we handle money as a couple. We can see our shared goals and track progress together without any awkward conversations.",
+					outcome: "Reached 100M VNĐ home deposit goal",
+				},
+				{
+					name: "An Tran",
+					role: "University Student, Da Nang",
+					content:
+						"As a student with limited income, Finvoras taught me budgeting basics. The gamification keeps me motivated and I love the campus challenges!",
+					outcome: "Built emergency fund of 5M VNĐ",
+				},
+			],
+		},
+		cta: {
+			title: "Ready to Transform Your Financial Life?",
+			subtitle:
+				"Join thousands of users who are already taking control of their finances with Finvoras.",
+			urgency: "Limited time offer: Save 20% on annual plans!",
+			riskReversal: "30-day money-back guarantee. No questions asked.",
+			primaryButton: "Start Free Today",
+			secondaryButton: "Schedule Demo",
+		},
+		faq: {
+			title: "Frequently Asked Questions",
+			subtitle: "Find answers to common questions about Finvoras",
+			questions: [
+				{
+					question: "Is Finvoras free to use?",
+					answer:
+						"Yes! Finvoras offers a free tier with essential features including expense tracking, basic budgeting, and monthly reports. You can upgrade to Plus (49,000 VNĐ/month) or Pro (99,000 VNĐ/month) for advanced features like AI insights and goal planning.",
+					icon: "BadgeDollarSign",
+				},
+				{
+					question: "Is my financial data secure?",
+					answer:
+						"Absolutely. We use bank-level encryption (AES-256) to protect your data. Your information is encrypted both in transit and at rest. We never sell your data to third parties and comply with international security standards including GDPR.",
+					icon: "ShieldCheck",
+				},
+				{
+					question: "Does Finvoras support Vietnamese language?",
+					answer:
+						"Yes! Finvoras is fully localized for Vietnamese users with native language support, culturally-adapted financial advice, and AI coaching designed specifically for the Vietnamese market. You can switch between English and Vietnamese anytime.",
+					icon: "Languages",
+				},
+				{
+					question: "Which banks can I connect to Finvoras?",
+					answer:
+						"We're currently developing integrations with major Vietnamese banks including Vietcombank, BIDV, VietinBank, and Techcombank. Manual transaction entry is available now, with automatic bank sync coming in our beta release.",
+					icon: "Building2",
+				},
+				{
+					question: "How do I upgrade from Free to Pro?",
+					answer:
+						"You can upgrade anytime from your account settings. Simply choose your preferred plan (Plus or Pro), select your payment method, and you'll get instant access to all premium features. We offer monthly and yearly billing with 15% savings on annual plans.",
+					icon: "TrendingUp",
+				},
+				{
+					question: "Is Finvoras suitable for couples and families?",
+					answer:
+						"Yes! Plus and Pro tiers are designed for couples and families. They include advanced budgeting, goal tracking, and collaboration habits to manage household finances together.",
+					icon: "Users",
+				},
+			],
+		},
+		footer: {
+			description:
+				"Empowering individuals to achieve financial wellness through smart tools and education.",
+			product: "Product",
+			company: "Company",
+			support: "Support",
+			legal: "Legal",
+			followUs: "Follow Us",
+			allRightsReserved: "All rights reserved.",
+			links: {
+				privacy: "Privacy Policy",
+				terms: "Terms of Service",
+				cookies: "Cookie Policy",
+				contact: "Contact Us",
+				about: "About Us",
+				careers: "Careers",
+				help: "Help Center",
+				documentation: "Documentation",
+			},
+		},
+		about: {
+			title: "About Finvoras",
+			subtitle:
+				"Empowering financial wellness through technology and education",
+			mission: {
+				title: "Our Mission",
+				description:
+					"To democratize financial wellness by providing accessible, intelligent tools that help everyone make better financial decisions.",
+			},
+			vision: {
+				title: "Our Vision",
+				description:
+					"A world where everyone has the knowledge and tools to achieve financial freedom and security.",
+			},
+			values: {
+				title: "Our Values",
+				transparency: {
+					title: "Transparency",
+					description:
+						"We believe in clear, honest communication about your finances and our services.",
+				},
+				security: {
+					title: "Security",
+					description:
+						"Your financial data is protected with the highest security standards.",
+				},
+				simplicity: {
+					title: "Simplicity",
+					description:
+						"Complex financial concepts made simple and actionable for everyone.",
+				},
+				education: {
+					title: "Education",
+					description:
+						"Empowering users with knowledge to make informed financial decisions.",
+				},
+			},
+			team: {
+				title: "Our Team",
+				subtitle: "Meet the people behind Finvoras",
+			},
+		},
+		blog: {
+			title: "Financial Insights & Tips",
+			subtitle:
+				"Stay informed with the latest in personal finance and wealth building",
+			readMore: "Read More",
+			shareArticle: "Share Article",
+			relatedPosts: "Related Posts",
+			categories: "Categories",
+			tags: "Tags",
+			author: "Author",
+			publishedOn: "Published on",
+			readTime: "min read",
+			noResults: "No articles found",
+			searchPlaceholder: "Search articles...",
+		},
+	},
+	vi: {
+		hero: {
+			title: "Kiểm Soát Tương Lai Tài Chính Của Bạn",
+			subtitle: "Quản Lý Tài Chính Cá Nhân Thông Minh",
+			description:
+				"Thay đổi cuộc sống tài chính với Finvoras. Theo dõi chi tiêu, quản lý ngân sách và xây dựng tài sản với những hiểu biết và giáo dục cá nhân hóa.",
+			subtext:
+				"Tham gia cùng 10.000+ người dùng tiết kiệm trung bình 3 triệu VNĐ/tháng với hệ sinh thái tài chính AI của chúng tôi",
+			primaryCta: "Bắt Đầu Hành Trình",
+			secondaryCta: "Khám Phá Tính Năng",
+			watchDemo: "Xem Cách Hoạt Động",
+			trustedBy: "Được tin tưởng bởi hàng nghìn người dùng trên toàn thế giới",
+		},
+		howItWorks: {
+			title: "Cách Thức Hoạt Động",
+			description: "Quy trình 3 bước đơn giản để bắt đầu với Finvoras.",
+			steps: [
+				{
+					title: "Đăng Ký",
+					description: "Tạo tài khoản miễn phí trong vài giây.",
+					cta: "Bắt Đầu",
+					href: "/register",
+				},
+				{
+					title: "Kết Nối Tài Khoản",
+					description: "Liên kết tài khoản ngân hàng một cách an toàn.",
+					cta: "Kết Nối",
+					href: "/settings",
+				},
+				{
+					title: "Theo Dõi & Phát Triển",
+					description: "Giám sát chi tiêu và đạt mục tiêu.",
+					cta: "Bắt Đầu Theo Dõi",
+					href: "/dashboard",
+				},
+			],
+		},
+		trustSignals: {
+			title: "Được Hàng Nghìn Người Tin Tưởng",
+			security: {
+				title: "Bảo Mật Cấp Ngân Hàng",
+				description:
+					"Dữ liệu của bạn được bảo vệ với mã hóa AES-256 và tuân thủ GDPR",
+			},
+			users: {
+				label: "Người Dùng Hoạt Động",
+				count: "10.000+",
+			},
+			savings: {
+				label: "Tiết Kiệm Trung Bình/Tháng",
+				amount: "3 triệu VNĐ",
+			},
+			retention: {
+				label: "Độ Hài Lòng Người Dùng",
+				rate: "95%",
+			},
+			badges: {
+				gdpr: "Tuân Thủ GDPR",
+				encryption: "Mã Hóa AES-256",
+				madeForVietnam: "Được Tạo Cho Việt Nam",
+			},
+		},
+		personaHighlights: {
+			title: "Được Xây Dựng Cho Hành Trình Tài Chính Của Bạn",
+			subtitle:
+				"Dù bạn đang khởi đầu, lập kế hoạch cùng nhau, hay xây dựng sự nghiệp—Finvoras đều hỗ trợ bạn",
+			minh: {
+				name: "Cho Chuyên Gia Trẻ",
+				role: "Như Minh, 26 tuổi, Quản Lý Marketing",
+				painPoint:
+					"Mất kiểm soát chi tiêu qua nhiều tài khoản ngân hàng và ví điện tử",
+				solution:
+					"FinNote + Budget + AI Coach giúp bạn theo dõi từng đồng, tối ưu chi tiêu và xây dựng tài sản",
+				outcome:
+					"Tiết kiệm 3 triệu+ VNĐ/tháng, giảm chi tiêu không rõ từ 30% xuống <10%",
+				cta: "Bắt Đầu Theo Dõi Thông Minh",
+			},
+			linhDuc: {
+				name: "Cho Cặp Đôi & Gia Đình",
+				role: "Như Linh & Đức, đang lập kế hoạch tương lai",
+				painPoint: "Khó khăn với minh bạch tài chính và mục tiêu chung",
+				solution:
+					"MoneyLove + Mục Tiêu Chung giúp cặp đôi quản lý tiền bạc cùng nhau với niềm tin và rõ ràng",
+				outcome:
+					"Tiết kiệm 100 triệu VNĐ cho đặt cọc nhà trong 12 tháng, không tranh cãi về tiền",
+				cta: "Lập Kế Hoạch Cùng Nhau",
+			},
+			an: {
+				name: "Cho Sinh Viên Năng Động",
+				role: "Như An, 21 tuổi, Sinh Viên Đại Học",
+				painPoint:
+					"Ngân sách hạn chế, thiếu kiến thức tài chính, app quá phức tạp",
+				solution:
+					"Chế Độ Sinh Viên + Khóa Học Nhỏ giúp lập ngân sách đơn giản và xây dựng kiến thức tài chính",
+				outcome:
+					"Hoàn thành thử thách tài chính 30 ngày, tiết kiệm 200k/tuần ổn định",
+				cta: "Học Hỏi & Phát Triển",
+			},
+		},
+		pricing: {
+			title: "Chọn Gói Của Bạn",
+			subtitle:
+				"Giá cả đơn giản cho mọi người. Bắt đầu miễn phí, nâng cấp khi phát triển.",
+			monthly: "Hàng tháng",
+			yearly: "Hàng năm",
+			savePercent: "Tiết kiệm 15%",
+			free: {
+				name: "Miễn phí",
+				price: "Miễn phí",
+				description: "Hoàn hảo để bắt đầu with quản lý tài chính cá nhân",
+				features: [
+					"Theo dõi chi tiêu FinNote cơ bản",
+					"Nhập giao dịch thủ công",
+					"Báo cáo hàng tuần",
+					"1 mục tiêu tiết kiệm",
+					"Truy cập cộng đồng",
+					"Ứng dụng di động",
+				],
+				cta: "Bắt Đầu Miễn Phí",
+			},
+			plus: {
+				name: "Plus",
+				price: "49.000 VNĐ",
+				priceYearly: "39.000 VNĐ",
+				pricePerMonth: "/tháng",
+				description:
+					"Tăng tốc với ngân sách chuẩn, insight hàng tháng và tiến độ rõ ràng.",
+				features: [
+					"Mọi thứ trong gói Miễn phí",
+					"Mẫu ngân sách",
+					"Lập mục tiêu (tối đa 3 mục tiêu)",
+					"Tổng quan hàng tháng",
+					"Xuất báo cáo",
+					"Hỗ trợ email",
+				],
+				cta: "Dùng Thử Plus",
+			},
+			pro: {
+				name: "Pro",
+				price: "99.000 VNĐ",
+				priceYearly: "84.150 VNĐ",
+				pricePerMonth: "/tháng",
+				description: "Dành cho chuyên gia trẻ muốn kiểm soát và phát triển",
+				features: [
+					"Mọi thứ trong gói Miễn phí",
+					"Đồng bộ giao dịch đa nguồn",
+					"Blueprint ngân sách (50/30/20)",
+					"AI coach cá nhân hóa",
+					"5 mục tiêu tài chính",
+					"Khóa học: Làm Chủ Ngân Sách 30 Ngày",
+					"Phân tích nâng cao",
+					"Hỗ trợ ưu tiên",
+				],
+				cta: "Dùng Thử Pro",
+				popular: "Phổ Biến Nhất",
+			},
+			coaching: {
+				name: "Coaching 1:1",
+				price: "499.000 VNĐ",
+				pricePerSession: "/buổi",
+				description:
+					"Tư vấn tài chính chuyên sâu với chuyên gia được chứng nhận",
+				features: [
+					"Buổi tư vấn 60 phút",
+					"Chuyên gia CFP được chứng nhận",
+					"Kế hoạch hành động cá nhân hóa",
+					"Lộ trình đầu tư hướng dẫn",
+					"Tài liệu theo dõi",
+					"Ưu tiên đặt lịch cho Pro",
+				],
+				cta: "Đặt Buổi Tư Vấn",
+				note: "Dành cho thành viên Pro",
+			},
+			bundles: {
+				title: "Gói Đặc Biệt",
+				subtitle: "Nhận thêm giá trị với các gói được tuyển chọn",
+				student: {
+					name: "Gói Sinh Viên",
+					price: "199.000 VNĐ",
+					duration: "3 tháng",
+					description:
+						"Hoàn hảo cho sinh viên năng động xây dựng thói quen tài chính",
+					features: [
+						"Truy cập đầy đủ Pro trong 3 tháng",
+						"Khóa học kiến thức tài chính",
+						"Chứng chỉ Finvoras Student",
+						"Workshop trực tuyến",
+						"Thử thách cộng đồng campus",
+					],
+					cta: "Nhận Gói Sinh Viên",
+					badge: "Tốt Nhất Cho Sinh Viên",
+				},
+				couple: {
+					name: "Khởi Đầu Cặp Đôi",
+					price: "499.000 VNĐ",
+					duration: "3 tháng",
+					description: "Bắt đầu hành trình tài chính cùng nhau",
+					features: [
+						"Gói Pro trong 3 tháng",
+						"2 buổi coaching nhóm",
+						"Template tài chính chuẩn bị sinh con",
+						"Bảng kế hoạch đặt cọc nhà",
+						"Hướng dẫn tài chính cặp đôi",
+					],
+					cta: "Bắt Đầu Cùng Nhau",
+					badge: "Hoàn Hảo Cho Cặp Đôi",
+				},
+			},
+			featureComparison: {
+				title: "So Sánh Tất Cả Tính Năng",
+				subtitle: "Xem những gì có trong mỗi gói",
+				categories: {
+					core: "Tính Năng Cốt Lõi",
+					budget: "Ngân Sách & Mục Tiêu",
+					insights: "AI & Phân Tích",
+					collaboration: "Cộng Tác",
+					learning: "Học Tập & Hỗ Trợ",
+				},
+				features: [
+					{
+						name: "Theo dõi chi tiêu thủ công",
+						category: "core",
+						free: true,
+						pro: true,
+						plus: true,
+					},
+					{
+						name: "Đồng bộ giao dịch đa nguồn",
+						category: "core",
+						free: false,
+						pro: true,
+						plus: true,
+					},
+					{
+						name: "Mục tiêu tài chính",
+						category: "budget",
+						free: "1 mục tiêu",
+						pro: "5 mục tiêu",
+						plus: "5 mục tiêu",
+					},
+					{
+						name: "Blueprint ngân sách (50/30/20)",
+						category: "budget",
+						free: false,
+						pro: true,
+						plus: true,
+					},
+					{
+						name: "AI coach",
+						category: "insights",
+						free: false,
+						pro: "Cá nhân hóa",
+						plus: "Cá nhân hóa",
+					},
+					{
+						name: "Tần suất báo cáo",
+						category: "insights",
+						free: "Hàng tuần",
+						pro: "Hàng ngày",
+						plus: "Hàng ngày",
+					},
+					{
+						name: "Ví chung (MoneyLove)",
+						category: "collaboration",
+						free: false,
+						pro: false,
+						plus: false,
+					},
+					{
+						name: "Tài khoản phụ",
+						category: "collaboration",
+						free: false,
+						pro: false,
+						plus: false,
+					},
+					{
+						name: "Khóa học nhỏ",
+						category: "learning",
+						free: "Chỉ cộng đồng",
+						pro: "Làm Chủ Ngân Sách 30 Ngày",
+						plus: "Làm Chủ Ngân Sách 30 Ngày",
+					},
+					{
+						name: "Hỗ trợ",
+						category: "learning",
+						free: "Cộng đồng",
+						pro: "Email ưu tiên",
+						plus: "Email ưu tiên",
+					},
+				],
+			},
+			valueProps: {
+				roi: {
+					title: "Đầu Tư Thông Minh",
+					subtitle: "Xem lợi nhuận tiềm năng của bạn",
+					proSavings: "Người dùng Pro tiết kiệm trung bình 3 triệu+ VNĐ/tháng",
+					proRoi: "Đó là lợi nhuận gấp 30 lần so với khoản đầu tư 99k",
+					plusSavings: "Người dùng Plus tiết kiệm 100 triệu VNĐ trong 12 tháng",
+					plusRoi: "Đạt mục tiêu đặt cọc nhà nhanh hơn",
+				},
+				pilot: {
+					title: "Tham Gia Chương Trình Beta",
+					subtitle: "Số lượng có hạn",
+					features: [
+						"Miễn phí 2 tháng Plus/Pro sau pilot",
+						"Onboarding cá nhân qua video call",
+						"Hoàn tiền nếu không đạt mục tiêu",
+						"Truy cập sớm tính năng mới",
+					],
+					cta: "Đăng Ký Beta",
+				},
+				loyalty: {
+					title: "Phần Thưởng Trung Thành",
+					subtitle: "Càng ở lâu, càng tiết kiệm nhiều",
+					tiers: {
+						silver: {
+							name: "Bạc",
+							requirement: "6 tháng",
+							benefit: "Giảm 10% từ tháng thứ 7",
+						},
+						gold: {
+							name: "Vàng",
+							requirement: "12 tháng",
+							benefit: "1 buổi coaching miễn phí + Huy hiệu Champion",
+						},
+						ambassador: {
+							name: "Đại Sứ",
+							requirement: "Giới thiệu 5 người dùng trả phí",
+							benefit: "1 tháng miễn phí + Beta sớm",
+						},
+					},
+				},
+			},
+		},
+		testimonials: {
+			title: "Người Dùng Nói Gì",
+			subtitle:
+				"Tham gia cùng hàng nghìn người dùng hài lòng đã thay đổi cuộc sống tài chính",
+			items: [
+				{
+					name: "Minh Nguyễn",
+					role: "Quản Lý Marketing, TP Hồ Chí Minh",
+					content:
+						"Finvoras giúp mình cuối cùng cũng hiểu tiền của mình đi đâu. AI coach đưa ra những lời khuyên cá nhân hóa thực sự phù hợp với lối sống người Việt.",
+					outcome: "Tiết kiệm được 60 triệu VNĐ trong năm đầu",
+				},
+				{
+					name: "Linh & Đức",
+					role: "Cặp Đôi Trẻ, Hà Nội",
+					content:
+						"MoneyLove thay đổi hoàn toàn cách chúng mình quản lý tiền bạc. Chúng mình có thể thấy mục tiêu chung và theo dõi tiến độ mà không cần trò chuyện khó xử nào.",
+					outcome: "Đạt mục tiêu 100 triệu VNĐ đặt cọc nhà",
+				},
+				{
+					name: "An Trần",
+					role: "Sinh Viên Đại Học, Đà Nẵng",
+					content:
+						"Là sinh viên với thu nhập hạn chế, Finvoras dạy mình những kiến thức cơ bản về lập ngân sách. Gamification giữ cho mình có động lực và mình rất thích các thử thách campus!",
+					outcome: "Xây dựng quỹ khẩn cấp 5 triệu VNĐ",
+				},
+			],
+		},
+		cta: {
+			title: "Sẵn Sàng Thay Đổi Cuộc Sống Tài Chính?",
+			subtitle:
+				"Tham gia cùng hàng nghìn người dùng đang kiểm soát tài chính với Finvoras.",
+			urgency: "Ưu đãi có hạn: Tiết kiệm 20% cho gói năm!",
+			riskReversal: "Hoàn tiền trong 30 ngày. Không cần lý do.",
+			primaryButton: "Bắt Đầu Miễn Phí",
+			secondaryButton: "Đặt Lịch Demo",
+		},
+		faq: {
+			title: "Câu Hỏi Thường Gặp",
+			subtitle: "Tìm câu trả lời cho những câu hỏi phổ biến về Finvoras",
+			questions: [
+				{
+					question: "Finvoras có miễn phí không?",
+					answer:
+						"Có! Finvoras cung cấp gói miễn phí with các tính năng thiết yếu bao gồm theo dõi chi tiêu, lập ngân sách cơ bản và báo cáo hàng tháng. Bạn có thể nâng cấp lên Plus (49.000 VNĐ/tháng) hoặc Pro (99.000 VNĐ/tháng) để có thêm tính năng nâng cao như AI insights và lập kế hoạch mục tiêu.",
+					icon: "BadgeDollarSign",
+				},
+				{
+					question: "Dữ liệu tài chính của tôi có an toàn không?",
+					answer:
+						"Hoàn toàn an toàn. Chúng tôi sử dụng mã hóa cấp ngân hàng (AES-256) để bảo vệ dữ liệu của bạn. Thông tin được mã hóa cả khi truyền tải và lưu trữ. Chúng tôi không bao giờ bán dữ liệu của bạn cho bên thứ ba và tuân thủ các tiêu chuẩn bảo mật quốc tế bao gồm GDPR.",
+					icon: "ShieldCheck",
+				},
+				{
+					question: "Finvoras có hỗ trợ tiếng Việt không?",
+					answer:
+						"Có! Finvoras được bản địa hóa hoàn toàn cho người dùng Việt Nam with hỗ trợ ngôn ngữ bản địa, lời khuyên tài chính phù hợp văn hóa và AI coaching được thiết kế riêng cho thị trường Việt Nam. Bạn có thể chuyển đổi giữa tiếng Anh và tiếng Việt bất cứ lúc nào.",
+					icon: "Languages",
+				},
+				{
+					question: "Tôi có thể kết nối ngân hàng nào with Finvoras?",
+					answer:
+						"Chúng tôi đang phát triển tích hợp with các ngân hàng lớn tại Việt Nam bao gồm Vietcombank, BIDV, VietinBank và Techcombank. Hiện tại bạn có thể nhập giao dịch thủ công, tính năng đồng bộ ngân hàng tự động sẽ có trong bản beta.",
+					icon: "Building2",
+				},
+				{
+					question: "Làm sao để nâng cấp từ Free lên Pro?",
+					answer:
+						"Bạn có thể nâng cấp bất cứ lúc nào từ cài đặt tài khoản. Chỉ cần chọn gói bạn muốn (Plus hoặc Pro), chọn phương thức thanh toán và bạn sẽ có quyền truy cập ngay vào tất cả tính năng cao cấp. Chúng tôi cung cấp thanh toán theo tháng và năm with ưu đãi tiết kiệm 15% cho gói năm.",
+					icon: "TrendingUp",
+				},
+				{
+					question: "Finvoras có phù hợp cho cặp đôi và gia đình không?",
+					answer:
+						"Có! Các gói Plus và Pro phù hợp cho cặp đôi và gia đình. Bạn sẽ có công cụ lập ngân sách, theo dõi mục tiêu và thói quen tài chính để quản lý gia đình hiệu quả.",
+					icon: "Users",
+				},
+			],
+		},
+		footer: {
+			description:
+				"Trao quyền cho cá nhân đạt được sức khỏe tài chính thông qua công cụ thông minh và giáo dục.",
+			product: "Sản phẩm",
+			company: "Công ty",
+			support: "Hỗ trợ",
+			legal: "Pháp lý",
+			followUs: "Theo dõi",
+			allRightsReserved: "Đã đăng ký bản quyền.",
+			links: {
+				privacy: "Chính Sách Bảo Mật",
+				terms: "Điều Khoản Dịch Vụ",
+				cookies: "Chính Sách Cookie",
+				contact: "Liên Hệ",
+				about: "Về Chúng Tôi",
+				careers: "Tuyển Dụng",
+				help: "Trung Tâm Trợ Giúp",
+				documentation: "Tài Liệu",
+			},
+		},
+		about: {
+			title: "Về Finvoras",
+			subtitle: "Trao quyền sức khỏe tài chính thông qua công nghệ và giáo dục",
+			mission: {
+				title: "Sứ Mệnh",
+				description:
+					"Dân chủ hóa sức khỏe tài chính bằng cách cung cấp các công cụ thông minh, dễ tiếp cận giúp mọi người đưa ra quyết định tài chính tốt hơn.",
+			},
+			vision: {
+				title: "Tầm Nhìn",
+				description:
+					"Một thế giới nơi mọi người đều có kiến thức và công cụ để đạt được tự do và an ninh tài chính.",
+			},
+			values: {
+				title: "Giá Trị",
+				transparency: {
+					title: "Minh Bạch",
+					description:
+						"Chúng tôi tin vào việc giao tiếp rõ ràng, trung thực về tài chính và dịch vụ của bạn.",
+				},
+				security: {
+					title: "Bảo Mật",
+					description:
+						"Dữ liệu tài chính của bạn được bảo vệ with tiêu chuẩn bảo mật cao nhất.",
+				},
+				simplicity: {
+					title: "Đơn Giản",
+					description:
+						"Các khái niệm tài chính phức tạp được làm đơn giản và có thể thực hiện cho mọi người.",
+				},
+				education: {
+					title: "Giáo Dục",
+					description:
+						"Trao quyền cho người dùng with kiến thức để đưa ra quyết định tài chính sáng suốt.",
+				},
+			},
+			team: {
+				title: "Đội Ngũ",
+				subtitle: "Gặp gỡ những người đằng sau Finvoras",
+			},
+		},
+		blog: {
+			title: "Hiểu Biết & Mẹo Tài Chính",
+			subtitle:
+				"Cập nhật thông tin mới nhất về tài chính cá nhân và xây dựng tài sản",
+			readMore: "Đọc Thêm",
+			shareArticle: "Chia Sẻ Bài Viết",
+			relatedPosts: "Bài Viết Liên Quan",
+			categories: "Danh Mục",
+			tags: "Thẻ",
+			author: "Tác Giả",
+			publishedOn: "Xuất bản vào",
+			readTime: "phút đọc",
+			noResults: "Không tìm thấy bài viết",
+			searchPlaceholder: "Tìm kiếm bài viết...",
+		},
+	},
 };

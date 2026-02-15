@@ -5,36 +5,36 @@ const locales = ["en", "vi"];
 const defaultLocale = "vi";
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+	const { pathname } = request.nextUrl;
 
-  // Skip public files (e.g. /logo.png, /avatar.jpg, /resume.pdf)
-  if (/\.[^/]+$/.test(pathname)) {
-    return NextResponse.next();
-  }
+	// Skip public files (e.g. /logo.png, /avatar.jpg, /resume.pdf)
+	if (/\.[^/]+$/.test(pathname)) {
+		return NextResponse.next();
+	}
 
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/favicon") ||
-    pathname.startsWith("/robots.txt") ||
-    pathname.startsWith("/sitemap.xml")
-  ) {
-    return NextResponse.next();
-  }
+	if (
+		pathname.startsWith("/_next") ||
+		pathname.startsWith("/api") ||
+		pathname.startsWith("/favicon") ||
+		pathname.startsWith("/robots.txt") ||
+		pathname.startsWith("/sitemap.xml")
+	) {
+		return NextResponse.next();
+	}
 
-  const isLocalePath = locales.some(
-    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
-  );
+	const isLocalePath = locales.some(
+		(locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
+	);
 
-  if (!isLocalePath) {
-    const url = request.nextUrl.clone();
-    url.pathname = `/${defaultLocale}${pathname === "/" ? "" : pathname}`;
-    return NextResponse.redirect(url);
-  }
+	if (!isLocalePath) {
+		const url = request.nextUrl.clone();
+		url.pathname = `/${defaultLocale}${pathname === "/" ? "" : pathname}`;
+		return NextResponse.redirect(url);
+	}
 
-  return NextResponse.next();
+	return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/((?!_next|api|favicon.ico|robots.txt|sitemap.xml).*)"],
+	matcher: ["/((?!_next|api|favicon.ico|robots.txt|sitemap.xml).*)"],
 };

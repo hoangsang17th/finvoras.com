@@ -1,25 +1,24 @@
 {
-  "name": "m-web",
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
-  },
-  "devDependencies": {
-    "find-yarn-workspace-root": "^2.0.0",
-    "prettier": "^3.6.2",
-    "turbo": "^2.5.8",
-    "typescript": "5.9.2"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "pnpm@10.27.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+	"name": "m-web",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "turbo run lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"format:biome": "biome format --write .",
+		"check-types": "turbo run check-types"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"find-yarn-workspace-root": "^2.0.0",
+		"prettier": "^3.6.2",
+		"turbo": "^2.5.8",
+		"typescript": "5.9.2"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"packageManager": "pnpm@10.27.0",
+	"workspaces": ["apps/*", "packages/*"]
 }
